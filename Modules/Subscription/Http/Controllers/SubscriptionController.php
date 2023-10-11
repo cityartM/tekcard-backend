@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Subscription\Models\Subscription;
 use Modules\Subscription\Http\Requests\CreateSubscriptionRequest;
+use Modules\Subscription\Repositories\SubscriptionRepository;
 
 class SubscriptionController extends Controller
 {
+    private $subscriptions; 
+
+    function __construct(SubscriptionRepository $subscriptions)
+    {
+        $this->subscriptions= $subscriptions;
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -41,8 +48,7 @@ class SubscriptionController extends Controller
     {
        // dd("its here");
     
-        $subscription = Subscription::findOrFail($id);
-        $subscription->delete();
+       $subscriptions = $this->subscriptions->delete($id);
 
         return redirect()->route('subscriptions.index')->with('success', 'subscription deleted successfully.');
     }
