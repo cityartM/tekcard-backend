@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "id": "hero",
+      "title": "The Greatuito app will help you quit smoking and avoid nicotine withdrawal symptoms in a healthy and scientifically studied manner",
+      "subtitle": "Quit smoking in 30 days",
+      "content": "Many smokers want to quit this habit, but they fail because they stop abruptly, which exposes them to nicotine withdrawal problems",
+      "callToActions": [
+        {
+          "text": "App Store",
+          "url": "#app-store",
+          "image": "./assets/landing/images/app-store.png"
+        },
+        {
+          "text": "Google Play",
+          "url": "#google-play",
+          "image": "./assets/landing/images/google-play.png"
+        }
+      ],
+      "attachment": "fixed",
+      "image": "https://source.unsplash.com/1600x900/?nature,water",
+      "button": {
+        "text": "Click me",
+        "url": "/about"
+      },
+      "gallery": [],
+      "video": {
+        "link": null,
+        "poster": null,
+        "autoplay": false,
+        "loop": false,
+        "muted": false
+      }
+    },
+    {
+      "id": "about",
+      "title": "About",
+      "subtitle": "This is a subtitle",
+      "attachment": "fixed",
+      "image": "https://source.unsplash.com/1600x900/?nature,water",
+      "button": {
+        "text": "Click me",
+        "url": "/about"
+      },
+      "gallery": {
+        "0": "https://source.unsplash.com/1600x900/?nature,water",
+        "1": "https://source.unsplash.com/1600x900/?nature,water",
+        "2": "https://source.unsplash.com/1600x900/?nature,water"
+      },
+      "video": {
+        "link": null,
+        "poster": null,
+        "autoplay": false,
+        "loop": false,
+        "muted": false
+      }
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "subtitle": "This is a subtitle",
+      "attachment": "fixed",
+      "image": "https://source.unsplash.com/1600x900/?nature,water",
+      "button": {
+        "text": "Click me",
+        "url": "/about"
+      },
+      "gallery": [],
+      "video": {
+        "link": null,
+        "poster": null,
+        "autoplay": false,
+        "loop": false,
+        "muted": false
+      }
+    }
+  ]
+}

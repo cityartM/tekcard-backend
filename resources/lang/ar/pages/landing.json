@@ -1,0 +1,58 @@
+{
+    "sections": {
+        "hero": {
+            "title": "Welcome to my website",
+            "subtitle": "This is a subtitle",
+            "attachment": "fixed",
+            "image": "https://source.unsplash.com/1600x900/?nature,water",
+            "button": {
+                "text": "Click me",
+                "url": "/about"
+            },
+            "gallery": null,
+            "video": {
+                "link": null,
+                "poster": null,
+                "autoplay": false,
+                "loop": false,
+                "muted": false
+            }
+        },
+        "about": {
+            "title": "About",
+            "subtitle": "This is a subtitle",
+            "attachment": "fixed",
+            "image": "https://source.unsplash.com/1600x900/?nature,water",
+            "button": {
+                "text": "Click me",
+                "url": "/about"
+            },
+            "gallery": null,
+            "video": {
+                "link": null,
+                "poster": null,
+                "autoplay": false,
+                "loop": false,
+                "muted": false
+            }
+        },
+        "contact": {
+            "title": "Contact",
+            "subtitle": "This is a subtitle",
+            "attachment": "fixed",
+            "image": "https://source.unsplash.com/1600x900/?nature,water",
+            "button": {
+                "text": "Click me",
+                "url": "/about"
+            },
+            "gallery": null,
+            "video": {
+                "link": null,
+                "poster": null,
+                "autoplay": false,
+                "loop": false,
+                "muted": false
+            }
+        }
+    }
+}

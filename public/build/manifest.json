@@ -1,0 +1,62 @@
+{
+  "resources/css/app-dashboard.css": {
+    "file": "assets/app-dashboard-b9e52791.css",
+    "isEntry": true,
+    "src": "resources/css/app-dashboard.css"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-98d9c262.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/fonts/Tajawal-Black.ttf": {
+    "file": "assets/Tajawal-Black-cab2c608.ttf",
+    "src": "resources/fonts/Tajawal-Black.ttf"
+  },
+  "resources/fonts/Tajawal-Bold.ttf": {
+    "file": "assets/Tajawal-Bold-f92b69ca.ttf",
+    "src": "resources/fonts/Tajawal-Bold.ttf"
+  },
+  "resources/fonts/Tajawal-ExtraBold.ttf": {
+    "file": "assets/Tajawal-ExtraBold-49e2e427.ttf",
+    "src": "resources/fonts/Tajawal-ExtraBold.ttf"
+  },
+  "resources/fonts/Tajawal-ExtraLight.ttf": {
+    "file": "assets/Tajawal-ExtraLight-62efd30e.ttf",
+    "src": "resources/fonts/Tajawal-ExtraLight.ttf"
+  },
+  "resources/fonts/Tajawal-Light.ttf": {
+    "file": "assets/Tajawal-Light-e33bbcee.ttf",
+    "src": "resources/fonts/Tajawal-Light.ttf"
+  },
+  "resources/fonts/Tajawal-Medium.ttf": {
+    "file": "assets/Tajawal-Medium-908276c0.ttf",
+    "src": "resources/fonts/Tajawal-Medium.ttf"
+  },
+  "resources/fonts/Tajawal-Regular.ttf": {
+    "file": "assets/Tajawal-Regular-910e6857.ttf",
+    "src": "resources/fonts/Tajawal-Regular.ttf"
+  },
+  "resources/fonts/din-next-lt-bold.ttf": {
+    "file": "assets/din-next-lt-bold-04bc01c8.ttf",
+    "src": "resources/fonts/din-next-lt-bold.ttf"
+  },
+  "resources/fonts/din-next-lt-medium.ttf": {
+    "file": "assets/din-next-lt-medium-2d472fae.ttf",
+    "src": "resources/fonts/din-next-lt-medium.ttf"
+  },
+  "resources/fonts/din-next-lt-regular.ttf": {
+    "file": "assets/din-next-lt-regular-21128d20.ttf",
+    "src": "resources/fonts/din-next-lt-regular.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-fbc0a306.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-46521879.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
