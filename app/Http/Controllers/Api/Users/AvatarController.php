@@ -1,15 +1,15 @@
 <?php
 
-namespace Dsone\Http\Controllers\Api\Users;
+namespace App\Http\Controllers\Api\Users;
 
 use Illuminate\Http\Request;
-use Dsone\Events\User\UpdatedByAdmin;
-use Dsone\Http\Controllers\Api\ApiController;
-use Dsone\Http\Requests\User\UploadAvatarRawRequest;
-use Dsone\Http\Resources\UserResource;
-use Dsone\Repositories\User\UserRepository;
-use Dsone\Services\Upload\UserAvatarManager;
-use Dsone\User;
+// use App\Events\User\UpdatedByAdmin;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Requests\User\UploadAvatarRawRequest;
+use App\Http\Resources\UserResource;
+use App\Repositories\User\UserRepository;
+use App\Services\Upload\UserAvatarManager;
+use App\Models\User;
 
 /**
  * @package Dsone\Http\Controllers\Api\Users
@@ -45,7 +45,7 @@ class AvatarController extends ApiController
 
         $user = $this->users->update($user->id, ['avatar' => $name]);
 
-        event(new UpdatedByAdmin($user));
+        // event(new UpdatedByAdmin($user));
 
         return new UserResource($user);
     }
@@ -66,7 +66,7 @@ class AvatarController extends ApiController
 
         $user = $this->users->update($user->id, ['avatar' => $request->url]);
 
-        event(new UpdatedByAdmin($user));
+        // event(new UpdatedByAdmin($user));
 
         return new UserResource($user);
     }
@@ -83,7 +83,7 @@ class AvatarController extends ApiController
 
         $user = $this->users->update($user->id, ['avatar' => null]);
 
-        event(new UpdatedByAdmin($user));
+        // event(new UpdatedByAdmin($user));
 
         return new UserResource($user);
     }

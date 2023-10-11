@@ -1,14 +1,14 @@
 <?php
 
-namespace Hoska\Http\Controllers\Api\Countries;
+namespace App\Http\Controllers\Api\Countries;
 
-use Hoska\Country;
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Filters\CountryKeywordSearch;
-use Hoska\Http\Requests\Country\CreateCountryRequest;
-use Hoska\Http\Requests\Country\UpdateCountryRequest;
-use Hoska\Http\Resources\CountryResource;
-use Hoska\Repositories\Country\CountryRepository;
+use App\Models\Country;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Filters\CountryKeywordSearch;
+use App\Http\Requests\Country\CreateCountryRequest;
+use App\Http\Requests\Country\UpdateCountryRequest;
+use App\Http\Resources\CountryResource;
+use App\Repositories\Country\CountryRepository;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;

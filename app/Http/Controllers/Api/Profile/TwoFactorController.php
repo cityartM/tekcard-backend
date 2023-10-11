@@ -1,14 +1,14 @@
 <?php
 
-namespace Hoska\Http\Controllers\Api\Profile;
+namespace App\Http\Controllers\Api\Profile;
 
 use Authy;
 
 
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Requests\TwoFactor\EnableTwoFactorRequest;
-use Hoska\Http\Requests\TwoFactor\VerifyTwoFactorTokenRequest;
-use Hoska\Http\Resources\UserResource;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Requests\TwoFactor\EnableTwoFactorRequest;
+use App\Http\Requests\TwoFactor\VerifyTwoFactorTokenRequest;
+use App\Http\Resources\UserResource;
 
 /**
  * @package Dsone\Http\Controllers\Api\Profile

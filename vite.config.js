@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
     plugins: [
@@ -9,7 +10,9 @@ export default defineConfig({
                 'resources/css/app-dashboard.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/app.tsx',
             ],
+            ssr: 'resources/js/ssr.tsx',
             refresh: true,
 
             // reload the page when the view of each module changes
@@ -18,5 +21,6 @@ export default defineConfig({
                 port: 3000,
             }
         }),
+        react(),
     ],
 });
