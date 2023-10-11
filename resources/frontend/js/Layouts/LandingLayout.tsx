@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import Header from "@/Layouts/Header";
+import Header from "./Header";
 import {Link} from "@inertiajs/react";
 
 export default function LandingLayout({ children }: PropsWithChildren) {

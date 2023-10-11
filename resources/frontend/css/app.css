@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+html[dir=rtl] * :not(template) ~ * {
+    --tw-space-x-reverse: 1 !important;
+    --tw-divide-x-reverse: 1 !important;
+}
+
 @font-face {
     font-family: 'LTEnergy-Regular';
     src: url('./../fonts/LTEnergy-Regular.otf') format('opentype');

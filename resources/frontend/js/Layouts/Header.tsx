@@ -1,8 +1,8 @@
 import React, {PropsWithChildren} from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
+import ApplicationLogo from "./../Components/ApplicationLogo";
 import {Link} from "@inertiajs/react";
-import NavLink from "@/Components/NavLink";
-import {BarsIcon, UsersIcon} from "@/Components/Icons";
+import NavLink from "./../Components/NavLink";
+import {BarsIcon, UsersIcon} from "./../Components/Icons";
 
 const navigation = [
     {
@@ -50,13 +50,13 @@ const Header: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
                             <ApplicationLogo className="h-8" />
                         </Link>
                         <div className={'flex items-center gap-2'}>
-                            <Link href={route('login')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700'}>
+                            <a href={route('login')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700'}>
                                 <span>Login</span>
-                            </Link>
-                            <Link href={route('register')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}>
+                            </a>
+                            <a href={route('register')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}>
                                 <UsersIcon />
                                 <span>Create a Card</span>
-                            </Link>
+                            </a>
                         </div>
                     </div>
                     <nav className={'py-4 flex items-center justify-center gap-8'}>

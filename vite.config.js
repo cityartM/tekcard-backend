@@ -10,9 +10,10 @@ export default defineConfig({
                 'resources/css/app-dashboard.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
-                'resources/js/app.tsx',
+                // 'resources/js/app.tsx',
+                'resources/frontend/js/app.tsx',
             ],
-            ssr: 'resources/js/ssr.tsx',
+            ssr: 'resources/frontend/js/ssr.tsx',
             refresh: true,
 
             // reload the page when the view of each module changes

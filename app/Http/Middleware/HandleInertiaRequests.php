@@ -28,7 +28,7 @@ class HandleInertiaRequests extends Middleware
      *
      * @return array<string, mixed>
      */
-    public function share(Request $request): array
+    public function share(Request $request): array // import 'lang\en.json'
     {
         return [
             ...parent::share($request),
@@ -39,6 +39,7 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'locale' => app()->getLocale()
         ];
     }
 }
