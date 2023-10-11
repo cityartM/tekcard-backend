@@ -1,12 +1,12 @@
 <?php
 
-namespace Hoska\Http\Controllers\Dashboard\Users;
+namespace App\Http\Controllers\Dashboard\Users;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Hoska\Http\Controllers\Controller;
-use Hoska\Repositories\Session\SessionRepository;
-use Hoska\User;
+use App\Http\Controllers\Controller;
+use App\Repositories\Session\SessionRepository;
+use App\Models\User;
 
 /**
  * Class SessionsController

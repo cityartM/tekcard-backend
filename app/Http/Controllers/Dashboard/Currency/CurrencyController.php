@@ -1,14 +1,14 @@
 <?php
 
-namespace Hoska\Http\Controllers\Dashboard\Currency;
+namespace App\Http\Controllers\Dashboard\Currency;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Hoska\Currency;
-use Hoska\Http\Controllers\Controller;
-use Hoska\Http\Requests\Currency\CreateCurrencyRequest;
-use Hoska\Http\Requests\Currency\UpdateCurrencyRequest;
-use Hoska\Repositories\Currency\CurrencyRepository;
+use App\Models\Currency;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Currency\CreateCurrencyRequest;
+use App\Http\Requests\Currency\UpdateCurrencyRequest;
+use App\Repositories\Currency\CurrencyRepository;
 
 class CurrencyController extends Controller
 {

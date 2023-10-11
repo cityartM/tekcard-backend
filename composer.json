@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^7.8",
         "hammerstone/fast-paginate": "^1.0",
         "imdhemy/laravel-purchases": "^1.9",
+        "inertiajs/inertia-laravel": "^0.6.10",
         "intervention/image": "^2.7",
         "kreait/firebase-php": "^7.6",
         "kreait/laravel-firebase": "^5.3",
@@ -32,6 +33,7 @@
         "spatie/laravel-query-builder": "^5.2",
         "spatie/laravel-translatable": "^6.5",
         "stichoza/google-translate-php": "^5.1",
+        "tightenco/ziggy": "^1.8",
         "vanguardapp/plugins": "^5.0",
         "webpatser/laravel-countries": "dev-master",
         "yajra/laravel-datatables-oracle": "^10.4"

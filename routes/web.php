@@ -23,8 +23,6 @@ use \Imdhemy\Purchases\Facades\Subscription;
 
 
 
-
-
 Route::get('/lang/{locale}', function (string $locale) {
     session()->put('locale', $locale);
     return redirect()->back();
@@ -356,3 +354,4 @@ Route::get('/appleProductPurchase', function () {
     $inAppList = $receipt->getInApp(); // contains all purchased products
 });
 
+require __DIR__.'/frontend.php';

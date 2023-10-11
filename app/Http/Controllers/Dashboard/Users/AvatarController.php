@@ -1,14 +1,14 @@
 <?php
 
-namespace Hoska\Http\Controllers\Dashboard\Users;
+namespace App\Http\Controllers\Dashboard\Users;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Repositories\User\UserRepository;
-use Hoska\Services\Upload\UserAvatarManager;
-use Hoska\User;
+use App\Http\Controllers\Api\ApiController;
+use App\Repositories\User\UserRepository;
+use App\Services\Upload\UserAvatarManager;
+use App\Models\User;
 
 /**
  * Class AvatarController
