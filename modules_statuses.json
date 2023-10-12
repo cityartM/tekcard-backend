@@ -1,9 +1,3 @@
 {
-    "Address": true,
-    "Plan": true,
-    "Strategy": true,
-    "Advice": true,
-    "MotivationalPhrases": true,
-    "Subscription": true,
-    "Help": true
+    "Address": true
 }

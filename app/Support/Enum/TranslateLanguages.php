@@ -22,12 +22,19 @@ class TranslateLanguages
             "flag" => "assets/flags/united-states.svg"
             ],
 
-            "fr" =>["name" => "French",
+            "tr" =>["name" => "Turkey",
                 "script" => "Latn",
-                "native" => "français",
+                "native" => "Türkçe",
+                "regional" => "tr_TR",
+                "flag" => "assets/flags/turkish.svg"
+            ],
+
+            /*"fr" =>["name" => "French",
+                "script" => "Latn",
+                "native" => "Français",
                 "regional" => "fr_FR",
                 "flag" => "assets/flags/france.svg"
-            ]
+            ]*/
             ];
     }
 

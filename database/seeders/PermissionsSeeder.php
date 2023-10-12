@@ -16,6 +16,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
+        $adminITRole = Role::where('name', 'Admin-IT')->first();
         $adminRole = Role::where('name', 'Admin')->first();
 
         $permissions[] = Permission::create([
@@ -75,55 +76,7 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
-        $permissions[] = Permission::create([
-            'name' => 'plans.manage',
-            'display_name' => 'Manage Plans',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'strategies.manage',
-            'display_name' => 'Manage Strategies',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'advices.manage',
-            'display_name' => 'Manage Advices',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'motivationalPhrases.manage',
-            'display_name' => 'Manage motivational phrases',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'helps.manage',
-            'display_name' => 'Manage helps',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'subscriptions.manage',
-            'display_name' => 'Subscription',
-            'description' => '',
-            'removable' => false
-        ]);
-
-        $permissions[] = Permission::create([
-            'name' => 'strategies.manage',
-            'display_name' => 'strategy',
-            'description' => '',
-            'removable' => false
-        ]);
-
+        $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }
 }

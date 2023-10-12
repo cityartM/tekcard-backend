@@ -18,33 +18,6 @@ class CountriesSeeder extends Seeder
      */
     public function run(): void
     {
-        //DB::table('countries')->truncate();
-        /*$countries = [
-            [
-                'name' => json_encode(['en' => 'Algeria', 'fr' => 'Algerie', 'ar' => 'الجزائر']),
-                'code' => 'US',
-                'lat' => 37.0902,
-                'lon' => -95.7129,
-            ],
-            [
-                'name' => json_encode(['en' => 'United States', 'fr' => 'États-Unis', 'ar' => 'الولايات المتحدة']),
-                'code' => 'US',
-                'lat' => 37.0902,
-                'lon' => -95.7129,
-            ],
-            [
-                'name' => json_encode(['en' => 'Canada', 'fr' => 'Canada', 'ar' => 'الولايات المتحدة']),
-                'code' => 'CA',
-                'lat' => 56.1304,
-                'lon' => -106.3468,
-            ],
-            // Add more countries as needed
-        ];
-
-        // Insert the data into the "countries" table
-        DB::table('countries')->insert($countries);*/
-
-
         //Get all of the countries
         $countries = Countries::getList();
         foreach ($countries as $countryId => $country) {
