@@ -1,10 +1,10 @@
 <?php
 
-namespace Hoska\Http\Controllers\Api\Profile;
+namespace App\Http\Controllers\Api\Profile;
 
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Resources\SessionResource;
-use Hoska\Repositories\Session\SessionRepository;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Resources\SessionResource;
+use App\Repositories\Session\SessionRepository;
 
 /**
  * @package Dsone\Http\Controllers\Api\Profile

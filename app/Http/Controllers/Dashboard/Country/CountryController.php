@@ -1,14 +1,14 @@
 <?php
 
-namespace Hoska\Http\Controllers\Dashboard\Country;
+namespace App\Http\Controllers\Dashboard\Country;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Hoska\Country;
-use Hoska\Http\Controllers\Controller;
-use Hoska\Http\Requests\Country\CreateCountryRequest;
-use Hoska\Http\Requests\Country\UpdateCountryRequest;
-use Hoska\Repositories\Country\CountryRepository;
+use App\Models\Country;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Country\CreateCountryRequest;
+use App\Http\Requests\Country\UpdateCountryRequest;
+use App\Repositories\Country\CountryRepository;
 
 class CountryController extends Controller
 {

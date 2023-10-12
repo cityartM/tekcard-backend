@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Api\Users;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Filters\UserKeywordSearch;
-use Hoska\Http\Requests\User\CreateUserRequest;
-use Hoska\Http\Requests\User\UpdateUserRequest;
-use Hoska\Http\Resources\UserResource;
-use Hoska\Repositories\User\UserRepository;
-use Hoska\Support\Enum\UserStatus;
-use Hoska\User;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Filters\UserKeywordSearch;
+use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Resources\UserResource;
+use App\Repositories\User\UserRepository;
+use App\Support\Enum\UserStatus;
+use App\Models\User;
 
 /**
  * @package Dsone\Http\Controllers\Api\Users

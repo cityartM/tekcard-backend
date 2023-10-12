@@ -1,13 +1,13 @@
 <?php
 
-namespace Hoska\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Api\Auth;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Exceptions\InvalidSignatureException;
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Requests\Auth\ApiVerifyEmailRequest;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Requests\Auth\ApiVerifyEmailRequest;
 
 class VerificationController extends ApiController
 {

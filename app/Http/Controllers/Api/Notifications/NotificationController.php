@@ -1,15 +1,15 @@
 <?php
 
-namespace Hoska\Http\Controllers\Api\Notifications;
+namespace App\Http\Controllers\Api\Notifications;
 
-use Hoska\Http\Controllers\Api\ApiController;
-use Hoska\Http\Filters\NotificationKeywordSearch;
-use Hoska\Http\Resources\NotificationResource;
-use Hoska\Repositories\Notification\NotificationRepository;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Filters\NotificationKeywordSearch;
+use App\Http\Resources\NotificationResource;
+use App\Repositories\Notification\NotificationRepository;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-use Hoska\Notification;
+use App\Models\Notification;
 
 class NotificationController extends ApiController
 {
