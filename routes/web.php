@@ -10,18 +10,14 @@ use App\Http\Controllers\TranslationController;
 use App\Models\Translation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
-use App\Services\Notification\Notification;
-use Kreait\Firebase\Contract\Auth;
-use Kreait\Firebase\Contract\Messaging;
 use App\Http\Controllers\Dashboard\Users\UsersController;
 use \Imdhemy\Purchases\Facades\Product;
-use \Imdhemy\GooglePlay\Products\ProductPurchase;
-use GuzzleHttp\Psr7\Response;
-use Imdhemy\GooglePlay\ClientFactory;
-use \Imdhemy\Purchases\Facades\Subscription;
 
 
-
+Route::get('/lang/{locale}', function (string $locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('lang');
 
 Route::get('/lang/{locale}', function (string $locale) {
     session()->put('locale', $locale);
