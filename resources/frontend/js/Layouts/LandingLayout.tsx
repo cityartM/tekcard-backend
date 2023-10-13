@@ -13,23 +13,6 @@ export default function LandingLayout({ children }: PropsWithChildren) {
             </div>
 
             <Footer />
-
-            {/*<div>
-                <div>
-                    <div className='d-flex gap-3'>
-                        <p>Take control of your personal finances today</p>
-                        <div className='d-flex gap-3'>
-                            <div></div>
-                            <div>
-                                <p>Enter your email</p>
-                            </div>
-                            <Link href={'#'} className='d-flex gap-3'>
-                                <p>Subscribe</p>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
         </div>
     );
 }
@@ -38,7 +21,6 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
     return (
         <div>
             <div className={'relative'}>
-
                 <div className={'z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%'}>
                     <div className={'flex flex-col md:flex-row items-center gap-8'}>
                         <p className={'flex-grow text-center md:text-start text-white text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] font-bold'}>
@@ -57,8 +39,7 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
                         </button>
                     </div>
                 </div>
-
-                <footer className={'z-40 -mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]'}>
+                <footer className={'z-40 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]'}>
                     <div className={' max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-7 gap-20'}>
                         <div className={'col-span-2 flex flex-col gap-8'}>
                             <ApplicationLogo className={'w-[11.125rem] h-[2.1875rem]'} />
@@ -84,7 +65,7 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
                                 </svg>
                             </div>
                         </div>
-                        <div className={'col-span-full md:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'}>
+                        <div className={'col-span-full md:col-span-5 grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-18'}>
                             <div>
                                 <h3 className={'text-[1.875rem] text-[#2273AF] font-bold tracking-wide'}>
                                     {'Menu'}
@@ -125,7 +106,6 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
                         </div>
                     </div>
                 </footer>
-
             </div>
         </div>
     )
