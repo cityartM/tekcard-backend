@@ -90,10 +90,6 @@ Alpine.data('gallery_form', ({state, lang, ...rest}) => ({
     console.log(this.files);
   }
 
-
-
-
-
 }));
 
 Alpine.start();
