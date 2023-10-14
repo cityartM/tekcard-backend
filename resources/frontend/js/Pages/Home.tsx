@@ -4,8 +4,11 @@ import LandingLayout from "./../Layouts/LandingLayout";
 import {Faq} from "../Components/Faqs/Faq";
 import useFaqs from "../Utils/Faq";
 import {FaqType} from "../types/faq";
-
+import useReviews from "../Utils/Review";
 export default function Home({}: PropsWithChildren) {
+    const locale = usePage().props.locale;
+    const { reviews } = useReviews(locale as string);
+
   return (
     <LandingLayout>
       <Head title="Welcome" />

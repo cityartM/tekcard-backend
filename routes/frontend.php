@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home', [
-        'faqs' => []
-    ]);
+    return Inertia::render('Home');
 })->name('landing.home');
 
 Route::get('/about-us', function () {
