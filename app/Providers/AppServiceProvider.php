@@ -50,6 +50,11 @@ use Modules\Plan\Repositories\EloquentPlan;
 use Modules\Strategy\Repositories\StrategyRepository;
 use Modules\Strategy\Repositories\EloquentStrategy;
 
+use Modules\Subscription\Repositories\SubscriptionRepository;
+use Modules\Subscription\Repositories\EloquentSubscription;
+
+use Modules\ContactUs\Repositories\ContactUsRepository;
+use Modules\ContactUs\Repositories\EloquentContactUs;
 
 
 
@@ -63,6 +68,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UserRepository::class, EloquentUser::class);
         $this->app->singleton(RoleRepository::class, EloquentRole::class);
         $this->app->singleton(PermissionRepository::class, EloquentPermission::class);
+        $this->app->singleton(SubscriptionRepository::class, EloquentSubscription::class);
+        $this->app->singleton(ContactUsRepository::class, EloquentContactUs::class);
     }
 
     /**
@@ -102,6 +109,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(SummernoteField::class, 'summernote-field');
         Blade::component(SelectField::class, "select-field");
         Blade::component(TextFieldJson::class, "text-field-json");
+
+        
 
         Schema::defaultStringLength(191);
 

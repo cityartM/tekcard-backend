@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\Subscription\Repositories;
+namespace Modules\ContactUs\Repositories;
 
 
 use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Subscription\Models\Subscription;
+use Modules\ContactUs\Models\ContactUs;
 use DateTime;
 
-class EloquentSubscription implements SubscriptionRepository
+class EloquentContactUs implements ContactUsRepository
 {
  
     protected $request;
@@ -22,12 +22,12 @@ class EloquentSubscription implements SubscriptionRepository
      */
     public function all()
     {
-        return Subscription::all();;
+        return ContactUs::all();;
     }
 
     public function index()
     {
-        return Subscription::all();;
+        return ContactUs::all();;
     }
 
     /**
@@ -35,7 +35,7 @@ class EloquentSubscription implements SubscriptionRepository
      */
     public function find($id)
     {
-        return Subscription::find($id);
+        return ContactUs::find($id);
     }
 
     /**
@@ -43,10 +43,10 @@ class EloquentSubscription implements SubscriptionRepository
      */
     public function delete($id)
     {
-        $Subscription = Subscription::findOrFail($id);
-        $Subscription->delete();
+        $ContactUs= ContactUs::findOrFail($id);
+       
 
-        return $Subscription->delete();
+        return $ContactUs->delete();
     }
 
 

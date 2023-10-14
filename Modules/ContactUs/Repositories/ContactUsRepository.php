@@ -1,17 +1,18 @@
 <?php
 
-namespace Modules\Subscription\Repositories;
+namespace Modules\ContactUs\Repositories;
 
-use Modules\Subscription\Models\Subscription;
+use Modules\ContactUs\Models\ContactUs;
 
-interface SubscriptionRepository
+interface ContactUsRepository
 {
     /** 
-     * Get all system Subscriptions.
+     * Get all system ContactUs.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all();
+    
 
     public function index();
 

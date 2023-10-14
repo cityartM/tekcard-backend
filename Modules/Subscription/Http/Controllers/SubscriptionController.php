@@ -23,11 +23,11 @@ class SubscriptionController extends Controller
      */
     public function index()
     {   
-        $subscriptions = Subscription::all();
+        $subscriptions = $this->subscriptions->all();
         return view('subscription::index', compact('subscriptions'));
     }
 
-
+ 
     /**
      * Store a newly created resource in storage.
      * @param Request $request
