@@ -22,3 +22,7 @@ Route::get('/pricing', function () {
 Route::get('/contact-us', function () {
     return Inertia::render('ContactUs');
 })->name('landing.contact-us');
+
+Route::get('/playground', function () {
+    return Inertia::render('Playground');
+})->name('landing.playground');
