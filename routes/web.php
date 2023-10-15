@@ -19,12 +19,6 @@ Route::get('/lang/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('lang');
 
-Route::get('/lang/{locale}', function (string $locale) {
-    session()->put('locale', $locale);
-    return redirect()->back();
-})->name('lang');
-
-
 Route::get('/', function () {
     $locale = app()->getLocale();
 
@@ -66,10 +60,6 @@ Route::group(['middleware' => ['password-reset', 'guest']], function () {
 
 
 Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
-/*Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-{
-    Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
-});*/
 
 
 Route::group(['namespace' => 'Dashboard'],function (){
