@@ -12,7 +12,6 @@ class Script extends Component
 
     public function __construct($route, $columns,bool $action = true)
     {
-        //
         $this->route = $route;
         $this->columns = $columns;
         $this->action = $action;

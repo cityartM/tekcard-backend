@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard\Authorization;
 
+use App\Datatables\RoleDatatables;
 use Cache;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\CreateRoleRequest;
@@ -38,9 +40,19 @@ class RolesController extends Controller
      *
      * @return Factory|View
      */
-    public function index()
+    /*public function index()
     {
         return view('dashboard.role.index', ['roles' => $this->roles->getAllWithUsersCount()]);
+    }*/
+
+    public function index(Request $request,RoleDatatables $roleDatatables)
+    {
+        if ($request->wantsJson()) {
+            return $roleDatatables->datatables($request);
+        }
+        return view("dashboard.role.index")->with([
+            "columns" => $roleDatatables::columns(),
+        ]);
     }
 
     /**
