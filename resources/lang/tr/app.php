@@ -259,33 +259,37 @@ return [
     '# of users with this role' => '# of users with this role',
     'Add Permission' => 'Add Permission',
 
+/*** contact_us ***/
+
+'contact_us' => 'bizimle iletişime geçin',
+'contact_us_list' => 'bizimle iletişime geçin listesi',
+'first_name' => 'ilk isim',
+'last_name' => 'soyadı',
+
+
+
 
 /***  feedback  ***/
-'feedback' => 'feedback',
-'feedback_list' => 'feedback list',
+'feedback' => 'geri bildirimler',
+'feedback_list' => 'geri bildirim listesi',
+
+ /***  subscriptions  ***/
+ 'subscriptions' => 'abonelikler',
+ 'subscriptions_list' => 'abonelikler listesi',
+ 'email' => 'e-posta',
+ 'subscriptions_date' => 'abonelik tarihi',
 
 
-/*** contact_us ***/
-'contact_us' => 'contact us',
-'contact_us_list' => 'contact us list',
-'first_name' => 'first name',
-'last_name' => 'last name',
-
-/***  subscriptions  ***/
-'subscriptions' => 'subscriptions',
-'subscriptions_list' => 'subscriptions list',
-'email' => 'email',
-'subscriptions_date' => 'subscriptions date',
+ /***  general  ***/
+ 'actions' => 'işlemler',
+ 'delete' => 'sil',
+ 'selected' => 'seçilen',
+ 'delete_selected' => 'seçilenleri sil',
+ 'user' => 'kullanıcı',
+ 'No_records_found' => 'Kayıt bulunamadı',
+ 'message' => 'mesaj',
 
 
-/***  general  ***/
-'actions' => 'actions',
-'delete' => 'delete',
-'selected' => 'selected',
-'delete_selected' => 'delete_selected',
-'user' => 'user',
-'No_records_found' => 'No records found',
-'message' => 'message',
 
 
 

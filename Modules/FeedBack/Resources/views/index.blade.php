@@ -40,7 +40,7 @@
                                 @lang('app.feedback')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.Actions')
+                                @lang('app.actions')
                             </th>
                         </tr>
                         </thead>
@@ -55,14 +55,14 @@
                                     <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this feedback?')">Delete</button>
+                                        <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this feedback?')">@lang('app.delete')</button>
                                     </form>
                                 </td>
                              </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="4"><em>@lang('app.No records found.')</em></td>
+                                <td colspan="4"><em>@lang('app.No_records_found')</em></td>
                             </tr>
                         @endif
                         </tbody>
