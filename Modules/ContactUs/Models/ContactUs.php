@@ -1,0 +1,20 @@
+<?php
+
+namespace Modules\ContactUs\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class ContactUs extends Model
+{
+    use HasFactory;
+
+    protected $table = 'contact_us';
+
+    protected $fillable = ['first_name', 'last_name', 'email', 'message'];
+    
+    protected static function newFactory()
+    {
+        return \Modules\ContactUs\Database\factories\ContactUsFactory::new();
+    }
+}
