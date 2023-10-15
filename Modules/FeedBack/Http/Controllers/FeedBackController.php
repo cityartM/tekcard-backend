@@ -16,9 +16,9 @@ class FeedBackController extends Controller
      */
     public function index()
     {
-        $feedbacks = Feedback::all();
+        $feedback = Feedback::all();
 
-        return view('feedback::index',compact('feedbacks'));
+        return view('feedback::index',compact('feedback'));
     }
 
     /**
