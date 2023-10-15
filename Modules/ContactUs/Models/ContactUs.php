@@ -11,7 +11,7 @@ class ContactUs extends Model
 
     protected $table = 'contact_us';
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'message'];
+    protected $fillable = ['full_name', 'company', 'email','subject', 'message']; 
     
     protected static function newFactory()
     {
