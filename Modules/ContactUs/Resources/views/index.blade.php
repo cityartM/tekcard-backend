@@ -37,13 +37,16 @@
                                 @lang('app.email')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.first_name')
+                                @lang('app.name')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.last_name')
+                                @lang('app.company')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.message')
+                            </th>
+                            <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
+                                @lang('app.subject')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.actions')
@@ -56,7 +59,8 @@
                              <tr>
                                 <td>{{ $contacts->email}}</td>
                                 <td>{{ $contacts->first_name}}</td>
-                                <td>{{ $contacts->last_name}}</td>
+                                <td>{{ $contacts->company}}</td>
+                                <td>{{ $contacts->subject}}</td>
                                 <td>{{ $contacts->message}}</td>
                                 
                                 <td class="text-end">
