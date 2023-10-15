@@ -1,0 +1,57 @@
+<?php
+
+namespace Modules\Subscription\Repositories;
+
+
+use App\Helpers\Helper;
+use App\Http\Requests\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Subscription\Models\Subscription;
+use DateTime;
+
+class EloquentSubscription implements SubscriptionRepository
+{
+ 
+    protected $request;
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function all()
+    {
+        return Subscription::all();;
+    }
+
+    public function index()
+    {
+        return Subscription::all();;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function find($id)
+    {
+        return Subscription::find($id);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function delete($id)
+    {
+        $Subscription = Subscription::findOrFail($id);
+        $Subscription->delete();
+
+        return $Subscription->delete();
+    }
+
+
+   
+
+
+}
+
