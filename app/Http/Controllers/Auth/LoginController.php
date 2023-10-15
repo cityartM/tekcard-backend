@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use App\Services\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class LoginController extends Controller
@@ -101,6 +103,15 @@ class LoginController extends Controller
         \Auth::logout();
         return redirect('login');
 
+    }
+
+    public function frontLogout()
+    {
+        if(\auth()->check()){
+            \auth()->logout();
+            return redirect()->route('login');
+        }
+        return redirect()->back();
     }
 
 }

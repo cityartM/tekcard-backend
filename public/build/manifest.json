@@ -1,60 +1,21 @@
 {
-  "_ApplicationLogo-cfda226a.js": {
+  "_Faq-4fb71441.js": {
+    "file": "assets/Faq-4fb71441.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_Faq-a5d6bef5.js": {
+    "file": "assets/Faq-a5d6bef5.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_LandingLayout-ba2d91cc.js": {
     "assets": [
       "assets/logo-c2f26a6c.png"
     ],
-    "file": "assets/ApplicationLogo-cfda226a.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_Faq-88e2b3ff.js": {
-    "file": "assets/Faq-88e2b3ff.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_Faq-d38ff816.js": {
-    "file": "assets/Faq-d38ff816.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_GuestLayout-06655948.js": {
-    "file": "assets/GuestLayout-06655948.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_ApplicationLogo-cfda226a.js"
-    ]
-  },
-  "_InputLabel-c644184f.js": {
-    "file": "assets/InputLabel-c644184f.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_LandingLayout-1960c427.js": {
-    "file": "assets/LandingLayout-1960c427.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
-    ]
-  },
-  "_NavLink-7f74414b.js": {
-    "file": "assets/NavLink-7f74414b.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_PrimaryButton-3dafe7d0.js": {
-    "file": "assets/PrimaryButton-3dafe7d0.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
-  "_TextInput-e91a8512.js": {
-    "file": "assets/TextInput-e91a8512.js",
+    "file": "assets/LandingLayout-ba2d91cc.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
@@ -62,19 +23,13 @@
   "_axios-3c7106ac.js": {
     "file": "assets/axios-3c7106ac.js"
   },
-  "_transition-c95d1809.js": {
-    "file": "assets/transition-c95d1809.js",
-    "imports": [
-      "resources/frontend/js/app.tsx"
-    ]
-  },
   "resources/css/app-dashboard.css": {
-    "file": "assets/app-dashboard-f0c7b5c5.css",
+    "file": "assets/app-dashboard-57e755f2.css",
     "isEntry": true,
     "src": "resources/css/app-dashboard.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-d160afa0.css",
+    "file": "assets/app-b3fe0524.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -166,223 +121,98 @@
     "file": "assets/LTEnergySmRd-Semi-Italic-2f9e902d.otf",
     "src": "resources/frontend/fonts/LTEnergySmRd-Semi-Italic.otf"
   },
+  "resources/frontend/images/2-phones-rotated.png": {
+    "file": "assets/2-phones-rotated-7ae09722.png",
+    "src": "resources/frontend/images/2-phones-rotated.png"
+  },
+  "resources/frontend/images/appstore1.png": {
+    "file": "assets/appstore1-d9c57a03.png",
+    "src": "resources/frontend/images/appstore1.png"
+  },
+  "resources/frontend/images/hero.png": {
+    "file": "assets/hero-db078799.png",
+    "src": "resources/frontend/images/hero.png"
+  },
   "resources/frontend/images/logo.png": {
     "file": "assets/logo-c2f26a6c.png",
     "src": "resources/frontend/images/logo.png"
   },
+  "resources/frontend/images/playstore1.png": {
+    "file": "assets/playstore1-a9eec797.png",
+    "src": "resources/frontend/images/playstore1.png"
+  },
   "resources/frontend/js/Pages/AboutUs.tsx": {
-    "file": "assets/AboutUs-4172f634.js",
+    "file": "assets/AboutUs-fca46f4b.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-1960c427.js",
-      "_Faq-88e2b3ff.js",
-      "_Faq-d38ff816.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
+      "_LandingLayout-ba2d91cc.js",
+      "_Faq-a5d6bef5.js",
+      "_Faq-4fb71441.js",
+      "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/AboutUs.tsx"
   },
-  "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx": {
-    "file": "assets/ConfirmPassword-9b03774a.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx"
-  },
-  "resources/frontend/js/Pages/Auth/ForgotPassword.tsx": {
-    "file": "assets/ForgotPassword-02e5d648.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_TextInput-e91a8512.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/ForgotPassword.tsx"
-  },
-  "resources/frontend/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-d852ad55.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/Login.tsx"
-  },
-  "resources/frontend/js/Pages/Auth/Register.tsx": {
-    "file": "assets/Register-5a916707.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/Register.tsx"
-  },
-  "resources/frontend/js/Pages/Auth/ResetPassword.tsx": {
-    "file": "assets/ResetPassword-52bb797a.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/ResetPassword.tsx"
-  },
-  "resources/frontend/js/Pages/Auth/VerifyEmail.tsx": {
-    "file": "assets/VerifyEmail-e0c7b773.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_GuestLayout-06655948.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/VerifyEmail.tsx"
-  },
   "resources/frontend/js/Pages/Blog.tsx": {
-    "file": "assets/Blog-b9064bde.js",
+    "file": "assets/Blog-fa5a09b1.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-1960c427.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
+      "_LandingLayout-ba2d91cc.js",
+      "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Blog.tsx"
   },
   "resources/frontend/js/Pages/ContactUs.tsx": {
-    "file": "assets/ContactUs-192edd98.js",
+    "file": "assets/ContactUs-27c0793e.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-1960c427.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
+      "_LandingLayout-ba2d91cc.js",
+      "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/ContactUs.tsx"
   },
   "resources/frontend/js/Pages/Home.tsx": {
-    "file": "assets/Home-203bc6f5.js",
+    "assets": [
+      "assets/2-phones-rotated-7ae09722.png",
+      "assets/appstore1-d9c57a03.png",
+      "assets/playstore1-a9eec797.png",
+      "assets/hero-db078799.png"
+    ],
+    "file": "assets/Home-7061d1c7.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-1960c427.js",
-      "_Faq-88e2b3ff.js",
-      "_Faq-d38ff816.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
+      "_LandingLayout-ba2d91cc.js",
+      "_Faq-a5d6bef5.js",
+      "_Faq-4fb71441.js",
+      "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Home.tsx"
   },
   "resources/frontend/js/Pages/Playground.tsx": {
-    "file": "assets/Playground-d61f9544.js",
+    "file": "assets/Playground-5194b567.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_Faq-88e2b3ff.js",
+      "_Faq-a5d6bef5.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Playground.tsx"
   },
   "resources/frontend/js/Pages/Pricing.tsx": {
-    "file": "assets/Pricing-839ee851.js",
+    "file": "assets/Pricing-e3271985.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-1960c427.js",
-      "_axios-3c7106ac.js",
-      "_ApplicationLogo-cfda226a.js",
-      "_NavLink-7f74414b.js"
+      "_LandingLayout-ba2d91cc.js",
+      "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Pricing.tsx"
   },
-  "resources/frontend/js/Pages/Profile/Edit.tsx": {
-    "file": "assets/Edit-e85c019f.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_ApplicationLogo-cfda226a.js",
-      "_transition-c95d1809.js",
-      "_NavLink-7f74414b.js",
-      "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx",
-      "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
-      "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx",
-      "_axios-3c7106ac.js",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Profile/Edit.tsx"
-  },
-  "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx": {
-    "file": "assets/DeleteUserForm-5da3a866.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_transition-c95d1809.js",
-      "_axios-3c7106ac.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx"
-  },
-  "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx": {
-    "file": "assets/UpdatePasswordForm-0be8c041.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_transition-c95d1809.js",
-      "_axios-3c7106ac.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx"
-  },
-  "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx": {
-    "file": "assets/UpdateProfileInformationForm-a7ef9b0f.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_TextInput-e91a8512.js",
-      "_InputLabel-c644184f.js",
-      "_PrimaryButton-3dafe7d0.js",
-      "_transition-c95d1809.js",
-      "_axios-3c7106ac.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx"
-  },
   "resources/frontend/js/app.css": {
-    "file": "assets/app-211d1d52.css",
+    "file": "assets/app-548d68de.css",
     "src": "resources/frontend/js/app.css"
   },
   "resources/frontend/js/app.tsx": {
@@ -401,27 +231,17 @@
       "assets/LTEnergy-WideBoldItalic-0c306e25.otf"
     ],
     "css": [
-      "assets/app-211d1d52.css"
+      "assets/app-548d68de.css"
     ],
     "dynamicImports": [
       "resources/frontend/js/Pages/AboutUs.tsx",
-      "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx",
-      "resources/frontend/js/Pages/Auth/ForgotPassword.tsx",
-      "resources/frontend/js/Pages/Auth/Login.tsx",
-      "resources/frontend/js/Pages/Auth/Register.tsx",
-      "resources/frontend/js/Pages/Auth/ResetPassword.tsx",
-      "resources/frontend/js/Pages/Auth/VerifyEmail.tsx",
       "resources/frontend/js/Pages/Blog.tsx",
       "resources/frontend/js/Pages/ContactUs.tsx",
       "resources/frontend/js/Pages/Home.tsx",
       "resources/frontend/js/Pages/Playground.tsx",
-      "resources/frontend/js/Pages/Pricing.tsx",
-      "resources/frontend/js/Pages/Profile/Edit.tsx",
-      "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx",
-      "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
-      "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx"
+      "resources/frontend/js/Pages/Pricing.tsx"
     ],
-    "file": "assets/app-59a9fd33.js",
+    "file": "assets/app-eb1af349.js",
     "imports": [
       "_axios-3c7106ac.js"
     ],
@@ -437,7 +257,7 @@
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-a450f7eb.css",
+    "file": "assets/app-f93ccaaa.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
