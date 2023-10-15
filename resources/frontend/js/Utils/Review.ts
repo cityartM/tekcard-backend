@@ -15,6 +15,8 @@ const fetchReviews = (locale: string) => {
 const useReviews = (locale: string) => {
     const [reviews, setReviews] = useState<ReviewType[] | null>(null);
 
+    console.log(reviews)
+
     useEffect(() => {
         const data = fetchReviews(locale);
         setReviews(data.reviews);
