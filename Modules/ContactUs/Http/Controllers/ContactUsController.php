@@ -19,7 +19,7 @@ class ContactUsController extends Controller
     {
         $this->ContactUs= $ContactUs;
     }
-
+ 
     /**
      * Display a listing of the resource.
      * @return Renderable

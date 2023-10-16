@@ -4,10 +4,13 @@ namespace Modules\FeedBack\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 
 class FeedBack extends Model
 {
     use HasFactory;
+
+    protected $table = 'feedback';
 
     protected $fillable = [
         'user_id',

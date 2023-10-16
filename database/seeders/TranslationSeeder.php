@@ -46,6 +46,6 @@ class TranslationSeeder extends Seeder
 
             $this->command->info('Translation created: ' . $translation->name);
         }
-
+        
     }
 }

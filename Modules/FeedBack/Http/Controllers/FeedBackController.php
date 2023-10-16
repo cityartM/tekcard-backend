@@ -6,19 +6,33 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Modules\FeedBack\Http\Requests\FeedBackRequest;
+
+use Modules\FeedBack\Repositories\FeedBackRepository;
+
 use Modules\FeedBack\Models\FeedBack;
 
 class FeedBackController extends Controller
 {
+
+    private $FeedBack; 
+
+    function __construct(FeedBackRepository $FeedBack)
+    {
+        $this->FeedBack= $FeedBack;
+    }
+
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        $feedbacks = Feedback::all();
+        $feedback = $this->FeedBack->all();
+        
 
-        return view('feedback::index',compact('feedbacks'));
+        return view('feedback::index',compact('feedback'));
     }
 
     /**
@@ -78,8 +92,8 @@ class FeedBackController extends Controller
      */
     public function destroy($id)
     {
-        $feedback = Feedback::findOrFail($id);
-        $feedback->delete();
+        $FeedBack = $this->FeedBack->delete($id);
+        
         return redirect()->route('feedback.index')->with('success', 'Feedback deleted successfully');
     }
 }
