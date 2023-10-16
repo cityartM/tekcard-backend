@@ -1,3 +1,5 @@
+import { PageProps as TPageProps } from '@inertiajs/core';
+
 export interface User {
     id: number;
     name: string;
@@ -5,8 +7,11 @@ export interface User {
     email_verified_at: string;
 }
 
-export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
+export type PageProps<T extends TPageProps> = T & {
     auth: {
         user: User;
     };
 };
+
+export type Errors = Record<string, string>;
+export type ErrorBag = Record<string, Errors>;

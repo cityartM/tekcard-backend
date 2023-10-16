@@ -19,12 +19,6 @@ Route::get('/lang/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('lang');
 
-Route::get('/lang/{locale}', function (string $locale) {
-    session()->put('locale', $locale);
-    return redirect()->back();
-})->name('lang');
-
-
 Route::get('/', function () {
     $locale = app()->getLocale();
 
@@ -41,6 +35,7 @@ Route::get('/', function () {
 Route::get('login', [LoginController::class,'show'])->name('login');
 Route::post('login', [LoginController::class,'authenticate']);
 Route::get('logout', [LoginController::class,'logout'])->name('auth.logout');
+Route::post('front-logout', [LoginController::class,'frontLogout'])->name('auth.front.logout');
 
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
@@ -66,10 +61,6 @@ Route::group(['middleware' => ['password-reset', 'guest']], function () {
 
 
 Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
-/*Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-{
-    Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
-});*/
 
 
 Route::group(['namespace' => 'Dashboard'],function (){

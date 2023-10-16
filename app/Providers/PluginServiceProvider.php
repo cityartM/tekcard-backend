@@ -23,6 +23,7 @@ class PluginServiceProvider extends BaseVanguardServiceProvider
             \App\Support\Plugins\Subscriptions::class,
             \App\Support\Plugins\ContactUs::class,
             \App\Support\Plugins\FeedBack::class,
+            \App\Support\Plugins\Blogs::class,
             \App\Support\Plugins\Translations::class
         ];
     }

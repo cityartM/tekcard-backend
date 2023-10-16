@@ -76,6 +76,26 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        $permissions[] = Permission::create([
+            'name' => 'subscriptions.manage',
+            'display_name' => 'Manage subscriptions',
+            'description' => 'Manage subscriptions',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'contactus.manage',
+            'display_name' => 'Manage ContactUs',
+            'description' => 'Manage ContactUs',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'feedback.manage',
+            'display_name' => 'Manage Feedback',
+            'description' => 'Manage Feedback',
+            'removable' => false
+        ]);
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }

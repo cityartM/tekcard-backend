@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class FeedBack extends Model
 {
     use HasFactory;
+
     protected $table = 'feedbacks';
 
     protected $fillable = [

@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+ 
     'months' => [
         1 => 'January',
         2 => 'February',
@@ -275,9 +275,32 @@ return [
 
 
 
+/***  feedback  ***/
+'feedback' => 'feedback',
+'feedback_list' => 'feedback list',
 
 
+/*** contact_us ***/
+'contact_us' => 'contact us',
+'contact_us_list' => 'contact us list',
+'first_name' => 'first name',
+'last_name' => 'last name',
 
+/***  subscriptions  ***/
+'subscriptions' => 'subscriptions',
+'subscriptions_list' => 'subscriptions list',
+'email' => 'email',
+'subscriptions_date' => 'subscriptions date',
+
+
+/***  general  ***/
+'actions' => 'actions',
+'delete' => 'delete',
+'selected' => 'selected',
+'delete_selected' => 'delete_selected',
+'user' => 'user',
+'No_records_found' => 'No records found',
+'message' => 'message',
 
 
 

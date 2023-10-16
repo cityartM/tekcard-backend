@@ -6,5 +6,7 @@
     "FeedBack": true,
     "Company": true,
     "Plan": true,
-    "Feature": true
+    "Feature": true,
+    "Blog": true
+
 }

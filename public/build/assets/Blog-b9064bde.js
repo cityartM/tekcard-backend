@@ -1,1 +1,0 @@
-import{j as t,a as o}from"./app-59a9fd33.js";import{L as r}from"./LandingLayout-1960c427.js";import"./axios-3c7106ac.js";import"./ApplicationLogo-cfda226a.js";import"./NavLink-7f74414b.js";function l({}){return t.jsxs(r,{children:[t.jsx(o,{title:"Welcome"}),t.jsx("div",{className:"text-3xl",children:"Blog"})]})}export{l as default};
