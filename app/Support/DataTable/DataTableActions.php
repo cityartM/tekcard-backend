@@ -11,6 +11,8 @@ class DataTableActions
 
     private ?string $html = "";
 
+    private ?string $htmlMenu = "";
+
     private bool $deleteBtn = false;
     private bool $deleteActionInModel = false;
     private string $deleteRoute;
@@ -53,6 +55,45 @@ class DataTableActions
     }
 
     public function make(): string
+    {
+        $html = '<a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Action
+                    <i class="ki-duotone ki-down fs-5 ms-1"></i>
+                  </a>
+                  <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">';
+        if ($this->showBtn) {
+            $html .= '<div class="menu-item px-3">
+                         <a href="' . $this->showRoute . '" class="menu-link px-3">'.__('app.show').'</a>
+                      </div>';
+        }
+
+        if ($this->editBtn) {
+            $html .= '<div class="menu-item px-3">
+                         <a href="' . $this->editRoute . '" class="menu-link px-3">'.__('app.edit').'</a>
+                      </div>';
+        }
+        if ($this->deleteBtn) {
+            $html .= '<div class="menu-item px-3">
+                        <a href="'. $this->deleteRoute .'" class="menu-link px-3 delete_confirm"
+                           title="'.__('app.delete').'"
+                           data-toggle="tooltip"
+                           data-method="DELETE"
+                           data-confirm-title="Please Confirm"
+                           data-confirm-text="Are you sure that you want to delete this role?"
+                           data-confirm-delete="Yes, delete it!"
+                           data-confirm-cancel="No, cancel!"
+                        >
+                            '.__('app.delete').'
+                        </a>
+                     </div>';
+        }
+        $html .= $this->html;
+
+        $html .= "</div>";
+
+        return $html;
+    }
+
+    public function makeOld(): string
     {
         $html = '<div class="d-flex justify-content-center flex-shrink-0">';
         if ($this->showBtn) {

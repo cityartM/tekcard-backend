@@ -102,14 +102,32 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
     ],
+
+    /*** Generale ***/
+    'save' => 'Save',
+    'show' => 'Show',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'action'=>'Action',
+    'label_status' =>'Status',
+    'created_at' =>'Created date',
+
+
+    /*** Role ***/
+    'name' => 'Name',
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
     'reset' => 'Reset',
+    'page_roles' =>'Roles',
     'role' =>'Role',
     'role_list' =>'List Roles',
-    'label_status' =>'Status',
+    'roles_permissions' =>'Roles & Permissions',
+    'add_role' =>'Add Role',
+    'display_name' => 'Display Name',
+    'of_users_with_this_role' => '# of users with this role',
+    'add_permission' => 'Add Permission',
     'optional' =>'Optional',
-    'action'=>'Action',
+
 
     /***  User  ***/
     'add_user' =>'Add User',
@@ -228,7 +246,7 @@ return [
     'Edit' => 'Edit',
     'plans_list' => 'plans_list',
     'currency' => 'currency',
-    'Starting date' => 'Starting date',
+    'starting_date' => 'Starting date',
     "No records found." => "No records found.",
     'Motivational Phrases' => 'Motivational Phrases',
     'motivational_phrases_list' => 'motivational_phrases_list',
@@ -249,15 +267,12 @@ return [
     'add city' => 'add city',
     'Name' => 'Name',
     'Actions' => 'Actions',
-    'add country' => 'add country',
-    'Code' => 'Code',
-    'Addresses' => 'Addresses',
-    'Country' => 'Country',
+    'add_country' => 'add country',
+    'code' => 'Code',
+    'addresses' => 'Addresses',
+    'country' => 'Country',
     'add_wilaya' => 'add_wilaya',
-    'Add Role' => 'Add Role',
-    'Display Name' => 'Display Name',
-    '# of users with this role' => '# of users with this role',
-    'Add Permission' => 'Add Permission',
+
 
 
 

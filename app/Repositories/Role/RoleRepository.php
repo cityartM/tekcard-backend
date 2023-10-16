@@ -78,4 +78,9 @@ interface RoleRepository
      * @return mixed
      */
     public function updatePermissions($roleId, array $permissions);
+
+    /**
+     * @return mixed
+     */
+    public function getDatatables();
 }

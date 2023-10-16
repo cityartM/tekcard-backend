@@ -1,11 +1,80 @@
 {
+  "_ApplicationLogo-cfda226a.js": {
+    "assets": [
+      "assets/logo-c2f26a6c.png"
+    ],
+    "file": "assets/ApplicationLogo-cfda226a.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_Faq-88e2b3ff.js": {
+    "file": "assets/Faq-88e2b3ff.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_Faq-d38ff816.js": {
+    "file": "assets/Faq-d38ff816.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_GuestLayout-06655948.js": {
+    "file": "assets/GuestLayout-06655948.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_ApplicationLogo-cfda226a.js"
+    ]
+  },
+  "_InputLabel-c644184f.js": {
+    "file": "assets/InputLabel-c644184f.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_LandingLayout-1960c427.js": {
+    "file": "assets/LandingLayout-1960c427.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ]
+  },
+  "_NavLink-7f74414b.js": {
+    "file": "assets/NavLink-7f74414b.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_PrimaryButton-3dafe7d0.js": {
+    "file": "assets/PrimaryButton-3dafe7d0.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_TextInput-e91a8512.js": {
+    "file": "assets/TextInput-e91a8512.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
+  "_axios-3c7106ac.js": {
+    "file": "assets/axios-3c7106ac.js"
+  },
+  "_transition-c95d1809.js": {
+    "file": "assets/transition-c95d1809.js",
+    "imports": [
+      "resources/frontend/js/app.tsx"
+    ]
+  },
   "resources/css/app-dashboard.css": {
-    "file": "assets/app-dashboard-b9e52791.css",
+    "file": "assets/app-dashboard-f0c7b5c5.css",
     "isEntry": true,
     "src": "resources/css/app-dashboard.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-98d9c262.css",
+    "file": "assets/app-d160afa0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -49,13 +118,326 @@
     "file": "assets/din-next-lt-regular-21128d20.ttf",
     "src": "resources/fonts/din-next-lt-regular.ttf"
   },
+  "resources/frontend/fonts/LTEnergy-Italic.otf": {
+    "file": "assets/LTEnergy-Italic-040f6b59.otf",
+    "src": "resources/frontend/fonts/LTEnergy-Italic.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-NarrowBold.otf": {
+    "file": "assets/LTEnergy-NarrowBold-c75881cb.otf",
+    "src": "resources/frontend/fonts/LTEnergy-NarrowBold.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-NarrowBoldItalic.otf": {
+    "file": "assets/LTEnergy-NarrowBoldItalic-c6e17e93.otf",
+    "src": "resources/frontend/fonts/LTEnergy-NarrowBoldItalic.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-NarrowBoldSemi-Italic.otf": {
+    "file": "assets/LTEnergy-NarrowBoldSemi-Italic-85493ed5.otf",
+    "src": "resources/frontend/fonts/LTEnergy-NarrowBoldSemi-Italic.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-Regular.otf": {
+    "file": "assets/LTEnergy-Regular-5839d2c8.otf",
+    "src": "resources/frontend/fonts/LTEnergy-Regular.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-Semi-Italic.otf": {
+    "file": "assets/LTEnergy-Semi-Italic-8fa1d411.otf",
+    "src": "resources/frontend/fonts/LTEnergy-Semi-Italic.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-WideBold.otf": {
+    "file": "assets/LTEnergy-WideBold-2319d73a.otf",
+    "src": "resources/frontend/fonts/LTEnergy-WideBold.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-WideBoldItalic.otf": {
+    "file": "assets/LTEnergy-WideBoldItalic-0c306e25.otf",
+    "src": "resources/frontend/fonts/LTEnergy-WideBoldItalic.otf"
+  },
+  "resources/frontend/fonts/LTEnergy-WideBoldSemi-Italic.otf": {
+    "file": "assets/LTEnergy-WideBoldSemi-Italic-675971af.otf",
+    "src": "resources/frontend/fonts/LTEnergy-WideBoldSemi-Italic.otf"
+  },
+  "resources/frontend/fonts/LTEnergySmRd-Italic.otf": {
+    "file": "assets/LTEnergySmRd-Italic-f731ce00.otf",
+    "src": "resources/frontend/fonts/LTEnergySmRd-Italic.otf"
+  },
+  "resources/frontend/fonts/LTEnergySmRd-Regular.otf": {
+    "file": "assets/LTEnergySmRd-Regular-2b55b934.otf",
+    "src": "resources/frontend/fonts/LTEnergySmRd-Regular.otf"
+  },
+  "resources/frontend/fonts/LTEnergySmRd-Semi-Italic.otf": {
+    "file": "assets/LTEnergySmRd-Semi-Italic-2f9e902d.otf",
+    "src": "resources/frontend/fonts/LTEnergySmRd-Semi-Italic.otf"
+  },
+  "resources/frontend/images/logo.png": {
+    "file": "assets/logo-c2f26a6c.png",
+    "src": "resources/frontend/images/logo.png"
+  },
+  "resources/frontend/js/Pages/AboutUs.tsx": {
+    "file": "assets/AboutUs-4172f634.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-1960c427.js",
+      "_Faq-88e2b3ff.js",
+      "_Faq-d38ff816.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/AboutUs.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx": {
+    "file": "assets/ConfirmPassword-9b03774a.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/ForgotPassword.tsx": {
+    "file": "assets/ForgotPassword-02e5d648.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_TextInput-e91a8512.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/ForgotPassword.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/Login.tsx": {
+    "file": "assets/Login-d852ad55.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/Login.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/Register.tsx": {
+    "file": "assets/Register-5a916707.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/Register.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/ResetPassword.tsx": {
+    "file": "assets/ResetPassword-52bb797a.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/ResetPassword.tsx"
+  },
+  "resources/frontend/js/Pages/Auth/VerifyEmail.tsx": {
+    "file": "assets/VerifyEmail-e0c7b773.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_GuestLayout-06655948.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/VerifyEmail.tsx"
+  },
+  "resources/frontend/js/Pages/Blog.tsx": {
+    "file": "assets/Blog-b9064bde.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-1960c427.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Blog.tsx"
+  },
+  "resources/frontend/js/Pages/ContactUs.tsx": {
+    "file": "assets/ContactUs-192edd98.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-1960c427.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/ContactUs.tsx"
+  },
+  "resources/frontend/js/Pages/Home.tsx": {
+    "file": "assets/Home-203bc6f5.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-1960c427.js",
+      "_Faq-88e2b3ff.js",
+      "_Faq-d38ff816.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Home.tsx"
+  },
+  "resources/frontend/js/Pages/Playground.tsx": {
+    "file": "assets/Playground-d61f9544.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_Faq-88e2b3ff.js",
+      "_axios-3c7106ac.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Playground.tsx"
+  },
+  "resources/frontend/js/Pages/Pricing.tsx": {
+    "file": "assets/Pricing-839ee851.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-1960c427.js",
+      "_axios-3c7106ac.js",
+      "_ApplicationLogo-cfda226a.js",
+      "_NavLink-7f74414b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Pricing.tsx"
+  },
+  "resources/frontend/js/Pages/Profile/Edit.tsx": {
+    "file": "assets/Edit-e85c019f.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_ApplicationLogo-cfda226a.js",
+      "_transition-c95d1809.js",
+      "_NavLink-7f74414b.js",
+      "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx",
+      "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
+      "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx",
+      "_axios-3c7106ac.js",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Profile/Edit.tsx"
+  },
+  "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx": {
+    "file": "assets/DeleteUserForm-5da3a866.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_transition-c95d1809.js",
+      "_axios-3c7106ac.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx"
+  },
+  "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx": {
+    "file": "assets/UpdatePasswordForm-0be8c041.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_transition-c95d1809.js",
+      "_axios-3c7106ac.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx"
+  },
+  "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx": {
+    "file": "assets/UpdateProfileInformationForm-a7ef9b0f.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_TextInput-e91a8512.js",
+      "_InputLabel-c644184f.js",
+      "_PrimaryButton-3dafe7d0.js",
+      "_transition-c95d1809.js",
+      "_axios-3c7106ac.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx"
+  },
+  "resources/frontend/js/app.css": {
+    "file": "assets/app-211d1d52.css",
+    "src": "resources/frontend/js/app.css"
+  },
+  "resources/frontend/js/app.tsx": {
+    "assets": [
+      "assets/LTEnergy-Regular-5839d2c8.otf",
+      "assets/LTEnergy-Semi-Italic-8fa1d411.otf",
+      "assets/LTEnergy-Italic-040f6b59.otf",
+      "assets/LTEnergySmRd-Regular-2b55b934.otf",
+      "assets/LTEnergySmRd-Semi-Italic-2f9e902d.otf",
+      "assets/LTEnergySmRd-Italic-f731ce00.otf",
+      "assets/LTEnergy-NarrowBold-c75881cb.otf",
+      "assets/LTEnergy-NarrowBoldSemi-Italic-85493ed5.otf",
+      "assets/LTEnergy-NarrowBoldItalic-c6e17e93.otf",
+      "assets/LTEnergy-WideBold-2319d73a.otf",
+      "assets/LTEnergy-WideBoldSemi-Italic-675971af.otf",
+      "assets/LTEnergy-WideBoldItalic-0c306e25.otf"
+    ],
+    "css": [
+      "assets/app-211d1d52.css"
+    ],
+    "dynamicImports": [
+      "resources/frontend/js/Pages/AboutUs.tsx",
+      "resources/frontend/js/Pages/Auth/ConfirmPassword.tsx",
+      "resources/frontend/js/Pages/Auth/ForgotPassword.tsx",
+      "resources/frontend/js/Pages/Auth/Login.tsx",
+      "resources/frontend/js/Pages/Auth/Register.tsx",
+      "resources/frontend/js/Pages/Auth/ResetPassword.tsx",
+      "resources/frontend/js/Pages/Auth/VerifyEmail.tsx",
+      "resources/frontend/js/Pages/Blog.tsx",
+      "resources/frontend/js/Pages/ContactUs.tsx",
+      "resources/frontend/js/Pages/Home.tsx",
+      "resources/frontend/js/Pages/Playground.tsx",
+      "resources/frontend/js/Pages/Pricing.tsx",
+      "resources/frontend/js/Pages/Profile/Edit.tsx",
+      "resources/frontend/js/Pages/Profile/Partials/DeleteUserForm.tsx",
+      "resources/frontend/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
+      "resources/frontend/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx"
+    ],
+    "file": "assets/app-59a9fd33.js",
+    "imports": [
+      "_axios-3c7106ac.js"
+    ],
+    "isEntry": true,
+    "src": "resources/frontend/js/app.tsx"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-fbc0a306.js",
+    "file": "assets/app-c5336270.js",
+    "imports": [
+      "_axios-3c7106ac.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-46521879.css",
+    "file": "assets/app-a450f7eb.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

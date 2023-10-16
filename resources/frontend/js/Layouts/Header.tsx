@@ -1,8 +1,8 @@
 import React, {PropsWithChildren} from "react";
-import ApplicationLogo from "./../Components/ApplicationLogo";
+import ApplicationLogo from "../Components/ApplicationLogo";
 import {Link} from "@inertiajs/react";
 import NavLink from "./../Components/NavLink";
-import {BarsIcon, UsersIcon} from "./../Components/Icons";
+import {BarsIcon, UsersIcon} from "../Components/Icons";
 
 const navigation = [
     {

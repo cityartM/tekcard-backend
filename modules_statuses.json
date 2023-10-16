@@ -1,3 +1,10 @@
 {
-    "Address": true
+    "Address": true,
+    "Subscription": true,
+    "Help": true,
+    "ContactUs": true,
+    "FeedBack": true,
+    "Company": true,
+    "Plan": true,
+    "Feature": true
 }

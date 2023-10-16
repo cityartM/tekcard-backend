@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Role;
 
+use App\Datatables\RoleDatatable;
+use App\Datatables\RoleDatatables;
 use App\Models\Role;
 use App\Support\Authorization\CacheFlusherTrait;
 use DB;
@@ -89,5 +91,10 @@ class EloquentRole implements RoleRepository
     public function findByName($name)
     {
         return Role::where('name', $name)->first();
+    }
+
+    public function getDatatables():RoleDatatable
+    {
+        return new RoleDatatable();
     }
 }

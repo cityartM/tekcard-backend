@@ -14,10 +14,15 @@ class PluginServiceProvider extends BaseVanguardServiceProvider
     protected function plugins()
     {
         return [
+            \App\Support\Plugins\Companies::class,
             \App\Support\Plugins\Users::class,
             \App\Support\Plugins\Settings::class,
             \App\Support\Plugins\RolesAndPermissions::class,
             \App\Support\Plugins\Address::class,
+            \App\Support\Plugins\Plans::class,
+            \App\Support\Plugins\Subscriptions::class,
+            \App\Support\Plugins\ContactUs::class,
+            \App\Support\Plugins\FeedBack::class,
             \App\Support\Plugins\Translations::class
         ];
     }

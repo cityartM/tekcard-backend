@@ -56,7 +56,17 @@
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-3">
-                <a href="{{ route('users.destroy', $user) }}" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                <a href="{{ route('users.destroy', $user) }}" class="menu-link px-3 delete_confirm"
+                   title="@lang('Delete')"
+                   data-toggle="tooltip"
+                   data-method="DELETE"
+                   data-confirm-title="@lang('Please Confirm')"
+                   data-confirm-text="@lang('Are you sure that you want to delete this user?')"
+                   data-confirm-delete="@lang('Yes, delete it!')"
+                   data-confirm-cancel="@lang('No, cancel!')"
+                >
+                    @lang('app.Delete')
+                </a>
             </div>
             <!--end::Menu item-->
         </div>

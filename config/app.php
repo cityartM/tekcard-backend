@@ -186,7 +186,7 @@ return [
         Akaunting\Setting\Provider::class,
         App\Providers\PluginServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
-        Webpatser\Countries\CountriesServiceProvider::class, 
+        Webpatser\Countries\CountriesServiceProvider::class,
     ])->toArray(),
 
     /*
