@@ -1,33 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-a09f7ab0.mjs";
-const InputLabel = ({ value, className = "", children, ...props }) => {
-  return /* @__PURE__ */ jsx("label", { ...props, className: `capitalize text-[1.25rem] font-medium text-[#606060] ` + className, children: value ? value : children });
-};
-const TextArea = ({ className = "", rows = 3, children, ...props }) => {
-  return /* @__PURE__ */ jsx(
-    "textarea",
-    {
-      ...props,
-      rows,
-      className: "text-[1.25rem] border border-gray-300 rounded-2xl shadow-sm p-8 focus:outline-none focus:ring-1 focus:ring-[#2273AF] focus:border-[#2273AF]" + className,
-      children
-    }
-  );
-};
-function InputError({ message, className = "", ...props }) {
-  return message ? /* @__PURE__ */ jsx("p", { ...props, className: "text-sm text-red-600 " + className, children: message }) : null;
-}
-const TextInput = ({ type = "text", className = "", ...props }) => {
-  return /* @__PURE__ */ jsx(
-    "input",
-    {
-      ...props,
-      type,
-      className: "text-[1.25rem] px-8 py-4 border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-1 focus:ring-[#2273AF] focus:border-[#2273AF] " + className
-    }
-  );
-};
+import { L as LandingLayout } from "./LandingLayout-373328ec.mjs";
+import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
 const fields = [
   {
     name: "name",

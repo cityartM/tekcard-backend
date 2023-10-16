@@ -79,8 +79,8 @@ const Header = ({}) => {
       /* @__PURE__ */ jsxs("div", { className: "px-6 flex items-center justify-between", children: [
         /* @__PURE__ */ jsx(Link, { href: "/", children: /* @__PURE__ */ jsx(ApplicationLogo, { className: "h-8" }) }),
         /* @__PURE__ */ jsx("div", { className: "flex items-center gap-2", children: !user ? /* @__PURE__ */ jsxs(Fragment, { children: [
-          /* @__PURE__ */ jsx("a", { href: route("login"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700", children: /* @__PURE__ */ jsx("span", { children: "Login" }) }),
-          /* @__PURE__ */ jsxs("a", { href: route("register"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
+          /* @__PURE__ */ jsx("a", { href: route("landing.login.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700", children: /* @__PURE__ */ jsx("span", { children: "Login" }) }),
+          /* @__PURE__ */ jsxs("a", { href: route("landing.register.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
             /* @__PURE__ */ jsx(UsersIcon, {}),
             /* @__PURE__ */ jsx("span", { children: "Create a Card" })
           ] })

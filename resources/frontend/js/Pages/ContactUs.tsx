@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import {Head, useForm} from '@inertiajs/react';
+import {Head} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
 import ContactForm from "../Components/ContactForm";
 
@@ -11,6 +11,7 @@ export default function ContactUs({}: PropsWithChildren) {
       <div className={'mx-auto max-w-7xl'}>
 
         <div className={'py-28 space-y-20'}>
+          {/*Page Header*/}
           <div className={'flex items-center justify-center'}>
             <h1 className={'text-center text-[4rem] text-[#2273AF] font-bold leading-snug'}>
               {'Contact Us'}
@@ -18,6 +19,7 @@ export default function ContactUs({}: PropsWithChildren) {
           </div>
 
           <div className={'grid grid-cols-1 md:grid-cols-2 gap-12 items-center'}>
+            {/*Header column*/}
             <div className={'space-y-16'}>
               <div className={'space-y-6'}>
                 <h2 className={'text-[4rem] text-[#2273AF] font-bold leading-snug'}>
@@ -68,6 +70,7 @@ export default function ContactUs({}: PropsWithChildren) {
                 </div>
               </div>
             </div>
+            {/*Form column*/}
             <div className={'col-span-full md:col-span-1 py-20 px-16 bg-white rounded-3xl'}>
               <ContactForm></ContactForm>
             </div>

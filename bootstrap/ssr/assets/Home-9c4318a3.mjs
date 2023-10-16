@@ -1,8 +1,7 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { usePage, Head } from "@inertiajs/react";
-import { L as LandingLayout, D as DummySponsorIcon } from "./LandingLayout-a09f7ab0.mjs";
-import { F as Faq } from "./Faq-b8d8b6c8.mjs";
-import { u as useFaqs } from "./Faq-589e9e94.mjs";
+import { L as LandingLayout, D as DummySponsorIcon } from "./LandingLayout-373328ec.mjs";
+import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 const reviewsData = [

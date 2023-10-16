@@ -11,7 +11,7 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 })->name('landing.about-us');
 
-Route::get('/blog', function () {
+Route::get('/frontend/blog', function () {
     return Inertia::render('Blog');
 })->name('landing.blog');
 
@@ -27,6 +27,14 @@ Route::get('/playground', function () {
     return Inertia::render('Playground');
 })->name('landing.playground');
 
+Route::get('/frontend/login', function () {
+    return Inertia::render('Auth/Login');
+})->name('landing.login.get');
+
+Route::get('/frontend/register', function () {
+    return Inertia::render('Auth/Register');
+})->name('landing.register.get');
+
 Route::post('/contact-us', function () {
     $rules = [
         'subject' => 'required|string|max:255',
@@ -41,3 +49,16 @@ Route::post('/contact-us', function () {
 
     //dd(request()->all());
 })->name('landing.contact-us.submit');
+
+Route::post('/landing/login', function () {
+    $rules = [
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'password' => 'required|confirmed|string|max:255',
+    ];
+    request()->validate($rules);
+
+    return redirect()->route('landing.home')->with('success', 'Your message has been sent successfully!');
+
+    //dd(request()->all());
+})->name('landing.login');
