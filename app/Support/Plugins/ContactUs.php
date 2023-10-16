@@ -9,7 +9,7 @@ class ContactUs extends Plugin
 {  
     public function sidebar()
     {
-        return Item::create(__('app.ContactUs'))
+        return Item::create(__('app.contact_us'))
             ->route('contactus.index')
             ->icon('<span class="svg-icon svg-icon-2"><i class="fa fa-cubes mx-1"></i></span>')
             ->active("contactus*")

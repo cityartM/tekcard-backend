@@ -1,7 +1,7 @@
 <?php
 
-return [
-
+return [ 
+ 
     'status' => [
         'Active' => 'Active',
         'Banned' => 'Banned',
@@ -235,8 +235,35 @@ return [
 
 
 
+/*** contact_us ***/
+
+'contact_us' => 'اتصل بنا' ,
+'contact_us_list' => 'قائمة اتصل بنا',
+'first_name' => 'الاسم الأول',
+'last_name' => 'الاسم الأخير',
 
 
+
+
+
+/***  feedback  ***/
+'feedback' => 'تعليقات',
+'feedback_list' => 'قائمة التعليقات',
+
+    /***  subscriptions  ***/
+    'subscriptions' => 'اشتراكات' ,
+    'subscriptions_list' => 'قائمة الاشتراكات' ,
+    'email' => 'البريد الإلكتروني' ,
+    'subscriptions_date' => 'تاريخ الاشتراكات' ,
+
+    /***  general  ***/
+    'actions' => 'إجراءات',
+    'delete' => 'حذف',
+    'selected' => 'محدد' ,
+    'delete_selected' => 'حذف المحددين',
+    'user' => 'مستخدم' ,
+    'No_records_found' => 'لم يتم العثور على سجلات',
+    'message' => 'رسالة',
 
 
 

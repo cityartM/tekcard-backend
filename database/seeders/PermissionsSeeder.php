@@ -118,6 +118,20 @@ class PermissionsSeeder extends Seeder
         ]);
 
         $permissions[] = Permission::create([
+            'name' => 'contactus.manage',
+            'display_name' => 'Contact_Us',
+            'description' => '',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'feedback.manage',
+            'display_name' => 'FeedBack',
+            'description' => '',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
             'name' => 'strategies.manage',
             'display_name' => 'strategy',
             'description' => '',

@@ -1,6 +1,6 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.subscriptions'))
+@section('page-title', __('app.subscriptions')) 
 @section('page-heading', __('app.subscriptions'))
 
 @section('breadcrumbs')
@@ -37,10 +37,10 @@
                                 @lang('app.email')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.subscriptions date')
+                                @lang('app.subscriptions_date')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.Actions')
+                                @lang('app.actions')
                             </th>
                         </tr>
                         </thead>
@@ -55,7 +55,7 @@
                                     <form action="{{ route('subscriptions.destroy', $subscriptions->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this subscription?')">Delete</button>
+                                        <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this subscription?')">@lang('app.delete')</button>
                                     </form>
                                 </td>
                              </tr>
