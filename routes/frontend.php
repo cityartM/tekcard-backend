@@ -26,3 +26,18 @@ Route::get('/contact-us', function () {
 Route::get('/playground', function () {
     return Inertia::render('Playground');
 })->name('landing.playground');
+
+Route::post('/contact-us', function () {
+    $rules = [
+        'subject' => 'required|string|max:255',
+        'name' => 'required|string|max:255',
+        'company' => 'required|string|max:255',
+        'message' => 'required|string',
+        'email' => 'required|email',
+    ];
+    request()->validate($rules);
+
+    return redirect()->route('landing.contact-us')->with('success', 'Your message has been sent successfully!');
+
+    //dd(request()->all());
+})->name('landing.contact-us.submit');

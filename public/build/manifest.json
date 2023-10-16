@@ -1,21 +1,21 @@
 {
-  "_Faq-4fb71441.js": {
-    "file": "assets/Faq-4fb71441.js",
+  "_Faq-a86599c7.js": {
+    "file": "assets/Faq-a86599c7.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
   },
-  "_Faq-a5d6bef5.js": {
-    "file": "assets/Faq-a5d6bef5.js",
+  "_Faq-bd30f582.js": {
+    "file": "assets/Faq-bd30f582.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
   },
-  "_LandingLayout-ba2d91cc.js": {
+  "_LandingLayout-e1a2bae5.js": {
     "assets": [
       "assets/logo-c2f26a6c.png"
     ],
-    "file": "assets/LandingLayout-ba2d91cc.js",
+    "file": "assets/LandingLayout-e1a2bae5.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
@@ -24,12 +24,12 @@
     "file": "assets/axios-3c7106ac.js"
   },
   "resources/css/app-dashboard.css": {
-    "file": "assets/app-dashboard-57e755f2.css",
+    "file": "assets/app-dashboard-265701aa.css",
     "isEntry": true,
     "src": "resources/css/app-dashboard.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-b3fe0524.css",
+    "file": "assets/app-f6299026.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -142,32 +142,41 @@
     "src": "resources/frontend/images/playstore1.png"
   },
   "resources/frontend/js/Pages/AboutUs.tsx": {
-    "file": "assets/AboutUs-fca46f4b.js",
+    "file": "assets/AboutUs-c72be5e6.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-ba2d91cc.js",
-      "_Faq-a5d6bef5.js",
-      "_Faq-4fb71441.js",
+      "_LandingLayout-e1a2bae5.js",
+      "_Faq-bd30f582.js",
+      "_Faq-a86599c7.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/AboutUs.tsx"
   },
-  "resources/frontend/js/Pages/Blog.tsx": {
-    "file": "assets/Blog-fa5a09b1.js",
+  "resources/frontend/js/Pages/Auth/Login.tsx": {
+    "file": "assets/Login-52124ff7.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-ba2d91cc.js",
+      "_axios-3c7106ac.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/frontend/js/Pages/Auth/Login.tsx"
+  },
+  "resources/frontend/js/Pages/Blog.tsx": {
+    "file": "assets/Blog-c4c9397d.js",
+    "imports": [
+      "resources/frontend/js/app.tsx",
+      "_LandingLayout-e1a2bae5.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Blog.tsx"
   },
   "resources/frontend/js/Pages/ContactUs.tsx": {
-    "file": "assets/ContactUs-27c0793e.js",
+    "file": "assets/ContactUs-0d2a1f1e.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-ba2d91cc.js",
+      "_LandingLayout-e1a2bae5.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
@@ -180,39 +189,39 @@
       "assets/playstore1-a9eec797.png",
       "assets/hero-db078799.png"
     ],
-    "file": "assets/Home-7061d1c7.js",
+    "file": "assets/Home-b3fb1820.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-ba2d91cc.js",
-      "_Faq-a5d6bef5.js",
-      "_Faq-4fb71441.js",
+      "_LandingLayout-e1a2bae5.js",
+      "_Faq-bd30f582.js",
+      "_Faq-a86599c7.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Home.tsx"
   },
   "resources/frontend/js/Pages/Playground.tsx": {
-    "file": "assets/Playground-5194b567.js",
+    "file": "assets/Playground-61b3b6ce.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_Faq-a5d6bef5.js",
+      "_Faq-bd30f582.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Playground.tsx"
   },
   "resources/frontend/js/Pages/Pricing.tsx": {
-    "file": "assets/Pricing-e3271985.js",
+    "file": "assets/Pricing-f67fa5c7.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-ba2d91cc.js",
+      "_LandingLayout-e1a2bae5.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Pricing.tsx"
   },
   "resources/frontend/js/app.css": {
-    "file": "assets/app-548d68de.css",
+    "file": "assets/app-8cc6dced.css",
     "src": "resources/frontend/js/app.css"
   },
   "resources/frontend/js/app.tsx": {
@@ -231,17 +240,18 @@
       "assets/LTEnergy-WideBoldItalic-0c306e25.otf"
     ],
     "css": [
-      "assets/app-548d68de.css"
+      "assets/app-8cc6dced.css"
     ],
     "dynamicImports": [
       "resources/frontend/js/Pages/AboutUs.tsx",
+      "resources/frontend/js/Pages/Auth/Login.tsx",
       "resources/frontend/js/Pages/Blog.tsx",
       "resources/frontend/js/Pages/ContactUs.tsx",
       "resources/frontend/js/Pages/Home.tsx",
       "resources/frontend/js/Pages/Playground.tsx",
       "resources/frontend/js/Pages/Pricing.tsx"
     ],
-    "file": "assets/app-eb1af349.js",
+    "file": "assets/app-3725ea75.js",
     "imports": [
       "_axios-3c7106ac.js"
     ],
