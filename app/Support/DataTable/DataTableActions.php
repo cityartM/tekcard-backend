@@ -11,8 +11,6 @@ class DataTableActions
 
     private ?string $html = "";
 
-    private ?string $htmlMenu = "";
-
     private bool $deleteBtn = false;
     private bool $deleteActionInModel = false;
     private string $deleteRoute;
@@ -23,6 +21,7 @@ class DataTableActions
     private string $switcherModel;
     private int $switcherModelId;
     private ?string $switcher_column_name = "status";
+
     private bool $status = false;
 
     public function edit(string $route): DataTableActions
@@ -68,7 +67,10 @@ class DataTableActions
 
         if ($this->editBtn) {
             $html .= '<div class="menu-item px-3">
-                         <a href="' . $this->editRoute . '" class="menu-link px-3">'.__('app.edit').'</a>
+                         <a href="' . $this->editRoute . '" class="menu-link px-3">
+                         <i class="ki-duotone ki-pencil fs-3 m-1"><span class="path1"></span><span class="path2"></span></i>
+                         '.__('app.edit').'
+                         </a>
                       </div>';
         }
         if ($this->deleteBtn) {
@@ -77,11 +79,12 @@ class DataTableActions
                            title="'.__('app.delete').'"
                            data-toggle="tooltip"
                            data-method="DELETE"
-                           data-confirm-title="Please Confirm"
-                           data-confirm-text="Are you sure that you want to delete this role?"
-                           data-confirm-delete="Yes, delete it!"
-                           data-confirm-cancel="No, cancel!"
+                           data-confirm-title="'.__('app.please_confirm').'"
+                           data-confirm-text="'.__('app.are_you_sure_that_you_want_to_delete_this_row').'"
+                           data-confirm-delete="'.__('app.yes_delete_it').'"
+                           data-confirm-cancel="'.__('app.no_cancel').'"
                         >
+                        <i class="ki-duotone ki-trash fs-3 m-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                             '.__('app.delete').'
                         </a>
                      </div>';
@@ -176,12 +179,24 @@ class DataTableActions
         return $html;
     }
 
+    public function avatar($imageUrl): string
+    {
+        $html = "<div class='symbol symbol-circle symbol-50px overflow-hidden me-3'>";
+        $html .= "<a href='#'>";
+        $html .= "<div class='symbol-label'>";
+        $html .= "<img class='w-100' src='$imageUrl' alt='image'  />";
+        $html .= "</a>";
+        $html .= "</div>";
+        $html .= "</div>";
+        return $html;
+    }
+
     public function color($colorCode): string
     {
         return "<div style='width: 30px;height:30px;margin: auto;border-radius: 50%;background-color: " . $colorCode . "'></div>";
     }
 
-    public static function Statuses($code, $status): string
+    public static function statuses($code, $status): string
     {
         return '<span class="badge badge-light-' . $code . '">' . $status . '</span>';
     }
@@ -190,7 +205,7 @@ class DataTableActions
     // {
     //     return '<a href="' . url('https://api.whatsapp.com/send?text=' . urlencode($links)) . '" target="__blank">' . $name . ' <span class="menu-icon ml-5"><i class="bi bi-share fs-3"></i></span></a> ';
     // }
-    public static function Share($links, $name): string
+    public static function share($links, $name): string
     {
         return '<a href="' . url('https://api.whatsapp.com/send?text=' . urlencode($links)) . '" target="__blank">' . $name . ' <span class="menu-icon ml-5"><i class="bi bi-share fs-3"></i></span></a> ' .
             '<span class="copy-link" onclick="copyToClipboard(\''. $links . '\')"><i class="bi bi-files fs-3"></i></span>';

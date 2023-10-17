@@ -1,7 +1,7 @@
 <?php
 
 return [
- 
+
     'months' => [
         1 => 'January',
         2 => 'February',
@@ -107,14 +107,31 @@ return [
     'save' => 'Save',
     'show' => 'Show',
     'delete' => 'Delete',
+    'create' => 'Create',
     'edit' => 'Edit',
     'action'=>'Action',
+    'actions' => 'Actions',
+    'selected' => 'Selected',
+    'delete_selected' => 'Delete Selected',
+    'no_records_found' => 'No records found.',
     'label_status' =>'Status',
     'created_at' =>'Created date',
+    'message' => 'message',
+    'please_confirm' => 'Please Confirm',
+    'are_you_sure_that_you_want_to_delete_this_row' => 'Are you sure that you want to delete this row ?',
+    'yes_delete_it' => 'Yes, delete it !',
+    'no_cancel' => 'No, cancel !',
+    'optional' =>'Optional',
+    'please_wait' =>'Please wait...',
+    'back' =>'Back',
+    'name' => 'Name',
+    'display_name' => 'Display Name',
+    'description' => 'Description',
+    'page_status' => 'Status',
 
 
     /*** Role ***/
-    'name' => 'Name',
+
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
     'reset' => 'Reset',
@@ -123,13 +140,33 @@ return [
     'role_list' =>'List Roles',
     'roles_permissions' =>'Roles & Permissions',
     'add_role' =>'Add Role',
-    'display_name' => 'Display Name',
+    'save_role' =>'Save Role',
+    'update_role' =>'Update Role',
     'of_users_with_this_role' => '# of users with this role',
-    'add_permission' => 'Add Permission',
-    'optional' =>'Optional',
+    'create_new_role' => 'Create New Role',
+    'role_details' => 'Role Details',
+    'general_role_information' => 'A general role information.',
+    'role_name' => 'Role Name',
+
+
+    /*** Permission ***/
+    'permissions' =>'Permissions',
+    'permission' =>'Permission',
+    'permission_list' =>'Permission List',
+    'add_permission' =>'Add Permission',
+    'save_permissions' =>'Save Permission',
+    'delete_permission' =>'Delete Permission',
+    'create_new_permission' =>'Create New Permission',
+    'permission_details' =>'Permission Details',
+    'general_permission_information' =>'A general permission information.',
+    'permission_name' =>'Permission Name',
+    'save_permission' =>'Save Permission',
+    'update_permission' =>'Update Permission',
 
 
     /***  User  ***/
+    'users' => 'Users',
+    'user' => 'User',
     'add_user' =>'Add User',
     'edit_user' =>'Edit User',
     'update_user' =>'Update User',
@@ -146,6 +183,7 @@ return [
     'new_password_user' =>'New Password',
     'confirm_new_password_user' =>'Confirm New Password',
     'filter' =>'Filter',
+    'list_users' =>'List users',
 
 
 
@@ -179,7 +217,6 @@ return [
     'max_sale_price'=>'max sale price',
     'min_rent_price'=>'min rent price',
     'max_rent_price'=>'max rent price',
-    'users' => 'users',
     'Translations' => 'Translations',
     'Subscriptions' => 'Subscriptions',
     'Strategy' => 'Strategy',
@@ -234,8 +271,6 @@ return [
 
     'subscriptions' => 'subscriptions',
     'subscriptions_list' => 'subscriptions list',
-    'selected' => 'selected',
-    'delete_selected' => 'delete_selected',
     'user id' => 'user id',
     'price' => 'price',
     'date' => 'date',
@@ -257,9 +292,7 @@ return [
     'Create New Motivational Phrases' => 'Create New Motivational Phrases',
     'help' => 'help',
     'help_list' => 'help_list',
-    'user' => 'user',
     'type' => 'type',
-    'description' => 'description',
     'Add Advices' => 'Add Advices',
     'day' => 'day',
     'likes' => 'likes',
@@ -293,14 +326,7 @@ return [
 'subscriptions_date' => 'subscriptions date',
 
 
-/***  general  ***/
-'actions' => 'actions',
-'delete' => 'delete',
-'selected' => 'selected',
-'delete_selected' => 'delete_selected',
-'user' => 'user',
-'No_records_found' => 'No records found',
-'message' => 'message',
+
 
 
 

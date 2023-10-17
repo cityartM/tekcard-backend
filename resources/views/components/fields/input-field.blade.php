@@ -8,7 +8,7 @@
                @if(isset($value))
                    value="{{$value}}"
                @else
-                   value="{{old($name, $model ? $model->$name : '')}}"
+                   value="{{old($name) ? old($name) : ( $model ? $model->$name : '')}}"
                @endif
            @endif
            class="form-control input-solid @error($name) is-invalid @enderror" placeholder="{{$placeholder ?? $title}}" {{$required ? 'required' : ''}} id="{{$name}}" />

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\User;
 
+use App\Datatables\UserDatatable;
 use App\Http\Filters\UserKeywordSearch;
 use App\Repositories\Role\RoleRepository;
 use App\Models\Role;
@@ -253,5 +254,10 @@ class EloquentUser implements UserRepository
     {
         return User::where('role_id', $fromRoleId)
             ->update(['role_id' => $toRoleId]);
+    }
+
+    public function getDatatables():UserDatatable
+    {
+        return new UserDatatable();
     }
 }

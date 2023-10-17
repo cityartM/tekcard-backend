@@ -158,4 +158,6 @@ interface UserRepository
      * @return mixed
      */
     public function findByConfirmationToken($token);
+
+    public function getDatatables();
 }

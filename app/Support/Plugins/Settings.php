@@ -30,11 +30,11 @@ class Settings extends Plugin
         return Item::create(__('app.Settings'))
             ->href('#settings-dropdown')
             ->icon('fas fa-cogs')
-            ->permissions(['settings.general', 'settings.auth', 'settings.notifications'])
+            ->permissions(['settings.general'])
             ->addChildren([
                 $general,
-                $authAndRegistration,
-                $notifications,
+                //$authAndRegistration,
+                //$notifications,
             ]);
     }
 }

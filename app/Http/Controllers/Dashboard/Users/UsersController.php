@@ -38,7 +38,7 @@ class UsersController extends Controller
      * @param Request $request
      * @return Factory|View
      */
-    public function index(Request $request)
+    public function indexOld(Request $request)
     {
         //dd($request->all());
         $users = $this->users->paginate($perPage = 20, $request->search, $request->status);
@@ -46,6 +46,16 @@ class UsersController extends Controller
         $statuses = ['' => __('All')] + UserStatus::lists();
 
         return view('dashboard.user.list', compact('users', 'statuses'));
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->users->getDatatables()->datatables($request);
+        }
+        return view("dashboard.user.list")->with([
+            "columns" => $this->users->getDatatables()::columns(),
+        ]);
     }
 
     /**
@@ -136,5 +146,5 @@ class UsersController extends Controller
 
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
-    } 
+    }
 }

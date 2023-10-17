@@ -32,7 +32,7 @@ class RoleDatatable
                         ->make();
                 })
                 ->addColumn("name", function (Role $role) {
-                    return $role->name;
+                    return (new DataTableActions())->statuses('primary',$role->name);
                 })
                 ->addColumn("display_name", function (Role $role) {
                     return $role->display_name;
