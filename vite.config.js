@@ -16,11 +16,11 @@ export default defineConfig({
             ssr: 'resources/frontend/js/ssr.tsx',
             refresh: true,
 
-            // reload the page when the view of each module changes
+            /*// reload the page when the view of each module changes
             hmr: {
                 host: 'localhost',
                 port: 3000,
-            }
+            }*/
         }),
         react(),
     ],

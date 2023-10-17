@@ -1,12 +1,14 @@
-import React, {PropsWithChildren} from "react";
-import LoginForm from "../Components/LoginForm";
-
-const Page: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
+import React, { PropsWithChildren } from 'react';
+import {Head} from '@inertiajs/react';
+import RegisterForm from "../../Components/RegisterForm";
+const Register: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
   return (
-    <>
-      <div className="py-20 min-h-screen h-full">
+    <div className={'mx-auto max-w-7xl'}>
 
-        <div className={'mx-auto max-w-7xl'}>
+      <Head title={'Register'}/>
+
+      <div className={'py-10 space-y-20'}>
+        <div>
           <div className={'grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10'}>
             <div className="hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow">
               <div className="py-20 h-full flex flex-col space-y-10">
@@ -49,16 +51,17 @@ const Page: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
                 <span className={'flex-shrink-0 text-lg font-bold text-[#1D1E24]/30'}>Or</span>
                 <span className="border-b-2 border-[#1D1E24]/30 h-1 flex-grow"></span>
               </div>
-              <LoginForm />
+              <RegisterForm />
             </div>
           </div>
-
         </div>
 
       </div>
-    </>
+    </div>
   );
 }
+
+export default Register;
 
 function GoogleIcon({...props}) {
   return (
@@ -199,8 +202,6 @@ function LogoIcon({...props}) {
     </svg>
   );
 }
-
-export default Page;
 
 function CardsIcon({...props}) {
   return (

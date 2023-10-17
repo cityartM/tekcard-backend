@@ -1,12 +1,16 @@
-import React, {PropsWithChildren} from "react";
-import LoginForm from "../Components/LoginForm";
+import React, { PropsWithChildren } from 'react';
+import {Head} from '@inertiajs/react';
+import LandingLayout from "../../Layouts/LandingLayout";
+import LoginForm from "../../Components/LoginForm";
 
-const Page: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
+const Login: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
   return (
-    <>
-      <div className="py-20 min-h-screen h-full">
+    <div className={'mx-auto max-w-7xl'}>
 
-        <div className={'mx-auto max-w-7xl'}>
+      <Head title={'Login'}/>
+
+      <div className={'py-10 space-y-20'}>
+        <div>
           <div className={'grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10'}>
             <div className="hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow">
               <div className="py-20 h-full flex flex-col space-y-10">
@@ -52,13 +56,16 @@ const Page: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
               <LoginForm />
             </div>
           </div>
-
         </div>
 
       </div>
-    </>
+    </div>
   );
 }
+
+export default Login;
+
+
 
 function GoogleIcon({...props}) {
   return (
@@ -200,7 +207,6 @@ function LogoIcon({...props}) {
   );
 }
 
-export default Page;
 
 function CardsIcon({...props}) {
   return (
