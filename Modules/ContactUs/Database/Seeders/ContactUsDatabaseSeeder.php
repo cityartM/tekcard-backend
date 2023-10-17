@@ -14,46 +14,39 @@ class ContactUsDatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        Model::unguard();
+    { $data = [
+        [
+            'full_name' => 'John Doe',
+            'company' => 'ABC Company',
+            'email' => 'john.doe@example.com',
+            'subject' => 'Inquiry',
+            'message' => 'This is a sample message from John Doe.',
+        ],
+        [
+            'full_name' => 'Jane Smith',
+            'company' => 'XYZ Corporation',
+            'email' => 'jane.smith@example.com',
+            'subject' => 'Support Request',
+            'message' => 'This is a sample message from Jane Smith.',
+        ],
+        [
+            'full_name' => 'Alice Johnson',
+            'company' => null,
+            'email' => 'alice.johnson@example.com',
+            'subject' => 'Feedback',
+            'message' => 'This is a sample message from Alice Johnson.',
+        ],
+        [
+            'full_name' => 'Bob Brown',
+            'company' => '123 Enterprises',
+            'email' => 'bob.brown@example.com',
+            'subject' => 'Question',
+            'message' => 'This is a sample message from Bob Brown.',
+        ],
+    ];
 
-        DB::table('contact_us')->insert([
-            [
-                'first_name' => 'John',
-                'company' => 'Doe',
-                'email' => 'john.doe@example.com',
-                'subject' => 'test',
-                'message' => 'This is a sample message from John Doe.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'first_name' => 'John',
-                'company' => 'Doe',
-                'email' => 'john.doe@example.com',
-                'subject' => 'test',
-                'message' => 'This is a sample message from John Doe.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'first_name' => 'John',
-                'company' => 'Doe',
-                'email' => 'john.doe@example.com',
-                'subject' => 'test',
-                'message' => 'This is a sample message from John Doe.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'first_name' => 'John',
-                'company' => 'Doe',
-                'email' => 'john.doe@example.com',
-                'subject' => 'test',
-                'message' => 'This is a sample message from John Doe.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
-    }
+    // Insert the data into the "contacts_us" table
+    DB::table('contacts_us')->insert($data);
 }
+    }
+

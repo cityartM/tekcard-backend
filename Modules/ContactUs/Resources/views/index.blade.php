@@ -43,11 +43,12 @@
                                 @lang('app.company')
                             </th>
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
-                                @lang('app.message')
-                            </th>
-                            <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.subject')
                             </th>
+                            <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
+                                @lang('app.message')
+                            </th>
+                           
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.actions')
                             </th>
