@@ -21,6 +21,20 @@ class CreateBlogRequest extends Request
             'content' => 'required|array',
             'tumail' => 'image|mimes:jpeg,png,gif|max:2048',
             'type' => 'required|string',
+            'gallery' => [
+                'array',
+                function ($attribute, $value, $fail) {
+                    if (!is_array($value)) {
+                        $fail("The $attribute must be an array.");
+                    }
+        
+                    foreach ($value as $image) {
+                        if (!filter_var($image, FILTER_VALIDATE_URL)) {
+                            $fail("One or more elements in the $attribute are not valid URLs.");
+                        }
+                    }
+                },
+            ],
         ];
     } 
 }

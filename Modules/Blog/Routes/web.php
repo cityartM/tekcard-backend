@@ -11,12 +11,10 @@
 |
 */
 
-Route::prefix('blog')->group(function() {
-    Route::get('/', 'BlogController@index');
-});
+
 
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('blog', \Modules\ContactUs\Http\Controllers\ContactUsController::class)->middleware('permission:blogs.manage');
+    Route::resource('blog', \Modules\Blog\Http\Controllers\BlogController::class)->middleware('permission:blogs.manage');
    
-}); 
+});  

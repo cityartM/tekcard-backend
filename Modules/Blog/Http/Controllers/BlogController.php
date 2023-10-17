@@ -18,7 +18,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog::index');
+        $blogs = Blog::all();
+        return view('blog::index', compact('blogs'));
     }
 
     /**
@@ -37,7 +38,7 @@ class BlogController extends Controller
      */
     public function store(CreateBlogRequest $request)
     {
-        $data = $request->only(['title','content','tumail','type']);
+        $data = $request->only(['title','content','tumail','type','gallery']);
 
         if ($request->isJson() || $request->is('multipart/form-data')) {
             // If the request is JSON or multipart form-data, translate 'title' and 'content'
