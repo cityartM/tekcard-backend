@@ -9,9 +9,9 @@ class ContactUs extends Model
 {
     use HasFactory;
 
-    protected $table = 'contact_us';
+    protected $table = 'contacts_us';
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'message'];
+    protected $fillable = ['full_name', 'company', 'email','subject', 'message']; 
     
     protected static function newFactory()
     {
