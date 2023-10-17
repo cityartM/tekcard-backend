@@ -1,5 +1,5 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
-import { Link, usePage } from "@inertiajs/react";
+import { Link, usePage, useForm } from "@inertiajs/react";
 const Logo = "/build/assets/logo-c2f26a6c.png";
 function ApplicationLogo(props) {
   return /* @__PURE__ */ jsx("img", { src: Logo, alt: "Logo", ...props });
@@ -75,58 +75,71 @@ const Header = ({}) => {
       /* @__PURE__ */ jsx(Link, { href: "/", children: /* @__PURE__ */ jsx(ApplicationLogo, { className: "h-8" }) }),
       /* @__PURE__ */ jsx("div", { className: "flex items-center gap-2", children: /* @__PURE__ */ jsx("button", { type: "button", className: "py-2 px-2 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out text-gray-900 focus:outline-none focus:border-gray-700", children: /* @__PURE__ */ jsx(BarsIcon, {}) }) })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { className: "hidden md:block py-6 w-full", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl flex flex-col gap-4", children: [
-      /* @__PURE__ */ jsxs("div", { className: "px-6 flex items-center justify-between", children: [
-        /* @__PURE__ */ jsx(Link, { href: "/", children: /* @__PURE__ */ jsx(ApplicationLogo, { className: "h-8" }) }),
-        /* @__PURE__ */ jsx("div", { className: "flex items-center gap-2", children: !user ? /* @__PURE__ */ jsxs(Fragment, { children: [
-          /* @__PURE__ */ jsx("a", { href: route("landing.login.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700", children: /* @__PURE__ */ jsx("span", { children: "Login" }) }),
-          /* @__PURE__ */ jsxs("a", { href: route("landing.register.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
-            /* @__PURE__ */ jsx(UsersIcon, {}),
-            /* @__PURE__ */ jsx("span", { children: "Create a Card" })
-          ] })
-        ] }) : /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs(Link, { href: route("dashboard"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
+    /* @__PURE__ */ jsx("div", { className: "hidden md:block py-6 w-full bg-red-200", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl flex flex-col gap-4", children: /* @__PURE__ */ jsxs("div", { className: "px-6 flex items-center justify-between gap-10", children: [
+      /* @__PURE__ */ jsx(Link, { href: "/", className: "flex-shrink-0 ", children: /* @__PURE__ */ jsx(ApplicationLogo, { className: "h-8" }) }),
+      /* @__PURE__ */ jsx("nav", { className: "hidden md:flex flex-grow py-4 items-center justify-start gap-8", children: navigation.map((item, index) => /* @__PURE__ */ jsx(NavLink, { href: route(item.name), active: route().current(item.name), className: "py-2 border-b-4", children: item.label }, index)) }),
+      /* @__PURE__ */ jsx("div", { className: "flex-shrink-0 flex items-center gap-2", children: !user ? /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsx("a", { href: route("landing.login.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700", children: /* @__PURE__ */ jsx("span", { children: "Login" }) }),
+        /* @__PURE__ */ jsxs("a", { href: route("landing.register.get"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
           /* @__PURE__ */ jsx(UsersIcon, {}),
-          /* @__PURE__ */ jsx("span", { children: "Go to Dashboard" })
-        ] }) }) })
-      ] }),
-      /* @__PURE__ */ jsx("nav", { className: "py-4 flex items-center justify-center gap-8", children: navigation.map((item, index) => /* @__PURE__ */ jsx(NavLink, { href: route(item.name), active: route().current(item.name), className: "py-2 border-b-4", children: item.label }, index)) })
-    ] }) })
+          /* @__PURE__ */ jsx("span", { children: "Create a Card" })
+        ] })
+      ] }) : /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs(Link, { href: route("dashboard"), className: "py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700", children: [
+        /* @__PURE__ */ jsx(UsersIcon, {}),
+        /* @__PURE__ */ jsx("span", { children: "Go to Dashboard" })
+      ] }) }) })
+    ] }) }) })
   ] });
 };
 const Header$1 = Header;
 const Footer = ({}) => {
-  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "relative", children: [
-    /* @__PURE__ */ jsx(
-      "div",
-      {
-        className: "z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%",
-        children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row items-center gap-8", children: [
-          /* @__PURE__ */ jsx(
-            "p",
-            {
-              className: "flex-grow text-center md:text-start text-white text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] font-bold",
-              children: "Take control of your personal finances today"
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            "input",
-            {
-              type: "text",
-              placeholder: "Enter your email",
-              className: "flex-shrink-0 w-full md:w-[18rem] h-[4rem] px-[3rem] py-[1.5rem] rounded-[4.5rem]"
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              className: "flex-shrink-0 px-[3.6875rem] py-[1rem] w-full md:w-auto h-[4rem] rounded-[4.5rem] bg-[#2273AF] text-white",
-              children: "Subscribe"
-            }
-          )
-        ] })
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: ""
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    post(route("subscriptions.store"), {
+      preserveScroll: true,
+      onSuccess: () => {
+        reset("email");
+        alert("Message sent successfully!");
+      },
+      onError: () => {
+        alert("Message failed to send!");
       }
-    ),
+    });
+  };
+  const handleChanges = (e) => {
+    setData("email", e.target.value);
+  };
+  return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "relative", children: [
+    /* @__PURE__ */ jsx("div", { className: "z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%", children: /* @__PURE__ */ jsxs("form", { onSubmit: (event) => handleSubmit(event), className: "flex flex-col md:flex-row items-center gap-8", children: [
+      /* @__PURE__ */ jsx(
+        "p",
+        {
+          className: "flex-grow text-center md:text-start text-white text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] font-bold",
+          children: "Take control of your personal finances today"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "input",
+        {
+          type: "text",
+          placeholder: "Enter your email",
+          value: data["email"],
+          onChange: (e) => handleChanges(e),
+          className: "flex-shrink-0 w-full md:w-[18rem] h-[4rem] px-[3rem] py-[1.5rem] rounded-[4.5rem]"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "button",
+        {
+          type: "submit",
+          className: "flex-shrink-0 px-[3.6875rem] py-[1rem] w-full md:w-auto h-[4rem] rounded-[4.5rem] bg-[#2273AF] text-white",
+          children: "Subscribe"
+        }
+      )
+    ] }) }),
     /* @__PURE__ */ jsx(
       "footer",
       {

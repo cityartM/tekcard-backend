@@ -1,6 +1,6 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-373328ec.mjs";
+import { L as LandingLayout } from "./LandingLayout-4e8e0878.mjs";
 function Pricing({}) {
   return /* @__PURE__ */ jsxs(LandingLayout, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
