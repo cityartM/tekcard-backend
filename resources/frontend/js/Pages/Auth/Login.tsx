@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react';
 import {Head} from '@inertiajs/react';
-import LandingLayout from "../../Layouts/LandingLayout";
 import LoginForm from "../../Components/LoginForm";
 
 const Login: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
