@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type');
             $table->json('content');
             $table->string('tumail')->nullable();
+            $table->json('gallery')->nullable();
             $table->timestamps();
         });
     }

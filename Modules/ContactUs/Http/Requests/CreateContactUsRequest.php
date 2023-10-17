@@ -14,10 +14,11 @@ class CreateContactUsRequest extends Request
     public function rules()
     {
         return [
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'email' => 'required|email',
-        'message' => 'required',
+            'full_name' => 'required|string|max:255',
+            'company' => 'nullable|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
         ];
     }
 }

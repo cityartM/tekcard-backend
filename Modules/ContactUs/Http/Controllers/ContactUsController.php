@@ -48,7 +48,7 @@ class ContactUsController extends Controller
      */
     public function store(CreateContactUsRequest $request)
 {
-    $validatedData = $request->only(['first_name','last_name','email','message']);
+    $validatedData = $request->only(['full_name','company','email','subject','message']);
    
     ContactUs::create($validatedData);
 
