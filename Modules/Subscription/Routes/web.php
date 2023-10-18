@@ -17,3 +17,5 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
     Route::resource('subscriptions', \Modules\Subscription\Http\Controllers\SubscriptionController::class)->middleware('permission:subscriptions.manage');
    
 }); 
+
+Route::post('subscriptions', '\Modules\Subscription\Http\Controllers\SubscriptionController@store')->name('subscriptions.store');
