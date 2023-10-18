@@ -14,7 +14,7 @@ class Blog extends Model implements HasMedia
 {
     use HasFactory , InteractsWithMedia,HasTranslations;
 
-    protected $fillable = ['title', 'type', 'content', 'tumail', 'gallery'];
+    protected $fillable = ['title', 'status' ,'type', 'content', 'tumail', 'gallery'];
 
     protected $casts = [
         'title' => 'json',

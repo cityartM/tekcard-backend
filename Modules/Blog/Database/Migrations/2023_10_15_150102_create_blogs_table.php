@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Support\Enum\BlogCategories;
+use App\Support\Enum\Status;
+
 return new class extends Migration
 {
     /**
@@ -16,7 +19,8 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->string('type');
+            $table->enum('status',array_keys(Status::lists()))->default(Status::UNPUBLISHED);
+            $table->enum('type', array_keys(BlogCategories::lists()))->default(BlogCategories::OTHER);
             $table->json('content');
             $table->string('tumail')->nullable();
             $table->json('gallery')->nullable();

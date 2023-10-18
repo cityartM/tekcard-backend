@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('page-title', __('app.Blog'))
-@section('page-heading', $edit ? $Blog->id : __('app.Create New Blog'))
+@section('page-heading', $edit ? $blog->id : __('app.Create New Blog'))
 
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -68,17 +68,25 @@
                         </div>
                     @endforeach
                 </x-languages-tab>
-                <x-input-field
-                                    :title="__('type')"
-                                    name="type"
-                                    col="8"
-                                    type="text" 
-                                    required
-                                    class="mt-5"
-                                    :index="$locale"
-                                    :locale="$locale"
-                                    :model=" $edit ? $blog : null "
-                                />
+
+                <div class="form-group">
+                   <label for="type">type</label>
+                    <select id="type" name="type" class="form-control">
+                        @foreach (App\Support\Enum\BlogCategories::lists() as $key => $value)
+                            <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                   <label for="status">Status</label>
+                    <select id="status" name="status" class="form-control">
+                        @foreach (App\Support\Enum\Status::lists() as $key => $value)
+                            <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
 
                 <x-input-field
                     :title="__('Image Upload (max:2M)')"
@@ -90,6 +98,11 @@
                     class="mb-2 mt-5"
                     :model=" $edit ? $blog : null "
                 />
+
+                <div class="form-group">
+                    <label for="gallery">Upload Images</label>
+                    <input type="file" id="gallery" name="gallery[]" class="form-control" multiple>
+                </div>
 
             </div>
             

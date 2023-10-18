@@ -47,6 +47,11 @@
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.type')
                             </th>
+
+                            <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
+                                @lang('app.Status')
+                            </th>
+                            
                             <th class="text-end min-w-100px sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 106.5px;">
                                 @lang('app.created at')
                             </th>
@@ -64,6 +69,7 @@
                                 <td>{{ $blogs->id}}</td>
                                 <td>{{ $blogs->title}}</td>
                                 <td>{{ $blogs->type}}</td>
+                                <td>{{ $blogs->status}}</td>
                                 <td>{{ $blogs->created_at}}</td>
                                 
                                 
@@ -73,7 +79,9 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this blogs?')">@lang('app.delete')</button>
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('blog.edit', $blogs->id) }}">Update</a>
                                 </td>
+                               
                              </tr>
                             @endforeach
                         @else
