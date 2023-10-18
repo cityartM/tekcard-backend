@@ -11,7 +11,7 @@ use Modules\Subscription\Repositories\SubscriptionRepository;
 
 class SubscriptionController extends Controller
 {
-    private $subscriptions; 
+    private $subscriptions;
 
     function __construct(SubscriptionRepository $subscriptions)
     {
@@ -22,12 +22,12 @@ class SubscriptionController extends Controller
      * @return Renderable
      */
     public function index()
-    {   
+    {
         $subscriptions = $this->subscriptions->all();
         return view('subscription::index', compact('subscriptions'));
     }
 
- 
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -37,9 +37,9 @@ class SubscriptionController extends Controller
     {
         $data = $request->only(['email']);
 
-        Subscription::create($data->all());
+        Subscription::create($data);
 
-        return redirect()->route('subscriptions.index')
+        return redirect()->back()
             ->with('success', 'Subscription created successfully');
     }
 
@@ -47,7 +47,7 @@ class SubscriptionController extends Controller
     public function destroy($id)
     {
        // dd("its here");
-    
+
        $subscriptions = $this->subscriptions->delete($id);
 
         return redirect()->route('subscriptions.index')->with('success', 'subscription deleted successfully.');

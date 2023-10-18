@@ -1,14 +1,35 @@
 import React, {PropsWithChildren} from "react";
 import ApplicationLogo from "../Components/ApplicationLogo";
-import {Link} from "@inertiajs/react";
+import {Link, useForm} from "@inertiajs/react";
 
 const Footer: React.FC<PropsWithChildren> = ({}) => {
+  const {data, setData, post, processing, errors, reset} = useForm({
+    email: '',
+  })
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+    post(route('subscriptions.store'), {
+      preserveScroll: true,
+      onSuccess: () => {
+        reset('email');
+
+        alert('Message sent successfully!');
+      },
+      onError: () => {
+        alert('Message failed to send!');
+      }
+    });
+  };
+
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setData('email', e.target.value);
+  }
+
   return (
     <div>
       <div className={'relative'}>
-        <div
-          className={'z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%'}>
-          <div className={'flex flex-col md:flex-row items-center gap-8'}>
+        <div className={'z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%'}>
+          <form onSubmit={(event) => handleSubmit(event)} className={'flex flex-col md:flex-row items-center gap-8'}>
             <p
               className={'flex-grow text-center md:text-start text-white text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] font-bold'}>
               {'Take control of your personal finances today'}
@@ -16,15 +37,17 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
             <input
               type="text"
               placeholder={'Enter your email'}
+              value={data['email']}
+              onChange={e => handleChanges(e)}
               className={'flex-shrink-0 w-full md:w-[18rem] h-[4rem] px-[3rem] py-[1.5rem] rounded-[4.5rem]'}
             />
             <button
-              type="button"
+              type="submit"
               className={'flex-shrink-0 px-[3.6875rem] py-[1rem] w-full md:w-auto h-[4rem] rounded-[4.5rem] bg-[#2273AF] text-white'}
             >
               {'Subscribe'}
             </button>
-          </div>
+          </form>
         </div>
         <footer
           className={'z-40 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]'}>

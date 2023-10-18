@@ -14,7 +14,7 @@ class CreateContactUsRequest extends Request
     public function rules()
     {
         return [
-            'full_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'company' => 'nullable|string|max:255',
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',

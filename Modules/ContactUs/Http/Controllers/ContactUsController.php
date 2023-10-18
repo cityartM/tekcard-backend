@@ -11,15 +11,15 @@ use Modules\ContactUs\Http\Requests\CreateContactUsRequest;
 
 use Modules\ContactUs\Repositories\ContactUsRepository;
 
-class ContactUsController extends Controller 
+class ContactUsController extends Controller
 {
-    private $ContactUs; 
+    private $ContactUs;
 
     function __construct(ContactUsRepository $ContactUs)
     {
         $this->ContactUs= $ContactUs;
     }
- 
+
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -44,15 +44,18 @@ class ContactUsController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param Request $request
-     * @return Renderable
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreateContactUsRequest $request)
 {
-    $validatedData = $request->only(['full_name','company','email','subject','message']);
-   
+    $validatedData = $request->only(['name','company','email','subject','message']);
+
+    $validatedData['full_name'] = $validatedData['name'];
+    unset($validatedData['name']);
+
     ContactUs::create($validatedData);
 
-    return redirect()->route('contacts.index')->with('success', 'Message sent successfully!');
+    return redirect()->back()->with('success', 'Message sent successfully!');
 }
 
     /**
@@ -86,7 +89,7 @@ class ContactUsController extends Controller
         $validatedData = $request->only(['first_name','last_name','email','message']);
 
         $contact = ContactUs::find($id);
-    
+
         if (!$contact) {
             return redirect()->route('contacts.index')->with('error', 'Contact not found');
         }
@@ -104,7 +107,7 @@ class ContactUsController extends Controller
     public function destroy($id)
 {
     $contacts = $this->ContactUs->delete($id);
-   
+
     return redirect()->route('contactus.index')->with('success', 'Contact deleted successfully');
 }
 

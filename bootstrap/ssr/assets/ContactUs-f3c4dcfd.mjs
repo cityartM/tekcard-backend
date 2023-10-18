@@ -1,6 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-373328ec.mjs";
+import { L as LandingLayout } from "./LandingLayout-4e8e0878.mjs";
 import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
 const fields = [
   {
@@ -44,7 +44,7 @@ const ContactForm = ({}) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    post(route("landing.contact-us.submit"), {
+    post(route("contactus.store"), {
       preserveScroll: true,
       onSuccess: () => {
         reset("name", "email", "company", "subject", "message");
