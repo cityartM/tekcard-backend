@@ -9,6 +9,8 @@ use App\Helpers\Helper;
 use Modules\Blog\Models\Blog;
 use LaravelLocalization;
 use Modules\Blog\Http\Requests\CreateBlogRequest;
+use Spatie\MediaLibrary\Models\Media;
+
 
 class BlogController extends Controller
 {
@@ -28,7 +30,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog::create');
+        $edit= false;
+        return view('blog::add-edit' , compact('edit'));
     }
 
     /**
@@ -36,43 +39,31 @@ class BlogController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreateBlogRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->only(['title','content','tumail','type','gallery']);
-
-        if ($request->isJson() || $request->is('multipart/form-data')) {
-            // If the request is JSON or multipart form-data, translate 'title' and 'content'
-            foreach ($data['title'] as $key => $value) {
-                $data['title'][$key] = Helper::translateAttribute($value);
-            }
-            foreach ($data['content'] as $key => $value) {
-                $data['content'][$key] = Helper::translateAttribute($value);
-            }
-        } else {
-            // If not JSON or multipart form-data, get the current locale and translate
-            $lang = LaravelLocalization::getCurrentLocale();
-            foreach ($data['title'] as $key => $value) {
-                $data['title'][$key] = Helper::translateAttribute($value + ['lang' => $lang]);
-            }
-            foreach ($data['content'] as $key => $value) {
-                $data['content'][$key] = Helper::translateAttribute($value + ['lang' => $lang]);
-            }
-        }
-
-        if ($request->hasFile('tumail')) {
-            $image = $request->file('tumail');
-            $media = $blog->addMedia($image)->toMediaCollection('tumail');
-            // Associate the media item with the Blog model
-            $data['tumail'] = $media->getUrl(); 
-        }
-
-
+        $data = $request->only(['title', 'content', 'tumail', 'type', 'gallery']);
+        
+        $lang = LaravelLocalization::getCurrentLocale();
+        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
+        
         $blog = Blog::create($data);
+        
+        if ($request->hasFile('tumail')) {
+            // Add the media to the newly created Blog instance
+            $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
+        }
 
-
-        return response()->json($blog, 201); 
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $image) {
+                $blog->addMedia($image)->toMediaCollection('gallery');
+            }
+        }
+        
+       
     
-
+        return redirect()->route('blog.index')
+        ->with('success', 'Blog entry created successfully'); // Replace 'your.route.name' with the actual route name
 
     }
 

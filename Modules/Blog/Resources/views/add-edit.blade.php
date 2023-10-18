@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.Motivational Phrases'))
-@section('page-heading', $edit ? $motivationalPhrase->id : __('app.Create New Motivational Phrases'))
+@section('page-title', __('app.Blog'))
+@section('page-heading', $edit ? $Blog->id : __('app.Create New Blog'))
 
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -9,7 +9,7 @@
                 <span class="bullet bg-gray-200 w-5px h-2px"></span>
             </li>
             <li class="breadcrumb-item text-dark">
-                <a href="{{ route('motivationalPhrases.index') }}">@lang('app.Motivational Phrases')</a>
+                <a href="{{ route('blog.index') }}">@lang('app.blog')</a>
             </li>
             <span class="h-20px border-gray-200 border-start mx-4"></span>
             <li class="breadcrumb-item text-dark">{{ __($edit ? 'Edit' : 'Create') }}</li>
@@ -21,17 +21,17 @@
 @include('partials.messages')
 
 @if ($edit)
-    {{ html()->form('PUT',route('motivationalPhrases.update', $motivationalPhrase))->class('form w-100')->id('motivationalPhrases-form')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('PUT',route('blog.update', $blog))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
 @else
-    {{ html()->form('POST',route('motivationalPhrases.store'))->class('form w-100')->id('motivationalPhrases-form')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('POST',route('blog.store'))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
 @endif
 
 <div class="card">
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('Motivational Phrases Details')"
-                :information="__('A general Motivational Phrases information.')"
+                :title="__('blog Phrases Details')"
+                :information="__('A general blog Phrases information.')"
                 col="3"
             />
             <div class="col-md-9">
@@ -49,38 +49,54 @@
                                     class="mt-5"
                                     :index="$locale"
                                     :locale="$locale"
-                                    :model=" $edit ? $motivationalPhrase : null "
+                                    :model=" $edit ? $blog : null "
+                                />
+                            </div>
+                            <div class="row">
+                                <x-fields.text-field
+                                    :title="__('content')"
+                                    name="content"
+                                    col="8"
+                                    type="string" 
+                                    required
+                                    class="mt-5"
+                                    :index="$locale"
+                                    :locale="$locale"
+                                    :model=" $edit ? $blog : null "
                                 />
                             </div>
                         </div>
                     @endforeach
                 </x-languages-tab>
                 <x-input-field
-                    :title="__('Color')"
-                    name="color"
-                    type="color"
-                    col="2"
-                    class="mb-2 mt-5"
-                    required
-                    :model=" $edit ? $motivationalPhrase : null "
-                />
+                                    :title="__('type')"
+                                    name="type"
+                                    col="8"
+                                    type="text" 
+                                    required
+                                    class="mt-5"
+                                    :index="$locale"
+                                    :locale="$locale"
+                                    :model=" $edit ? $blog : null "
+                                />
 
                 <x-input-field
                     :title="__('Image Upload (max:2M)')"
                     type="file"
-                    name="image"
-                    accept="image/*"
+                    name="tumail"
+                    accept="tumail/*"
                     col="12"
                     row="3"
                     class="mb-2 mt-5"
-                    :model=" $edit ? $motivationalPhrase : null "
+                    :model=" $edit ? $blog : null "
                 />
 
             </div>
+            
         </div>
         <div class="col-md-12 mt-2">
            <x-save-or-update-btn
-                :label="__($edit ? 'Update Motivational Phrases' : 'Create Motivational Phrases')"
+                :label="__($edit ? 'Update blog' : 'Create blog')"
                 :progress="__('Please wait...')"
             />
         </div>
@@ -95,9 +111,9 @@
 
 @section('scripts')
     @if ($edit)
-        {!! JsValidator::formRequest('Modules\MotivationalPhrases\Http\Requests\UpdateMotivationalPhrasesRequest', '#motivationalPhrases-form') !!}
+        
     @else
-        {!! JsValidator::formRequest('Modules\MotivationalPhrases\Http\Requests\CreateMotivationalPhrasesRequest', '#motivationalPhrases-form') !!}
+      
     @endif
 
     <script>
