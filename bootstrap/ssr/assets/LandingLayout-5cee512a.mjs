@@ -180,7 +180,7 @@ const Subscribe = () => {
     /* @__PURE__ */ jsx(
       "button",
       {
-        type: "button",
+        type: "submit",
         className: "flex-shrink-0 px-[3.6875rem] py-[1rem] w-full md:w-auto h-[4rem] rounded-[4.5rem] bg-[#2273AF] text-white",
         children: "Subscribe"
       }
