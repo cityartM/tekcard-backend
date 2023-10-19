@@ -92,6 +92,10 @@ class LoginController extends Controller
             $this->clearLoginAttempts($request);
         }
 
+        if ($request->hasHeader('X-Inertia')) {
+            return Inertia::location($request->get('to') ?? route('dashboard'));
+        }
+
         if ($request->has('to')) {
             return redirect()->to($request->get('to'));
         }

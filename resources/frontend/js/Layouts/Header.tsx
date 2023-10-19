@@ -73,10 +73,10 @@ const Header: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
                 {/*<Link href={route('auth.front.logout')} method="post" as="button" className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md border-gray-400 text-gray-900 hover:border-gray-700 focus:outline-none focus:border-gray-700'}>
                   <span>Logout</span>
                 </Link>*/}
-                <Link href={route('dashboard')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}>
+                <a href={route('dashboard')} className={'py-2 px-4 inline-flex items-center gap-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border rounded-md bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}>
                   <UsersIcon />
                   <span>{'Go to Dashboard'}</span>
-                </Link>
+                </a>
               </>)}
             </div>
           </div>
