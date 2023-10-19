@@ -39,7 +39,7 @@ const Registerfields = [
   }
 ];
 const AuthConfig = {
-  loginUri: route("landing.login"),
+  loginUri: route("login.authenticate"),
   registerUri: "http://localhost:8000/api/register",
   logoutUri: "http://localhost:8000/api/logout",
   fields: {

@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm } from "@inertiajs/react";
 import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
-import { A as AuthConfig } from "./AuthConfig-c91c39cf.mjs";
+import { A as AuthConfig } from "./AuthConfig-f672b007.mjs";
 const LoginForm = ({}) => {
   const {
     data,
