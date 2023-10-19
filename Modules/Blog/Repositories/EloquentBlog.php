@@ -1,18 +1,19 @@
 <?php
 
-namespace Modules\ContactUs\Repositories;
+namespace Modules\FeedBack\Repositories;
 
 
 use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\ContactUs\DataTable\ContactUsDatatable;
-use Modules\ContactUs\Models\ContactUs;
+use Modules\Blog\Models\Blog;
+
+use Modules\Blog\DataTable\BlogDatatable;
 use DateTime;
 
-class EloquentContactUs implements ContactUsRepository
+class EloquentBlog implements BlogRepository
 {
-
+ 
     protected $request;
     public function __construct(Request $request)
     {
@@ -23,12 +24,12 @@ class EloquentContactUs implements ContactUsRepository
      */
     public function all()
     {
-        return ContactUs::all();
+        return Blog::all();;
     }
 
     public function index()
     {
-        return ContactUs::all();
+        return Blog::all();;
     }
 
     /**
@@ -36,7 +37,7 @@ class EloquentContactUs implements ContactUsRepository
      */
     public function find($id)
     {
-        return ContactUs::find($id);
+        return Blog::find($id);
     }
 
     /**
@@ -44,20 +45,28 @@ class EloquentContactUs implements ContactUsRepository
      */
     public function delete($id)
     {
-        $ContactUs= ContactUs::findOrFail($id);
+        $FeedBack= Blog::findOrFail($id);
+       
 
-
-        return $ContactUs->delete();
+        return $FeedBack->delete();
     }
 
-    public function getDatatables():ContactUsDatatable
+
+    public function getDatatables():BlogDatatable
     { 
-        return new ContactUsDatatable();
+        return new BlogDatatable();
+    }
+
+    public function store($id)
+    {
+        $FeedBack= Blog::findOrFail($id);
+       
+
+        return $FeedBack->delete();
     }
 
 
-
-
+    
 
 }
 
