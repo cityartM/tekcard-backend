@@ -1,6 +1,6 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.Blog'))
+@section('page-title', __('app.blog'))
 @section('page-heading', $edit ? $blog->id : __('app.Create New Blog'))
 
 @section('breadcrumbs')
@@ -41,7 +41,7 @@
                         <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">
                             <div class="row">
                                 <x-fields.text-field
-                                    :title="__('Title')"
+                                    :title="__('app.title')"
                                     name="title"
                                     col="6"
                                     type="text" 
@@ -54,7 +54,7 @@
                             </div>
                             <div class="row">
                                 <x-fields.text-field
-                                    :title="__('content')"
+                                    :title="__('app.content')"
                                     name="content"
                                     col="8"
                                     type="string" 
@@ -70,7 +70,7 @@
                 </x-languages-tab>
 
                 <div class="form-group">
-                   <label for="type">type</label>
+                   <label for="type">@lang('app.type')</label>
                     <select id="type" name="type" class="form-control">
                         @foreach (App\Support\Enum\BlogCategories::lists() as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="form-group">
-                   <label for="status">Status</label>
+                   <label for="status">@lang('app.Status')</label>
                     <select id="status" name="status" class="form-control">
                         @foreach (App\Support\Enum\Status::lists() as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -89,7 +89,7 @@
 
 
                 <x-input-field
-                    :title="__('Image Upload (max:2M)')"
+                    :title="__('app.Image Upload (max:2M)')"
                     type="file"
                     name="tumail"
                     accept="tumail/*"
@@ -100,7 +100,7 @@
                 />
 
                 <div class="form-group">
-                    <label for="gallery">Upload Images</label>
+                    <label for="gallery">@lang('app.Upload gallery')</label>
                     <input type="file" id="gallery" name="gallery[]" class="form-control" multiple>
                 </div>
 
@@ -109,7 +109,7 @@
         </div>
         <div class="col-md-12 mt-2">
            <x-save-or-update-btn
-                :label="__($edit ? 'Update blog' : 'Create blog')"
+                :label="__($edit ? 'app.Update blog' : 'app.Create blog')"
                 :progress="__('Please wait...')"
             />
         </div>

@@ -71,7 +71,7 @@
                                 <td>{{ $blogs->type}}</td>
                                 <td>{{ $blogs->status}}</td>
                                 <td>{{ $blogs->created_at}}</td>
-                                
+                                 
                                 
                                 <td class="text-end">
                                     <form action="{{ route('blog.destroy', $blogs->id) }}" method="POST">
@@ -79,7 +79,7 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-light btn-active-light-primary btn-sm" data-toggle="tooltip" title="@lang('Delete')" onclick="return confirm('Are you sure you want to delete this blogs?')">@lang('app.delete')</button>
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('blog.edit', $blogs->id) }}">Update</a>
+                                    <a class="dropdown-item" href="{{ route('blog.edit', $blogs->id) }}">@lang('app.Edit')</a>
                                 </td>
                                
                              </tr>

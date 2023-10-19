@@ -286,6 +286,39 @@ return [
 'user' => 'user',
 'No_records_found' => 'No records found',
 'message' => 'message',
+'id' => 'id',
+'created at' => 'created at',
+
+'categories' => [
+    'technical' => 'Technical',
+    'lifestyle' => 'Lifestyle',
+    'travel' => 'Travel',
+    'food' => 'Food',
+    'fashion' => 'Fashion',
+    'health' => 'Health',
+    'entertainment' => 'Entertainment',
+    'sports' => 'Sports',
+    'business' => 'Business',
+    'politics' => 'Politics',
+    'other' => 'Other',
+],
+
+'statuses' => [
+    'published' => 'Published',
+    'unpublished' => 'Unpublished',
+],
+
+
+
+/***  blog  ***/
+'blogs' => 'blogs',
+'Add blog' => 'Add blog',
+'Status' => 'Status',
+'blog' => 'blog',
+'Create New Blog' => 'Create New Blog',
+'content' => 'content',
+'Image Upload (max:2M)' => 'Image Upload (max:2M)',
+'Upload gallery' => 'Upload gallery',
 
 
 

@@ -264,12 +264,39 @@ return [
     'user' => 'مستخدم' ,
     'No_records_found' => 'لم يتم العثور على سجلات',
     'message' => 'رسالة',
+    'id' => 'معرف',
+    'created at' => 'تم الإنشاء في',
 
 
+    'categories' => [
+        'technical' => 'تقنية',
+        'lifestyle' => 'نمط حياة',
+        'travel' => 'سفر',
+        'food' => 'طعام',
+        'fashion' => 'أزياء',
+        'health' => 'صحة',
+        'entertainment' => 'ترفيه',
+        'sports' => 'رياضة',
+        'business' => 'أعمال',
+        'politics' => 'سياسة',
+        'other' => 'آخر',
+    ],
+
+    'statuses' => [
+        'published' => 'منشور',
+        'unpublished' => 'غير منشور',
+    ],
 
 
-
-
+    /***  blog  ***/
+    'blogs' => 'مدونات',
+    'Add blog' => 'إضافة مدونة',
+    'Status' => 'الحالة',
+    'blog' => 'مدونة',
+    'Create New Blog' => 'إنشاء مدونة جديدة',
+    'content' => 'المحتوى',
+    'Image Upload (max:2M)' => 'تحميل الصورة (الحد الأقصى: 2 ميجابايت)',
+    'Upload gallery' => 'تحميل المعرض',
 
 
 ];
