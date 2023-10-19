@@ -1,1 +1,0 @@
-import{j as t,a as s}from"./app-eb1af349.js";import{L as a}from"./LandingLayout-ba2d91cc.js";import"./axios-3c7106ac.js";function i({}){return t.jsxs(a,{children:[t.jsx(s,{title:"Welcome"}),t.jsx("div",{className:"text-3xl",children:"Contact Us"})]})}export{i as default};

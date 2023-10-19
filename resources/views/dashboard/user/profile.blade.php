@@ -114,12 +114,5 @@
 @stop
 
 @section('scripts')
-    {!! HTML::script('assets/js/as/btn.js') !!}
-    {!! HTML::script('assets/js/as/profile.js') !!}
-    {!! JsValidator::formRequest('Hoska\Http\Requests\User\UpdateDetailsRequest', '#details-form') !!}
-    {!! JsValidator::formRequest('Hoska\Http\Requests\User\UpdateProfileLoginDetailsRequest', '#login-details-form') !!}
 
-    @if (setting('2fa.enabled'))
-        {!! JsValidator::formRequest('Hoska\Http\Requests\TwoFactor\EnableTwoFactorRequest', '#two-factor-form') !!}
-    @endif
 @stop

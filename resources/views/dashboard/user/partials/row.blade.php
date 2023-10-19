@@ -19,10 +19,10 @@
         </div>
         <!--end::Avatar-->
         <!--begin::User details-->
-        <div class="d-flex flex-column">
-            <a href="{{ route('users.show', $user) }}" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-            <span>{{ $user->email }}</span>
-        </div>
+            <div class="d-flex flex-column">
+                <a href="{{ route('users.show', $user) }}" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
+                <span>{{ $user->email }}</span>
+            </div>
         <!--begin::User details-->
     </td>
     <!--end::User=-->

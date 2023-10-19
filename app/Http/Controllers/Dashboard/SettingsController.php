@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 /**
  * Class SettingsController
- * @package Vanguard\Http\Controllers
+ * @package App\Http\Controllers
  */
 class SettingsController extends Controller
 {

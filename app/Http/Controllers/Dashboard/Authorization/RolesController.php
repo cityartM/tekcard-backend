@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class RolesController
- * @package Vanguard\Http\Controllers
+ * @package App\Http\Controllers
  */
 class RolesController extends Controller
 {

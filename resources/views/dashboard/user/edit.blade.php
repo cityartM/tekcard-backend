@@ -2,14 +2,39 @@
 
 @section('page-title', __('app.update_user'))
 @section('page-heading', $user->present()->nameOrEmail)
-
 @section('breadcrumbs')
-    <li class="breadcrumb-item active">
-        @lang('app.update_user')
-    </li>
+    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.users')</h1>
+    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+        <li class="breadcrumb-item text-muted">
+            <a href="" class="text-muted text-hover-primary">@lang('app.user')</a>
+        </li>
+        <li class="breadcrumb-item">
+            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+        </li>
+        <li class="breadcrumb-item text-muted">{{ __('app.update_user') }}</li>
+    </ul>
 @stop
+@section('style')
+    <style>
+        .image-input-placeholder {
+            background-image: url('assets/img/profile.png');
+        }
 
+        [data-bs-theme="dark"] .image-input-placeholder {
+            background-image: url('assets/img/profile.png');
+        }
+    </style>
+@stop
 @section('content')
+    @section('actions')
+        <a href="{{ route('users.index') }}" class="btn btn-sm btn-primary">
+            <i class="ki-duotone ki-black-left-line fs-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            @lang('app.back')
+        </a>
+    @endsection
 
 @include('partials.messages')
 
@@ -17,77 +42,48 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
-                <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6" id="nav-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active"
-                           data-bs-toggle="tab"
-                           href="#details"
-                           role="tab"
-                           aria-controls="home"
-                           aria-selected="true"
-                        >
-                            @lang('app.User Details')
-                        </a>
-                    </li>
-                    <li class="nav-item" data-bs-toggle="tab" href="#login-details">
-                        <a class="nav-link" data-bs-toggle="tab"
-                           href="#login-details"
-                           role="tab"
-                           aria-controls="home"
-                           aria-selected="true">
-                            @lang('app.Login Details')
-                        </a>
-                    </li>
-                    @if (setting('2fa.enabled'))
-                        <li class="nav-item" data-bs-toggle="tab" href="#2fa">
-                            <a class="nav-link" data-bs-toggle="tab"
-                               href="#2fa"
-                               role="tab"
-                               aria-controls="home"
-                               aria-selected="true">
-                                @lang('app.Two-Factor Authentication')
+
+                <div class="flex-lg-row-fluid">
+                    <!--begin:::Tabs-->
+                    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_user_details_tab" aria-selected="true" role="tab">
+                                @lang('app.User Details')
                             </a>
                         </li>
-                    @endif
-                </ul>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#kt_user_login_detail_tab" data-kt-initialized="1" aria-selected="false" tabindex="-1" role="tab">
+                                @lang('app.Login Details')
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end:::Tabs-->
 
-                <div class="tab-content mt-4 " id="nav-tabContent">
-                    <div class="tab-pane fade show active px-2"
-                         id="details"
-                         role="tabpanel"
-                         aria-labelledby="nav-home-tab">
-                        <form action="{{ route('users.update.details', $user) }}" method="POST" id="details-form">
-                            @csrf
-                            @method('PUT')
-                            @include('dashboard.user.partials.details', ['profile' => false])
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade px-2"
-                         id="login-details"
-                         role="tabpanel"
-                         aria-labelledby="nav-profile-tab">
-                        <form action="{{ route('users.update.login-details', $user) }}"
-                              method="POST"
-                              id="login-details-form">
-                            @csrf
-                            @method('PUT')
-                            @include('dashboard.user.partials.auth')
-                        </form>
-                    </div>
-
-                    @if (setting('2fa.enabled'))
-                        <div class="tab-pane fade px-2" id="2fa" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <?php $route = Authy::isEnabled($user) ? 'disable' : 'enable'; ?>
-
-                            <form action="{{ route("two-factor.{$route}") }}" method="POST" id="two-factor-form">
+                    <!--begin:::Tab content-->
+                    <div class="tab-content" id="myTabContent">
+                        <!--begin:::Tab pane-->
+                        <div class="tab-pane fade show active" id="kt_user_details_tab" role="tabpanel">
+                            <form action="{{ route('users.update.details', $user) }}" method="POST" id="details-form">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" name="user" value="{{ $user->id }}">
-                                @include('dashboard.user.partials.two-factor')
+                                @include('dashboard.user.partials.details', ['profile' => false])
                             </form>
                         </div>
-                    @endif
+
+
+                        <!--begin:::Tab pane-->
+                        <div class="tab-pane fade" id="kt_user_login_detail_tab" role="tabpanel">
+                            <form action="{{ route('users.update.login-details', $user) }}"
+                                  method="POST"
+                                  id="login-details-form">
+                                @csrf
+                                @method('PUT')
+                                @include('dashboard.user.partials.auth')
+                            </form>
+                        </div>
+
+                    </div>
+                    <!--end:::Tab content-->
                 </div>
 
             </div>
@@ -102,22 +98,17 @@
                       id="avatar-form"
                       enctype="multipart/form-data">
                     @csrf
-                    @include('dashboard.user.partials.avatar', ['updateUrl' => route('user.update.avatar.external', $user->id)])
+                    @include('dashboard.user.partials.avatar')
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+
 @stop
 
 @section('scripts')
-    {!! HTML::script('assets/js/as/btn.js') !!}
-    {!! HTML::script('assets/js/as/profile.js') !!}
     {!! JsValidator::formRequest('App\Http\Requests\User\UpdateDetailsRequest', '#details-form') !!}
     {!! JsValidator::formRequest('App\Http\Requests\User\UpdateLoginDetailsRequest', '#login-details-form') !!}
-
-    @if (setting('2fa.enabled'))
-        {!! JsValidator::formRequest('App\Http\Requests\TwoFactor\EnableTwoFactorRequest', '#two-factor-form') !!}
-    @endif
 @stop

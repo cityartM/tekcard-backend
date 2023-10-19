@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Validator;
 
 /**
  * Class LoginController
- * @package Vanguard\Http\Controllers\Api\Auth
+ * @package App\Http\Controllers\Api\Auth
  */
 class AuthController extends ApiController
 {

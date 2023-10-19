@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Events\User\LoggedIn;
 
 class LoginController extends Controller
 {
@@ -95,6 +96,9 @@ class LoginController extends Controller
         if ($request->has('to')) {
             return redirect()->to($request->get('to'));
         }
+
+        event(new LoggedIn);
+
         return redirect()->intended('/'.LaravelLocalization::getCurrentLocale().'/dashboard');
     }
 

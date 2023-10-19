@@ -61,7 +61,13 @@ class DataTableActions
                   <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">';
         if ($this->showBtn) {
             $html .= '<div class="menu-item px-3">
-                         <a href="' . $this->showRoute . '" class="menu-link px-3">'.__('app.show').'</a>
+                         <a href="' . $this->showRoute . '" class="menu-link px-3">
+                         <i class="ki-duotone ki-eye fs-3 m-1">
+                         <span class="path1"></span>
+                         <span class="path2"></span>
+                         <span class="path3"></span>
+                        </i>
+                         '.__('app.show').'</a>
                       </div>';
         }
 
@@ -179,13 +185,19 @@ class DataTableActions
         return $html;
     }
 
-    public function avatar($imageUrl): string
+    public function avatar($imageUrl,$name,$email): string
     {
-        $html = "<div class='symbol symbol-circle symbol-50px overflow-hidden me-3'>";
+        $html = "<div class='d-flex align-items-center'>";
+        $html .= "<div class='symbol symbol-circle symbol-50px overflow-hidden me-3'>";
         $html .= "<a href='#'>";
         $html .= "<div class='symbol-label'>";
         $html .= "<img class='w-100' src='$imageUrl' alt='image'  />";
         $html .= "</a>";
+        $html .= "</div>";
+        $html .= "</div>";
+        $html .= "<div class='d-flex flex-column'>";
+        $html .= "<a href='#' class='text-gray-800 text-hover-primary mb-1'>$name</a>";
+        $html .= "<span>$email</span>";
         $html .= "</div>";
         $html .= "</div>";
         return $html;

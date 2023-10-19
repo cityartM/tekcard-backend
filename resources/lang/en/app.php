@@ -128,6 +128,17 @@ return [
     'display_name' => 'Display Name',
     'description' => 'Description',
     'page_status' => 'Status',
+    'account_id' =>'Account ID',
+    'details' =>'Details',
+    'ar' =>'Arabic',
+    'en' =>'English',
+    'fr' =>'French',
+    'tk' =>'Turkish',
+
+
+    /*** Company ***/
+    'companies' => 'Companies',
+    'company' => 'Company',
 
 
     /*** Role ***/
@@ -164,6 +175,7 @@ return [
     'update_permission' =>'Update Permission',
 
 
+
     /***  User  ***/
     'users' => 'Users',
     'user' => 'User',
@@ -178,12 +190,25 @@ return [
     'update_details_user' =>'Update Details',
     'update_auth_details_user' =>'Update Auth Details',
     'email_user' =>'Email',
-    'username' =>'user Name',
+    'username' =>'User Name',
     'password_user' =>'Password',
     'new_password_user' =>'New Password',
     'confirm_new_password_user' =>'Confirm New Password',
     'filter' =>'Filter',
     'list_users' =>'List users',
+    'avatar' =>'Avatar',
+    'last_login' =>'Last Login',
+    'user_details' =>'User Details',
+    'general_user_information' =>'A general user information.',
+    'user_auth_details' =>'User Auth Details',
+    'general_user_auth_information' =>'A general user auth information.',
+    'save_user' =>'Save User',
+    'leave_field_blank_if_you_don_t_want_to_change_it' =>'Leave field blank if you don\'t want to change it',
+    'update_avatar' =>'update avatar',
+    'information_avatar' =>'Accept format :.png, .jpg, .jpeg - max 2mb',
+    'user_lang' =>'Language',
+
+
 
 
 
@@ -268,9 +293,6 @@ return [
     'Save' => 'Save',
     'No Photo' => 'No Photo',
     'Upload Photo' => 'Upload Photo',
-
-    'subscriptions' => 'subscriptions',
-    'subscriptions_list' => 'subscriptions list',
     'user id' => 'user id',
     'price' => 'price',
     'date' => 'date',
@@ -306,24 +328,26 @@ return [
     'country' => 'Country',
     'add_wilaya' => 'add_wilaya',
 
-
+/*** plan ***/
+'plans' => 'Plans',
+'plan' => 'Plan',
 
 /***  feedback  ***/
-'feedback' => 'feedback',
-'feedback_list' => 'feedback list',
+'feedback' => 'Feedback',
+'feedback_list' => 'Feedback list',
 
 
 /*** contact_us ***/
-'contact_us' => 'contact us',
-'contact_us_list' => 'contact us list',
-'first_name' => 'first name',
-'last_name' => 'last name',
+'contact_us' => 'Contact us',
+'contact_us_list' => 'Dontact us list',
+'first_name' => 'First name',
+'last_name' => 'Last name',
 
 /***  subscriptions  ***/
-'subscriptions' => 'subscriptions',
-'subscriptions_list' => 'subscriptions list',
+'subscriptions' => 'Subscriptions',
+'subscriptions_list' => 'Subscriptions list',
 'email' => 'email',
-'subscriptions_date' => 'subscriptions date',
+'subscriptions_date' => 'Subscriptions date',
 
 
 

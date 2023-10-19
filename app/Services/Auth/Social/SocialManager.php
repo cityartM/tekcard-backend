@@ -39,7 +39,7 @@ class SocialManager
      *
      * @param SocialUser $socialUser
      * @param string $provider
-     * @return mixed|null|\Vanguard\User
+     * @return mixed|null|\App\User
      */
     public function associate(SocialUser $socialUser, $provider)
     {

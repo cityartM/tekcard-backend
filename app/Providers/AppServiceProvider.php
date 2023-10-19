@@ -21,6 +21,7 @@ use App\View\Components\Card\CardBody;
 use App\View\Components\Card\CardContent;
 use App\View\Components\Card\CardFooter;
 use App\View\Components\Card\CardHeader;
+use App\View\Components\Card\CardInputImage;
 use App\View\Components\Card\CardLeft;
 use App\View\Components\Card\CardTitle;
 use App\View\Components\Card\CardToolbar;
@@ -114,8 +115,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(SummernoteField::class, 'summernote-field');
         Blade::component(SelectField::class, "select-field");
         Blade::component(TextFieldJson::class, "text-field-json");
+        Blade::component(CardInputImage::class, "card-image");
 
-        
+
+
 
         Schema::defaultStringLength(191);
 

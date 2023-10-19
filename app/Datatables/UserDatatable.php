@@ -15,7 +15,6 @@ class UserDatatable
     {
         return [
             "avatar",
-            "name",
             "role",
             "status",
             "last_login",
@@ -28,15 +27,13 @@ class UserDatatable
             return datatables($this->query($request))
                 ->addColumn("action", function (User $user) {
                     return (new DataTableActions())
+                        ->show(route("users.show", $user->id))
                         ->edit(route("users.edit", $user->id))
                         ->delete(route("users.destroy", $user->id))
                         ->make();
                 })
                 ->addColumn("avatar", function (User $user) {
-                    return (new DataTableActions())->avatar($user->present()->avatar);
-                })
-                ->addColumn("name", function (User $user) {
-                    return $user->username;
+                    return (new DataTableActions())->avatar($user->present()->avatar, $user->username, $user->email);
                 })
                 ->addColumn("role", function (User $user) {
                     return $user->role->name;
@@ -55,7 +52,7 @@ class UserDatatable
                 })
 
                 ->addColumn("last_login", function (User $user) {
-                    return $user->last_login ?? $user->created_at;
+                    return $user->present()->lastLogin;
                 })
                 ->rawColumns(['action','avatar','name','role','status', 'last_login'])
 

@@ -11,9 +11,9 @@ use Intervention\Image\ImageManager;
 
 class UserAvatarManager
 {
-    const AVATAR_WIDTH = 160;
+    const AVATAR_WIDTH = 125;
 
-    const AVATAR_HEIGHT = 160;
+    const AVATAR_HEIGHT = 125;
 
     /**
      * @var User
@@ -128,7 +128,7 @@ class UserAvatarManager
         }
 
         $fileName = $file->hashName($this->getDestinationDirectory());
-
+       // dd($fileName);
         $this->fs->put(
             $fileName,
             $image->stream(null, 100)->__toString(),

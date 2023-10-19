@@ -4,7 +4,6 @@
 @section('page-heading', __('app.users'))
 
 @section('breadcrumbs')
-
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.users')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
@@ -15,9 +14,9 @@
 
 @section('content')
 @section('actions')
-    <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary">
+    <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-        @lang('app.add_role')
+        @lang('app.add_user')
     </a>
 @endsection
 @include('partials.messages')
@@ -30,7 +29,6 @@
     <x-card-body>
         <x-datatable-html>
             <td>{{__("app.avatar")}}</td>
-            <td>{{__("app.name")}}</td>
             <td>{{__("app.role")}}</td>
             <td>{{__("app.page_status")}}</td>
             <td>{{__("app.last_login")}}</td>

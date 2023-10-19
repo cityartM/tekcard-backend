@@ -15,7 +15,7 @@ use App\Repositories\Role\RoleRepository;
 
 /**
  * Class PermissionsController
- * @package Vanguard\Http\Controllers
+ * @package App\Http\Controllers
  */
 class PermissionsController extends Controller
 {

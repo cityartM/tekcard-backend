@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use App\Support\Enum\UserStatus;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class UserPresenter extends Presenter
@@ -39,7 +40,14 @@ class UserPresenter extends Presenter
     public function lastLogin()
     {
         return $this->model->last_login
-            ? $this->model->last_login->diffForHumans()
+            ? Carbon::parse($this->model->last_login)->diffForHumans()
+            : 'N/A';
+    }
+
+    public function createdAt()
+    {
+        return $this->model->created_at
+            ? Carbon::parse($this->model->created_at)->diffForHumans()
             : 'N/A';
     }
 

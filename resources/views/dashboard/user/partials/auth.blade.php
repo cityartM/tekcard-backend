@@ -1,40 +1,45 @@
-<div class="form-group mb-2">
-    <label for="email">@lang('app.email_user')</label>
-    <input type="email"
-           class="form-control input-solid"
-           id="email"
-           name="email"
-           placeholder="@lang('app.email_user')"
-           value="{{ $edit ? $user->email : '' }}">
-</div>
+<x-input-field
+    :title="__('app.email_user')"
+    :placeholder="__('app.email_user')"
+    name="email"
+    type="email"
+    col="12"
+    class="mb-2"
+    required
+    :model="$edit ? $user : null"
+/>
 
-<div class="form-group mb-2">
-    <label for="username">@lang('app.username')</label>
-    <input type="text"
-           class="form-control input-solid"
-           id="username"
-           placeholder="(@lang('app.optional'))"
-           name="username"
-           value="{{ $edit ? $user->username : '' }}">
-</div>
+<x-input-field
+    :title="__('app.username')"
+    :placeholder="__('app.username')"
+    name="username"
+    type="text"
+    col="12"
+    class="mb-2"
+    required
+    :model="$edit ? $user : null"
+/>
 
-<div class="form-group mb-2">
-    <label for="password">{{ $edit ? __("app.new_password_user") : __('app.password_user') }}</label>
-    <input type="password"
-           class="form-control input-solid"
-           id="password"
-           name="password"
-           @if ($edit) placeholder="@lang("Leave field blank if you don't want to change it")" @endif>
-</div>
+<x-input-field
+    :title="$edit ? __('app.new_password_user') : __('app.password_user') "
+    :placeholder=" $edit ? __('app.leave_field_blank_if_you_don_t_want_to_change_it') : __('app.password_user') "
+    name="password"
+    type="password"
+    col="12"
+    class="mb-2"
+    required
+/>
 
-<div class="form-group mb-2">
-    <label for="password_confirmation">{{ $edit ? __("app.confirm_new_password_user") : __('app.confirm_new_password_user') }}</label>
-    <input type="password"
-           class="form-control input-solid"
-           id="password_confirmation"
-           name="password_confirmation"
-           @if ($edit) placeholder="@lang("Leave field blank if you don't want to change it")" @endif>
-</div>
+<x-input-field
+    :title=" $edit ? __('app.confirm_new_password_user') : __('app.confirm_new_password_user')"
+    :placeholder=" $edit ? __('app.leave_field_blank_if_you_don_t_want_to_change_it') : __('app.password_user') "
+    name="password_confirmation"
+    type="password"
+    col="12"
+    class="mb-2"
+    required
+/>
+
 
 @if ($edit)
     <button type="submit" class="btn btn-primary mt-2" id="update-login-details-btn">

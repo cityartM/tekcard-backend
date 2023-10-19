@@ -6,7 +6,7 @@ use Vanguard\Plugins\Plugin;
 use App\Support\Sidebar\Item;
 
 class Blogs extends Plugin
-{  
+{
     public function sidebar()
     {
         return Item::create(__('app.blogs'))
