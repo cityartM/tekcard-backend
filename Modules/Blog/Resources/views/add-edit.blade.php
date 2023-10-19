@@ -9,7 +9,7 @@
                 <span class="bullet bg-gray-200 w-5px h-2px"></span>
             </li>
             <li class="breadcrumb-item text-dark">
-                <a href="{{ route('blog.index') }}">@lang('app.blog')</a>
+                <a href="{{ route('blogs.index') }}">@lang('app.blog')</a>
             </li>
             <span class="h-20px border-gray-200 border-start mx-4"></span>
             <li class="breadcrumb-item text-dark">{{ __($edit ? 'Edit' : 'Create') }}</li>
@@ -21,9 +21,9 @@
 @include('partials.messages')
 
 @if ($edit)
-    {{ html()->form('PUT',route('blog.update', $blog))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('PUT',route('blogs.update', $blog))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
 @else
-    {{ html()->form('POST',route('blog.store'))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('POST',route('blogs.store'))->class('form w-100')->id('blog-form')->attribute('enctype', 'multipart/form-data')->open() }}
 @endif
 
 <div class="card">
@@ -44,7 +44,7 @@
                                     :title="__('app.title')"
                                     name="title"
                                     col="6"
-                                    type="text" 
+                                    type="text"
                                     required
                                     class="mt-5"
                                     :index="$locale"
@@ -57,7 +57,7 @@
                                     :title="__('app.content')"
                                     name="content"
                                     col="8"
-                                    type="string" 
+                                    type="string"
                                     required
                                     class="mt-5"
                                     :index="$locale"
@@ -68,28 +68,30 @@
                         </div>
                     @endforeach
                 </x-languages-tab>
+                <x-select-field
+                    :title="__('app.type')"
+                    name="type"
+                    col="12"
+                    class="mb-2"
+                    required
+                    :data="collect(App\Support\Enum\BlogCategories::lists())"
+                    :model="$edit ? $user : null "
+                    :isselect2="true"
+                />
 
-                <div class="form-group">
-                   <label for="type">@lang('app.type')</label>
-                    <select id="type" name="type" class="form-control">
-                        @foreach (App\Support\Enum\BlogCategories::lists() as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                   <label for="status">@lang('app.Status')</label>
-                    <select id="status" name="status" class="form-control">
-                        @foreach (App\Support\Enum\Status::lists() as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
+                <x-select-field
+                    :title="__('app.page_status')"
+                    name="status"
+                    col="12"
+                    class="mb-2"
+                    required
+                    :data="collect(App\Support\Enum\Status::lists())"
+                    :model="$edit ? $user : null "
+                    :isselect2="true"
+                />
 
                 <x-input-field
-                    :title="__('app.Image Upload (max:2M)')"
+                    :title="__('app.image_upload')"
                     type="file"
                     name="tumail"
                     accept="tumail/*"
@@ -100,16 +102,16 @@
                 />
 
                 <div class="form-group">
-                    <label for="gallery">@lang('app.Upload gallery')</label>
+                    <label for="gallery">@lang('app.upload_gallery')</label>
                     <input type="file" id="gallery" name="gallery[]" class="form-control" multiple>
                 </div>
 
             </div>
-            
+
         </div>
         <div class="col-md-12 mt-2">
            <x-save-or-update-btn
-                :label="__($edit ? 'app.Update blog' : 'app.Create blog')"
+                :label="__($edit ? 'app.update_blog' : 'app.create_blog')"
                 :progress="__('Please wait...')"
             />
         </div>
@@ -124,9 +126,9 @@
 
 @section('scripts')
     @if ($edit)
-        
+
     @else
-      
+
     @endif
 
     <script>

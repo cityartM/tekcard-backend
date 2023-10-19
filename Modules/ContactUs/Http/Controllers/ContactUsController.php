@@ -13,23 +13,26 @@ use Modules\ContactUs\Repositories\ContactUsRepository;
 
 class ContactUsController extends Controller
 {
-    private $ContactUs;
+    private $contactUs;
 
-    function __construct(ContactUsRepository $ContactUs)
+    function __construct(ContactUsRepository $contactUs)
     {
-        $this->ContactUs= $ContactUs;
+        $this->contactUs= $contactUs;
     }
 
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        $contacts = $this->ContactUs->all();
-        //$contacts = ContactUs::all();
 
-        return view('contactus::index', compact('contacts'));
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->contactUs->getDatatables()->datatables($request);
+        }
+        return view("contactus::index")->with([
+            "columns" => $this->contactUs->getDatatables()::columns(),
+        ]);
     }
 
     /**
@@ -86,17 +89,7 @@ class ContactUsController extends Controller
      */
     public function update(CreateContactUsRequest $request, $id)
     {
-        $validatedData = $request->only(['first_name','last_name','email','message']);
 
-        $contact = ContactUs::find($id);
-
-        if (!$contact) {
-            return redirect()->route('contacts.index')->with('error', 'Contact not found');
-        }
-
-        $contact->update($validatedData);
-    
-        return redirect()->route('contactus.index')->with('success', 'Contact updated successfully');
     }
 
     /**
@@ -105,10 +98,10 @@ class ContactUsController extends Controller
      * @return Renderable
      */
     public function destroy($id)
-{
-    $contacts = $this->ContactUs->delete($id);
+    {
+        $this->contactUs->delete($id);
 
-    return redirect()->route('contactus.index')->with('success', 'Contact deleted successfully');
-}
+        return redirect()->route('contactus.index')->with('success', __('app.contact_deleted_successfully'));
+    }
 
 }

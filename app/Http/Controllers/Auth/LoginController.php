@@ -94,7 +94,7 @@ class LoginController extends Controller
         }
 
         if ($request->hasHeader('X-Inertia')) {
-            return Inertia::location($request->get('to') ?? route('dashboard'));
+            return Inertia::location($request->get('to') ?? route('/'));
         }
 
         if ($request->has('to')) {

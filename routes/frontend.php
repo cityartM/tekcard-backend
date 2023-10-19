@@ -5,7 +5,7 @@ use Inertia\Inertia;
 
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return Inertia::render('Home');
     })->name('landing.home');
 

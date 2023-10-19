@@ -15,11 +15,11 @@ use Modules\FeedBack\Models\FeedBack;
 class FeedBackController extends Controller
 {
 
-    private $FeedBack; 
+    private $feedBack;
 
-    function __construct(FeedBackRepository $FeedBack)
+    function __construct(FeedBackRepository $feedBack)
     {
-        $this->FeedBack= $FeedBack;
+        $this->feedBack= $feedBack;
     }
 
 
@@ -29,61 +29,11 @@ class FeedBackController extends Controller
      */
     public function index()
     {
-        $feedback = $this->FeedBack->all();
-        
+        $feedback = $this->feedBack->all();
 
         return view('feedback::index',compact('feedback'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('feedback::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('feedback::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('feedback::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -92,8 +42,8 @@ class FeedBackController extends Controller
      */
     public function destroy($id)
     {
-        $FeedBack = $this->FeedBack->delete($id);
-        
-        return redirect()->route('feedback.index')->with('success', 'Feedback deleted successfully');
+         $this->feedBack->delete($id);
+
+        return redirect()->route('feedback.index')->with('success', __('app.feedback_deleted_successfully'));
     }
 }

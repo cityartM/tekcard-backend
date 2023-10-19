@@ -15,6 +15,6 @@
 
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('blog', \Modules\Blog\Http\Controllers\BlogController::class)->middleware('permission:blogs.manage');
-   
-});  
+    Route::resource('blogs', \Modules\Blog\Http\Controllers\BlogController::class)->middleware('permission:blogs.manage');
+
+});

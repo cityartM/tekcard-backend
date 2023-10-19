@@ -96,6 +96,12 @@ class PermissionsSeeder extends Seeder
             'description' => 'Manage Feedback',
             'removable' => false
         ]);
+        $permissions[] = Permission::create([
+            'name' => 'blogs.manage',
+            'display_name' => 'Manage Blogs',
+            'description' => 'Manage Blogs',
+            'removable' => false
+        ]);
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }
