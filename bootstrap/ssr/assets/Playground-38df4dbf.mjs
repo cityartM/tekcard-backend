@@ -1,105 +1,41 @@
-import { jsx, jsxs } from "react/jsx-runtime";
-import { useForm, Head } from "@inertiajs/react";
-import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
-import { A as AuthConfig } from "./AuthConfig-c91c39cf.mjs";
-const RegisterForm = ({}) => {
-  const {
-    data,
-    setData,
-    post,
-    processing,
-    errors,
-    reset
-  } = useForm(AuthConfig.default_register_state);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    post(AuthConfig.registerUri, {
-      preserveScroll: true,
-      onSuccess: () => {
-        AuthConfig.registerFields.forEach((field) => {
-          reset(field);
-        });
-        alert("Message sent successfully!");
-      },
-      onError: () => {
-        alert("Message failed to send!");
-      }
-    });
-  };
-  const handleChanges = (e) => {
-    setData(e.target.id, e.target.value);
-  };
-  return /* @__PURE__ */ jsx("form", { onSubmit: (event) => handleSubmit(event), children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10", children: [
-    AuthConfig.fields.register.map((field) => {
-      if (field.type === "textarea") {
-        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
-          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
-          /* @__PURE__ */ jsx(
-            TextArea,
-            {
-              id: field.name,
-              ...field,
-              value: data[field.name],
-              onChange: (e) => handleChanges(e)
-            }
-          ),
-          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
-        ] }, field.name);
-      } else {
-        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
-          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
-          /* @__PURE__ */ jsx(
-            TextInput,
-            {
-              id: field.name,
-              ...field,
-              value: data[field.name],
-              onChange: (e) => handleChanges(e)
-            }
-          ),
-          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
-        ] }, field.name);
-      }
-    }),
-    /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center gap-8", children: /* @__PURE__ */ jsx("button", { disabled: processing, type: "submit", className: "flex-grow bg-[#478DCB] text-white font-medium text-lg py-4 px-10 rounded-2xl shadow-md hover:bg-[#29A0F5] transition duration-300 ease-in-out", children: "Submit" }) })
-  ] }) });
-};
-const Register = ({}) => {
-  return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl", children: [
-    /* @__PURE__ */ jsx(Head, { title: "Register" }),
-    /* @__PURE__ */ jsx("div", { className: "py-10 space-y-20", children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10", children: [
-      /* @__PURE__ */ jsx("div", { className: "hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow", children: /* @__PURE__ */ jsxs("div", { className: "py-20 h-full flex flex-col space-y-10", children: [
-        /* @__PURE__ */ jsx(LogoIcon, { className: "px-10 flex-shrink-0 max-w-sm" }),
-        /* @__PURE__ */ jsx("div", { className: "px-10 flex-shrink-0 text-[3rem] text-[#2273AF]", children: "Digital Business Card" }),
-        /* @__PURE__ */ jsx(CardsIcon, { className: "flex-grow h-full" })
-      ] }) }),
-      /* @__PURE__ */ jsxs("div", { className: "py-20 px-10 mx-auto lg:mx-0 max-w-xl w-full bg-white rounded-3xl overflow-hidden space-y-10", children: [
-        /* @__PURE__ */ jsxs("div", { className: "lg:hidden space-y-8", children: [
-          /* @__PURE__ */ jsx(LogoIcon, { className: "mx-auto lg:mx-0 px-10 flex-shrink-0 max-w-sm" }),
-          /* @__PURE__ */ jsx("div", { className: "text-center lg:text-start px-10 flex-shrink-0 text-[2.2rem] text-[#2273AF]", children: "Digital Business Card" })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-10", children: [
-          /* @__PURE__ */ jsx("h2", { className: "text-center lg:text-start text-3xl font-bold text-[#1D1E24]", children: "Sign up for an account" }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-10", children: [
-            /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-red-500 hover:bg-red-500/90 rounded-xl shadow-sm", children: [
-              /* @__PURE__ */ jsx(GoogleIcon, { className: "w-10 h-10" }),
-              /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "GOOGLE" })
-            ] }),
-            /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-[#1877F2] hover:bg-[#1877F2]/90 rounded-xl shadow-sm", children: [
-              /* @__PURE__ */ jsx(FacebookIcon, { className: "w-10 h-10" }),
-              /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "Facebook" })
-            ] })
-          ] })
-        ] }),
+import { jsx, Fragment, jsxs } from "react/jsx-runtime";
+import { L as LoginForm } from "./LoginForm-af1d4eb8.mjs";
+import "@inertiajs/react";
+import "./Input-0c2e04de.mjs";
+import "./AuthConfig-f672b007.mjs";
+const Page = ({}) => {
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("div", { className: "py-20 min-h-screen h-full", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl", children: /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10", children: [
+    /* @__PURE__ */ jsx("div", { className: "hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow", children: /* @__PURE__ */ jsxs("div", { className: "py-20 h-full flex flex-col space-y-10", children: [
+      /* @__PURE__ */ jsx(LogoIcon, { className: "px-10 flex-shrink-0 max-w-sm" }),
+      /* @__PURE__ */ jsx("div", { className: "px-10 flex-shrink-0 text-[3rem] text-[#2273AF]", children: "Digital Business Card" }),
+      /* @__PURE__ */ jsx(CardsIcon, { className: "flex-grow h-full" })
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "py-20 px-10 mx-auto lg:mx-0 max-w-xl w-full bg-white rounded-3xl overflow-hidden space-y-10", children: [
+      /* @__PURE__ */ jsxs("div", { className: "lg:hidden space-y-8", children: [
+        /* @__PURE__ */ jsx(LogoIcon, { className: "mx-auto lg:mx-0 px-10 flex-shrink-0 max-w-sm" }),
+        /* @__PURE__ */ jsx("div", { className: "text-center lg:text-start px-10 flex-shrink-0 text-[2.2rem] text-[#2273AF]", children: "Digital Business Card" })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "space-y-10", children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-center lg:text-start text-3xl font-bold text-[#1D1E24]", children: "Sign up for an account" }),
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-10", children: [
-          /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" }),
-          /* @__PURE__ */ jsx("span", { className: "flex-shrink-0 text-lg font-bold text-[#1D1E24]/30", children: "Or" }),
-          /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" })
-        ] }),
-        /* @__PURE__ */ jsx(RegisterForm, {})
-      ] })
-    ] }) }) })
-  ] });
+          /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-red-500 hover:bg-red-500/90 rounded-xl shadow-sm", children: [
+            /* @__PURE__ */ jsx(GoogleIcon, { className: "w-10 h-10" }),
+            /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "GOOGLE" })
+          ] }),
+          /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-[#1877F2] hover:bg-[#1877F2]/90 rounded-xl shadow-sm", children: [
+            /* @__PURE__ */ jsx(FacebookIcon, { className: "w-10 h-10" }),
+            /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "Facebook" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-10", children: [
+        /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" }),
+        /* @__PURE__ */ jsx("span", { className: "flex-shrink-0 text-lg font-bold text-[#1D1E24]/30", children: "Or" }),
+        /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" })
+      ] }),
+      /* @__PURE__ */ jsx(LoginForm, {})
+    ] })
+  ] }) }) }) });
 };
 function GoogleIcon({ ...props }) {
   return /* @__PURE__ */ jsxs(
@@ -613,5 +549,5 @@ function CardsIcon({ ...props }) {
   );
 }
 export {
-  Register as default
+  Page as default
 };

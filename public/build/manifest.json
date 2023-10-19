@@ -1,34 +1,34 @@
 {
-  "_AuthConfig-f9d2b567.js": {
-    "file": "assets/AuthConfig-f9d2b567.js"
+  "_AuthConfig-2e82ca2c.js": {
+    "file": "assets/AuthConfig-2e82ca2c.js"
   },
-  "_Faq-5a80818c.js": {
-    "file": "assets/Faq-5a80818c.js",
+  "_Faq-dcce7533.js": {
+    "file": "assets/Faq-dcce7533.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
   },
-  "_Input-51ad05a2.js": {
-    "file": "assets/Input-51ad05a2.js",
+  "_Input-75e02fd6.js": {
+    "file": "assets/Input-75e02fd6.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
   },
-  "_LandingLayout-903814d8.js": {
+  "_LandingLayout-4a4b294a.js": {
     "assets": [
       "assets/logo-c2f26a6c.png"
     ],
-    "file": "assets/LandingLayout-903814d8.js",
+    "file": "assets/LandingLayout-4a4b294a.js",
     "imports": [
       "resources/frontend/js/app.tsx"
     ]
   },
-  "_LoginForm-f51f64c7.js": {
-    "file": "assets/LoginForm-f51f64c7.js",
+  "_LoginForm-23a36e1b.js": {
+    "file": "assets/LoginForm-23a36e1b.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_Input-51ad05a2.js",
-      "_AuthConfig-f9d2b567.js"
+      "_Input-75e02fd6.js",
+      "_AuthConfig-2e82ca2c.js"
     ]
   },
   "_axios-3c7106ac.js": {
@@ -153,55 +153,55 @@
     "src": "resources/frontend/images/playstore1.png"
   },
   "resources/frontend/js/Pages/AboutUs.tsx": {
-    "file": "assets/AboutUs-af3f8c6b.js",
+    "file": "assets/AboutUs-46caf284.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-903814d8.js",
-      "_Faq-5a80818c.js",
+      "_LandingLayout-4a4b294a.js",
+      "_Faq-dcce7533.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/AboutUs.tsx"
   },
   "resources/frontend/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-42d17f6a.js",
+    "file": "assets/Login-113f009b.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LoginForm-f51f64c7.js",
+      "_LoginForm-23a36e1b.js",
       "_axios-3c7106ac.js",
-      "_Input-51ad05a2.js",
-      "_AuthConfig-f9d2b567.js"
+      "_Input-75e02fd6.js",
+      "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Auth/Login.tsx"
   },
   "resources/frontend/js/Pages/Auth/Register.tsx": {
-    "file": "assets/Register-848db55a.js",
+    "file": "assets/Register-cc418922.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_Input-51ad05a2.js",
-      "_AuthConfig-f9d2b567.js",
+      "_Input-75e02fd6.js",
+      "_AuthConfig-2e82ca2c.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Auth/Register.tsx"
   },
   "resources/frontend/js/Pages/Blog.tsx": {
-    "file": "assets/Blog-d6a003f4.js",
+    "file": "assets/Blog-ae075da1.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-903814d8.js",
+      "_LandingLayout-4a4b294a.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Blog.tsx"
   },
   "resources/frontend/js/Pages/ContactUs.tsx": {
-    "file": "assets/ContactUs-1b71d953.js",
+    "file": "assets/ContactUs-bd8c0e4d.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-903814d8.js",
-      "_Input-51ad05a2.js",
+      "_LandingLayout-4a4b294a.js",
+      "_Input-75e02fd6.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
@@ -214,33 +214,33 @@
       "assets/playstore1-a9eec797.png",
       "assets/hero-db078799.png"
     ],
-    "file": "assets/Home-e96ba7d2.js",
+    "file": "assets/Home-437ef7ea.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-903814d8.js",
-      "_Faq-5a80818c.js",
+      "_LandingLayout-4a4b294a.js",
+      "_Faq-dcce7533.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Home.tsx"
   },
   "resources/frontend/js/Pages/Playground.tsx": {
-    "file": "assets/Playground-81c0e416.js",
+    "file": "assets/Playground-f425a5b3.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LoginForm-f51f64c7.js",
+      "_LoginForm-23a36e1b.js",
       "_axios-3c7106ac.js",
-      "_Input-51ad05a2.js",
-      "_AuthConfig-f9d2b567.js"
+      "_Input-75e02fd6.js",
+      "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/frontend/js/Pages/Playground.tsx"
   },
   "resources/frontend/js/Pages/Pricing.tsx": {
-    "file": "assets/Pricing-d1a11173.js",
+    "file": "assets/Pricing-54ae3720.js",
     "imports": [
       "resources/frontend/js/app.tsx",
-      "_LandingLayout-903814d8.js",
+      "_LandingLayout-4a4b294a.js",
       "_axios-3c7106ac.js"
     ],
     "isDynamicEntry": true,
@@ -278,7 +278,7 @@
       "resources/frontend/js/Pages/Playground.tsx",
       "resources/frontend/js/Pages/Pricing.tsx"
     ],
-    "file": "assets/app-61b01b43.js",
+    "file": "assets/app-230f8004.js",
     "imports": [
       "_axios-3c7106ac.js"
     ],
