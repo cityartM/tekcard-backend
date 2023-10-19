@@ -33,7 +33,7 @@ Route::get('/', function () {
  * Authentication
  */
 Route::get('login', [LoginController::class,'show'])->name('login');
-Route::post('login', [LoginController::class,'authenticate']);
+Route::post('login', [LoginController::class,'authenticate'])->name('login.authenticate');
 Route::get('logout', [LoginController::class,'logout'])->name('auth.logout');
 Route::post('front-logout', [LoginController::class,'frontLogout'])->name('auth.front.logout');
 

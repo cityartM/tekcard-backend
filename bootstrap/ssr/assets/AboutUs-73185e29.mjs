@@ -1,6 +1,6 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { Head, usePage } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-373328ec.mjs";
+import { L as LandingLayout } from "./LandingLayout-4e8e0878.mjs";
 import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
 import "react";
 function AboutUs({}) {

@@ -42,7 +42,7 @@ Route::get('/playground', function () {
 
 Route::get('/frontend/login', function () {
     return Inertia::render('Auth/Login');
-})->name('landing.login.get');
+})->name('landing.login.get')->middleware('guest');
 
 Route::get('/frontend/register', function () {
     return Inertia::render('Auth/Register');

@@ -22,12 +22,12 @@ class EloquentContactUs implements ContactUsRepository
      */
     public function all()
     {
-        return ContactUs::all();;
+        return ContactUs::all();
     }
 
     public function index()
     {
-        return ContactUs::all();;
+        return ContactUs::all();
     }
 
     /**

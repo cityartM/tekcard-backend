@@ -103,6 +103,25 @@ return [
         'Inactive' => 'Inactive',
     ],
 
+    'categories' => [
+        'technical' => 'Technical',
+        'lifestyle' => 'Lifestyle',
+        'travel' => 'Travel',
+        'food' => 'Food',
+        'fashion' => 'Fashion',
+        'health' => 'Health',
+        'entertainment' => 'Entertainment',
+        'sports' => 'Sports',
+        'business' => 'Business',
+        'politics' => 'Politics',
+        'other' => 'Other',
+    ],
+
+    'statuses' => [
+        'published' => 'Published',
+        'unpublished' => 'Unpublished',
+    ],
+
     /*** Generale ***/
     'save' => 'Save',
     'show' => 'Show',
@@ -134,6 +153,8 @@ return [
     'en' =>'English',
     'fr' =>'French',
     'tk' =>'Turkish',
+    'id' => 'id',
+    'created at' => 'created at',
 
 
     /*** Company ***/
@@ -350,6 +371,24 @@ return [
 'subscriptions_date' => 'Subscriptions date',
 
 
+
+
+/***  general  ***/
+
+
+
+
+
+
+/***  blog  ***/
+'blogs' => 'blogs',
+'Add blog' => 'Add blog',
+'Status' => 'Status',
+'blog' => 'blog',
+'Create New Blog' => 'Create New Blog',
+'content' => 'content',
+'Image Upload (max:2M)' => 'Image Upload (max:2M)',
+'Upload gallery' => 'Upload gallery',
 
 
 

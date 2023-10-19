@@ -25,7 +25,6 @@ const LoginForm: React.FC<any> = ({}) => {
         AuthConfig.loginFields.forEach((field) => {
           reset(field as keyof typeof data);
         });
-
         alert('Message sent successfully!');
       },
       onError: () => {

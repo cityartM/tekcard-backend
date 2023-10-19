@@ -34,7 +34,7 @@ class TranslationSeeder extends Seeder
                 ->preservingOriginal()
                 ->toMediaCollection('translations');*/
 
-            $translation->addMedia(public_path('slider/1.png'))
+            /*$translation->addMedia(public_path('slider/1.png'))
                 ->preservingOriginal()
                 ->toMediaCollection('hero');
 
@@ -42,10 +42,10 @@ class TranslationSeeder extends Seeder
                 $translation->addMedia(public_path('slider/'.$i.'.png'))
                     ->preservingOriginal()
                     ->toMediaCollection('slider');
-            }
+            }*/
 
             $this->command->info('Translation created: ' . $translation->name);
         }
-        
+
     }
 }

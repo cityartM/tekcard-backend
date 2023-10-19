@@ -50,7 +50,7 @@ const ContactForm: React.FC<any> = ({}) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
-    post(route('landing.contact-us.submit'), {
+    post(route('contactus.store'), {
       preserveScroll: true,
       onSuccess: () => {
         reset('name', 'email', 'company', 'subject', 'message');

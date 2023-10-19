@@ -12,7 +12,11 @@
 */
 
 
+use Modules\ContactUs\Http\Controllers\ContactUsController;
+
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('contactus', \Modules\ContactUs\Http\Controllers\ContactUsController::class)->middleware('permission:contactus.manage');
-   
-}); 
+    Route::resource('contactus', ContactUsController::class)->middleware('permission:contactus.manage');
+
+});
+
+Route::post('contactus', [ContactUsController::class, 'store'])->name('contactus.store');
