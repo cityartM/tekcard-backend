@@ -123,7 +123,7 @@ const Subscribe = () => {
           className={'flex-shrink-0 w-full md:w-[18rem] h-[4rem] px-[3rem] py-[1.5rem] rounded-[4.5rem]'}
         />
         <button
-          type="button"
+          type="submit"
           className={'flex-shrink-0 px-[3.6875rem] py-[1rem] w-full md:w-auto h-[4rem] rounded-[4.5rem] bg-[#2273AF] text-white'}
         >
           {'Subscribe'}
