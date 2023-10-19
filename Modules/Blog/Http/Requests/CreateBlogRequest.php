@@ -6,6 +6,8 @@ use App\Http\Requests\Request;
 use App\Support\Enum\StrategyDay;
 use Modules\Blog\Models\Blog;
 
+use App\Support\Enum\BlogCategories;
+use App\Support\Enum\Status;
 
 class CreateBlogRequest extends Request
 {
@@ -20,7 +22,9 @@ class CreateBlogRequest extends Request
             'title' => 'required|array',
             'content' => 'required|array',
             'tumail' => 'image|mimes:jpeg,png,gif|max:2048',
-            'type' => 'required|string',
+            'type' => ['nullable', Rule::in(BlogCategories::lists())],
+            'status' => ['nullable', Rule::in(Status::lists())],
+
             'gallery' => [
                 'array',
                 function ($attribute, $value, $fail) {

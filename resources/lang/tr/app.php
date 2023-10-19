@@ -288,9 +288,41 @@ return [
  'user' => 'kullanıcı',
  'No_records_found' => 'Kayıt bulunamadı',
  'message' => 'mesaj',
+ 'id' => 'kimlik',
+ 'created at' => 'oluşturulma tarihi',
 
 
 
+ 'categories' => [
+    'technical' => 'Teknik',
+    'lifestyle' => 'Yaşam Tarzı',
+    'travel' => 'Seyahat',
+    'food' => 'Yiyecek',
+    'fashion' => 'Moda',
+    'health' => 'Sağlık',
+    'entertainment' => 'Eğlence',
+    'sports' => 'Spor',
+    'business' => 'İş',
+    'politics' => 'Politika',
+    'other' => 'Diğer',
+],
+
+
+'statuses' => [
+    'published' => 'Yayınlandı',
+    'unpublished' => 'Yayınlanmadı',
+],
+
+
+/***  blog  ***/
+'blogs' => 'bloglar',
+'Add blog' => 'Blog ekle',
+'Status' => 'Durum',
+'blog' => 'blog',
+'Create New Blog' => 'Yeni Blog Oluştur',
+'content' => 'içerik',
+'Image Upload (max:2M)' => 'Resim Yükle (maksimum: 2 MB)',
+'Upload gallery' => 'Galeri Yükle',
 
 
 ];
