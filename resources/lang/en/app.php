@@ -149,6 +149,7 @@ return [
     'page_status' => 'Status',
     'account_id' =>'Account ID',
     'details' =>'Details',
+    'home' =>'Home',
     'ar' =>'Arabic',
     'en' =>'English',
     'fr' =>'French',

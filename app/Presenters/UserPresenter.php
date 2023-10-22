@@ -22,7 +22,7 @@ class UserPresenter extends Presenter
     {
         if (! $this->model->avatar) {
 
-            return url('avatar/profile.jpg');
+            return url('assets/media/avatars/150-26.jpg');
         }
         return Str::contains($this->model->avatar, ['http', 'img'])
             ? $this->model->avatar
