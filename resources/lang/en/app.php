@@ -356,6 +356,7 @@ return [
 /***  feedback  ***/
 'feedback' => 'Feedback',
 'feedback_list' => 'Feedback list',
+'comment' => 'comment',
 
 
 /*** contact_us ***/

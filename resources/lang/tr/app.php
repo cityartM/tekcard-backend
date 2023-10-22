@@ -272,6 +272,7 @@ return [
 /***  feedback  ***/
 'feedback' => 'geri bildirimler',
 'feedback_list' => 'geri bildirim listesi',
+'comment' => 'yorum',
 
  /***  subscriptions  ***/
  'subscriptions' => 'abonelikler',
