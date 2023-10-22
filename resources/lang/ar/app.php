@@ -57,6 +57,7 @@ return [
     /***  feedback  ***/
     'feedback' => 'تعليقات',
     'feedback_list' => 'قائمة التعليقات',
+    'comment' => 'تعليق',
 
     /***  subscriptions  ***/
     'subscriptions' => 'اشتراكات' ,
@@ -113,6 +114,7 @@ return [
     'blog_list' => 'قائمة المدونة' ,
     'create_blog' => 'إنشاء مدونة',
     'update_blog' => 'تحديث المدونة',
+
 
 ];
  

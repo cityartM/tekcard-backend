@@ -33,7 +33,7 @@
                 <td>{{__("app.id")}}</td>
                 <td>{{__("app.title")}}</td>
                 <td>{{__("app.type")}}</td>
-                <td>{{__("app.Status")}}</td>
+                <td>{{__("app.statusb")}}</td>
                 <td>{{__("app.created_at")}}</td>
                 
             </x-datatable-html>
