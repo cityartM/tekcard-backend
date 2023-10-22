@@ -1,12 +1,13 @@
 <?php
 
-namespace Modules\FeedBack\Repositories;
+namespace Modules\Blog\Repositories;
 
 
 use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Blog\Models\Blog;
+
 
 use Modules\Blog\DataTable\BlogDatatable;
 use DateTime;
@@ -57,15 +58,26 @@ class EloquentBlog implements BlogRepository
         return new BlogDatatable();
     }
 
-    public function store($id)
+    public function store($data)
     {
-        $FeedBack= Blog::findOrFail($id);
+        $lang = LaravelLocalization::getCurrentLocale();
+        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
        
 
-        return $FeedBack->delete();
+        return $data;
     }
 
 
+    public function update($data)
+    {
+        $lang = LaravelLocalization::getCurrentLocale();
+        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
+       
+
+        return $data;
+    }
     
 
 }
