@@ -9,6 +9,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Subscription\Models\Subscription;
 use DateTime;
 
+use Modules\Subscription\DataTable\SubscriptionDatatable;
+
 class EloquentSubscription implements SubscriptionRepository
 {
  
@@ -50,7 +52,11 @@ class EloquentSubscription implements SubscriptionRepository
     }
 
 
-   
+    public function getDatatables():SubscriptionDatatable
+    { 
+        return new SubscriptionDatatable();
+    }
+
 
 
 }

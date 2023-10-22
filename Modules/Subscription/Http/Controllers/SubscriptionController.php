@@ -11,7 +11,7 @@ use Modules\Subscription\Repositories\SubscriptionRepository;
 
 class SubscriptionController extends Controller
 {
-    private $subscriptions;
+    private $subscriptions; 
 
     function __construct(SubscriptionRepository $subscriptions)
     {
@@ -21,12 +21,17 @@ class SubscriptionController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        $subscriptions = $this->subscriptions->all();
-        return view('subscription::index', compact('subscriptions'));
-    }
+    
 
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->subscriptions->getDatatables()->datatables($request);
+        }
+        return view("subscription::index")->with([
+            "columns" => $this->subscriptions->getDatatables()::columns(),
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.

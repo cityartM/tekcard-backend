@@ -7,6 +7,8 @@ use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\FeedBack\Models\FeedBack;
+
+use Modules\FeedBack\DataTable\FeedBackDatatable;
 use DateTime;
 
 class EloquentFeedBack implements FeedBackRepository
@@ -50,7 +52,11 @@ class EloquentFeedBack implements FeedBackRepository
     }
 
 
-   
+    public function getDatatables():FeedBackDatatable
+    { 
+        return new FeedBackDatatable();
+    }
+
 
 
 }
