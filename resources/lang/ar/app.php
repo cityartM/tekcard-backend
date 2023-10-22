@@ -74,6 +74,11 @@ return [
     'message' => 'رسالة',
     'id' => 'معرف',
     'created at' => 'تم الإنشاء في',
+    'title' => 'عنوان',
+    'type' => 'نوع',
+    'action' => 'إجراء',
+    'actions' => 'إجراءات',
+    'edit' => 'تعديل',
 
 
     'categories' => [
@@ -98,12 +103,16 @@ return [
 
     /***  blog  ***/
     'blogs' => 'مدونات',
-    'Add blog' => 'إضافة مدونة',
-    'Status' => 'الحالة',
+    'add_blog' => 'إضافة مدونة',
+    'statusb' => 'الحالة',
     'blog' => 'مدونة',
     'Create New Blog' => 'إنشاء مدونة جديدة',
     'content' => 'المحتوى',
-    'Image Upload (max:2M)' => 'تحميل الصورة (الحد الأقصى: 2 ميجابايت)',
-    'Upload gallery' => 'تحميل المعرض',
+    'image_upload' => 'تحميل الصورة (الحد الأقصى: 2 ميجابايت)',
+    'upload_gallery' => 'تحميل المعرض',
+    'blog_list' => 'قائمة المدونة' ,
+    'create_blog' => 'إنشاء مدونة',
+    'update_blog' => 'تحديث المدونة',
 
 ];
+ 

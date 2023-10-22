@@ -75,18 +75,18 @@
                     class="mb-2"
                     required
                     :data="collect(App\Support\Enum\BlogCategories::lists())"
-                    :model="$edit ? $user : null "
+                    :model="$edit ? $blog : null "
                     :isselect2="true"
                 />
 
                 <x-select-field
-                    :title="__('app.page_status')"
+                    :title="__('app.statusb')"
                     name="status"
                     col="12"
                     class="mb-2"
                     required
                     :data="collect(App\Support\Enum\Status::lists())"
-                    :model="$edit ? $user : null "
+                    :model="$edit ? $blog : null "
                     :isselect2="true"
                 />
 

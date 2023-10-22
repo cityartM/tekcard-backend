@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\FeedBack\Repositories;
+namespace Modules\Blog\Repositories;
 
 use Modules\Blog\Models\Blog;
 
@@ -28,6 +28,7 @@ interface BlogRepository
 
     public function getDatatables();
 
-    public function store($id);
+    public function store($data);
+    public function update($data);
 
 }

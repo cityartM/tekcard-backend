@@ -3,7 +3,7 @@
 @section('page-title', __('app.contact_us'))
 @section('page-heading', __('app.contact_us'))
 
-@section('breadcrumbs') 
+@section('breadcrumbs')
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.contact_us')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
@@ -11,7 +11,7 @@
         </li>
     </ul>
 @stop
- 
+
 @section('content')
 
     @include('partials.messages')
@@ -37,7 +37,7 @@
     <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
     <x-datatable.script
         :columns="$columns"
-        :route="route('contactus.index')"
+        :route="route('contactus.index')" 
     />
     <script>
         "use strict";
