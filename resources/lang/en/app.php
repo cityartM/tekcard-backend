@@ -382,17 +382,17 @@ return [
 
 
 /***  blog  ***/
-'blogs' => 'blogs',
+'blogs' => 'Blogs',
 'add_blog' => 'Add blog',
 'statusb' => 'Status',
-'blog' => 'blog',
+'blog' => 'Blog',
 'Create New Blog' => 'Create New Blog',
 'content' => 'content',
 'image_upload' => 'Image Upload (max:2M)',
 'upload_gallery' => 'Upload gallery',
-'blog_list' => 'blog_list',
-'create_blog' => 'create_blog',
-'update_blog' => 'update_blog',
+'blog_list' => 'Blog list',
+'create_blog' => 'Create blog',
+'update_blog' => 'Update blog',
 
 
 

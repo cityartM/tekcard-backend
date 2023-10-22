@@ -34,7 +34,7 @@ class FeedBackDatatable
                 ->addColumn("comment", function (FeedBack $feedback) {
                     return $feedback->comment;
                 })
-         
+
                 ->rawColumns(['action','user','comment'])
 
                 ->make(true);
