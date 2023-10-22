@@ -37,7 +37,7 @@
     <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
     <x-datatable.script
         :columns="$columns"
-        :route="route('contactus.index')"
+        :route="route('contactus.index')" 
     />
     <script>
         "use strict";

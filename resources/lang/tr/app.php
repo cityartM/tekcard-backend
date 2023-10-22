@@ -290,6 +290,11 @@ return [
  'message' => 'mesaj',
  'id' => 'kimlik',
  'created at' => 'oluşturulma tarihi',
+ 'title' => 'başlık',
+ 'type' => 'tip',
+ 'action' => 'eylem',
+ 'actions' => 'eylemler',
+ 'edit' => 'düzenle',
 
 
 
@@ -316,13 +321,16 @@ return [
 
 /***  blog  ***/
 'blogs' => 'bloglar',
-'Add blog' => 'Blog ekle',
-'Status' => 'Durum',
+'add_blog' => 'Blog ekle',
+'statusb' => 'Durum',
 'blog' => 'blog',
 'Create New Blog' => 'Yeni Blog Oluştur',
 'content' => 'içerik',
-'Image Upload (max:2M)' => 'Resim Yükle (maksimum: 2 MB)',
-'Upload gallery' => 'Galeri Yükle',
+'image_upload' => 'Resim Yükle (maksimum: 2 MB)',
+'upload_gallery' => 'Galeri Yükle',
+'blog_list' => 'blog listesi',
+'create_blog' => 'blog oluştur',
+'update_blog' => 'blog güncelle',
 
 
 ];

@@ -80,7 +80,7 @@
                 />
 
                 <x-select-field
-                    :title="__('app.page_status')"
+                    :title="__('app.statusb')"
                     name="status"
                     col="12"
                     class="mb-2"

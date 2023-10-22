@@ -11,6 +11,12 @@
         </li>
     </ul>
 @stop
+@section('actions')
+    <a href="{{ route('blogs.create') }}" class="btn btn-sm btn-primary">
+        <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        @lang('app.add_blog')
+    </a>
+@endsection
 
 @section('content')
 
@@ -25,10 +31,10 @@
         <x-card-body>
             <x-datatable-html>
                 <td>{{__("app.id")}}</td>
-                <td>{{__("app.TITLE	")}}</td>
-                <td>{{__("app.TYPE")}}</td>
-                <td>{{__("app.STATUS")}}</td>
-                <td>{{__("app.CREATED AT")}}</td>
+                <td>{{__("app.title")}}</td>
+                <td>{{__("app.type")}}</td>
+                <td>{{__("app.Status")}}</td>
+                <td>{{__("app.created_at")}}</td>
                 
             </x-datatable-html>
         </x-card-body>
