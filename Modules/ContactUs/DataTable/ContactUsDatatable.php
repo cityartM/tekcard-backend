@@ -20,7 +20,7 @@ class ContactUsDatatable
             "subject",
             "message",
             "created_at",
-        ];
+        ]; 
     }
 
     public function datatables($request)
@@ -47,8 +47,8 @@ class ContactUsDatatable
                 ->addColumn("message", function (ContactUs $contactUs) {
                     return $contactUs->message;
                 })
-                ->addColumn("created_at", function (ContactUs $contactUs) {
-                    return $contactUs->created_at->format('Y-m-d');
+                ->addColumn('created_at', function (ContactUs $contactUs) {
+                    return $contactUs->created_at ? $contactUs->created_at->format('Y-m-d') : null;
                 })
                 ->rawColumns(['action','email','name','company','subject','message', 'created_at'])
 
