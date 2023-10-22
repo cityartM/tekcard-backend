@@ -11,19 +11,32 @@ use LaravelLocalization;
 use Modules\Blog\Http\Requests\CreateBlogRequest;
 use Spatie\MediaLibrary\Models\Media;
 
+use Modules\Blog\Repositories\BlogRepository;
 
 class BlogController extends Controller
 {
-    public $only =['title', 'content', 'status' ,'tumail', 'type', 'gallery'];
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
 
-    public function index()
+
+     private $blog;
+
+    function __construct(BlogRepository $blog)
     {
-        $blogs = Blog::all();
-        return view('blog::index', compact('blogs'));
+        $this->blog= $blog;
+    } 
+
+
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->blog->getDatatables()->datatables($request);
+        }
+        return view("blog::index")->with([
+            "columns" => $this->blog->getDatatables()::columns(),
+        ]);
     }
 
     /**
@@ -43,13 +56,14 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only($this->only);
+        $data = $request->only(['title', 'content', 'status' ,'tumail', 'type', 'gallery']);
+        
 
-        $lang = LaravelLocalization::getCurrentLocale();
-        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
-        $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
+        $datat=$this->blog->store($data);
 
-        $blog = Blog::create($data);
+       
+        
+        $blog = Blog::create($datat);
 
         if ($request->hasFile('tumail')) {
             // Add the media to the newly created Blog instance
@@ -61,8 +75,10 @@ class BlogController extends Controller
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-
-        return redirect()->route('blog.index')
+        
+       
+    
+        return redirect()->route('blogs.index')
         ->with('success', 'Blog entry created successfully'); // Replace 'your.route.name' with the actual route name
 
     }
@@ -99,18 +115,17 @@ class BlogController extends Controller
     {
         $data = $request->only(['title', 'content', 'status', 'tumail', 'type', 'gallery']);
 
-        $lang = LaravelLocalization::getCurrentLocale();
-        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
-        $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
-        $blog=Blog::find($id);
-        $blog->update($data);
+        $datat=$this->blog->store($data);
 
+        $blog=Blog::find($id);
+        $blog->update($datat);
+    
         if ($request->hasFile('tumail')) {
             // Update the 'tumail' media for the Blog instance
             $blog->clearMediaCollection('tumail'); // Remove existing media
             $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
         }
-
+    
         if ($request->hasFile('gallery')) {
             // Update the 'gallery' media for the Blog instance
             $blog->clearMediaCollection('gallery'); // Remove existing media
@@ -118,7 +133,7 @@ class BlogController extends Controller
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-
+    
         return redirect()->route('blogs.index')
             ->with('success', 'Blog entry updated successfully');
     }
@@ -130,18 +145,18 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-
+        
         $blog = Blog::find($id);
 
         if (!$blog) {
             return redirect()->route('blogs.index')
                 ->with('error', 'Blog entry not found');
         }
-
+    
         // Delete the associated media files from the media library
         $blog->clearMediaCollection('tumail'); // Clear 'tumail' media
         $blog->clearMediaCollection('gallery'); // Clear 'gallery' media
-
+    
         // Delete the blog entry
         $blog->delete();
         return redirect()->route('blogs.index')->with('success', 'Blog entry deleted successfully');

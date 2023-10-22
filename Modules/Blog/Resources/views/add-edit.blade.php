@@ -75,7 +75,7 @@
                     class="mb-2"
                     required
                     :data="collect(App\Support\Enum\BlogCategories::lists())"
-                    :model="$edit ? $user : null "
+                    :model="$edit ? $blog : null "
                     :isselect2="true"
                 />
 
@@ -86,7 +86,7 @@
                     class="mb-2"
                     required
                     :data="collect(App\Support\Enum\Status::lists())"
-                    :model="$edit ? $user : null "
+                    :model="$edit ? $blog : null "
                     :isselect2="true"
                 />
 
