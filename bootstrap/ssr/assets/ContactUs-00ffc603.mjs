@@ -1,6 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-c1e1ad02.mjs";
+import { L as LandingLayout } from "./LandingLayout-5cee512a.mjs";
 import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
 const fields = [
   {

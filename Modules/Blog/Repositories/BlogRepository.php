@@ -1,17 +1,18 @@
 <?php
 
-namespace Modules\Subscription\Repositories;
+namespace Modules\FeedBack\Repositories;
 
-use Modules\Subscription\Models\Subscription;
+use Modules\Blog\Models\Blog;
 
-interface SubscriptionRepository
+interface BlogRepository
 {
     /** 
-     * Get all system Subscriptions.
+     * Get all system Blog.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all();
+    
 
     public function index();
 
@@ -24,7 +25,9 @@ interface SubscriptionRepository
      * @return bool
      */
     public function delete($id);
- 
+
     public function getDatatables();
+
+    public function store($id);
 
 }

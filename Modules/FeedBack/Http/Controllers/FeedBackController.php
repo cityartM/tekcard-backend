@@ -27,11 +27,16 @@ class FeedBackController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        $feedback = $this->feedBack->all();
+  
 
-        return view('feedback::index',compact('feedback'));
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->feedBack->getDatatables()->datatables($request);
+        }
+        return view("feedback::index")->with([
+            "columns" => $this->feedBack->getDatatables()::columns(),
+        ]);
     }
 
 

@@ -26,5 +26,7 @@ interface FeedBackRepository
      */
     public function delete($id);
 
+    public function getDatatables();
+
 
 }
