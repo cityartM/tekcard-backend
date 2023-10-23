@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard\Users;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\CreateUserRequest;
+use App\Models\User;
+use App\Repositories\User\UserRepository;
+use App\Support\Enum\UserStatus;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\CreateUserRequest;
 use App\Repositories\Role\RoleRepository;
-use App\Repositories\User\UserRepository;
-use App\Support\Enum\UserStatus;
-use App\Models\User;
 
 /**
  * Class UsersController

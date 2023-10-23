@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Permission\CreatePermissionRequest;
 use App\Http\Requests\Permission\UpdatePermissionRequest;
 use App\Models\Permission;
 use App\Repositories\Permission\PermissionRepository;
-use App\Repositories\Role\RoleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use App\Repositories\Role\RoleRepository;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class PermissionsController

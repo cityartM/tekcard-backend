@@ -2,11 +2,11 @@
 
 namespace App\Services\Auth\Social;
 
+use App\Repositories\User\UserRepository;
+use Hoska\Support\Enum\UserStatus;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\User as SocialUser;
 use App\Repositories\Role\RoleRepository;
-use App\Repositories\User\UserRepository;
-use Hoska\Support\Enum\UserStatus;
 
 class SocialManager
 {

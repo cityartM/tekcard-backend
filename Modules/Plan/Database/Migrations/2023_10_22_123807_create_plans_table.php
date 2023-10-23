@@ -1,0 +1,40 @@
+<?php
+
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use \Modules\Plan\Support\Enum\PlanType;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('plans', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('name', 191);
+            $table->json('display_name')->nullable();
+            $table->enum('type', PlanType::lists())->default('Company');
+            $table->integer('nbr_user')->default(0);
+            $table->integer('nbr_card_user')->default(0);
+            $table->boolean('has_dashboard')->default(0);
+            $table->boolean('removable')->default(1);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('plans');
+    }
+};

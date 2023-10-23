@@ -5,17 +5,15 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Helpers\Helper;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\Auth\ApiRegisterRequest;
-use App\Http\Requests\Auth\RegisterRequest;
-use App\Models\TokenDevice;
+use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Repositories\User\UserRepository;
 use App\Services\Upload\UserAvatarManager;
+use App\Support\Enum\UserStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Repositories\Role\RoleRepository;
-use App\Repositories\User\UserRepository;
-use App\Support\Enum\UserStatus;
-use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\Role\RoleRepository;
 
 class RegistrationController extends ApiController
 {

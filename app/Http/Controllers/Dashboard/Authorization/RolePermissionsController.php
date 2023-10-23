@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard\Authorization;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use App\Events\Role\PermissionsUpdated;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Repositories\Role\RoleRepository;
 
 /**

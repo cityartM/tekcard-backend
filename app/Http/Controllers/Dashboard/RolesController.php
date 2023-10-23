@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Cache;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\CreateRoleRequest;
 use App\Http\Requests\Role\UpdateRoleRequest;
-use App\Repositories\Role\RoleRepository;
 use App\Models\Role;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Repositories\User\UserRepository;
+use Cache;
+use App\Repositories\Role\RoleRepository;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class RolesController
