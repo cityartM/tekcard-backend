@@ -1,13 +1,20 @@
 import React, {PropsWithChildren} from 'react';
 import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from './../Layouts/LandingLayout';
-import {Faq} from '../Components/Faqs/Faq';
+import {Faq} from '@/Components/Faqs/Faq';
 import useFaqs from '../Utils/Faq';
-import {FaqType} from '../types/faq';
+import {FaqType} from '@/types/faq';
 import useReviews from '../Utils/Review';
-import {DummySponsorIcon} from '../Components/Icons';
+import {DummySponsorIcon} from '@/Components/Icons';
 
 import Background from '../../images/2-phones-rotated.png';
+import AppstoreImage from '../../images/appstore1.png';
+import PlaystoreImage from '../../images/playstore1.png';
+import HeroImage from '../../images/hero.png';
+
+import ImageIphone16 from '@/../images/home/iphone16.png';
+import ImageIphone14 from '@/../images/home/iphone14.png';
+
 import {ReviewType} from "@/types/review";
 
 export default function Home({}: PropsWithChildren) {
@@ -19,17 +26,52 @@ export default function Home({}: PropsWithChildren) {
     <LandingLayout>
       <Head title="Welcome" />
 
-      <HeroSection />
+      <HomeSection>
+        <HeroSection />
+      </HomeSection>
 
-      <FeaturesSection />
+      <HomeSection>
+        <FeaturesSection />
+      </HomeSection>
 
-      <TestimonialsSection />
+      <HomeSection className={'bg-sky-200 bg-gradient-to-r from-pink-200 to-pink-100 border border-black'}>
+        <div className="min-h-full h-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className={'flex flex-col justify-center space-y-8'}>
+            <h3 className={'text-[#2273AF] text-[3rem] font-extrabold'}>Network smarter with free digital business cards.</h3>
+            <p className={'text-[#4E4E4E] text-[1.25rem] font-normal'}>Stand out from the crowd with digital business cards. Not only are digital cards better for the environment, they’re also better for your wallet and will help you make a great first impression.</p>
+            <a href="#" className={'block text-[#44C8EF] text-[1.25rem] font-normal'}>
+              Learn more about our digital business cards →
+            </a>
+          </div>
+          <div className={'hidden lg:block relative m-12 h-[50vh] bg-gradient-to-r from-sky-200 to-sky-100 rounded-2xl'}>
+            <div className={'absolute inset-0 top-1/4 flex justify-center gap-12'}>
+              <img className={'h-[60vh] object-contain'} src={ImageIphone16} alt=""/>
+              <img className={'h-[60vh] object-contain'} src={ImageIphone14} alt=""/>
+            </div>
+          </div>
+          <div className={'col-span-full'}>
+            <div className="py-16 mx-auto max-w-7xl w-full min-h-full rounded-2xl bg-white bg-gradient-to-r from-indigo-200 to-indigo-300">
+              1200 test
+            </div>
+          </div>
+        </div>
+      </HomeSection>
 
-      <CallToActionSection />
+      <HomeSection>
+        <TestimonialsSection />
+      </HomeSection>
 
-      <FaqsSection />
+      <HomeSection>
+        <CallToActionSection />
+      </HomeSection>
 
-      <PartnersSection />
+      <HomeSection>
+        <FaqsSection />
+      </HomeSection>
+
+      <HomeSection>
+        <PartnersSection />
+      </HomeSection>
 
       <div className="mt-20"></div>
 
@@ -37,38 +79,42 @@ export default function Home({}: PropsWithChildren) {
   );
 }
 
-import AppstoreImage from '../../images/appstore1.png';
-import PlaystoreImage from '../../images/playstore1.png';
-import HeroImage from '../../images/hero.png';
+const HomeSection = ({children, className}: PropsWithChildren & {className?: string}) => {
+  return (
+    <div className={`min-h-screen h-full flex flex-col ${className}`}>
+      <div className={'flex-1 py-24 mx-auto max-w-7xl w-full min-h-full'}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 
 const HeroSection = () => {
   const props = usePage().props
-
   const __ = (key: string) => key;
 
   return (
-    <section className={'max-w-7xl mx-auto py-20 px-24'}>
-      <div className="grid grid-cols-4 grid-rows-1 gap-x-6 items-stretch">
-        <div className="relative col-span-full lg:col-span-2 flex flex-col items-start justify-center">
-          <h1 className="mt-6 font-extrabold leading-[2] text-[2.4375rem] text-sky-600">
-            <span>{__('Ready To Launch Your OnlineDigital')} </span>
-            <span className="text-sky-400">{'Business Card'} </span>
-            <span>{__('App')}</span>
-          </h1>
-          <p className="mt-6 text-base leading-8 text-gray-800">{__('Tekcard is a free digital business card and contact manager app designed to help you grow your network.')}</p>
-          <div className="mt-10 grid grid-cols-2 gap-6">
-            <a href="#" className="h-16">
-              <img className="h-full w-full object-contain" src={AppstoreImage} alt="playstore" />
-            </a>
-            <a href="#" className="h-16">
-              <img className="h-full w-full object-contain" src={PlaystoreImage} alt="appstore" />
-            </a>
-          </div>
+    <section className={'min-h-full h-full p-4 grid grid-cols-4 grid-rows-1 gap-x-6 items-center'}>
+      <div className="relative col-span-full lg:col-span-2 flex flex-col items-start justify-center">
+        <h1 className="mt-6 font-extrabold leading-[2] text-[2.4375rem] text-sky-600">
+          <span>{__('Ready To Launch Your OnlineDigital')} </span>
+          <span className="text-sky-400">{'Business Card'} </span>
+          <span>{__('App')}</span>
+        </h1>
+        <p className="mt-6 text-base leading-8 text-gray-800">{__('Tekcard is a free digital business card and contact manager app designed to help you grow your network.')}</p>
+        <div className="mt-10 grid grid-cols-2 gap-6">
+          <a href="#" className="h-16">
+            <img className="h-full w-full object-contain" src={AppstoreImage} alt="playstore" />
+          </a>
+          <a href="#" className="h-16">
+            <img className="h-full w-full object-contain" src={PlaystoreImage} alt="appstore" />
+          </a>
         </div>
-        <div className="col-span-full lg:col-span-2 hidden md:block">
-          <div className="relative h-full flex justify-center">
-            <img src={HeroImage} alt="hero"/>
-          </div>
+      </div>
+      <div className="col-span-full lg:col-span-2 hidden md:block">
+        <div className="relative h-full flex justify-center">
+          <img src={HeroImage} alt="hero"/>
         </div>
       </div>
     </section>

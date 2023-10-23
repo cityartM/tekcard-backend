@@ -11,8 +11,8 @@
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "paths": {
-            "@/*": ["./resources/frontend/js/*"]
+            "@/*": ["./resources/js/*"]
         }
     },
-    "include": ["resources/frontend/js/**/*.ts", "resources/frontend/js/**/*.tsx", "resources/frontend/js/**/*.d.ts"]
+    "include": ["resources/js/**/*.ts", "resources/js/**/*.tsx", "resources/js/**/*.d.ts"]
 }
