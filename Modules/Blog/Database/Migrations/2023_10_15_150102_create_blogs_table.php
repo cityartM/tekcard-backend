@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('type', array_keys(BlogCategories::lists()))->default(BlogCategories::OTHER);
             $table->json('content');
             $table->string('tumail')->nullable();
-            $table->json('gallery')->nullable();
+            $table->json('gallery')->nullable(); 
             $table->timestamps();
         });
     }

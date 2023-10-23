@@ -58,6 +58,9 @@ return [
     'feedback' => 'تعليقات',
     'feedback_list' => 'قائمة التعليقات',
     'comment' => 'تعليق',
+    'rating' => 'تقييم',
+
+
 
     /***  subscriptions  ***/
     'subscriptions' => 'اشتراكات' ,

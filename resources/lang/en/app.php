@@ -357,6 +357,7 @@ return [
 'feedback' => 'Feedback',
 'feedback_list' => 'Feedback list',
 'comment' => 'comment',
+'rating' => 'rating',
 
 
 /*** contact_us ***/
