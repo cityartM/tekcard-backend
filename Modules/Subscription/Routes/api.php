@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/subscription', function (Request $request) 
 });
 
 Route::get('/subscriptions', 'SubscriptionController@index');
+Route::post('/subscriptions', 'SubscriptionController@store');

@@ -5,8 +5,11 @@ namespace Modules\Blog\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Blog\Models\Blog;
 
-class BlogApiController extends Controller
+use App\Http\Controllers\Api\ApiController;
+
+class BlogApiController extends ApiController
 {
     /**
      * Display a listing of the resource.
