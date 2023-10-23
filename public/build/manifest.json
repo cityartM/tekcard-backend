@@ -2,45 +2,45 @@
   "_AuthConfig-2e82ca2c.js": {
     "file": "assets/AuthConfig-2e82ca2c.js"
   },
-  "_Faq-e4c53a10.js": {
-    "file": "assets/Faq-e4c53a10.js",
+  "_Faq-41f640a5.js": {
+    "file": "assets/Faq-41f640a5.js",
     "imports": [
-      "resources/frontend/js/app.tsx"
+      "resources/js/front.tsx"
     ]
   },
-  "_Input-f0547910.js": {
-    "file": "assets/Input-f0547910.js",
+  "_Input-9adae0bd.js": {
+    "file": "assets/Input-9adae0bd.js",
     "imports": [
-      "resources/frontend/js/app.tsx"
+      "resources/js/front.tsx"
     ]
   },
-  "_LandingLayout-1c640b9a.js": {
+  "_LandingLayout-fc59b301.js": {
     "assets": [
       "assets/logo-c2f26a6c.png"
     ],
-    "file": "assets/LandingLayout-1c640b9a.js",
+    "file": "assets/LandingLayout-fc59b301.js",
     "imports": [
-      "resources/frontend/js/app.tsx"
+      "resources/js/front.tsx"
     ]
   },
-  "_LoginForm-045545f4.js": {
-    "file": "assets/LoginForm-045545f4.js",
+  "_LoginForm-9ba510b4.js": {
+    "file": "assets/LoginForm-9ba510b4.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_Input-f0547910.js",
+      "resources/js/front.tsx",
+      "_Input-9adae0bd.js",
       "_AuthConfig-2e82ca2c.js"
     ]
   },
-  "_axios-3c7106ac.js": {
-    "file": "assets/axios-3c7106ac.js"
+  "_bootstrap-dd2a6c2f.js": {
+    "file": "assets/bootstrap-dd2a6c2f.js"
   },
   "resources/css/app-dashboard.css": {
-    "file": "assets/app-dashboard-6c428163.css",
+    "file": "assets/app-dashboard-0bfa2745.css",
     "isEntry": true,
     "src": "resources/css/app-dashboard.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-5173a565.css",
+    "file": "assets/app-0d1bbf0d.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -84,214 +84,288 @@
     "file": "assets/din-next-lt-regular-21128d20.ttf",
     "src": "resources/fonts/din-next-lt-regular.ttf"
   },
-  "resources/frontend/fonts/LTEnergy-Italic.otf": {
-    "file": "assets/LTEnergy-Italic-040f6b59.otf",
-    "src": "resources/frontend/fonts/LTEnergy-Italic.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-NarrowBold.otf": {
-    "file": "assets/LTEnergy-NarrowBold-c75881cb.otf",
-    "src": "resources/frontend/fonts/LTEnergy-NarrowBold.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-NarrowBoldItalic.otf": {
-    "file": "assets/LTEnergy-NarrowBoldItalic-c6e17e93.otf",
-    "src": "resources/frontend/fonts/LTEnergy-NarrowBoldItalic.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-NarrowBoldSemi-Italic.otf": {
-    "file": "assets/LTEnergy-NarrowBoldSemi-Italic-85493ed5.otf",
-    "src": "resources/frontend/fonts/LTEnergy-NarrowBoldSemi-Italic.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-Regular.otf": {
-    "file": "assets/LTEnergy-Regular-5839d2c8.otf",
-    "src": "resources/frontend/fonts/LTEnergy-Regular.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-Semi-Italic.otf": {
-    "file": "assets/LTEnergy-Semi-Italic-8fa1d411.otf",
-    "src": "resources/frontend/fonts/LTEnergy-Semi-Italic.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-WideBold.otf": {
-    "file": "assets/LTEnergy-WideBold-2319d73a.otf",
-    "src": "resources/frontend/fonts/LTEnergy-WideBold.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-WideBoldItalic.otf": {
-    "file": "assets/LTEnergy-WideBoldItalic-0c306e25.otf",
-    "src": "resources/frontend/fonts/LTEnergy-WideBoldItalic.otf"
-  },
-  "resources/frontend/fonts/LTEnergy-WideBoldSemi-Italic.otf": {
-    "file": "assets/LTEnergy-WideBoldSemi-Italic-675971af.otf",
-    "src": "resources/frontend/fonts/LTEnergy-WideBoldSemi-Italic.otf"
-  },
-  "resources/frontend/fonts/LTEnergySmRd-Italic.otf": {
-    "file": "assets/LTEnergySmRd-Italic-f731ce00.otf",
-    "src": "resources/frontend/fonts/LTEnergySmRd-Italic.otf"
-  },
-  "resources/frontend/fonts/LTEnergySmRd-Regular.otf": {
-    "file": "assets/LTEnergySmRd-Regular-2b55b934.otf",
-    "src": "resources/frontend/fonts/LTEnergySmRd-Regular.otf"
-  },
-  "resources/frontend/fonts/LTEnergySmRd-Semi-Italic.otf": {
-    "file": "assets/LTEnergySmRd-Semi-Italic-2f9e902d.otf",
-    "src": "resources/frontend/fonts/LTEnergySmRd-Semi-Italic.otf"
-  },
-  "resources/frontend/images/2-phones-rotated.png": {
+  "resources/images/2-phones-rotated.png": {
     "file": "assets/2-phones-rotated-7ae09722.png",
-    "src": "resources/frontend/images/2-phones-rotated.png"
+    "src": "resources/images/2-phones-rotated.png"
   },
-  "resources/frontend/images/appstore1.png": {
+  "resources/images/appstore1.png": {
     "file": "assets/appstore1-d9c57a03.png",
-    "src": "resources/frontend/images/appstore1.png"
+    "src": "resources/images/appstore1.png"
   },
-  "resources/frontend/images/hero.png": {
+  "resources/images/hero.png": {
     "file": "assets/hero-db078799.png",
-    "src": "resources/frontend/images/hero.png"
+    "src": "resources/images/hero.png"
   },
-  "resources/frontend/images/logo.png": {
+  "resources/images/home/iphone14.png": {
+    "file": "assets/iphone14-a7e7536f.png",
+    "src": "resources/images/home/iphone14.png"
+  },
+  "resources/images/home/iphone16.png": {
+    "file": "assets/iphone16-c0300b0d.png",
+    "src": "resources/images/home/iphone16.png"
+  },
+  "resources/images/logo.png": {
     "file": "assets/logo-c2f26a6c.png",
-    "src": "resources/frontend/images/logo.png"
+    "src": "resources/images/logo.png"
   },
-  "resources/frontend/images/playstore1.png": {
+  "resources/images/playstore1.png": {
     "file": "assets/playstore1-a9eec797.png",
-    "src": "resources/frontend/images/playstore1.png"
+    "src": "resources/images/playstore1.png"
   },
-  "resources/frontend/js/Pages/AboutUs.tsx": {
-    "file": "assets/AboutUs-34616f91.js",
+  "resources/js/Pages/AboutUs.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/AboutUs-31257c6f.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LandingLayout-1c640b9a.js",
-      "_Faq-e4c53a10.js",
-      "_axios-3c7106ac.js"
+      "resources/js/front.tsx",
+      "_LandingLayout-fc59b301.js",
+      "_Faq-41f640a5.js",
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/AboutUs.tsx"
+    "src": "resources/js/Pages/AboutUs.tsx"
   },
-  "resources/frontend/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-1b395aee.js",
+  "resources/js/Pages/Auth/Login.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/Login-213741e5.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LoginForm-045545f4.js",
-      "_axios-3c7106ac.js",
-      "_Input-f0547910.js",
+      "resources/js/front.tsx",
+      "_LoginForm-9ba510b4.js",
+      "_bootstrap-dd2a6c2f.js",
+      "_Input-9adae0bd.js",
       "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/Login.tsx"
+    "src": "resources/js/Pages/Auth/Login.tsx"
   },
-  "resources/frontend/js/Pages/Auth/Register.tsx": {
-    "file": "assets/Register-5f460586.js",
+  "resources/js/Pages/Auth/Register.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/Register-b7b83932.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_Input-f0547910.js",
+      "resources/js/front.tsx",
+      "_Input-9adae0bd.js",
       "_AuthConfig-2e82ca2c.js",
-      "_axios-3c7106ac.js"
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Auth/Register.tsx"
+    "src": "resources/js/Pages/Auth/Register.tsx"
   },
-  "resources/frontend/js/Pages/Blog.tsx": {
-    "file": "assets/Blog-ccfa4137.js",
+  "resources/js/Pages/Blog.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/Blog-5c5d4e82.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LandingLayout-1c640b9a.js",
-      "_axios-3c7106ac.js"
+      "resources/js/front.tsx",
+      "_LandingLayout-fc59b301.js",
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Blog.tsx"
+    "src": "resources/js/Pages/Blog.tsx"
   },
-  "resources/frontend/js/Pages/ContactUs.tsx": {
-    "file": "assets/ContactUs-bea48883.js",
+  "resources/js/Pages/ContactUs.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/ContactUs-5a171357.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LandingLayout-1c640b9a.js",
-      "_Input-f0547910.js",
-      "_axios-3c7106ac.js"
+      "resources/js/front.tsx",
+      "_LandingLayout-fc59b301.js",
+      "_Input-9adae0bd.js",
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/ContactUs.tsx"
+    "src": "resources/js/Pages/ContactUs.tsx"
   },
-  "resources/frontend/js/Pages/Home.tsx": {
+  "resources/js/Pages/Home.tsx": {
     "assets": [
       "assets/2-phones-rotated-7ae09722.png",
       "assets/appstore1-d9c57a03.png",
       "assets/playstore1-a9eec797.png",
-      "assets/hero-db078799.png"
+      "assets/hero-db078799.png",
+      "assets/iphone16-c0300b0d.png",
+      "assets/iphone14-a7e7536f.png",
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
     ],
-    "file": "assets/Home-31d0ea57.js",
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/Home-14171882.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LandingLayout-1c640b9a.js",
-      "_Faq-e4c53a10.js",
-      "_axios-3c7106ac.js"
+      "resources/js/front.tsx",
+      "_LandingLayout-fc59b301.js",
+      "_Faq-41f640a5.js",
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Home.tsx"
+    "src": "resources/js/Pages/Home.tsx"
   },
-  "resources/frontend/js/Pages/Playground.tsx": {
-    "file": "assets/Playground-fff88044.js",
+  "resources/js/Pages/Playground.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "file": "assets/Playground-2686830a.js",
     "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LoginForm-045545f4.js",
-      "_axios-3c7106ac.js",
-      "_Input-f0547910.js",
+      "resources/js/front.tsx",
+      "_LoginForm-9ba510b4.js",
+      "_bootstrap-dd2a6c2f.js",
+      "_Input-9adae0bd.js",
       "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Playground.tsx"
+    "src": "resources/js/Pages/Playground.tsx"
   },
-  "resources/frontend/js/Pages/Pricing.tsx": {
-    "file": "assets/Pricing-fd4076e4.js",
-    "imports": [
-      "resources/frontend/js/app.tsx",
-      "_LandingLayout-1c640b9a.js",
-      "_axios-3c7106ac.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/frontend/js/Pages/Pricing.tsx"
-  },
-  "resources/frontend/js/app.css": {
-    "file": "assets/app-f8018e97.css",
-    "src": "resources/frontend/js/app.css"
-  },
-  "resources/frontend/js/app.tsx": {
+  "resources/js/Pages/Pricing.tsx": {
     "assets": [
-      "assets/LTEnergy-Regular-5839d2c8.otf",
-      "assets/LTEnergy-Semi-Italic-8fa1d411.otf",
-      "assets/LTEnergy-Italic-040f6b59.otf",
-      "assets/LTEnergySmRd-Regular-2b55b934.otf",
-      "assets/LTEnergySmRd-Semi-Italic-2f9e902d.otf",
-      "assets/LTEnergySmRd-Italic-f731ce00.otf",
-      "assets/LTEnergy-NarrowBold-c75881cb.otf",
-      "assets/LTEnergy-NarrowBoldSemi-Italic-85493ed5.otf",
-      "assets/LTEnergy-NarrowBoldItalic-c6e17e93.otf",
-      "assets/LTEnergy-WideBold-2319d73a.otf",
-      "assets/LTEnergy-WideBoldSemi-Italic-675971af.otf",
-      "assets/LTEnergy-WideBoldItalic-0c306e25.otf"
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
     ],
     "css": [
-      "assets/app-f8018e97.css"
+      "assets/app-0d1bbf0d.css"
     ],
-    "dynamicImports": [
-      "resources/frontend/js/Pages/AboutUs.tsx",
-      "resources/frontend/js/Pages/Auth/Login.tsx",
-      "resources/frontend/js/Pages/Auth/Register.tsx",
-      "resources/frontend/js/Pages/Blog.tsx",
-      "resources/frontend/js/Pages/ContactUs.tsx",
-      "resources/frontend/js/Pages/Home.tsx",
-      "resources/frontend/js/Pages/Playground.tsx",
-      "resources/frontend/js/Pages/Pricing.tsx"
-    ],
-    "file": "assets/app-aa217f8d.js",
+    "file": "assets/Pricing-5d510a2e.js",
     "imports": [
-      "_axios-3c7106ac.js"
+      "resources/js/front.tsx",
+      "_LandingLayout-fc59b301.js",
+      "_bootstrap-dd2a6c2f.js"
     ],
-    "isEntry": true,
-    "src": "resources/frontend/js/app.tsx"
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Pricing.tsx"
   },
   "resources/js/app.js": {
-    "file": "assets/app-c5336270.js",
+    "file": "assets/app-6396b733.js",
     "imports": [
-      "_axios-3c7106ac.js"
+      "_bootstrap-dd2a6c2f.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/front.tsx": {
+    "assets": [
+      "assets/din-next-lt-regular-21128d20.ttf",
+      "assets/din-next-lt-medium-2d472fae.ttf",
+      "assets/din-next-lt-bold-04bc01c8.ttf",
+      "assets/Tajawal-ExtraLight-62efd30e.ttf",
+      "assets/Tajawal-Light-e33bbcee.ttf",
+      "assets/Tajawal-Regular-910e6857.ttf",
+      "assets/Tajawal-Medium-908276c0.ttf",
+      "assets/Tajawal-Bold-f92b69ca.ttf",
+      "assets/Tajawal-ExtraBold-49e2e427.ttf",
+      "assets/Tajawal-Black-cab2c608.ttf"
+    ],
+    "css": [
+      "assets/app-0d1bbf0d.css"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/AboutUs.tsx",
+      "resources/js/Pages/Auth/Login.tsx",
+      "resources/js/Pages/Auth/Register.tsx",
+      "resources/js/Pages/Blog.tsx",
+      "resources/js/Pages/ContactUs.tsx",
+      "resources/js/Pages/Home.tsx",
+      "resources/js/Pages/Playground.tsx",
+      "resources/js/Pages/Pricing.tsx"
+    ],
+    "file": "assets/front-bafd3f67.js",
+    "imports": [
+      "_bootstrap-dd2a6c2f.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/front.tsx"
   },
   "resources/sass/app.scss": {
     "file": "assets/app-f93ccaaa.css",

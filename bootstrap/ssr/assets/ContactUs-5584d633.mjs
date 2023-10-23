@@ -1,7 +1,10 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-5cee512a.mjs";
+import { L as LandingLayout } from "./LandingLayout-aafbec72.mjs";
 import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
+import "react";
+import "@headlessui/react";
+import "@heroicons/react/24/outline";
 const fields = [
   {
     name: "name",
