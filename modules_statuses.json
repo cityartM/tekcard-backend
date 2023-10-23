@@ -7,6 +7,5 @@
     "Company": true,
     "Plan": true,
     "Feature": true,
-    "Blog": true,
-    "ContactUser": true
+    "Blog": true
 }
