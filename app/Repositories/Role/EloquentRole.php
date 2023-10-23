@@ -6,7 +6,7 @@ use App\Datatables\RoleDatatable;
 use App\Datatables\RoleDatatables;
 use App\Models\Role;
 use App\Support\Authorization\CacheFlusherTrait;
-use DB;
+use App\Repositories\Role\RoleRepository;
 
 class EloquentRole implements RoleRepository
 {

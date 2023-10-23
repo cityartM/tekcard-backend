@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\Http\Requests\Request;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\Auth\Social\ApiAuthenticateRequest;
+use App\Http\Requests\Request;
 use App\Http\Resources\UserResource;
 use App\Models\Social;
-use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\UserRepository;
 use App\Services\Auth\Social\SocialManager;
 use App\Support\Enum\UserStatus;
@@ -17,6 +16,7 @@ use Kreait\Firebase\Exception\Auth\FailedToVerifyToken;
 use Lcobucci\JWT\Encoding\JoseEncoder;
 use Lcobucci\JWT\Token\Parser;
 use Lcobucci\JWT\UnencryptedToken;
+use App\Repositories\Role\RoleRepository;
 
 class SocialLoginController extends ApiController
 {

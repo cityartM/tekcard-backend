@@ -122,6 +122,11 @@ return [
         'unpublished' => 'Unpublished',
     ],
 
+    'planTypes' => [
+        'Company' => 'Company',
+        'Client' => 'Client',
+    ],
+
     /*** Generale ***/
     'save' => 'Save',
     'show' => 'Show',
@@ -149,6 +154,7 @@ return [
     'page_status' => 'Status',
     'account_id' =>'Account ID',
     'details' =>'Details',
+    'home' =>'Home',
     'ar' =>'Arabic',
     'en' =>'English',
     'fr' =>'French',
@@ -349,53 +355,56 @@ return [
     'country' => 'Country',
     'add_wilaya' => 'add_wilaya',
 
-/*** plan ***/
-'plans' => 'Plans',
-'plan' => 'Plan',
+    /*** plan ***/
+    'plans' => 'Plans',
+    'plan' => 'Plan',
+    'plans_features' => 'Plans & Features',
+    'plan_list' => 'Plan List',
+    'add_plan' => 'Add plan',
+    'of_users_with_this_plan' => 'of user with this plan',
+    'plan_details' => 'Plan details',
+    'general_plan_information' => 'General plan information',
+    'plan_name' => 'Plan name',
+    'save_plan' => 'Save plan',
+    'update_plan' => 'Update plan',
+    'nbr_user' => 'Number of user',
+    'nbr_card_user' => 'Number of card for user',
+    'has_dashboard' => 'Has dashboard',
 
-/***  feedback  ***/
-'feedback' => 'Feedback',
-'feedback_list' => 'Feedback list',
-'comment' => 'comment',
-'rating' => 'rating',
+    /*** features ***/
+    'features' => 'Features',
+    'feature' => 'Features',
 
-
-/*** contact_us ***/
-'contact_us' => 'Contact us',
-'contact_us_list' => 'Dontact us list',
-'first_name' => 'First name',
-'last_name' => 'Last name',
-
-/***  subscriptions  ***/
-'subscriptions' => 'Subscriptions',
-'subscriptions_list' => 'Subscriptions list',
-'email' => 'email',
-'subscriptions_date' => 'Subscriptions date',
-
-
-
-
-/***  general  ***/
+    /***  feedback  ***/
+    'feedback' => 'Feedback',
+    'feedback_list' => 'Feedback list',
+    'comment' => 'comment',
 
 
+    /*** contact_us ***/
+    'contact_us' => 'Contact us',
+    'contact_us_list' => 'Dontact us list',
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+
+    /***  subscriptions  ***/
+    'subscriptions' => 'Subscriptions',
+    'subscriptions_list' => 'Subscriptions list',
+    'email' => 'email',
+    'subscriptions_date' => 'Subscriptions date',
 
 
-
-
-/***  blog  ***/
-'blogs' => 'blogs',
-'add_blog' => 'Add blog',
-'statusb' => 'Status',
-'blog' => 'blog',
-'Create New Blog' => 'Create New Blog',
-'content' => 'content',
-'image_upload' => 'Image Upload (max:2M)',
-'upload_gallery' => 'Upload gallery',
-'blog_list' => 'blog_list',
-'create_blog' => 'create_blog',
-'update_blog' => 'update_blog',
-
-
-
+    /***  blog  ***/
+    'blogs' => 'Blogs',
+    'add_blog' => 'Add blog',
+    'statusb' => 'Status',
+    'blog' => 'Blog',
+    'Create New Blog' => 'Create New Blog',
+    'content' => 'content',
+    'image_upload' => 'Image Upload (max:2M)',
+    'upload_gallery' => 'Upload gallery',
+    'blog_list' => 'Blog list',
+    'create_blog' => 'Create blog',
+    'update_blog' => 'Update blog',
 
 ];

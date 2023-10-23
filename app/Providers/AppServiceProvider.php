@@ -2,14 +2,12 @@
 
 namespace App\Providers;
 
-use App\Repositories\Partner\EloquentPartner;
-use App\Repositories\Partner\PartnerRepository;
 use App\Repositories\Permission\EloquentPermission;
 use App\Repositories\Permission\PermissionRepository;
-use App\Repositories\Role\EloquentRole;
-use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\EloquentUser;
 use App\Repositories\User\UserRepository;
+use App\Repositories\Role\RoleRepository;
+use App\Repositories\Role\EloquentRole;
 use App\View\Components\Admin\AsideComponent;
 use App\View\Components\Button\AddButton;
 use App\View\Components\Buttons\BackButtonComponent;
@@ -30,6 +28,7 @@ use App\View\Components\Datatable\Script;
 use App\View\Components\Datatable\SearchInput;
 use App\View\Components\Fields\FileField;
 use App\View\Components\Fields\InputField;
+use App\View\Components\Fields\InputSwitch;
 use App\View\Components\Fields\SelectField;
 use App\View\Components\Fields\SummernoteField;
 use App\View\Components\Fields\TextFieldJson;
@@ -42,26 +41,15 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Modules\Advice\Repositories\AdviceRepository;
-use Modules\Advice\Repositories\EloquentAdvice;
-
-use Modules\Plan\Repositories\PlanRepository;
-use Modules\Plan\Repositories\EloquentPlan;
-
-use Modules\Strategy\Repositories\StrategyRepository;
-use Modules\Strategy\Repositories\EloquentStrategy;
-
-use Modules\Subscription\Repositories\SubscriptionRepository;
-use Modules\Subscription\Repositories\EloquentSubscription;
-
-use Modules\ContactUs\Repositories\ContactUsRepository;
-use Modules\ContactUs\Repositories\EloquentContactUs;
-
-use Modules\FeedBack\Repositories\FeedBackRepository;
-use Modules\FeedBack\Repositories\EloquentFeedBack;
 
 use Modules\Blog\Repositories\BlogRepository;
 use Modules\Blog\Repositories\EloquentBlog;
+use Modules\ContactUs\Repositories\ContactUsRepository;
+use Modules\ContactUs\Repositories\EloquentContactUs;
+use Modules\FeedBack\Repositories\EloquentFeedBack;
+use Modules\FeedBack\Repositories\FeedBackRepository;
+use Modules\Subscription\Repositories\EloquentSubscription;
+use Modules\Subscription\Repositories\SubscriptionRepository;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -118,6 +106,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(SelectField::class, "select-field");
         Blade::component(TextFieldJson::class, "text-field-json");
         Blade::component(CardInputImage::class, "card-image");
+        Blade::component(InputSwitch::class, "input-switch");
 
 
 

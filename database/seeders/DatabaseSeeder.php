@@ -3,6 +3,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Plan\Database\Seeders\PlanDatabaseSeeder;
 use Modules\Strategy\Database\Seeders\StrategyDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         $this->call(PermissionsSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(PlanDatabaseSeeder::class);
         Model::reguard();
     }
 }

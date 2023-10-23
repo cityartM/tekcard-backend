@@ -4,13 +4,12 @@ namespace App\Repositories\User;
 
 use App\Datatables\UserDatatable;
 use App\Http\Filters\UserKeywordSearch;
-use App\Repositories\Role\RoleRepository;
 use App\Models\Role;
-use App\Services\Upload\UserAvatarManager;
 use App\Models\User;
+use App\Services\Upload\UserAvatarManager;
 use Carbon\Carbon;
 use DB;
-use Illuminate\Database\SQLiteConnection;
+use App\Repositories\Role\RoleRepository;
 
 class EloquentUser implements UserRepository
 {
