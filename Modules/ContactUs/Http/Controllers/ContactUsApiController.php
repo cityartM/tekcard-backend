@@ -6,7 +6,10 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class ContactUsApiController extends Controller
+use App\Http\Controllers\Api\ApiController;
+use Modules\ContactUs\Models\ContactUs;
+
+class ContactUsApiController extends ApiController
 {
     /**
      * Display a listing of the resource.

@@ -6,7 +6,10 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class FeedBackApiController extends Controller
+use App\Http\Controllers\Api\ApiController;
+use Modules\FeedBack\Models\FeedBack;
+
+class FeedBackApiController extends ApiController
 {
     /**
      * Display a listing of the resource.
