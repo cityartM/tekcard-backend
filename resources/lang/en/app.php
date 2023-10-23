@@ -406,8 +406,5 @@ return [
     'blog_list' => 'Blog list',
     'create_blog' => 'Create blog',
     'update_blog' => 'Update blog',
-
-
-
-
+    
 ];

@@ -9,7 +9,7 @@
     <!-- Scripts -->
     @routes
     @viteReactRefresh
-    @vite(['resources/frontend/js/app.tsx', "resources/frontend/js/Pages/{$page['component']}.tsx"])
+    @vite(['resources/js/front.tsx', "resources/js/Pages/{$page['component']}.tsx"])
     @inertiaHead
 </head>
 <body class="font-sans antialiased min-h-screen bg-slate-50">

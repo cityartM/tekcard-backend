@@ -273,6 +273,9 @@ return [
 'feedback' => 'geri bildirimler',
 'feedback_list' => 'geri bildirim listesi',
 'comment' => 'yorum',
+'rating' => 'puanlama',
+
+
 
  /***  subscriptions  ***/
  'subscriptions' => 'abonelikler',

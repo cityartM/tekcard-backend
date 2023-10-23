@@ -15,6 +15,8 @@ class FeedBackDatatable
     {
         return [
             "user",
+            "rating",
+            "status",
             "comment",
           ];
     }
@@ -31,11 +33,16 @@ class FeedBackDatatable
                 ->addColumn("user", function (FeedBack $feedback) {
                     return $feedback->user->first_name ;
                 })
+                ->addColumn("rating", function (FeedBack $feedback) {
+                    return $feedback->rating ;
+                })
+                ->addColumn("status", function (FeedBack $feedback) {
+                    return $feedback->status ;
+                })
                 ->addColumn("comment", function (FeedBack $feedback) {
                     return $feedback->comment;
                 })
-
-                ->rawColumns(['action','user','comment'])
+                ->rawColumns(['action','user','rating','comment'])
 
                 ->make(true);
         } catch (Exception $e) {
