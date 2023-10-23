@@ -24,6 +24,8 @@
         <x-card-body>
             <x-datatable-html>
                 <td>{{__("app.user")}}</td>
+                <td>{{__("app.rating")}}</td>
+                <td>{{__("app.statusb")}}</td>
                 <td>{{__("app.comment")}}</td>
             </x-datatable-html>
         </x-card-body>

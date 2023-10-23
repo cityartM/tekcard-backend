@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Support\Enum\Status;
+
 return new class extends Migration
 {
     /**
@@ -16,6 +18,8 @@ return new class extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
+            $table->unsignedTinyInteger('rating')->default(3);
+            $table->enum('status',array_keys(Status::lists()))->default(Status::UNPUBLISHED);
             $table->text('comment');
             $table->timestamps();
 
