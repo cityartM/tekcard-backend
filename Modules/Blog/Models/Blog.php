@@ -21,10 +21,8 @@ class Blog extends Model implements HasMedia
         'content' => 'json',
         'gallery' => 'json',
     ];
-    
+
     protected array $translatable = ['title','content'];
-
-
 
     public function getJsonTitleAttribute($value)
     {
@@ -65,7 +63,6 @@ class Blog extends Model implements HasMedia
         }
     }
 
-
     public function getBladeTitleAttribute($value)
     {
         return $this->getTranslations('title');
@@ -75,10 +72,6 @@ class Blog extends Model implements HasMedia
     {
         return $this->getTranslations('content');
     }
-
-
-
-
 
     protected static function newFactory()
     {
