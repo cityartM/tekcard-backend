@@ -1,11 +1,73 @@
-import { jsxs, jsx } from "react/jsx-runtime";
-import { Head } from "@inertiajs/react";
-import { L as LoginForm } from "./LoginForm-af1d4eb8.mjs";
-import "./Input-0c2e04de.mjs";
-import "./AuthConfig-f672b007.mjs";
-const Login = ({}) => {
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useForm, Head } from "@inertiajs/react";
+import { I as InputLabel, T as TextArea, a as InputError } from "./InputError-fd9726b2.mjs";
+import { T as TextInput } from "./Input-15127deb.mjs";
+import { A as AuthConfig } from "./AuthConfig-f672b007.mjs";
+const RegisterForm = ({}) => {
+  const {
+    data,
+    setData,
+    post,
+    processing,
+    errors,
+    reset
+  } = useForm(AuthConfig.default_register_state);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    post(AuthConfig.registerUri, {
+      preserveScroll: true,
+      onSuccess: () => {
+        AuthConfig.registerFields.forEach((field) => {
+          reset(field);
+        });
+        alert("Message sent successfully!");
+      },
+      onError: () => {
+        alert("Message failed to send!");
+      }
+    });
+  };
+  const handleChanges = (e) => {
+    setData(e.target.id, e.target.value);
+  };
+  return /* @__PURE__ */ jsx("form", { onSubmit: (event) => handleSubmit(event), children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10", children: [
+    AuthConfig.fields.register.map((field) => {
+      if (field.type === "textarea") {
+        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
+          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
+          /* @__PURE__ */ jsx(
+            TextArea,
+            {
+              id: field.name,
+              ...field,
+              value: data[field.name],
+              onChange: (e) => handleChanges(e)
+            }
+          ),
+          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
+        ] }, field.name);
+      } else {
+        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
+          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
+          /* @__PURE__ */ jsx(
+            TextInput,
+            {
+              id: field.name,
+              ...field,
+              value: data[field.name],
+              onChange: (e) => handleChanges(e)
+            }
+          ),
+          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
+        ] }, field.name);
+      }
+    }),
+    /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center gap-8", children: /* @__PURE__ */ jsx("button", { disabled: processing, type: "submit", className: "flex-grow bg-[#478DCB] text-white font-medium text-lg py-4 px-10 rounded-2xl shadow-md hover:bg-[#29A0F5] transition duration-300 ease-in-out", children: "Submit" }) })
+  ] }) });
+};
+const Register = ({}) => {
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl", children: [
-    /* @__PURE__ */ jsx(Head, { title: "Login" }),
+    /* @__PURE__ */ jsx(Head, { title: "Register" }),
     /* @__PURE__ */ jsx("div", { className: "py-10 space-y-20", children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10", children: [
       /* @__PURE__ */ jsx("div", { className: "hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow", children: /* @__PURE__ */ jsxs("div", { className: "py-20 h-full flex flex-col space-y-10", children: [
         /* @__PURE__ */ jsx(LogoIcon, { className: "px-10 flex-shrink-0 max-w-sm" }),
@@ -35,7 +97,7 @@ const Login = ({}) => {
           /* @__PURE__ */ jsx("span", { className: "flex-shrink-0 text-lg font-bold text-[#1D1E24]/30", children: "Or" }),
           /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" })
         ] }),
-        /* @__PURE__ */ jsx(LoginForm, {})
+        /* @__PURE__ */ jsx(RegisterForm, {})
       ] })
     ] }) }) })
   ] });
@@ -552,5 +614,5 @@ function CardsIcon({ ...props }) {
   );
 }
 export {
-  Login as default
+  Register as default
 };

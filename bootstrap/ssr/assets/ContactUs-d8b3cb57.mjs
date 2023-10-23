@@ -1,7 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-aafbec72.mjs";
-import { I as InputLabel, T as TextArea, a as InputError, b as TextInput } from "./Input-0c2e04de.mjs";
+import { L as LandingLayout } from "./LandingLayout-9a0f5d69.mjs";
+import { I as InputLabel, T as TextArea, a as InputError } from "./InputError-fd9726b2.mjs";
+import { T as TextInput } from "./Input-15127deb.mjs";
 import "react";
 import "@headlessui/react";
 import "@heroicons/react/24/outline";

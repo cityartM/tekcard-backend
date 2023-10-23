@@ -14,9 +14,13 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
         return Inertia::render('AboutUs');
     })->name('landing.about-us');
 
-    Route::get('/blog', function () {
+    Route::get('/our-blog', function () {
         return Inertia::render('Blog');
     })->name('landing.blog');
+
+    Route::get('/our-blog/{blog}', function () {
+        return Inertia::render('BlogSingle');
+    })->name('landing.blog.show');
 
     Route::get('/pricing', function () {
         return Inertia::render('Pricing');
@@ -30,15 +34,6 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
         return Inertia::render('Playground');
     })->name('landing.playground');
 });
-
-Route::get('/frontend/blog', function () {
-    return Inertia::render('Blog');
-})->name('landing.blog');
-
-
-Route::get('/playground', function () {
-    return Inertia::render('Playground');
-})->name('landing.playground');
 
 Route::get('/frontend/login', function () {
     return Inertia::render('Auth/Login');

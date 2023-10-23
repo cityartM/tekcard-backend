@@ -189,7 +189,7 @@ const MobileDialog = ({ mobileMenuOpen, setMobileMenuOpen, children }) => {
 const Footer = ({}) => {
   return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ jsx(Subscribe, {}),
-    /* @__PURE__ */ jsx("footer", { className: "z-40 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]", children: /* @__PURE__ */ jsxs("div", { className: " max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-7 gap-20", children: [
+    /* @__PURE__ */ jsx("footer", { className: "z-20 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]", children: /* @__PURE__ */ jsxs("div", { className: " max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-7 gap-20", children: [
       /* @__PURE__ */ jsxs("div", { className: "col-span-2 flex flex-col gap-8", children: [
         /* @__PURE__ */ jsx(ApplicationLogo, { className: "w-[11.125rem] h-[2.1875rem]" }),
         /* @__PURE__ */ jsx("p", { className: "text-[1.28rem] font-normal leading-10", children: "Lorem ipsum dolor siton secte turad ipisicing elit sed do eiusmod temporin cididunt Laoreet non sagittis aliquam bibendum." }),
@@ -253,7 +253,7 @@ const Subscribe = () => {
   const handleChanges = (e) => {
     setData("email", e.target.value);
   };
-  return /* @__PURE__ */ jsx("div", { className: "z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%", children: /* @__PURE__ */ jsxs("form", { onSubmit: (event) => handleSubmit(event), className: "flex flex-col md:flex-row items-center gap-8", children: [
+  return /* @__PURE__ */ jsx("div", { className: "z-30 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%", children: /* @__PURE__ */ jsxs("form", { onSubmit: (event) => handleSubmit(event), className: "flex flex-col md:flex-row items-center gap-8", children: [
     /* @__PURE__ */ jsx(
       "p",
       {
@@ -290,5 +290,6 @@ function LandingLayout({ children }) {
   ] });
 }
 export {
+  ApplicationLogo as A,
   LandingLayout as L
 };

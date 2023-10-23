@@ -1,6 +1,6 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { usePage, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-aafbec72.mjs";
+import { L as LandingLayout } from "./LandingLayout-9a0f5d69.mjs";
 import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";

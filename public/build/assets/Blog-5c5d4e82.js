@@ -1,1 +1,0 @@
-import{j as t,a as o}from"./front-bafd3f67.js";import{L as e}from"./LandingLayout-fc59b301.js";import"./bootstrap-dd2a6c2f.js";/* empty css            */function l({}){return t.jsxs(e,{children:[t.jsx(o,{title:"Welcome"}),t.jsx("div",{className:"text-3xl",children:"Blog"})]})}export{l as default};

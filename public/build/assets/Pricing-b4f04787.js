@@ -1,0 +1,1 @@
+import{j as i,a as t}from"./front-2886726d.js";import{L as r}from"./LandingLayout-d4bd8a4d.js";import"./bootstrap-dd2a6c2f.js";/* empty css            */function n({}){return i.jsxs(r,{children:[i.jsx(t,{title:"Welcome"}),i.jsx("div",{className:"text-3xl",children:"Pricing"})]})}export{n as default};

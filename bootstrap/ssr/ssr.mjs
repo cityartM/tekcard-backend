@@ -484,7 +484,7 @@ createServer(
     page,
     render: ReactDOMServer.renderToString,
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, /* @__PURE__ */ Object.assign({ "./Pages/AboutUs.tsx": () => import("./assets/AboutUs-9fe7ab74.mjs"), "./Pages/Auth/Login.tsx": () => import("./assets/Login-4a720b67.mjs"), "./Pages/Auth/Register.tsx": () => import("./assets/Register-6b1a02b8.mjs"), "./Pages/Blog.tsx": () => import("./assets/Blog-5caa4ef3.mjs"), "./Pages/ContactUs.tsx": () => import("./assets/ContactUs-5584d633.mjs"), "./Pages/Home.tsx": () => import("./assets/Home-946234c3.mjs"), "./Pages/Playground.tsx": () => import("./assets/Playground-38df4dbf.mjs"), "./Pages/Pricing.tsx": () => import("./assets/Pricing-be7f0333.mjs") })),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, /* @__PURE__ */ Object.assign({ "./Pages/AboutUs.tsx": () => import("./assets/AboutUs-c0f5cd80.mjs"), "./Pages/Auth/Login.tsx": () => import("./assets/Login-6e877de9.mjs"), "./Pages/Auth/Register.tsx": () => import("./assets/Register-b950708f.mjs"), "./Pages/Blog.tsx": () => import("./assets/Blog-c1d78462.mjs"), "./Pages/BlogSingle.tsx": () => import("./assets/BlogSingle-07a32329.mjs"), "./Pages/ContactUs.tsx": () => import("./assets/ContactUs-d8b3cb57.mjs"), "./Pages/Home.tsx": () => import("./assets/Home-a1c0a54c.mjs"), "./Pages/Playground.tsx": () => import("./assets/Playground-94fd8430.mjs"), "./Pages/Pricing.tsx": () => import("./assets/Pricing-7f3dc097.mjs") })),
     setup: ({ App, props }) => {
       global.route = (name, params, absolute) => A(name, params, absolute, {
         // @ts-expect-error

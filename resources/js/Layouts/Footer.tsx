@@ -28,7 +28,7 @@ const Footer: React.FC<PropsWithChildren> = ({}) => {
           </form>
         </div>*/}
         <Subscribe />
-        <footer className={'z-40 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]'}>
+        <footer className={'z-20 md:-mt-[10rem] max-w-7xl mx-auto py-10 px-6 md:pt-[16.5rem] md:pb-[8.5rem] md:px-10 rounded-3xl bg-[#ffffff]'}>
           <div className={' max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-7 gap-20'}>
             <div className={'col-span-2 flex flex-col gap-8'}>
               <ApplicationLogo className={'w-[11.125rem] h-[2.1875rem]'}/>
@@ -109,7 +109,7 @@ const Subscribe = () => {
   }
 
   return (
-    <div className={'z-50 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%'}>
+    <div className={'z-30 relative max-w-5xl mx-auto py-10 px-6 md:py-20 md:px-10 rounded-3xl bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90%'}>
       <form onSubmit={(event) => handleSubmit(event)} className={'flex flex-col md:flex-row items-center gap-8'}>
         <p
           className={'flex-grow text-center md:text-start text-white text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] font-bold'}>
