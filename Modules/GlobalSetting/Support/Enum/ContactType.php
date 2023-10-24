@@ -5,7 +5,7 @@ namespace Modules\GlobalSetting\Support\Enum;
 class ContactType
 {
 
-    const ICONCONTACT = 'icon contact';
+    const ICONCONTACT = 'Icon contact';
     const SOCIALMEDIA = 'Social Media';
     const CONTACTINFO = 'Contact Info';
     const RECOMMENDED = 'Recommended';
