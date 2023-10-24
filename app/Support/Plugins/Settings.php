@@ -20,6 +20,11 @@ class Settings extends Plugin
             ->active("settings/auth")
             ->permissions('settings.auth');
 
+        $settingContacts = Item::create(__('app.setting_Contacts'))
+            ->route('settingContacts.index')
+            ->active("settings")
+            ->permissions('settingContacts.manage');
+
         $notifications = Item::create(__('app.Notifications'))
             ->route('settings.notifications')
             ->active("settings/notifications")
@@ -33,6 +38,7 @@ class Settings extends Plugin
             ->permissions(['settings.general'])
             ->addChildren([
                 $general,
+                $settingContacts,
                 //$authAndRegistration,
                 //$notifications,
             ]);

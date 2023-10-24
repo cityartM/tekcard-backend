@@ -10,7 +10,7 @@ use Modules\Blog\Models\Blog;
 use LaravelLocalization;
 use Modules\Blog\Http\Requests\CreateBlogRequest;
 use Spatie\MediaLibrary\Models\Media;
-
+ 
 use Modules\Blog\Repositories\BlogRepository;
 
 class BlogController extends Controller
