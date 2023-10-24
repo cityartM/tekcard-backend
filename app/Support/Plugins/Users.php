@@ -16,14 +16,14 @@ class Users extends Plugin
             ->permissions('users.manage');
 
         $groups = Item::create(__('app.groups'))
-            ->route('users.index')
+            ->route('groups.index')
             ->active("users*")
-            ->permissions('users.manage');
+            ->permissions('groups.manage');
 
         $remarks = Item::create(__('app.remarks'))
-            ->route('users.index')
+            ->route('remarks.index')
             ->active("users*")
-            ->permissions('users.manage');
+            ->permissions('remarks.manage');
 
         $contacts = Item::create(__('app.contacts'))
             ->route('users.index')
