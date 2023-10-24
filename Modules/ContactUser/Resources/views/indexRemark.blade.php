@@ -1,20 +1,20 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.Remarks'))
-@section('page-heading', __('app.Remarks'))
+@section('page-title', __('app.remarks'))
+@section('page-heading', __('app.remarks'))
 
 @section('breadcrumbs')
-    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.Remarks')</h1>
+    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.remarks')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
-            <a href="" class="text-muted text-hover-primary">@lang('app.Remarks_list')</a>
+            <a href="" class="text-muted text-hover-primary">@lang('app.remarks_list')</a>
         </li>
     </ul>
 @stop
 @section('actions')
     <a href="{{ route('remarks.create') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-        @lang('app.add_Remark')
+        @lang('app.add_remark')
     </a>
 @endsection
 @section('content')
@@ -30,7 +30,8 @@
             <x-datatable-html>
                 <td>{{__("app.title")}}</td>
                 <td>{{__("app.color")}}</td>
-                <td>{{__("app.UserName")}}</td>
+                <td>{{__("app.user_name")}}</td>
+                <td>{{__("app.created_at")}}</td>
             </x-datatable-html>
         </x-card-body>
     </x-card-content>
@@ -39,7 +40,7 @@
     <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
     <x-datatable.script
         :columns="$columns"
-        :route="route('remarks.index')" 
+        :route="route('remarks.index')"
     />
     <script>
         "use strict";

@@ -35,8 +35,8 @@
                 col="3"
             />
               <div class="col-md-9">
-                
-                   
+
+
                     <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.title')</label>
                         <input type="text"
                             class="form-control input-solid mb-2"
@@ -45,7 +45,7 @@
                             placeholder="@lang('app.title')"
                             value="{{ $edit ? $remark->title : null }}">
 
-                            
+
                             <x-input-field
                     :title="__('Color')"
                     name="color"
@@ -57,14 +57,6 @@
                 />
 
                 </div>
-                            
-                        
-                       
-    
-                
-                
-
-                
 
             </div>
 

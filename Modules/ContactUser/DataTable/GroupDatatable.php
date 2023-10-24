@@ -14,10 +14,10 @@ class GroupDatatable
     public static function columns(): array
     {
         return [
-            "GroupName",
-            "UserName",
+            "display_name",
+            "user_name",
             "created_at",
-        ]; 
+        ];
     }
 
     public function datatables($request)
@@ -29,16 +29,16 @@ class GroupDatatable
                         ->delete(route("groups.destroy", $group->id))
                         ->make();
                 })
-                ->addColumn("GroupName", function (Group $group) {
+                ->addColumn("display_name", function (Group $group) {
                     return $group->display_name ;
                 })
-                ->addColumn("UserName", function (Group $group) {
+                ->addColumn("user_name", function (Group $group) {
                     return $group->user->username;
                 })
                 ->addColumn('created_at', function (Group $group) {
                     return $group->created_at ? $group->created_at->format('Y-m-d') : null;
                 })
-                ->rawColumns(['action','GroupName','UserName','created_at'])
+                ->rawColumns(['action','display_name','user_name','created_at'])
 
                 ->make(true);
         } catch (Exception $e) {

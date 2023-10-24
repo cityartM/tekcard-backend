@@ -14,7 +14,7 @@
 @section('actions')
     <a href="{{ route('groups.create') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-        @lang('app.add_Group')
+        @lang('app.add_group')
     </a>
 @endsection
 
@@ -29,8 +29,9 @@
         </x-card-header>
         <x-card-body>
             <x-datatable-html>
-                <td>{{__("app.GroupName")}}</td>
-                <td>{{__("app.UserName")}}</td>
+                <td>{{__("app.display_name")}}</td>
+                <td>{{__("app.user_name")}}</td>
+                <td>{{__("app.created_at")}}</td>
             </x-datatable-html>
         </x-card-body>
     </x-card-content>
@@ -39,7 +40,7 @@
     <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
     <x-datatable.script
         :columns="$columns"
-        :route="route('groups.index')" 
+        :route="route('groups.index')"
     />
     <script>
         "use strict";

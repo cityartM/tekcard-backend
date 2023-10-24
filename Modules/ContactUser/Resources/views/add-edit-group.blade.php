@@ -35,8 +35,7 @@
                 col="3"
             />
             <div class="col-md-9">
-                
-                   
+
             <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.display_name')</label>
                     <input type="text"
                            class="form-control input-solid mb-2"
@@ -45,26 +44,16 @@
                            placeholder="@lang('app.display_name')"
                            value="{{ $edit ? $group->display_name : null }}">
                 </div>
-                            
-                        
-                       
-    
-                
-                
-
-                
-
             </div>
+            <div class="col-md-12 mt-2">
+                <x-save-or-update-btn
+                    :label="__($edit ? 'app.update_group' : 'app.create_group')"
+                    :progress="__('Please wait...')"
+                />
+            </div>
+        </div>
 
-        </div>
-        <div class="col-md-12 mt-2">
-           <x-save-or-update-btn
-                :label="__($edit ? 'app.update_group' : 'app.create_group')"
-                :progress="__('Please wait...')"
-            />
-        </div>
     </div>
-
 
 </div>
 

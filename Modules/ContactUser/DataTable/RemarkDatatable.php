@@ -16,9 +16,9 @@ class RemarkDatatable
         return [
             "title",
             "color",
-            "username",
+            "user_name",
             "created_at",
-        ]; 
+        ];
     }
 
     public function datatables($request)
@@ -34,15 +34,15 @@ class RemarkDatatable
                     return $remark->title ;
                 })
                 ->addColumn("color", function (Remark $remark) {
-                    return $remark->color ;
+                    return (new DataTableActions())->color($remark->color)  ;
                 })
-                ->addColumn("username", function (Remark $remark) {
+                ->addColumn("user_name", function (Remark $remark) {
                     return $remark->user->username;
                 })
                 ->addColumn('created_at', function (Remark $remark) {
                     return $remark->created_at ? $remark->created_at->format('Y-m-d') : null;
                 })
-                ->rawColumns(['action','title','color','username','created_at'])
+                ->rawColumns(['action','title','color','user_name','created_at'])
 
                 ->make(true);
         } catch (Exception $e) {

@@ -205,7 +205,7 @@ class DataTableActions
 
     public function color($colorCode): string
     {
-        return "<div style='width: 30px;height:30px;margin: auto;border-radius: 50%;background-color: " . $colorCode . "'></div>";
+        return "<div style='width: 30px;height:30px;/*margin: auto;*/border-radius: 50%;background-color: " . $colorCode . "'></div>";
     }
 
     public static function statuses($code, $status): string
