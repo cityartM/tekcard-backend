@@ -5,7 +5,9 @@ namespace Modules\ContactUser\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\ContactUser\Models\Remark;
 
+use Illuminate\Support\Facades\Auth;
 use Modules\ContactUser\Http\Requests\CreateRemarkRequest; 
 use Modules\ContactUser\Repositories\RemarkRepository;
 
@@ -40,7 +42,8 @@ class RemarkController extends Controller
      */
     public function create()
     {
-        return view('contactuser::create');
+        $edit=false;
+        return view('contactuser::add-edit-remark',compact("edit"));
     }
 
     /**
@@ -48,9 +51,15 @@ class RemarkController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateRemarkRequest $request)
     {
-        //
+        $data = $request->only(['title','color']);
+
+        $data['user_id'] = Auth::id();
+
+        Remark::create($data);
+
+        return redirect()->route('remarks.index')->with('success', 'Group created successfully');
     }
 
     /**
@@ -70,7 +79,9 @@ class RemarkController extends Controller
      */
     public function edit($id)
     {
-        return view('contactuser::edit');
+        $edit=true;
+        $group = Group::find($id);
+        return view('contactuser::add-edit-remark',compact("edit",'group'));
     }
 
     /**
@@ -81,7 +92,20 @@ class RemarkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $remark = Remark::find($id);
+
+        if (!$remark) {
+            return redirect()->route('remarks.index')->with('error', 'remark not found');
+        }
+        if ($remark->user_id !== Auth::id()) {
+            return redirect()->route('remarks.index')->with('error', 'You are not authorized to update this remark');
+        }
+
+        $data = $request->only(['title','color']);
+
+        $remark->update($data);
+
+        return redirect()->route('remarks.index')->with('success', 'remark updated successfully');
     }
 
     /**

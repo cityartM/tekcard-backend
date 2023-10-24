@@ -5,11 +5,12 @@ namespace Modules\ContactUser\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use Modules\ContactUser\Http\Requests\CreateGroupRequest; 
 use Modules\ContactUser\Repositories\GroupRepository;
 
-use Illuminate\Database\Eloquent\Model\Group;
+use Modules\ContactUser\Models\Group;
 
 class GroupController extends Controller
 {
@@ -50,9 +51,15 @@ class GroupController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateGroupRequest $request)
     {
-        //
+        $data = $request->only(['display_name']);
+
+        $data['user_id'] = Auth::id();
+
+        Group::create($data);
+
+        return redirect()->route('groups.index')->with('success', 'Group created successfully');
     }
 
     /**
@@ -63,7 +70,7 @@ class GroupController extends Controller
     public function show($id)
     {
         $group = Group::find($id);
-        return view('contactuser::show' , compact('group'));
+        return view('contactuser::add-edit-group',compact('group'));
     }
 
     /**
@@ -73,7 +80,9 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        return view('contactuser::edit');
+        $edit=true;
+        $group = Group::find($id);
+        return view('contactuser::add-edit-group',compact("edit",'group'));
     }
 
     /**
@@ -84,7 +93,19 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $group = Group::find($id);
+
+        if (!$group) {
+            return redirect()->route('groups.index')->with('error', 'Group not found');
+        }
+        if ($group->user_id !== Auth::id()) {
+            return redirect()->route('groups.index')->with('error', 'You are not authorized to update this group');
+        }
+
+        $data = $request->only(['display_name']);
+        $group->update($data);
+
+        return redirect()->route('groups.index')->with('success', 'Group updated successfully');
     }
 
     /**
