@@ -51,6 +51,11 @@ use Modules\FeedBack\Repositories\FeedBackRepository;
 use Modules\Subscription\Repositories\EloquentSubscription;
 use Modules\Subscription\Repositories\SubscriptionRepository;
 
+use Modules\ContactUser\Repositories\GroupRepository;
+use Modules\ContactUser\Repositories\EloquentGroup;
+use Modules\ContactUser\Repositories\RemarkRepository;
+use Modules\ContactUser\Repositories\EloquentRemark;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -66,6 +71,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ContactUsRepository::class, EloquentContactUs::class);
         $this->app->singleton(FeedBackRepository::class, EloquentFeedBack::class);
         $this->app->singleton(BlogRepository::class, EloquentBlog::class);
+        $this->app->singleton(GroupRepository::class, EloquentGroup::class);
+        $this->app->singleton(RemarkRepository::class, EloquentRemark::class);
     }
 
     /**

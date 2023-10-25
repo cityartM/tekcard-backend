@@ -8,5 +8,6 @@
     "Plan": true,
     "Feature": true,
     "Blog": true,
-    "ContactUser": true
+    "ContactUser": true,
+    "GlobalSetting": true
 }

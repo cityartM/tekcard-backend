@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\ContactUs\Models\ContactUs;
 
-use Modules\ContactUs\Http\Requests\CreateContactUsRequest;
+use Modules\ContactUs\Http\Requests\CreateContactUsRequest; 
 
 use Modules\ContactUs\Repositories\ContactUsRepository;
 

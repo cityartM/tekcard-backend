@@ -123,6 +123,18 @@ class PermissionsSeeder extends Seeder
             'description' => 'Manage Blogs',
             'removable' => false
         ]);
+        $permissions[] = Permission::create([
+            'name' => 'groups.manage',
+            'display_name' => 'Manage groups',
+            'description' => 'Manage groups',
+            'removable' => false
+        ]);
+        $permissions[] = Permission::create([
+            'name' => 'remarks.manage',
+            'display_name' => 'Manage remarks',
+            'description' => 'Manage remarks',
+            'removable' => false
+        ]);
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }
