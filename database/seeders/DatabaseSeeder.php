@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\ContactUser\Database\Seeders\GroupDatabaseSeeder;
 use Modules\ContactUser\Database\Seeders\RemarkDatabaseSeeder;
+use Modules\GlobalSetting\Database\Seeders\GlobalSettingDatabaseSeeder;
 use Modules\Plan\Database\Seeders\PlanDatabaseSeeder;
 use Modules\Strategy\Database\Seeders\StrategyDatabaseSeeder;
 
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanDatabaseSeeder::class);
         $this->call(RemarkDatabaseSeeder::class);
         $this->call(GroupDatabaseSeeder::class);
+        $this->call(GlobalSettingDatabaseSeeder::class);
         Model::reguard();
     }
 }

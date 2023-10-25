@@ -10,11 +10,11 @@ use App\Models\User;
 
 class SettingContact extends Model implements HasMedia
 {
-    use HasFactory , InteractsWithMedia;
+    use InteractsWithMedia;
 
     protected $table = 'setting_contacts';
 
-    protected $fillable = ['user_id', 'display_name', 'value', 'categorie'];
+    protected $fillable = ['user_id', 'display_name', 'value', 'category'];
 
     public function user()
     {

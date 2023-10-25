@@ -19,9 +19,9 @@ class CreateSettingContactRequest extends Request
         return [
             'display_name' => 'required|string|max:255',
             'value' => 'required|string|max:255',
-            'icon' => 'image|mimes:jpeg,png,gif|max:2048',
+            'icon' => 'image|mimes:jpeg,png,gif,svg|max:2048',
            // 'type' => ['nullable', Rule::in(ContactType::lists())],
-            'type' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
         ];
     }
 }

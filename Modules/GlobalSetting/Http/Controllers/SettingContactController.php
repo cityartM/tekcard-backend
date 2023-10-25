@@ -5,6 +5,7 @@ namespace Modules\GlobalSetting\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use Modules\GlobalSetting\Models\SettingContact;
 use Spatie\MediaLibrary\Models\Media;
 use LaravelLocalization;
@@ -18,12 +19,12 @@ use Modules\GlobalSetting\Repositories\SettingContactRepository;
 class SettingContactController extends Controller
 {
 
-    private $contact;
+    private $contacts;
 
-    function __construct(SettingContactRepository $contact)
+    function __construct(SettingContactRepository $contacts)
     {
-        $this->contact= $contact;
-    } 
+        $this->contacts= $contacts;
+    }
 
 
 
@@ -33,11 +34,20 @@ class SettingContactController extends Controller
      */
     public function index(Request $request)
     {
+         $contact = SettingContact::where('id',1)->first();
+
+
+
+
+       /* $contacts = SettingContact::select('category', 'display_name', 'value')
+            ->get()
+            ->groupBy('category');*/
+
         if ($request->wantsJson()) {
-            return $this->contact->getDatatables()->datatables($request);
+            return $this->contacts->getDatatables()->datatables($request);
         }
         return view("globalsetting::index")->with([
-            "columns" => $this->contact->getDatatables()::columns(),
+            "columns" => $this->contacts->getDatatables()::columns(),
         ]);
     }
 
@@ -58,11 +68,9 @@ class SettingContactController extends Controller
      */
     public function store(CreateSettingContactRequest $request)
     {
-        $data = $request->only(['display_name', 'value', 'icon' ,'type']);
-
-        $user = auth()->user();
-
-        $settingContact =  $this->contact->store($user,$request);
+        $data = $request->only(['display_name', 'value', 'icon' ,'category']);
+        $data['user_id'] = auth()->user()->id;
+        $settingContact =  $this->contacts->store($data);
 
         if ($request->hasFile('icon')) {
             $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
@@ -70,7 +78,7 @@ class SettingContactController extends Controller
 
         return redirect()->route('settingContacts.index')
         ->with('success', 'Setting contact created successfully.');
-        
+
     }
 
     /**
@@ -103,18 +111,15 @@ class SettingContactController extends Controller
      */
     public function update(CreateSettingContactRequest $request, SettingContact $settingContact)
     {
-        $data = $request->only(['display_name', 'value', 'icon', 'type']);
+        $data = $request->only(['display_name', 'value', 'icon', 'category']);
 
-        
-        
-        $this->contact->update($settingContact ,$request);
+        $contact = $this->contacts->update($settingContact->id ,$data);
 
         if ($request->hasFile('icon')) {
-            $settingContact->clearMediaCollection(ContactType::ICONCONTACT);
-            $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);  
+            $contact->clearMediaCollection(ContactType::ICONCONTACT);
+            $contact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
         }
-      
-        
+
         return redirect()->route('settingContacts.index')->with('success', 'Setting contact updated successfully.');
     }
 

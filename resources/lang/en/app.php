@@ -170,6 +170,7 @@ return [
     'tk' =>'Turkish',
     'id' => 'id',
     'created at' => 'created at',
+    'user_name' => 'User name',
 
 
     /*** Company ***/
@@ -402,7 +403,7 @@ return [
     'email' => 'email',
     'subscriptions_date' => 'Subscriptions date',
 
- 
+
     /***  blog  ***/
     'blogs' => 'Blogs',
     'add_blog' => 'Add blog',
@@ -417,19 +418,18 @@ return [
     'update_blog' => 'Update blog',
 
 
-        /***  setting contact  ***/
-    'setting_contact' => 'setting contact',
-    'setting_contact_list' => 'setting contact list',
+    /***  setting contact  ***/
+    'setting_contact' => 'Setting contact',
+    'setting_contact_list' => 'Setting contact list',
     'add_setting_contact' => 'Add setting contact',
-    'user_name' => 'user name',
-    'value' => 'value',
-    'categorie' => 'categorie',
-    'create_New_setting_contact' => 'create New setting contact',
-    'setting_contact_Phrases_Details' => 'setting contact Phrases Details',
-    'a_general_setting_contact_Phrases_information.' => 'A general setting contact Phrases information',
-    'icon_upload' => 'icon upload',
-    'update_setting_contact' => 'update setting contact',
-    'create_setting_contact' => 'create setting contact',
+    'value' => 'Value',
+    'category' => 'Category',
+    'create_new_setting_contact' => 'Create New setting contact',
+    'setting_contact_details' => 'Setting contact Details',
+    'a_general_setting_contact_information.' => 'A general setting contact information',
+    'icon_upload' => 'Icon upload',
+    'update_setting_contact' => 'Update setting contact',
+    'create_setting_contact' => 'Create setting contact',
 
 
 

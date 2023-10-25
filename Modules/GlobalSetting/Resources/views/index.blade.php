@@ -29,10 +29,10 @@
         </x-card-header>
         <x-card-body>
             <x-datatable-html>
+                <td>{{__("app.icon")}}</td>
                 <td>{{__("app.display_name")}}</td>
+                <td>{{__("app.category")}}</td>
                 <td>{{__("app.user_name")}}</td>
-                <td>{{__("app.value")}}</td>
-                <td>{{__("app.categorie")}}</td>
                 <td>{{__("app.created_at")}}</td>
             </x-datatable-html>
         </x-card-body>

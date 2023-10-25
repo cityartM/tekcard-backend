@@ -33,9 +33,9 @@ interface SettingContactRepository
     public function getDatatables();
 
 
-    public function store($user,$request);
+    public function store($data);
 
-    public function update($settingContact ,$request);
+    public function update($id ,$data);
 
 
 }

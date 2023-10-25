@@ -50,39 +50,25 @@ class EloquentSettingContact implements SettingContactRepository
     }
 
     public function getDatatables():SettingContactDatatable
-    { 
+    {
         return new SettingContactDatatable();
     }
 
 
-    public function store($user,$request)
+    public function store($data)
     {
-        return  $settingContact = SettingContact::create([
-            'display_name' => $request->input('display_name'),
-            'value' => $request->input('value'),
-            'categorie' => $request->input('type'),
-            'user_id' => $user->id,
-        ]);
-
-        
+        return  SettingContact::create($data);
     }
 
-    public function update($settingContact ,$request)
+    public function update($id,$data)
     {
-        if ($settingContact->user_id !== auth()->user()->id) {
-    
-            return redirect()->route('settingContacts.index')->with('error', 'You do not have permission to update this setting contact.');
-        }
-        
-        return $settingContact->update([
-            'display_name' => $request->input('display_name'),
-            'value' => $request->input('value'),
-            'categorie' => $request->input('type'),
-        ]);
+        $settingContact = SettingContact::findOrFail($id);
 
-        
+        $settingContact->update($data);
+
+        return $settingContact;
     }
- 
+
 
 }
 

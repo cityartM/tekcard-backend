@@ -20,11 +20,9 @@ return new class extends Migration
             $table->unsignedInteger('user_id');
             $table->string('display_name');
             $table->string('value');
-            $table->enum('categorie', array_keys(ContactType::lists()))->default(ContactType::CONTACTINFO);
-            $table->timestamps();
-
-
+            $table->enum('category', ContactType::lists())->default(ContactType::CONTACTINFO);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

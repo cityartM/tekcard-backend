@@ -185,6 +185,14 @@ class DataTableActions
         return $html;
     }
 
+    public static function icon($imageUrl): string
+    {
+        $html = "<div class='symbol symbol-50px me-5' style='color: #0BB783'>";
+        $html .= "$imageUrl";
+        $html .= "</div>";
+        return $html;
+    }
+
     public function avatar($imageUrl,$name,$email): string
     {
         $html = "<div class='d-flex align-items-center'>";
