@@ -33,8 +33,6 @@ class UserResource extends JsonResource
             'status' => $this->status,
             'email_verified_at' => $this->email_verified_at ? (string) $this->email_verified_at : null,
             'created_at' => $this->created_at,
-            'subscription' => new SubscriptionResource($this->subscription) ?? null,
-            'plan' => new PlanResource($this->plan()) ?? null,
             'timezone' => $this->timezone,
             'socialite' => $this->socialite
             //'address' => $this->address,
