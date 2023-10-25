@@ -40,6 +40,8 @@
         <link href={{ asset('assets/css/style.bundle.css') }} rel="stylesheet" type="text/css" />
         <!--end::Global Stylesheets Bundle-->
     @endif
+
+    @vite(['resources/css/app-dashboard.css'])
     <!--end::Global Stylesheets Bundle-->
     @yield('style')
     @yield('vite')

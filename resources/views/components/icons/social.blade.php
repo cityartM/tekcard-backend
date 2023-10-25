@@ -1,4 +1,4 @@
-@props(['icon' => 'telegram', 'size' => 'small'])
+@props(['icon' => 'telegram', 'size' => 'small', 'class' => '', 'style' => ''])
 
 @php
     $sizeClasses = [

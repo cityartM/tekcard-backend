@@ -3,30 +3,23 @@
 namespace Modules\GlobalSetting\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\File;
-use Modules\GlobalSetting\Models\SettingContact;
-use Spatie\MediaLibrary\Models\Media;
-use LaravelLocalization;
-
-use Modules\GlobalSetting\Support\Enum\ContactType;
-
 use Modules\GlobalSetting\Http\Requests\CreateSettingContactRequest;
-
+use Modules\GlobalSetting\Models\SettingContact;
 use Modules\GlobalSetting\Repositories\SettingContactRepository;
+use Modules\GlobalSetting\Support\Enum\ContactType;
 
 class SettingContactController extends Controller
 {
 
-    private $contacts;
+    private SettingContactRepository $contacts;
 
     function __construct(SettingContactRepository $contacts)
     {
-        $this->contacts= $contacts;
+        $this->contacts = $contacts;
     }
-
-
 
     /**
      * Display a listing of the resource.
@@ -34,15 +27,6 @@ class SettingContactController extends Controller
      */
     public function index(Request $request)
     {
-         $contact = SettingContact::where('id',1)->first();
-
-
-
-
-       /* $contacts = SettingContact::select('category', 'display_name', 'value')
-            ->get()
-            ->groupBy('category');*/
-
         if ($request->wantsJson()) {
             return $this->contacts->getDatatables()->datatables($request);
         }
@@ -57,27 +41,27 @@ class SettingContactController extends Controller
      */
     public function create()
     {
-        $edit=false;
-        return view('globalsetting::add-edit' , compact('edit'));
+        $edit = false;
+        return view('globalsetting::add-edit', compact('edit'));
     }
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
+     * @param CreateSettingContactRequest $request
+     * @return RedirectResponse
      */
     public function store(CreateSettingContactRequest $request)
     {
-        $data = $request->only(['display_name', 'value', 'icon' ,'category']);
+        $data = $request->only(['display_name', 'value', 'icon', 'category']);
         $data['user_id'] = auth()->user()->id;
-        $settingContact =  $this->contacts->store($data);
+        $settingContact = $this->contacts->store($data);
 
         if ($request->hasFile('icon')) {
             $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
         }
 
         return redirect()->route('settingContacts.index')
-        ->with('success', 'Setting contact created successfully.');
+            ->with('success', 'Setting contact created successfully.');
 
     }
 
@@ -86,7 +70,7 @@ class SettingContactController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(int $id)
     {
         return view('globalsetting::show');
     }
@@ -96,24 +80,24 @@ class SettingContactController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $edit=true;
+        $edit = true;
         $settingContact = SettingContact::find($id);
-        return view('globalsetting::add-edit' , compact('settingContact' ,'edit'));
+        return view('globalsetting::add-edit', compact('settingContact', 'edit'));
     }
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
+     * @param CreateSettingContactRequest $request
+     * @param SettingContact $settingContact
+     * @return RedirectResponse
      */
     public function update(CreateSettingContactRequest $request, SettingContact $settingContact)
     {
         $data = $request->only(['display_name', 'value', 'icon', 'category']);
 
-        $contact = $this->contacts->update($settingContact->id ,$data);
+        $contact = $this->contacts->update($settingContact->id, $data);
 
         if ($request->hasFile('icon')) {
             $contact->clearMediaCollection(ContactType::ICONCONTACT);
@@ -126,9 +110,9 @@ class SettingContactController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param int $id
-     * @return Renderable
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $this->contact->delete($id);
 
