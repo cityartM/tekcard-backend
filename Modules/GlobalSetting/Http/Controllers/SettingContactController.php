@@ -62,16 +62,9 @@ class SettingContactController extends Controller
 
         $user = auth()->user();
 
-        
-        $settingContact = SettingContact::create([
-            'display_name' => $request->input('display_name'),
-            'value' => $request->input('value'),
-            'categorie' => $request->input('type'),
-            'user_id' => $user->id,
-        ]);
+        $settingContact =  $this->contact->store($user,$request);
 
         if ($request->hasFile('icon')) {
-            // Add the media to the newly created settingContact instance
             $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
         }
 
@@ -112,19 +105,16 @@ class SettingContactController extends Controller
     {
         $data = $request->only(['display_name', 'value', 'icon', 'type']);
 
-        $settingContact->update([
-            'display_name' => $request->input('display_name'),
-            'value' => $request->input('value'),
-            'categorie' => $request->input('type'),
-        ]);
+        
+        
+        $this->contact->update($settingContact ,$request);
 
         if ($request->hasFile('icon')) {
-            
             $settingContact->clearMediaCollection(ContactType::ICONCONTACT);
-            
-            $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
-            
+            $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);  
         }
+      
+        
         return redirect()->route('settingContacts.index')->with('success', 'Setting contact updated successfully.');
     }
 
@@ -135,15 +125,8 @@ class SettingContactController extends Controller
      */
     public function destroy($id)
     {
-        $settingContact = SettingContact::find($id);
+        $this->contact->delete($id);
 
-        if (!$settingContact) {
-            return redirect()->route('settingContacts.index')
-                ->with('error', 'Setting contact not found.');
-        }
-    
-        $settingContact->delete();
-    
         return redirect()->route('settingContacts.index')
             ->with('success', 'Setting contact deleted successfully.');
     }
