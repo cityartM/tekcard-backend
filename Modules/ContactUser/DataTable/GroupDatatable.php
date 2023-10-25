@@ -30,7 +30,7 @@ class GroupDatatable
                         ->make();
                 })
                 ->addColumn("display_name", function (Group $group) {
-                    return $group->display_name ;
+                    return (new DataTableActions())->statuses('primary',$group->display_name)  ;
                 })
                 ->addColumn("user_name", function (Group $group) {
                     return $group->user->username;

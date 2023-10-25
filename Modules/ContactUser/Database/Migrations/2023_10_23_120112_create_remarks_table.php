@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('color');
             $table->unsignedInteger('user_id');
-            $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->timestamps();
         });
     }
 

@@ -85,6 +85,16 @@
                         </div>
                     @endforeach
                 </x-languages-tab>
+                <x-input-field
+                    :title="__('app.price')"
+                    :placeholder="__('app.price')"
+                    name="price"
+                    type="numeric"
+                    col="12"
+                    class="mb-2 mt-5"
+                    required
+                    :model="$edit ? $plan : null"
+                />
                 <div class="row mt-5">
                     <x-input-field
                         :title="__('app.nbr_user')"

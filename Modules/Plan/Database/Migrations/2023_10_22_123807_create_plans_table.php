@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name', 191);
             $table->json('display_name')->nullable();
             $table->enum('type', PlanType::lists())->default('Company');
+            $table->double('price', 20,2)->default(0);
             $table->integer('nbr_user')->default(0);
             $table->integer('nbr_card_user')->default(0);
             $table->boolean('has_dashboard')->default(0);

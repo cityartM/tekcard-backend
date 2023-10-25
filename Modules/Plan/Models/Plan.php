@@ -26,7 +26,7 @@ class Plan extends Model
         'has_dashboard' => 'boolean'
     ];
 
-    protected $fillable = ['type','name', 'display_name','nbr_user','nbr_card_user','has_dashboard','removable'];
+    protected $fillable = ['type','name', 'display_name','price','nbr_user','nbr_card_user','has_dashboard','removable'];
 
     public function users()
     {

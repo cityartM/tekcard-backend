@@ -70,7 +70,7 @@ class AuthController extends ApiController
     private function findUser(ApiLoginRequest $request)
     {
 
-        $user = User::where($request->getCredentials())->where('device_id',$request->device_id)->first();
+        $user = User::where($request->getCredentials())->first();
 
         if (! $user ) {
             throw ValidationException::withMessages([
