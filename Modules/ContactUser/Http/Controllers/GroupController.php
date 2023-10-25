@@ -103,6 +103,7 @@ class GroupController extends Controller
         }
 
         $data = $request->only(['display_name']);
+        
         $group->update($data);
 
         return redirect()->route('groups.index')->with('success', 'Group updated successfully');
@@ -115,6 +116,9 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->contactUser->delete($id);
+
+        return redirect()->route('groups.index')->with('success', 'Group deleted successfully');
     }
 }
+ 
