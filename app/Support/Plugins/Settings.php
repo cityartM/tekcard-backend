@@ -20,7 +20,7 @@ class Settings extends Plugin
             ->active("settings/auth")
             ->permissions('settings.auth');
 
-        $settingContacts = Item::create(__('app.setting_Contacts'))
+        $settingContacts = Item::create(__('app.setting_contact'))
             ->route('settingContacts.index')
             ->active("settings")
             ->permissions('settingContacts.manage');

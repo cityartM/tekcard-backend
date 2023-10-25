@@ -30,8 +30,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('setting_contact_Phrases_Details')"
-                :information="__('A_general_setting_contact_Phrases_information.')"
+                :title="__('app.setting_contact_Phrases_Details')"
+                :information="__('app.a_general_setting_contact_Phrases_information.')"
                 col="3"
             />
             <div class="col-md-9">
