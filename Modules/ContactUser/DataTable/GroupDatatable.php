@@ -27,6 +27,7 @@ class GroupDatatable
                 ->addColumn("action", function (Group $group) {
                     return (new DataTableActions())
                         ->delete(route("groups.destroy", $group->id))
+                        ->edit(route("groups.edit", $group->id))
                         ->make();
                 })
                 ->addColumn("display_name", function (Group $group) {

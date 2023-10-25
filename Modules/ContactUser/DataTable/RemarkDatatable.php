@@ -28,6 +28,7 @@ class RemarkDatatable
                 ->addColumn("action", function (Remark $remark) {
                     return (new DataTableActions())
                         ->delete(route("remarks.destroy", $remark->id))
+                        ->edit(route("remarks.edit", $remark->id))
                         ->make();
                 })
                 ->addColumn("title", function (Remark $remark) {

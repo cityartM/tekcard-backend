@@ -80,8 +80,8 @@ class RemarkController extends Controller
     public function edit($id)
     {
         $edit=true;
-        $group = Group::find($id);
-        return view('contactuser::add-edit-remark',compact("edit",'group'));
+        $remark = Remark::find($id);
+        return view('contactuser::add-edit-remark',compact("edit",'remark'));
     }
 
     /**
@@ -115,6 +115,8 @@ class RemarkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->contactUser->delete($id);
+
+        return redirect()->route('remarks.index')->with('success', 'remark deleted successfully');
     }
 }
