@@ -11,10 +11,12 @@
 |
 */
 
+use Modules\GlobalSetting\Http\Controllers\SettingContactController;
+
 Route::prefix('globalsetting')->group(function() {
-    Route::get('/', 'GlobalSettingController@index');
+    Route::get('/', [SettingContactController::class, "index"]);
 });
- 
+
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
     Route::resource('settingContacts', SettingContactController::class)->middleware('permission:settingContacts.manage');
 
