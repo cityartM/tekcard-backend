@@ -276,7 +276,7 @@ return [
 'rating' => 'puanlama',
 
 
-
+ 
  /***  subscriptions  ***/
  'subscriptions' => 'abonelikler',
  'subscriptions_list' => 'abonelikler listesi',
@@ -322,6 +322,16 @@ return [
     'unpublished' => 'Yayınlanmadı',
 ],
 
+'contactTypes' => [
+    'Contact Info' => 'İletişim Bilgisi',
+    'Social Media' => 'Sosyal Medya',
+    'Recommended' => 'Önerilen',
+    'Business' => 'İş',
+    'Personnel' => 'Personel',
+],
+
+
+
 
 /***  blog  ***/
 'blogs' => 'bloglar',
@@ -335,6 +345,22 @@ return [
 'blog_list' => 'blog listesi',
 'create_blog' => 'blog oluştur',
 'update_blog' => 'blog güncelle',
+
+
+/***  setting contact  ***/
+'setting_contact' => 'iletişim ayarları',
+'setting_contact_list' => 'iletişim ayarı listesi',
+'add_setting_contact' => 'iletişim ayarı ekle',
+'user_name' => 'kullanıcı adı',
+'value' => 'değer',
+'categorie' => 'kategori',
+'create_New_setting_contact' => 'Yeni iletişim ayarı oluştur',
+'setting_contact_Phrases_Details' => 'İletişim Ayarı Detayları',
+'a_general_setting_contact_Phrases_information.' => 'Genel İletişim Ayarı Bilgileri',
+'icon_upload' => 'ikon yükle',
+'update_setting_contact' => 'iletişim ayarını güncelle',
+'create_setting_contact' => 'iletişim ayarı oluştur',
+'icon_upload' => 'ikon yükle',
 
 
 ];

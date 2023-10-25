@@ -14,3 +14,8 @@
 Route::prefix('globalsetting')->group(function() {
     Route::get('/', 'GlobalSettingController@index');
 });
+ 
+Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
+    Route::resource('settingContacts', SettingContactController::class)->middleware('permission:settingContacts.manage');
+
+});

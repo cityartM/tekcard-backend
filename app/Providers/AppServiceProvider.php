@@ -56,6 +56,9 @@ use Modules\ContactUser\Repositories\EloquentGroup;
 use Modules\ContactUser\Repositories\RemarkRepository;
 use Modules\ContactUser\Repositories\EloquentRemark;
 
+use Modules\GlobalSetting\Repositories\EloquentSettingContact;
+use Modules\GlobalSetting\Repositories\SettingContactRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -73,6 +76,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(BlogRepository::class, EloquentBlog::class);
         $this->app->singleton(GroupRepository::class, EloquentGroup::class);
         $this->app->singleton(RemarkRepository::class, EloquentRemark::class);
+        $this->app->singleton(SettingContactRepository::class, EloquentSettingContact::class);
     }
 
     /**

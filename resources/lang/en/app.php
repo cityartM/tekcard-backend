@@ -127,6 +127,15 @@ return [
         'Client' => 'Client',
     ],
 
+    'contactTypes' => [
+        'Contact Info' => 'Contact Info',
+        'Social Media' => 'Social Media',
+        'Recommended' => 'Recommended',
+        'Business' => 'Business',
+        'Personnel' => 'Personnel',
+    ],
+
+
     /*** Generale ***/
     'save' => 'Save',
     'show' => 'Show',
@@ -393,7 +402,7 @@ return [
     'email' => 'email',
     'subscriptions_date' => 'Subscriptions date',
 
-
+ 
     /***  blog  ***/
     'blogs' => 'Blogs',
     'add_blog' => 'Add blog',
@@ -406,5 +415,24 @@ return [
     'blog_list' => 'Blog list',
     'create_blog' => 'Create blog',
     'update_blog' => 'Update blog',
+
+
+        /***  setting contact  ***/
+    'setting_contact' => 'setting contact',
+    'setting_contact_list' => 'setting contact list',
+    'add_setting_contact' => 'Add setting contact',
+    'user_name' => 'user name',
+    'value' => 'value',
+    'categorie' => 'categorie',
+    'create_New_setting_contact' => 'create New setting contact',
+    'setting_contact_Phrases_Details' => 'setting contact Phrases Details',
+    'a_general_setting_contact_Phrases_information.' => 'A general setting contact Phrases information',
+    'icon_upload' => 'icon upload',
+    'update_setting_contact' => 'update setting contact',
+    'create_setting_contact' => 'create setting contact',
+
+
+
+
 
 ];
