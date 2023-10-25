@@ -135,6 +135,12 @@ class PermissionsSeeder extends Seeder
             'description' => 'Manage remarks',
             'removable' => false
         ]);
+        $permissions[] = Permission::create([
+            'name' => 'settingContacts.manage',
+            'display_name' => 'Manage setting contacts',
+            'description' => 'Manage setting contacts',
+            'removable' => false
+        ]);
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }

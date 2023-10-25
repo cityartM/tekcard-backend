@@ -37,7 +37,6 @@
             <div class="col-md-9">
                 <x-languages-tab>
                     @foreach(\App\Helper\Helper::getLocalesOrder() as $locale => $value)
-
                         <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">
                             <div class="row">
                                 <x-fields.text-field
@@ -53,17 +52,9 @@
                                 />
                             </div>
                             <div class="row">
-                                <x-fields.text-field
-                                    :title="__('app.content')"
-                                    name="content"
-                                    col="8"
-                                    type="string"
-                                    required
-                                    class="mt-5"
-                                    :index="$locale"
-                                    :locale="$locale"
-                                    :model=" $edit ? $blog : null "
-                                />
+                               <textarea id="kt_docs_tinymce_hidden" name="content" class="tox-target">
+                                    {{old('content', isset($model) ? $model->getTranslationWithFallback('content', $locale) : null)}}
+                                </textarea>
                             </div>
                         </div>
                     @endforeach
@@ -77,6 +68,7 @@
                     :data="collect(App\Support\Enum\BlogCategories::lists())"
                     :model="$edit ? $blog : null "
                     :isselect2="true"
+                    multi=true
                 />
 
                 <x-select-field
@@ -125,13 +117,16 @@
 @stop
 
 @section('scripts')
-    @if ($edit)
-
-    @else
-
-    @endif
+    <script src={{ asset('assets/plugins/custom/tinymce/tinymce.bundle.js') }}></script>
 
     <script>
-
+        tinymce.init({
+            selector: "#kt_docs_tinymce_hidden", height : "480",
+            menubar: false,
+            toolbar: ["styleselect fontselect fontsizeselect",
+                "undo redo | cut copy paste | bold italic | link image | alignleft aligncenter alignright alignjustify",
+                "bullist numlist | outdent indent | blockquote subscript superscript | advlist | autolink | lists charmap | print preview |  code"],
+            plugins : "advlist autolink link image lists charmap print preview code"
+        });
     </script>
 @stop

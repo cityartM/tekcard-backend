@@ -10,7 +10,7 @@ use Modules\Blog\Models\Blog;
 use LaravelLocalization;
 use Modules\Blog\Http\Requests\CreateBlogRequest;
 use Spatie\MediaLibrary\Models\Media;
- 
+
 use Modules\Blog\Repositories\BlogRepository;
 
 class BlogController extends Controller
@@ -26,7 +26,7 @@ class BlogController extends Controller
     function __construct(BlogRepository $blog)
     {
         $this->blog= $blog;
-    } 
+    }
 
 
     public function index(Request $request)
@@ -56,13 +56,15 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'content', 'status' ,'tumail', 'type', 'gallery']);
-        
+        $data = $request->only(['title', 'content', 'status' ,'tumail', 'gallery']);
+
+        $data['type']= implode(",", $request->type);
+
+       // dd($data);
 
         $datat=$this->blog->store($data);
 
-       
-        
+
         $blog = Blog::create($datat);
 
         if ($request->hasFile('tumail')) {
@@ -75,9 +77,9 @@ class BlogController extends Controller
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-        
-       
-    
+
+
+
         return redirect()->route('blogs.index')
         ->with('success', 'Blog entry created successfully'); // Replace 'your.route.name' with the actual route name
 
@@ -119,13 +121,13 @@ class BlogController extends Controller
 
         $blog=Blog::find($id);
         $blog->update($datat);
-    
+
         if ($request->hasFile('tumail')) {
             // Update the 'tumail' media for the Blog instance
             $blog->clearMediaCollection('tumail'); // Remove existing media
             $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
         }
-    
+
         if ($request->hasFile('gallery')) {
             // Update the 'gallery' media for the Blog instance
             $blog->clearMediaCollection('gallery'); // Remove existing media
@@ -133,7 +135,7 @@ class BlogController extends Controller
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-    
+
         return redirect()->route('blogs.index')
             ->with('success', 'Blog entry updated successfully');
     }
@@ -145,18 +147,18 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $blog = Blog::find($id);
 
         if (!$blog) {
             return redirect()->route('blogs.index')
                 ->with('error', 'Blog entry not found');
         }
-    
+
         // Delete the associated media files from the media library
         $blog->clearMediaCollection('tumail'); // Clear 'tumail' media
         $blog->clearMediaCollection('gallery'); // Clear 'gallery' media
-    
+
         // Delete the blog entry
         $blog->delete();
         return redirect()->route('blogs.index')->with('success', 'Blog entry deleted successfully');

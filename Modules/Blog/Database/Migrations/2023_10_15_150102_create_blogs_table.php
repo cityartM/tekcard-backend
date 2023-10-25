@@ -20,10 +20,11 @@ return new class extends Migration
             $table->id();
             $table->json('title');
             $table->enum('status',array_keys(Status::lists()))->default(Status::UNPUBLISHED);
-            $table->enum('type', array_keys(BlogCategories::lists()))->default(BlogCategories::OTHER);
+            //$table->enum('type', array_keys(BlogCategories::lists()))->default(BlogCategories::OTHER);
+            $table->string('type', 255)->nullable();
             $table->json('content');
             $table->string('tumail')->nullable();
-            $table->json('gallery')->nullable(); 
+            $table->json('gallery')->nullable();
             $table->timestamps();
         });
     }

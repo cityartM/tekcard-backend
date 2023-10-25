@@ -6,17 +6,17 @@ use Modules\Blog\Models\Blog;
 
 interface BlogRepository
 {
-    /** 
+    /**
      * Get all system Blog.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all();
-    
+
 
     public function index();
 
-  
+
 
     /**
      * Remove Subscription from repository.
@@ -29,6 +29,7 @@ interface BlogRepository
     public function getDatatables();
 
     public function store($data);
+
     public function update($data);
 
 }
