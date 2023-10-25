@@ -60,7 +60,7 @@ return [
     'comment' => 'تعليق',
     'rating' => 'تقييم',
 
-
+ 
 
     /***  subscriptions  ***/
     'subscriptions' => 'اشتراكات' ,
@@ -104,6 +104,14 @@ return [
         'unpublished' => 'غير منشور',
     ],
 
+    'contactTypes' => [
+        'Contact Info' => 'معلومات الاتصال',
+        'Social Media' => 'وسائل التواصل الاجتماعي',
+        'Recommended' => 'موصى به',
+        'Business' => 'الأعمال التجارية',
+        'Personnel' => 'الموظفون',
+    ],
+
 
     /***  blog  ***/
     'blogs' => 'مدونات',
@@ -117,6 +125,24 @@ return [
     'blog_list' => 'قائمة المدونة' ,
     'create_blog' => 'إنشاء مدونة',
     'update_blog' => 'تحديث المدونة',
+
+
+    /***  setting contact  ***/
+    'setting_contact' => 'إعدادات الاتصال',
+    'setting_contact_list' => 'قائمة إعدادات الاتصال' ,
+    'add_setting_contact' => 'إضافة إعدادات الاتصال',
+    'user_name' => 'اسم المستخدم',
+    'value' => 'قيمة',
+    'categorie' => 'الفئة',
+    'create_New_setting_contact' => 'إنشاء إعدادات اتصال جديدة',
+    'setting_contact_Phrases_Details' => 'تفاصيل إعدادات الاتصال والعبارات',
+    'a_general_setting_contact_Phrases_information.' => 'معلومات عامة حول إعدادات الاتصال والعبارات',
+    'icon upload' => 'تحميل الأيقونة',
+    'update_setting_contact' => 'تحديث إعدادات الاتصال',
+    'create_setting_contact' => 'إنشاء إعدادات الاتصال',
+    'icon_upload' => 'تحميل الأيقونة',
+
+
 
 
 ];
