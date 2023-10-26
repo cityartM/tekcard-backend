@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Plan\Repositories;
+namespace Modules\Feature\Repositories;
 
 use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Plan\DataTable\PlanDatatable;
-use Modules\Plan\Models\Plan;
+use Modules\Feature\DataTable\FeatureDatatable;
+use Modules\Feature\Models\Feature;
 
-class EloquentPlan implements PlanRepository
+class EloquentFeature implements FeatureRepository
 {
 
     protected $request;
@@ -25,7 +25,7 @@ class EloquentPlan implements PlanRepository
      */
     public function all()
     {
-        return Plan::all();
+        return Feature::all();
     }
 
     /**
@@ -33,7 +33,7 @@ class EloquentPlan implements PlanRepository
      */
     public function getAllWithUsersCount()
     {
-        return Plan::withCount('users')->get();
+        return Feature::withCount('users')->get();
     }
 
     /**
@@ -41,7 +41,7 @@ class EloquentPlan implements PlanRepository
      */
     public function find($id)
     {
-        return Plan::find($id);
+        return Feature::find($id);
     }
 
     /**
@@ -56,9 +56,9 @@ class EloquentPlan implements PlanRepository
             $data['display_name'] = Helper::translateAttribute($data['display_name'] + ['lang' => $lang]);
         }
         $data['has_dashboard'] = isset($data['has_dashboard']) && $data['has_dashboard'] === "1" ? 1 : 0 ;
-        $plan = Plan::create($data);
+        $feature = Feature::create($data);
 
-        return $plan;
+        return $feature;
     }
 
     /**
@@ -66,7 +66,7 @@ class EloquentPlan implements PlanRepository
      */
     public function update($id, array $data)
     {
-        $plan = $this->find($id);
+        $feature = $this->find($id);
         if($this->request->isJson() || $this->request->is('multipart/form-data')){
             $data['display_name'] = Helper::translateAttribute($data['display_name']);
         }else{
@@ -76,9 +76,9 @@ class EloquentPlan implements PlanRepository
 
         $data['has_dashboard'] = isset($data['has_dashboard']) && $data['has_dashboard'] === "1" ? 1 : 0 ;
 
-        $plan->update($data);
+        $feature->update($data);
 
-        return $plan;
+        return $feature;
     }
 
     /**
@@ -106,7 +106,7 @@ class EloquentPlan implements PlanRepository
      */
     public function lists($column = 'name', $key = 'id')
     {
-        return Plan::pluck($column, $key);
+        return Feature::pluck($column, $key);
     }
 
     /**
@@ -114,11 +114,11 @@ class EloquentPlan implements PlanRepository
      */
     public function findByName($name)
     {
-        return Plan::where('name', $name)->first();
+        return Feature::where('name', $name)->first();
     }
 
-    public function getDatatables():PlanDatatable
+    public function getDatatables():FeatureDatatable
     {
-        return new PlanDatatable();
+        return new FeatureDatatable();
     }
 }

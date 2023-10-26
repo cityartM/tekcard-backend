@@ -4,17 +4,17 @@ namespace Modules\Feature\Repositories;
 
 use Modules\Feature\Models\Feature;
 
-interface PlanRepository
+interface FeatureRepository
 {
     /**
-     * Get all system plans.
+     * Get all system features.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all();
 
     /**
-     * Lists all system plans into $key => $column value pairs.
+     * Lists all system features into $key => $column value pairs.
      *
      * @param string $column
      * @param string $key
@@ -23,22 +23,22 @@ interface PlanRepository
     public function lists($column = 'name', $key = 'id');
 
     /**
-     * Get all system plans with number of users for each plan.
+     * Get all system features with number of users for each feature.
      *
      * @return mixed
      */
     public function getAllWithUsersCount();
 
     /**
-     * Find system plan by id.
+     * Find system feature by id.
      *
-     * @param $id Plan Id
-     * @return Plan|null
+     * @param $id Feature Id
+     * @return Feature|null
      */
     public function find($id);
 
     /**
-     * Find plan by name:
+     * Find feature by name:
      *
      * @param $name
      * @return mixed
@@ -46,38 +46,38 @@ interface PlanRepository
     public function findByName($name);
 
     /**
-     * Create new system plan.
+     * Create new system feature.
      *
      * @param array $data
-     * @return Plan
+     * @return Feature
      */
     public function create(array $data);
 
     /**
-     * Update specified plan.
+     * Update specified feature.
      *
-     * @param $id Plan Id
+     * @param $id Feature Id
      * @param array $data
-     * @return Plan
+     * @return Feature
      */
     public function update($id, array $data);
 
     /**
-     * Remove plan from repository.
+     * Remove feature from repository.
      *
-     * @param $id Plan Id
+     * @param $id Feature Id
      * @return bool
      */
     public function delete($id);
 
     /**
-     * Update the permissions for given plan.
+     * Update the permissions for given feature.
      *
-     * @param $planId
-     * @param array $permissions
+     * @param $featureId
+     * @param array $features
      * @return mixed
      */
-    public function updatePermissions($planId, array $permissions);
+    public function updateFeatures($featureId, array $features);
 
     /**
      * @return mixed
