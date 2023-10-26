@@ -187,10 +187,10 @@ class DataTableActions
         return $html;
     }
 
-    public static function icon($icon = null, $size = 'small'): string
+    public static function icon($icon = null, $size = 'small',$color = '#f64e60'): string
     {
         return ($icon !== null)
-            ? "<div class='flex items-center justify-center' style='color: #f64e60'>"
+            ? "<div class='flex items-center justify-center' style='color:$color'>"
                 . Blade::render('components.icons.social', [ 'icon' => $icon,  'size' => $size, ])
                 . "</div>"
             : '';

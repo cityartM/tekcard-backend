@@ -12,5 +12,5 @@
 */
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('features', \Modules\Subscription\Http\Controllers\SubscriptionController::class)->middleware('permission:plans.manage');
+    Route::resource('plans', \Modules\Plan\Http\Controllers\FeaturesController::class)->middleware('permission:plans.manage');
 });
