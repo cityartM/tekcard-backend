@@ -127,8 +127,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['title', 'content', 'status', 'tumail', 'type', 'gallery']);
-
+        $data = $request->only(['title', 'content', 'status','text' , 'tumail', 'type', 'gallery']);
         $datat=$this->blog->store($data);
 
         $blog=Blog::find($id);
