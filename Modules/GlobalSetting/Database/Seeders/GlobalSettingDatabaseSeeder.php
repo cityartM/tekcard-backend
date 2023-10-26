@@ -19,7 +19,6 @@ class GlobalSettingDatabaseSeeder extends Seeder
         $socialMediaPlatforms = [
             'Social Media' => [
                 'facebook' => 'Facebook',
-                'twitter' => 'Twitter',
                 'instagram' => 'Instagram',
                 'linkedin' => 'Linkedin',
                 'youtube' => 'Youtube',
