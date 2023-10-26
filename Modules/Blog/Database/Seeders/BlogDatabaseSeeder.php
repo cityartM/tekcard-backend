@@ -34,11 +34,25 @@ class BlogDatabaseSeeder extends Seeder
                 'tr' => $faker->paragraph,
             ];
 
+            $text = [
+                'en' => $faker->paragraph,
+                'ar' => $faker->paragraph,
+                'tr' => $faker->paragraph,
+            ];
+
+            $types = [];
+            $typeCount = $faker->numberBetween(1, count(BlogCategories::lists()));
+            for ($i = 0; $i < $typeCount; $i++) {
+                $types[] = $faker->randomElement(BlogCategories::lists());
+            }
+            $typeString = implode(',', $types); // Convert the array to a comma-separated string
+
             DB::table('blogs')->insert([
                 'title' => json_encode($title),
                 'status' => $faker->randomElement(Status::lists()),
-                'type' => $faker->randomElement(BlogCategories::lists()),
+                'type' => $typeString,
                 'content' => json_encode($content),
+                'text' => json_encode($text),
                 'tumail' => $faker->email,
                 'gallery' => json_encode(['image1.jpg', 'image2.jpg']),
                 'created_at' => now(),
