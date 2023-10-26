@@ -67,8 +67,8 @@
                             <br>
                             <div class="row">
                             <label for="kt_docs_tinymce_hidden_{{$locale}}"><h5>{{ __('app.content')}}</h5></label><br>
-                            <textarea id="kt_docs_tinymce_hidden_{{$locale}}" name="text[{{$locale}}]" class="tox-target">
-                                {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : '') }}
+                            <textarea id="kt_docs_tinymce_hidden_{{$locale}}" name="text[{{$locale}}]" class="tox-target" >
+                                {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : $blog->text) }}
                             </textarea>
                 </div>
                         </div>
