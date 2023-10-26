@@ -5,6 +5,8 @@ namespace Modules\GlobalSetting\Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\GlobalSetting\Models\SettingContact;
+use Modules\GlobalSetting\Support\Enum\ContactType;
 
 class GlobalSettingDatabaseSeeder extends Seeder
 {
@@ -32,6 +34,8 @@ class GlobalSettingDatabaseSeeder extends Seeder
                 'flickr' => 'Flickr',
             ],
             'Contact Info' => [
+                'email' => 'Email',
+                'phone' => 'Phone',
                 'whatsapp' => 'Whatsapp',
                 'telegram' => 'Telegram',
                 'pinterest' => 'Pinterest',
@@ -53,13 +57,13 @@ class GlobalSettingDatabaseSeeder extends Seeder
                 'medium' => 'Medium',
             ],
         ];
-
+        $i = 1;
         foreach($socialMediaPlatforms as $key => $socialMediaPlatform )
         {
             foreach($socialMediaPlatform as $k => $value)
             {
                // dd($value);
-                    \DB::table('setting_contacts')->insert([
+                    $a = \DB::table('setting_contacts')->insert([
                         [
                             'display_name' => $value,
                             'category' => $key,
@@ -69,6 +73,11 @@ class GlobalSettingDatabaseSeeder extends Seeder
                         ],
 
                     ]);
+                //dd($k);
+                $settingContact = SettingContact::find($i);
+               // dd($settingContact);
+                 $settingContact->addMedia(public_path('assets/media/icons/duotune/social/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
+                $i++;
             }
         }
     }

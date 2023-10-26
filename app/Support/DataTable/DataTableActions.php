@@ -187,6 +187,14 @@ class DataTableActions
         return $html;
     }
 
+    public static function svg($imageUrl): string
+    {
+        $html = "<div class='symbol symbol-50px me-5'>";
+        $html .= "$imageUrl";
+        $html .= "</div>";
+        return $html;
+    }
+
     public static function icon($icon = null, $size = 'small',$color = '#f64e60'): string
     {
         return ($icon !== null)

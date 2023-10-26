@@ -35,10 +35,13 @@ class SettingContactDatatable
                 })
                 ->addColumn("icon", function (SettingContact $settingcontact) {
                     $media = $settingcontact->getFirstMedia('Icon contact');
+
                     $url = $media ? File::get(public_path('storage/'.$media->id.'/'.$media->file_name)) : File::get(public_path('assets/media/logos/logo-3.svg'));
+
                     $icon = strtolower($settingcontact->display_name);
 
-                    return (new DataTableActions())->icon($icon, 'large','#1E3050');
+                    return (new DataTableActions())->svg($url);
+                    //return (new DataTableActions())->icon($icon, 'large','#1E3050');
                 })
                 ->addColumn("display_name", function (SettingContact $settingcontact) {
                     return $settingcontact->display_name ;
