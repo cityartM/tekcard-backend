@@ -56,11 +56,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'content', 'status' ,'tumail', 'gallery']);
+        $data = $request->only(['title', 'content', 'status' , 'text' ,'tumail', 'gallery']);
 
         $data['type']= implode(",", $request->type);
+        
 
-       // dd($data);
+       //dd($data['text']);
 
         $datat=$this->blog->store($data);
 
@@ -68,10 +69,8 @@ class BlogController extends Controller
         $blog = Blog::create($datat);
 
         if ($request->hasFile('tumail')) {
-            // Add the media to the newly created Blog instance
             $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
         }
-
         if ($request->hasFile('gallery')) {
             foreach ($request->file('gallery') as $image) {
                 $blog->addMedia($image)->toMediaCollection('gallery');
