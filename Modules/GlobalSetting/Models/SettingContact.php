@@ -14,6 +14,8 @@ class SettingContact extends Model implements HasMedia
 
     protected $table = 'setting_contacts';
 
+    public $timestamps = true;
+
     protected $fillable = ['user_id', 'display_name', 'value', 'category'];
 
     public function user()

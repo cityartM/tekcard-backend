@@ -56,11 +56,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'content', 'status' ,'tumail', 'gallery']);
+        $data = $request->only(['title', 'content', 'status' , 'text' ,'tumail', 'gallery']);
 
-        $data['type']= implode(",", $request->type);
+        if (is_array($request->type)) {
+            $data['type'] = implode(",", $request->type);
+        } else {
+            $data['type'] = $request->type;
+        }
+        
 
-       // dd($data);
+       //dd($data['text']);
 
         $datat=$this->blog->store($data);
 
@@ -68,10 +73,8 @@ class BlogController extends Controller
         $blog = Blog::create($datat);
 
         if ($request->hasFile('tumail')) {
-            // Add the media to the newly created Blog instance
             $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
         }
-
         if ($request->hasFile('gallery')) {
             foreach ($request->file('gallery') as $image) {
                 $blog->addMedia($image)->toMediaCollection('gallery');
@@ -92,7 +95,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        return view('blog::add-edit' , compact('edit'));
+        $blog=Blog::find($id);
+        return view('blog::add-edit' , compact('blog'));
     }
 
     /**
@@ -100,11 +104,19 @@ class BlogController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+
+     public function edit($id)
+     {
+         $blog=Blog::find($id);
+         $edit= true;
+         return view('blog::add-edit', compact('edit','blog'));
+     }
+
+    public function all()
     {
-        $blog=Blog::find($id);
-        $edit= true;
-        return view('blog::add-edit', compact('edit','blog'));
+        $blog=Blog::all();
+        
+        return view('blog::add-edit', compact('blog'));
     }
 
     /**
@@ -115,8 +127,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['title', 'content', 'status', 'tumail', 'type', 'gallery']);
-
+        $data = $request->only(['title', 'content', 'status','text' , 'tumail', 'type', 'gallery']);
         $datat=$this->blog->store($data);
 
         $blog=Blog::find($id);

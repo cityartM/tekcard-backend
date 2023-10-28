@@ -52,10 +52,25 @@
                                 />
                             </div>
                             <div class="row">
-                               <textarea id="kt_docs_tinymce_hidden" name="content" class="tox-target">
-                                    {{old('content', isset($model) ? $model->getTranslationWithFallback('content', $locale) : null)}}
-                                </textarea>
+                                <x-fields.text-field
+                                    :title="__('app.short_description')"
+                                    name="content"
+                                    col="6"
+                                    type="text"
+                                    required
+                                    class="mt-5"
+                                    :index="$locale"
+                                    :locale="$locale"
+                                    :model=" $edit ? $blog : null "
+                                />
                             </div>
+                            <br>
+                            <div class="row">
+                            <label for="kt_docs_tinymce_hidden_{{$locale}}"><h5>{{ __('app.content')}}</h5></label><br>
+                            <textarea id="kt_docs_tinymce_hidden_{{$locale}}" name="text[{{$locale}}]" class="tox-target" >
+                                {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
+                            </textarea>
+                </div>
                         </div>
                     @endforeach
                 </x-languages-tab>
@@ -117,16 +132,23 @@
 @stop
 
 @section('scripts')
-    <script src={{ asset('assets/plugins/custom/tinymce/tinymce.bundle.js') }}></script>
-
+<script src="{{ asset('assets/plugins/custom/tinymce/tinymce.bundle.js') }}"></script>
     <script>
-        tinymce.init({
-            selector: "#kt_docs_tinymce_hidden", height : "480",
-            menubar: false,
-            toolbar: ["styleselect fontselect fontsizeselect",
-                "undo redo | cut copy paste | bold italic | link image | alignleft aligncenter alignright alignjustify",
-                "bullist numlist | outdent indent | blockquote subscript superscript | advlist | autolink | lists charmap | print preview |  code"],
-            plugins : "advlist autolink link image lists charmap print preview code"
-        });
+        function initializeTinyMCE(language) {
+            tinymce.init({
+                selector: `#kt_docs_tinymce_hidden_${language}`,
+                height: "480",
+                menubar: false,
+                toolbar: ["styleselect fontselect fontsizeselect",
+                    "undo redo | cut copy paste | bold italic | link image | alignleft aligncenter alignright alignjustify",
+                    "bullist numlist | outdent indent | blockquote subscript superscript | advlist | autolink | lists charmap | print preview | code"],
+                plugins: "advlist autolink link image lists charmap print preview code"
+            });
+        }
+
+        // Call the initialize function for each language
+        @foreach(\App\Helper\Helper::getLocalesOrder() as $locale => $value)
+            initializeTinyMCE("{{ $locale }}");
+        @endforeach
     </script>
 @stop

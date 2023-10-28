@@ -62,6 +62,7 @@ class EloquentBlog implements BlogRepository
     {
         $lang = LaravelLocalization::getCurrentLocale();
         $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['text'] = Helper::translateAttribute($data['text'] + ['lang' => $lang]);
         $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
        
 
@@ -73,6 +74,7 @@ class EloquentBlog implements BlogRepository
     {
         $lang = LaravelLocalization::getCurrentLocale();
         $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['text'] = Helper::translateAttribute($data['text'] + ['lang' => $lang]);
         $data['content'] = Helper::translateAttribute($data['content'] + ['lang' => $lang]);
        
 

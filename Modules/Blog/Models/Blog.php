@@ -14,15 +14,16 @@ class Blog extends Model implements HasMedia
 {
     use HasFactory , InteractsWithMedia,HasTranslations;
 
-    protected $fillable = ['title', 'status' ,'type', 'content', 'tumail', 'gallery'];
+    protected $fillable = ['title', 'status' ,'type', 'descreption', 'text' , 'tumail', 'gallery'];
 
     protected $casts = [
         'title' => 'json',
-        'content' => 'json',
+        'descreption' => 'json',
+        'text' => 'json',
         'gallery' => 'json',
     ];
 
-    protected array $translatable = ['title','content'];
+    protected array $translatable = ['title','content','text'];
 
     public function getJsonTitleAttribute($value)
     {
@@ -63,6 +64,26 @@ class Blog extends Model implements HasMedia
         }
     }
 
+
+    public function getJsonTextAttribute($value)
+    {
+        $text = $this->getTranslations('text');
+        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
+        $result = [];
+        if ($text != null) {
+            foreach ($text as $translation) {
+                foreach ($translation as $locale => $trans) {
+                    if ($locale == $currentLocale) {
+                        $result[] = $trans;
+                    }
+                }
+            }
+            return $result;
+        } else {
+            return $text;
+        }
+    }
+
     public function getBladeTitleAttribute($value)
     {
         return $this->getTranslations('title');
@@ -71,6 +92,11 @@ class Blog extends Model implements HasMedia
     public function getBladeContentAttribute($value)
     {
         return $this->getTranslations('content');
+    }
+
+    public function getBladeTextAttribute($value)
+    {
+        return $this->getTranslations('text');
     }
 
     protected static function newFactory()
