@@ -30,8 +30,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('blog Phrases Details')"
-                :information="__('A general blog Phrases information.')"
+                :title="__('app.blog_phrases_details')"
+                :information="__('app.a_general_blog_phrases_information')"
                 col="3"
             />
             <div class="col-md-9">
@@ -68,10 +68,10 @@
                             <div class="row">
                             <label for="kt_docs_tinymce_hidden_{{$locale}}"><h5>{{ __('app.content')}}</h5></label><br>
                             <textarea id="kt_docs_tinymce_hidden_{{$locale}}" name="text[{{$locale}}]" class="tox-target" >
-                                {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : $blog->text) }}
+                            {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : (isset($edit) && $edit ? $blog->text : '')) }}
                             </textarea>
                 </div>
-                        </div>
+                        </div> 
                     @endforeach
                 </x-languages-tab>
                 <x-select-field

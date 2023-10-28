@@ -171,7 +171,7 @@ return [
     'id' => 'id',
     'created at' => 'created at',
     'user_name' => 'User name',
-
+    'Addresses' => 'Addresses',
 
     /*** Company ***/
     'companies' => 'Companies',
@@ -364,6 +364,24 @@ return [
     'addresses' => 'Addresses',
     'country' => 'Country',
     'add_wilaya' => 'add_wilaya',
+    'countries' => 'countries',
+    'address' => 'address',
+    'city' => 'city',
+    'companies' => 'companies',
+    'users' => 'users',
+    'groups' => 'groups',
+    'remarks' => 'remarks',
+    'contacts' => 'contacts',
+    'general' => 'general',
+    'auth_&_registration' => 'Auth & Registration',
+    'notifications' => 'notifications',
+    'settings' => 'settings',
+    'roles' => 'roles',
+    'permissions' => 'permissions',
+    'roles_&_permissions' => 'Roles & Permissions',
+    'plans' => 'plans',
+    'features' => 'features',
+    
 
     /*** plan ***/
     'plans' => 'Plans',
@@ -416,6 +434,11 @@ return [
     'blog_list' => 'Blog list',
     'create_blog' => 'Create blog',
     'update_blog' => 'Update blog',
+    'short_description' => 'Short Description',
+    'blog_phrases_details' => 'Blog Phrases Details',
+    'a_general_blog_phrases_information' => 'A General Blog Phrases Information',
+    'company' => 'company',
+    'subject' => 'subject',
 
 
     /***  setting contact  ***/
@@ -430,6 +453,16 @@ return [
     'icon_upload' => 'Icon upload',
     'update_setting_contact' => 'Update setting contact',
     'create_setting_contact' => 'Create setting contact',
+
+
+    /***  Addresses  ***/
+    'add_city' => 'Add City',
+    'wilaya' => 'wilaya',
+    'latitude' => 'latitude',
+    'longitude' => 'longitude',
+    'code' => 'code',
+    'add_wilaya' => 'Add Wilaya',
+    'add_country' => 'Add Country',
 
 
 

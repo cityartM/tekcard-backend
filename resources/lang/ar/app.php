@@ -83,6 +83,24 @@ return [
     'action' => 'إجراء',
     'actions' => 'إجراءات',
     'edit' => 'تعديل',
+    'countries' => 'بلدان',
+    'address' => 'عنوان',
+    'city' => 'مدينة',
+    'companies' => 'شركات',
+    'users' => 'المستخدمين',
+    'groups' => 'مجموعات',
+    'remarks' => 'ملاحظات',
+    'contacts' => 'جهات الاتصال',
+    'general' => 'عام',
+    'auth_&_registration' => 'المصادقة والتسجيل',
+    'notifications' => 'إشعارات',
+    'settings' => 'إعدادات',
+    'roles' => 'الأدوار',
+    'permissions' => 'أذونات',
+    'roles_&_permissions' => 'الأدوار والأذونات',
+    'plans' => 'خطط',
+    'features' => 'ميزات',
+    'plans_features' => 'ميزات  و الخطط',
 
 
     'categories' => [
@@ -125,6 +143,11 @@ return [
     'blog_list' => 'قائمة المدونة' ,
     'create_blog' => 'إنشاء مدونة',
     'update_blog' => 'تحديث المدونة',
+    'short_description' => 'وصف قصير',
+    'blog_phrases_details' => 'تفاصيل عبارات المدونة',
+    'a_general_blog_phrases_information' => 'معلومات عامة عن عبارات المدونة',
+    'company' => 'شركة',
+    'subject' => 'موضوع',
 
 
     /***  setting contact  ***/
@@ -141,6 +164,17 @@ return [
     'update_setting_contact' => 'تحديث إعدادات الاتصال',
     'create_setting_contact' => 'إنشاء إعدادات الاتصال',
     'icon_upload' => 'تحميل الأيقونة',
+
+
+    /***  Addresses  ***/
+    'add_city' => 'إضافة مدينة',
+    'wilaya' => 'ولاية',
+    'latitude' => 'خط العرض',
+    'longitude' => 'خط الطول',
+    'code' => 'الكود',
+    'add_wilaya' => 'إضافة ولاية',
+    'country' => 'بلد',
+    'add_country' => 'إضافة بلد',
 
 
 
