@@ -94,11 +94,11 @@ class EloquentPlan implements PlanRepository
     /**
      * {@inheritdoc}
      */
-    public function updatePermissions($roleId, array $permissions)
+    public function updateFeatures($planId, array $features)
     {
-        $role = $this->find($roleId);
+        $plan = $this->find($planId);
 
-        $role->syncPermissions($permissions);
+        $plan->syncFeatures($features);
     }
 
     /**

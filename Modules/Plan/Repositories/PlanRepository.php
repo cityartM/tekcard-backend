@@ -77,7 +77,7 @@ interface PlanRepository
      * @param array $permissions
      * @return mixed
      */
-    public function updatePermissions($planId, array $permissions);
+    public function updateFeatures($planId, array $features);
 
     /**
      * @return mixed

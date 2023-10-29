@@ -4,6 +4,8 @@ namespace Modules\Feature\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Feature\Repositories\EloquentFeature;
+use Modules\Feature\Repositories\FeatureRepository;
 
 class FeatureServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,7 @@ class FeatureServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->singleton(FeatureRepository::class, EloquentFeature::class);
     }
 
     /**

@@ -4,7 +4,7 @@
 @section('page-heading', $edit ? $feature->name : __('app.create_new_feature'))
 
 @section('breadcrumbs')
-    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.roles_features')</h1>
+    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.plans_features')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
             <a href="" class="text-muted text-hover-primary">@lang('app.features')</a>
@@ -45,7 +45,7 @@
             <div class="col-md-9">
                 <x-input-field
                     :title="__('app.name')"
-                    :placeholder="__('app.plan_name')"
+                    :placeholder="__('app.feature_name')"
                     name="name"
                     type="text"
                     col="12"
@@ -91,8 +91,8 @@
 
 @section('scripts')
     @if ($edit)
-        {!! JsValidator::formRequest('App\Http\Requests\Permission\UpdatePermissionRequest', '#feature-form') !!}
+        {!! JsValidator::formRequest('Modules\Feature\Http\Requests\UpdateFeatureRequest', '#feature-form') !!}
     @else
-        {!! JsValidator::formRequest('App\Http\Requests\Permission\CreatePermissionRequest', '#feature-form') !!}
+        {!! JsValidator::formRequest('Modules\Feature\Http\Requests\CreateFeatureRequest', '#feature-form') !!}
     @endif
 @stop
