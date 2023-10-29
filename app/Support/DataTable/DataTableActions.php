@@ -198,7 +198,11 @@ class DataTableActions
     public static function icon($icon = null, $size = 'small',$color = '#f64e60'): string
     {
         return ($icon !== null)
+<<<<<<< HEAD
+            ? "<div class='flex items-center justify-center' style='color: #114ebd'>"
+=======
             ? "<div class='flex items-center justify-center' style='color:$color'>"
+>>>>>>> e787e5c1dbb9197fccbd9dcf2461176e117c8941
                 . Blade::render('components.icons.social', [ 'icon' => $icon,  'size' => $size, ])
                 . "</div>"
             : '';

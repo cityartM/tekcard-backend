@@ -3,6 +3,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Blog\Database\Seeders\BlogDatabaseSeeder;
 use Modules\ContactUser\Database\Seeders\GroupDatabaseSeeder;
 use Modules\ContactUser\Database\Seeders\RemarkDatabaseSeeder;
 use Modules\GlobalSetting\Database\Seeders\GlobalSettingDatabaseSeeder;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RemarkDatabaseSeeder::class);
         $this->call(GroupDatabaseSeeder::class);
         $this->call(GlobalSettingDatabaseSeeder::class);
+        $this->call(BlogDatabaseSeeder::class);
         Model::reguard();
     }
 }
