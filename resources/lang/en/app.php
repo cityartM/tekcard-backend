@@ -381,7 +381,7 @@ return [
     'roles_&_permissions' => 'Roles & Permissions',
     'plans' => 'plans',
     'features' => 'features',
-    
+    'color' => 'color',
 
     /*** plan ***/
     'plans' => 'Plans',

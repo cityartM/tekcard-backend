@@ -101,6 +101,7 @@ return [
     'plans' => 'خطط',
     'features' => 'ميزات',
     'plans_features' => 'ميزات  و الخطط',
+    'color' => 'لون',
 
 
     'categories' => [

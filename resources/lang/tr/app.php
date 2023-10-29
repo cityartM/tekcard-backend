@@ -317,6 +317,7 @@ return [
  'plans' => 'planlar',
  'features' => 'özellikler',
  'plans_features' => 'Plan Özellikleri',
+ 'color' => 'renk',
 
 
 
