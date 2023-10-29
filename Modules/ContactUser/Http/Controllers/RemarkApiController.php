@@ -99,11 +99,12 @@ class RemarkApiController extends ApiController
     public function destroy($id)
     {
         $remark = Remark::find($id);
-
+        
+        if (!$remark) {
         return $this->respondWithSuccess(
             ['message' => 'Remark not found'],
             'Remark not found',404
-        );
+        );}
 
         if ($remark->user_id !== auth()->id()) {
             return $this->respondWithSuccess(
