@@ -3,6 +3,8 @@
 @section('page-title', __('app.blog'))
 @section('page-heading', $edit ? $blog->id : __('app.Create New Blog'))
 
+
+
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
             <li class="breadcrumb-item">
@@ -30,8 +32,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('blog Phrases Details')"
-                :information="__('A general blog Phrases information.')"
+                :title="__('app.blog_phrases_details')"
+                :information="__('app.a_general_blog_phrases_information')"
                 col="3"
             />
             <div class="col-md-9">
@@ -71,7 +73,7 @@
                                 {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
                             </textarea>
                 </div>
-                        </div>
+                        </div> 
                     @endforeach
                 </x-languages-tab>
                 <x-select-field
@@ -80,7 +82,7 @@
                     col="12"
                     class="mb-2"
                     required
-                    :data="collect(App\Support\Enum\BlogCategories::lists())"
+                    :data="$tags"
                     :model="$edit ? $blog : null "
                     :isselect2="true"
                     multi=true

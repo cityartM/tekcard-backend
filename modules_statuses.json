@@ -9,5 +9,6 @@
     "Feature": true,
     "Blog": true,
     "ContactUser": true,
-    "GlobalSetting": true
+    "GlobalSetting": true,
+    "Tag": true
 }

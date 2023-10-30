@@ -43,7 +43,7 @@ class ContactUsController extends Controller
     {
         return view('contactus::create');
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -105,3 +105,4 @@ class ContactUsController extends Controller
     }
 
 }
+ 

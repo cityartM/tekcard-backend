@@ -55,7 +55,7 @@ class EloquentFeature implements FeatureRepository
             $lang = LaravelLocalization::getCurrentLocale();
             $data['display_name'] = Helper::translateAttribute($data['display_name'] + ['lang' => $lang]);
         }
-        $data['has_dashboard'] = isset($data['has_dashboard']) && $data['has_dashboard'] === "1" ? 1 : 0 ;
+
         $feature = Feature::create($data);
 
         return $feature;
@@ -86,19 +86,19 @@ class EloquentFeature implements FeatureRepository
      */
     public function delete($id)
     {
-        $role = $this->find($id);
+        $plan = $this->find($id);
 
-        return $role->delete();
+        return $plan->delete();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function updatePermissions($roleId, array $permissions)
+    public function updateFeatures($planId, array $features)
     {
-        $role = $this->find($roleId);
+        $plan = $this->find($planId);
 
-        $role->syncPermissions($permissions);
+        $plan->syncPermissions($features);
     }
 
     /**

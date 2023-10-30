@@ -5,6 +5,8 @@ namespace Modules\Blog\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use Modules\Tag\Models\Tag;
+
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -21,6 +23,7 @@ class Blog extends Model implements HasMedia
         'descreption' => 'json',
         'text' => 'json',
         'gallery' => 'json',
+        'type' => 'json',
     ];
 
     protected array $translatable = ['title','content','text'];
@@ -98,6 +101,13 @@ class Blog extends Model implements HasMedia
     {
         return $this->getTranslations('text');
     }
+
+    public function type()
+    {
+        return $this->belongsTo(Tag::class);
+    }
+
+
 
     protected static function newFactory()
     {

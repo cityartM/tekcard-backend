@@ -14,11 +14,11 @@ use Modules\ContactUser\Models\Group;
 
 class GroupController extends Controller
 {
-    private $contactUser;
+    private $groupUser;
 
-    function __construct(GroupRepository $contactUser)
+    function __construct(GroupRepository $groupUser)
     {
-        $this->contactUser= $contactUser;
+        $this->groupUser= $groupUser;
     }
 
     /**
@@ -29,10 +29,10 @@ class GroupController extends Controller
     {
         //dd("it me");
         if ($request->wantsJson()) {
-            return $this->contactUser->getDatatables()->datatables($request);
+            return $this->groupUser->getDatatables()->datatables($request);
         }
         return view("contactuser::indexGroup")->with([
-            "columns" => $this->contactUser->getDatatables()::columns(),
+            "columns" => $this->groupUser->getDatatables()::columns(),
         ]);
     }
 
@@ -116,7 +116,7 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        $this->contactUser->delete($id);
+        $this->groupUser->delete($id);
 
         return redirect()->route('groups.index')->with('success', 'Group deleted successfully');
     }

@@ -8,6 +8,9 @@ use Cache;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Modules\Feature\Http\Requests\CreateFeatureRequest;
+use Modules\Feature\Models\Feature;
+use Modules\Feature\Repositories\FeatureRepository;
 use Modules\Plan\Http\Requests\CreatePlanRequest;
 use Modules\Plan\Http\Requests\UpdatePlanRequest;
 use Modules\Plan\Models\Plan;
@@ -23,25 +26,32 @@ class FeaturesController extends Controller
      * @var PlanRepository
      */
     private $plans;
+    /**
+     * @var FeatureRepository
+     */
+    private $features;
 
     /**
-     * PlansController constructor.
+     * PermissionsController constructor.
      * @param PlanRepository $plans
+     * @param FeatureRepository $features
      */
-    public function __construct(FetureRepository $plans)
+    public function __construct(PlanRepository $plans, FeatureRepository $features)
     {
         $this->plans = $plans;
+        $this->features = $features;
     }
 
-
-
-    public function index(Request $request)
+    /**
+     * Displays the page with all available permissions.
+     *
+     * @return Factory|View
+     */
+    public function index()
     {
-        if ($request->wantsJson()) {
-            return $this->plans->getDatatables()->datatables($request);
-        }
-        return view("plan::index")->with([
-            "columns" => $this->plans->getDatatables()::columns(),
+        return view('feature::index', [
+            'plans' => $this->plans->all(),
+            'features' => $this->features->all()
         ]);
     }
 
@@ -52,18 +62,18 @@ class FeaturesController extends Controller
      */
     public function create()
     {
-        return view('plan::add-edit', ['edit' => false]);
+        return view('feature::add-edit', ['edit' => false]);
     }
 
     /**
      * Store newly created plan to database.
      *
-     * @param CreatePlanRequest $request
+     * @param CreateFeatureRequest $request
      * @return mixed
      */
-    public function store(CreatePlanRequest $request)
+    public function store(CreateFeatureRequest $request)
     {
-        $this->plans->create($request->all());
+        $this->features->create($request->all());
 
         return redirect()->route('plans.index')
             ->withSuccess(__('Plan created successfully.'));
@@ -72,13 +82,13 @@ class FeaturesController extends Controller
     /**
      * Display for editing specified plan.
      *
-     * @param Plan $plan
+     * @param Feature $feature
      * @return Factory|View
      */
-    public function edit(Plan $plan)
+    public function edit(Feature $feature)
     {
-        return view('plan::add-edit', [
-            'plan' => $plan,
+        return view('feature::add-edit', [
+            'feature' => $feature,
             'edit' => true
         ]);
     }

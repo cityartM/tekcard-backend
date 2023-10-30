@@ -7,11 +7,13 @@ use App\Models\User;
 use App\Support\Authorization\AuthorizationRoleTrait;
 use App\Traits\HasGoogleTranslationTrait;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Feature\Models\Feature;
+use Modules\Plan\Support\PlanTrait;
 
 
 class Plan extends Model
 {
-    use AuthorizationRoleTrait ,HasGoogleTranslationTrait;
+    use PlanTrait ,HasGoogleTranslationTrait;
     /**
      * The database table used by the model.
      *
@@ -39,7 +41,7 @@ class Plan extends Model
      */
     public function features()
     {
-        return $this->belongsToMany(Permission::class, 'feature_plan', 'plan_id');
+        return $this->belongsToMany(Feature::class, 'feature_plan', 'plan_id');
     }
 
 

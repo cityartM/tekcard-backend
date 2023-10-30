@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Helpers\Helper;
 use Modules\Blog\Models\Blog;
+use Modules\Tag\Models\Tag;
 use LaravelLocalization;
 use Modules\Blog\Http\Requests\CreateBlogRequest;
 use Spatie\MediaLibrary\Models\Media;
@@ -45,8 +46,10 @@ class BlogController extends Controller
      */
     public function create()
     {
+        $tags = Tag::pluck('name', 'id');
+        //dd($tags);
         $edit= false;
-        return view('blog::add-edit' , compact('edit'));
+        return view('blog::add-edit' , compact('edit','tags'));
     }
 
     /**
@@ -56,14 +59,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'content', 'status' , 'text' ,'tumail', 'gallery']);
+        $data = $request->only(['title', 'type', 'content', 'status' , 'text' ,'tumail', 'gallery']);
 
-        if (is_array($request->type)) {
-            $data['type'] = implode(",", $request->type);
-        } else {
-            $data['type'] = $request->type;
-        }
-        
 
        //dd($data['text']);
 
@@ -96,6 +93,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog=Blog::find($id);
+        
         return view('blog::add-edit' , compact('blog'));
     }
 
@@ -108,8 +106,9 @@ class BlogController extends Controller
      public function edit($id)
      {
          $blog=Blog::find($id);
+         $tags = Tag::pluck('name', 'id');
          $edit= true;
-         return view('blog::add-edit', compact('edit','blog'));
+         return view('blog::add-edit', compact('edit','blog','tags'));
      }
 
     public function all()

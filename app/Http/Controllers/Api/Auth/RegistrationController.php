@@ -62,7 +62,7 @@ class RegistrationController extends ApiController
                     'role_id' => $role->id,
                     'username' => $request->username,
                     'email' => $request->email,
-                    'status'=>UserStatus::ACTIVE,
+                    'status'=>UserStatus::UNCONFIRMED,
                     'avatar' => $avatarName,
                     'device_token' => $request->device_token,
                     'device_id' => $request->device_id,

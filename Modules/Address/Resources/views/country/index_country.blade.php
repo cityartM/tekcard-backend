@@ -16,7 +16,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            @lang('app.add country')
+                            @lang('app.add_country')
                         </a>
                         <!--end::Add user-->
                     </div>
@@ -24,12 +24,12 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>@lang('ID')</th>
-                                <th>@lang('app.Name')</th>
-                                <th>@lang('app.Code')</th>
-                                <th>@lang('LAT')</th>
-                                <th>@lang('LON')</th>
-                                <th>@lang('app.Actions')</th>
+                                <th>@lang('app.id')</th>
+                                <th>@lang('app.name')</th>
+                                <th>@lang('app.code')</th>
+                                <th>@lang('app.latitude')</th>
+                                <th>@lang('app.longitude')</th>
+                                <th>@lang('app.actions')</th>
                             </tr>
                             </thead>
                             <tbody>

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
 
             $table->increments('id');
+            $table->unsignedInteger('company_id')->index()->nullable();
             $table->string('email')->unique();//->unique();
             $table->string('username')->nullable()->index();
             $table->string('password');
@@ -28,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->integer('city_id')->unsigned()->nullable();
             $table->integer('role_id')->unsigned()->nullable();
-            $table->enum('status', UserStatus::lists())->default('Active');
+            $table->enum('status', UserStatus::lists())->default('Unconfirmed');
             $table->date('birthday')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->timestamp('email_verified_at')->nullable();
