@@ -38,7 +38,8 @@ class SettingContactDatatable
 
                     $url = $media ? File::get(public_path('storage/'.$media->id.'/'.$media->file_name)) : File::get(public_path('assets/media/logos/logo-3.svg'));
 
-                    $icon = strtolower($settingcontact->display_name);
+                   // $icon = strtolower($settingcontact->display_name);
+
 
                     return (new DataTableActions())->svg($url);
                     //return (new DataTableActions())->icon($icon, 'large','#1E3050');
