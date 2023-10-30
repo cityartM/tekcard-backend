@@ -32,6 +32,12 @@ class Settings extends Plugin
                 return $user->hasPermission('settings.notifications');
             });
 
+            $settingTags = Item::create(__('app.tags'))
+            ->route('tags.index')
+            ->active("settings")
+            ->permissions('tags.manage');
+       
+
         return Item::create(__('app.settings'))
             ->href('#settings-dropdown')
             ->icon('fas fa-cogs')
@@ -39,6 +45,7 @@ class Settings extends Plugin
             ->addChildren([
                 $general,
                 $settingContacts,
+                $settingTags,
                 //$authAndRegistration,
                 //$notifications,
             ]);
