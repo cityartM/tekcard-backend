@@ -89,7 +89,6 @@ const HomeSection = ({children, className}: PropsWithChildren & {className?: str
   );
 }
 
-
 const HeroSection = () => {
   const props = usePage().props
   const __ = (key: string) => key;
@@ -208,7 +207,6 @@ const TestimonialsSection = () => {
     </section>
   );
 }
-
 const Testimonials: React.FC<PropsWithChildren & {reviews: ReviewType[]}> = ({reviews}) => {
   return (
     <ul className={'flex flex-col space-y-10'}>

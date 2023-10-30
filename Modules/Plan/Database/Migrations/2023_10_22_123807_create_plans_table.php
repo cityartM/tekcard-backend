@@ -25,6 +25,8 @@ return new class extends Migration
             $table->integer('nbr_card_user')->default(0);
             $table->boolean('has_dashboard')->default(0);
             $table->boolean('removable')->default(1);
+            $table->unsignedInteger('user_id')->default(1);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

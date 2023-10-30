@@ -19,6 +19,8 @@ class Translations extends Plugin
     {
         $items = [];
 
+
+
         foreach ($this->languages as $code => $name) {
             $url = route('translations', ['lang' => $code]);
             $items[] = Item::create(__($name))
