@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/contactuser', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth'], function () {
+    Route::apiResource('remarks', 'RemarkApiController');
+    //Route::put('plans/reset', 'PlanApiController@reset');
 });

@@ -10,12 +10,12 @@ class Settings extends Plugin
 {
     public function sidebar()
     {
-        $general = Item::create(__('app.General'))
+        $general = Item::create(__('app.general'))
             ->route('settings.general')
             ->active("settings")
             ->permissions('settings.general');
 
-        $authAndRegistration = Item::create(__('app.Auth & Registration'))
+        $authAndRegistration = Item::create(__('app.auth_&_registration'))
             ->route('settings.auth')
             ->active("settings/auth")
             ->permissions('settings.auth');
@@ -25,20 +25,27 @@ class Settings extends Plugin
             ->active("settings")
             ->permissions('settingContacts.manage');
 
-        $notifications = Item::create(__('app.Notifications'))
+        $notifications = Item::create(__('app.notifications'))
             ->route('settings.notifications')
             ->active("settings/notifications")
             ->permissions(function (User $user) {
                 return $user->hasPermission('settings.notifications');
             });
 
-        return Item::create(__('app.Settings'))
+            $settingTags = Item::create(__('app.tags'))
+            ->route('tags.index')
+            ->active("settings")
+            ->permissions('tags.manage');
+       
+
+        return Item::create(__('app.settings'))
             ->href('#settings-dropdown')
             ->icon('fas fa-cogs')
             ->permissions(['settings.general'])
             ->addChildren([
                 $general,
                 $settingContacts,
+                $settingTags,
                 //$authAndRegistration,
                 //$notifications,
             ]);

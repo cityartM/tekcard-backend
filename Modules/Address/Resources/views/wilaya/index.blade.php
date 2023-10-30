@@ -26,12 +26,12 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>@lang('Code')</th>
-                                <th>@lang('app.Name')</th>
-                                <th>@lang('app.Country')</th>
-                                <th>@lang('LAT')</th>
-                                <th>@lang('LON')</th>
-                                <th>@lang('app.Actions')</th>
+                                <th>@lang('app.code')</th>
+                                <th>@lang('app.name')</th>
+                                <th>@lang('app.country')</th>
+                                <th>@lang('app.latitude')</th>
+                                <th>@lang('app.longitude')</th>
+                                <th>@lang('app.actions')</th>
                             </tr>
                             </thead>
                             <tbody>

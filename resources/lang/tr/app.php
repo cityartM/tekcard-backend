@@ -299,6 +299,25 @@ return [
  'action' => 'eylem',
  'actions' => 'eylemler',
  'edit' => 'düzenle',
+ 'countries' => 'ülkeler',
+ 'address' => 'adres',
+ 'city' => 'şehir',
+ 'companies' => 'şirketler',
+ 'users' => 'kullanıcılar',
+ 'groups' => 'gruplar',
+ 'remarks' => 'açıklamalar',
+ 'contacts' => 'kişiler',
+ 'general' => 'genel',
+ 'auth_&_registration' => 'Kimlik Doğrulama ve Kayıt',
+ 'notifications' => 'bildirimler',
+ 'settings' => 'ayarlar',
+ 'roles' => 'roller',
+ 'permissions' => 'izinler',
+ 'roles_&_permissions' => 'Roller ve İzinler',
+ 'plans' => 'planlar',
+ 'features' => 'özellikler',
+ 'plans_features' => 'Plan Özellikleri',
+ 'color' => 'renk',
 
 
 
@@ -345,6 +364,12 @@ return [
 'blog_list' => 'blog listesi',
 'create_blog' => 'blog oluştur',
 'update_blog' => 'blog güncelle',
+'short_description' => 'Kısa Açıklama',
+'blog_phrases_details' => 'Blog Cümleleri Detayları',
+'a_general_blog_phrases_information' => 'Genel Blog Cümleleri Bilgisi',
+'company' => 'şirket',
+'subject' => 'konu',
+
 
 
 /***  setting contact  ***/
@@ -361,6 +386,18 @@ return [
 'update_setting_contact' => 'iletişim ayarını güncelle',
 'create_setting_contact' => 'iletişim ayarı oluştur',
 'icon_upload' => 'ikon yükle',
+
+
+/***  Addresses  ***/
+'add_city' => 'Şehir Ekle',
+'wilaya' => 'wilaya',
+'latitude' => 'enlem',
+'longitude' => 'boylam',
+'code' => 'kod',
+'add_wilaya' => 'Wilaya Ekle',
+'country' => 'ülke',
+'add_country' => 'Ülke Ekle',
+
 
 
 ];

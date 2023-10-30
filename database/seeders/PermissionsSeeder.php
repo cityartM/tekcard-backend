@@ -136,6 +136,12 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
         $permissions[] = Permission::create([
+            'name' => 'tags.manage',
+            'display_name' => 'Manage tags',
+            'description' => 'Manage tags',
+            'removable' => false
+        ]);
+        $permissions[] = Permission::create([
             'name' => 'settingContacts.manage',
             'display_name' => 'Manage setting contacts',
             'description' => 'Manage setting contacts',

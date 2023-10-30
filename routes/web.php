@@ -191,7 +191,7 @@ Route::group(['namespace' => 'Dashboard'],function (){
     Route::get('/translation', function () {
         return view('translation/index');
     });
-
+ 
     Route::get('/translations/{lang?}', [TranslationController::class, 'index'])->name('translations');
 
     Route::post('/translations/{lang}', [TranslationController::class, 'update'])->name('translations.store');

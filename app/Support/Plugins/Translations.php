@@ -10,21 +10,9 @@ class Translations extends Plugin
 {
     protected $languages = [
         'ar' => 'Arabic',
-        'fr' => 'French',
         'en' => 'English',
-        'cn' => 'Chinese (Mandarin)',
-        'es' => 'Spanish',
-        'ru' => 'Russian',
-        'de' => 'German',
-        'ja' => 'Japanese',
-        'pt' => 'Portuguese',
-        'ko' => 'Korean',
-        'hi' => 'Hindi',
-        'it' => 'Italian',
-        'nl' => 'Dutch',
-        'sv' => 'Swedish',
         'tr' => 'Turkish',
-        'ml' => 'Bahasa melayu',
+        
     ];
 
     public function sidebar()

@@ -30,8 +30,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('blog Phrases Details')"
-                :information="__('A general blog Phrases information.')"
+                :title="__('app.blog_phrases_details')"
+                :information="__('app.a_general_blog_phrases_information')"
                 col="3"
             />
             <div class="col-md-9">
@@ -71,7 +71,7 @@
                                 {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
                             </textarea>
                 </div>
-                        </div>
+                        </div> 
                     @endforeach
                 </x-languages-tab>
                 <x-select-field

@@ -59,6 +59,9 @@ use Modules\ContactUser\Repositories\EloquentRemark;
 use Modules\GlobalSetting\Repositories\EloquentSettingContact;
 use Modules\GlobalSetting\Repositories\SettingContactRepository;
 
+use Modules\Tag\Repositories\EloquentTag;
+use Modules\Tag\Repositories\TagRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -77,7 +80,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(GroupRepository::class, EloquentGroup::class);
         $this->app->singleton(RemarkRepository::class, EloquentRemark::class);
         $this->app->singleton(SettingContactRepository::class, EloquentSettingContact::class);
+        $this->app->singleton(TagRepository::class, EloquentTag::class);
         $this->app->singleton(SettingContactRepository::class, EloquentSettingContact::class);
+
     }
 
     /**

@@ -9,22 +9,22 @@ class Address extends Plugin
 {
     public function sidebar()
     {
-        $countries = Item::create(__('app.Countries'))
+        $countries = Item::create(__('app.countries'))
             ->route('country.index')
             ->active("address*")
             ->permissions('address.manage');
 
-        $wilayas = Item::create(__('app.Wilaya'))
+        $wilayas = Item::create(__('app.wilaya'))
             ->route('address.index')
             ->active("address*")
             ->permissions('address.manage');
 
-        $cities = Item::create(__('app.City'))
+        $cities = Item::create(__('app.city'))
             ->route('city.index')
             ->active("address*")
             ->permissions('address.manage');
 
-        return Item::create(__('app.Address'))
+        return Item::create(__('app.address'))
             ->href('#roles-dropdown')
             ->icon('fas fa-location-cog')
             ->permissions(['address.manage'])
