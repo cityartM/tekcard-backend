@@ -119,6 +119,8 @@ class UsersController extends Controller
      */
     public function edit(User $user, RoleRepository $roleRepository)
     {
+        //$cryptId = crypt($user->id, config('app.key'));
+        //dd($cryptId);
         return view('dashboard.user.edit', [
             'edit' => true,
             'user' => $user,

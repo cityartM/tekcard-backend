@@ -1,5 +1,5 @@
 <?php
-
+use Modules\Feature\Http\Controllers\FeaturesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +12,8 @@
 */
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('features', \Modules\Subscription\Http\Controllers\SubscriptionController::class)->middleware('permission:plans.manage');
+    Route::resource('features', FeaturesController::class)->middleware('permission:plans.manage');
+    Route::post('features/save', 'FeaturesController@update')
+        ->name('features.save')
+        ->middleware('permission:features.manage');
 });
