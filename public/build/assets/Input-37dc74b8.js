@@ -1,1 +1,0 @@
-import{j as e}from"./front-b0b1aaf7.js";const s=({type:o="text",className:r="",...t})=>e.jsx("input",{...t,type:o,className:"text-[1.25rem] px-8 py-4 border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-1 focus:ring-[#2273AF] focus:border-[#2273AF] "+r}),u=s;export{u as T};

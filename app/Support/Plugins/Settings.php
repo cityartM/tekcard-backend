@@ -32,10 +32,15 @@ class Settings extends Plugin
                 return $user->hasPermission('settings.notifications');
             });
 
-            $settingTags = Item::create(__('app.tags'))
+        $settingTags = Item::create(__('app.tags'))
             ->route('tags.index')
             ->active("settings")
             ->permissions('tags.manage');
+            
+        $settingBackground = Item::create(__('app.backgrounds'))
+            ->route('backgrounds.index')
+            ->active("settings")
+            ->permissions('backgrounds.manage');
        
 
         return Item::create(__('app.settings'))
@@ -46,6 +51,7 @@ class Settings extends Plugin
                 $general,
                 $settingContacts,
                 $settingTags,
+                $settingBackground,
                 //$authAndRegistration,
                 //$notifications,
             ]);

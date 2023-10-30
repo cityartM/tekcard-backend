@@ -6,6 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, UserGroupIcon } from '@heroicons/react/24/outline'
 import NavLink from "@/Components/NavLink";
 import {User} from "@/types";
+import Navigation from "@/Utils/Navigation";
 
 export default function Header() {
   const auth: {user: User} = usePage().props.auth as {user: User};
@@ -76,8 +77,8 @@ const HeaderElement: React.FC<PropsWithChildren & {className?: string}> = ({clas
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 0) {
-        setHeaderClass('bg-sky-200/75 transition-bg');
-        setHeaderShadow('shadow-lg shadow-slate-200 transition-shadow');
+        setHeaderClass('bg-sky-200/90 transition-bg');
+        setHeaderShadow('shadow-lg shadow-sky-200 transition-shadow');
         setHeaderFixed('fixed');
       } else {
         setHeaderClass('bg-transparent transition-bg');
@@ -98,28 +99,7 @@ const HeaderElement: React.FC<PropsWithChildren & {className?: string}> = ({clas
   );
 }
 
-const navigation = [
-  {
-    label: 'Home',
-    name: 'landing.home',
-  },
-  {
-    label: 'About us',
-    name: 'landing.about-us',
-  },
-  {
-    label: 'Blog',
-    name: 'landing.blog',
-  },
-  {
-    label: 'Pricing',
-    name: 'landing.pricing',
-  },
-  {
-    label: 'Contact us',
-    name: 'landing.contact-us',
-  },
-];
+const navigation = Navigation.header.routes;
 
 const DesktopNav: () => React.ReactElement = () => {
   return (

@@ -3,6 +3,8 @@
 @section('page-title', __('app.blog'))
 @section('page-heading', $edit ? $blog->id : __('app.Create New Blog'))
 
+
+
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
             <li class="breadcrumb-item">
@@ -80,7 +82,7 @@
                     col="12"
                     class="mb-2"
                     required
-                    :data="collect(App\Support\Enum\BlogCategories::lists())"
+                    :data="$tags"
                     :model="$edit ? $blog : null "
                     :isselect2="true"
                     multi=true
