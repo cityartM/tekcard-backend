@@ -48,7 +48,7 @@ class BlogDatatable
                 ->addColumn("created_at", function (Blog $blog) {
                     return $blog->created_at->format('Y-m-d');
                 })
-                ->rawColumns(['action','email','name','company','subject','message', 'created_at'])
+                ->rawColumns(['action',"id","title","type","status","created_at",])
 
                 ->make(true);
         } catch (Exception $e) {

@@ -1,18 +1,18 @@
 <?php
 
-namespace Modules\Tag\Repositories;
+namespace Modules\Background\Repositories;
 
 
 use App\Helpers\Helper;
 use App\Http\Requests\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Tag\Models\Tag;
+use Modules\Background\Models\Background;
 
 
-use Modules\Tag\DataTable\TagDatatable;
+use Modules\Background\DataTable\BackgroundDatatable;
 use DateTime;
 
-class EloquentTag implements TagRepository
+class EloquentBackground implements BackgroundRepository
 {
  
     protected $request;
@@ -25,12 +25,12 @@ class EloquentTag implements TagRepository
      */
     public function all()
     {
-        return Tag::all();;
+        return Background::all();;
     }
 
     public function index()
     {
-        return Tag::all();;
+        return Background::all();;
     }
 
     /**
@@ -38,7 +38,7 @@ class EloquentTag implements TagRepository
      */
     public function find($id)
     {
-        return Tag::find($id);
+        return Background::find($id);
     }
 
     /**
@@ -46,33 +46,27 @@ class EloquentTag implements TagRepository
      */
     public function delete($id)
     {
-        $FeedBack= Tag::findOrFail($id);
+        $FeedBack= Background::findOrFail($id);
        
 
         return $FeedBack->delete();
     }
 
 
-    public function getDatatables():TagDatatable
+    public function getDatatables():BackgroundDatatable
     { 
-        return new TagDatatable();
+        return new BackgroundDatatable();
     }
 
     public function store($data)
     {
-        $lang = LaravelLocalization::getCurrentLocale();
-        $data['name'] = Helper::translateAttribute($data['name'] + ['lang' => $lang]);
        
-
-        return $data;
     }
 
 
     public function update($data)
     {
-        $lang = LaravelLocalization::getCurrentLocale();
-        $data['name'] = Helper::translateAttribute($data['name'] + ['lang' => $lang]);
-        return $data;
+       
     }
     
 
