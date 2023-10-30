@@ -1,6 +1,6 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { usePage, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-9a0f5d69.mjs";
+import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
 import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
@@ -89,37 +89,115 @@ const useReviews = (locale) => {
   return { reviews };
 };
 const useReviews$1 = useReviews;
-const DummySponsorIcon = ({ size = 12 }) => {
-  const className = `w-auto h-${size} fill-current`;
-  return /* @__PURE__ */ jsxs("svg", { className, viewBox: "0 0 167 41", children: [
-    /* @__PURE__ */ jsx("path", { d: "M48.6307 28.7936H60.5827V25.1936H52.8787V11.6336H48.6307V28.7936Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M67.6639 26.3936C65.9599 26.3936 65.0719 24.9056 65.0719 22.6736C65.0719 20.4416 65.9599 18.9296 67.6639 18.9296C69.3679 18.9296 70.2799 20.4416 70.2799 22.6736C70.2799 24.9056 69.3679 26.3936 67.6639 26.3936ZM67.6879 29.1776C71.6479 29.1776 74.2399 26.3696 74.2399 22.6736C74.2399 18.9776 71.6479 16.1696 67.6879 16.1696C63.7519 16.1696 61.1119 18.9776 61.1119 22.6736C61.1119 26.3696 63.7519 29.1776 67.6879 29.1776Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M81.0943 33.0416C82.9183 33.0416 84.5263 32.6336 85.6063 31.6736C86.5903 30.7856 87.2383 29.4416 87.2383 27.5936V16.5056H83.4943V17.8256H83.4463C82.7263 16.7936 81.6223 16.1456 79.9903 16.1456C76.9423 16.1456 74.8303 18.6896 74.8303 22.2896C74.8303 26.0576 77.3983 28.1216 80.1583 28.1216C81.6463 28.1216 82.5823 27.5216 83.3023 26.7056H83.3983V27.9296C83.3983 29.4176 82.7023 30.2816 81.0463 30.2816C79.7503 30.2816 79.1023 29.7296 78.8863 29.0816H75.0943C75.4783 31.6496 77.7103 33.0416 81.0943 33.0416ZM81.0703 25.2176C79.6063 25.2176 78.6463 24.0176 78.6463 22.1696C78.6463 20.2976 79.6063 19.0976 81.0703 19.0976C82.7023 19.0976 83.5663 20.4896 83.5663 22.1456C83.5663 23.8736 82.7743 25.2176 81.0703 25.2176Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M94.9367 26.3936C93.2327 26.3936 92.3447 24.9056 92.3447 22.6736C92.3447 20.4416 93.2327 18.9296 94.9367 18.9296C96.6407 18.9296 97.5527 20.4416 97.5527 22.6736C97.5527 24.9056 96.6407 26.3936 94.9367 26.3936ZM94.9607 29.1776C98.9207 29.1776 101.513 26.3696 101.513 22.6736C101.513 18.9776 98.9207 16.1696 94.9607 16.1696C91.0247 16.1696 88.3847 18.9776 88.3847 22.6736C88.3847 26.3696 91.0247 29.1776 94.9607 29.1776Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M102.655 28.7936H106.567V16.5056H102.655V28.7936ZM102.655 14.8016H106.567V11.6336H102.655V14.8016Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M108.264 32.8496H112.176V27.5216H112.224C112.992 28.5536 114.12 29.1776 115.704 29.1776C118.92 29.1776 121.056 26.6336 121.056 22.6496C121.056 18.9536 119.064 16.1456 115.8 16.1456C114.12 16.1456 112.92 16.8896 112.08 17.9936H112.008V16.5056H108.264V32.8496ZM114.696 26.1536C113.016 26.1536 112.056 24.7856 112.056 22.7936C112.056 20.8016 112.92 19.2896 114.624 19.2896C116.304 19.2896 117.096 20.6816 117.096 22.7936C117.096 24.8816 116.184 26.1536 114.696 26.1536Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M127.426 29.1776C130.642 29.1776 133.018 27.7856 133.018 25.0976C133.018 21.9536 130.474 21.4016 128.314 21.0416C126.754 20.7536 125.362 20.6336 125.362 19.7696C125.362 19.0016 126.106 18.6416 127.066 18.6416C128.146 18.6416 128.89 18.9776 129.034 20.0816H132.634C132.442 17.6576 130.57 16.1456 127.09 16.1456C124.186 16.1456 121.786 17.4896 121.786 20.0816C121.786 22.9616 124.066 23.5376 126.202 23.8976C127.834 24.1856 129.322 24.3056 129.322 25.4096C129.322 26.2016 128.578 26.6336 127.402 26.6336C126.106 26.6336 125.29 26.0336 125.146 24.8096H121.45C121.57 27.5216 123.826 29.1776 127.426 29.1776Z" }),
-    " ",
-    /* @__PURE__ */ jsx("path", { d: "M138.331 29.1536C140.035 29.1536 141.115 28.4816 142.003 27.2816H142.075V28.7936H145.819V16.5056H141.907V23.3696C141.907 24.8336 141.091 25.8416 139.747 25.8416C138.499 25.8416 137.899 25.0976 137.899 23.7536V16.5056H134.011V24.5696C134.011 27.3056 135.499 29.1536 138.331 29.1536Z" }),
-    /* @__PURE__ */ jsx("path", { d: "M147.521 28.7936H151.433V21.9056C151.433 20.4416 152.153 19.4096 153.377 19.4096C154.553 19.4096 155.105 20.1776 155.105 21.4976V28.7936H159.017V21.9056C159.017 20.4416 159.713 19.4096 160.961 19.4096C162.137 19.4096 162.689 20.1776 162.689 21.4976V28.7936H166.601V20.8016C166.601 18.0416 165.209 16.1456 162.425 16.1456C160.841 16.1456 159.521 16.8176 158.561 18.3056H158.513C157.889 16.9856 156.665 16.1456 155.057 16.1456C153.281 16.1456 152.105 16.9856 151.337 18.2576H151.265V16.5056H147.521V28.7936Z" }),
-    /* @__PURE__ */ jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M8.65417 3.89149C7.22351 4.89185 5.92981 6.0746 4.80676 7.40602C9.39606 6.97995 15.2266 7.67567 21.9958 11.0603C29.2244 14.6745 35.0452 14.7967 39.0962 14.0153C38.7286 12.9024 38.2658 11.8328 37.7177 10.816C33.0804 11.3051 27.1354 10.6577 20.207 7.1936C15.8074 4.9938 11.9292 4.08763 8.65417 3.89149ZM35.0088 6.96027C31.3467 2.86862 26.0248 0.293625 20.1014 0.293625C18.3619 0.293625 16.6741 0.515732 15.0651 0.933105C17.2443 1.52771 19.5593 2.39761 21.9958 3.61589C27.0684 6.15215 31.4478 6.96878 35.0088 6.96027ZM39.9623 17.9217C35.0683 18.8881 28.3102 18.6896 20.207 14.638C12.6314 10.8502 6.60187 10.8979 2.53534 11.8016C2.32544 11.8482 2.12048 11.8972 1.92047 11.9482C1.38806 13.1061 0.963074 14.3237 0.658142 15.5881C0.983826 15.5011 1.32037 15.4184 1.6676 15.3412C6.60101 14.2449 13.5715 14.2925 21.9958 18.5047C29.5715 22.2925 35.601 22.2448 39.6676 21.3411C39.8069 21.3102 39.9442 21.2782 40.0792 21.2452C40.094 20.9299 40.1014 20.6126 40.1014 20.2936C40.1014 19.4911 40.0542 18.6996 39.9623 17.9217ZM39.4262 25.4659C34.5797 26.3132 28.0184 25.988 20.207 22.0824C12.6314 18.2946 6.60187 18.3423 2.53534 19.246C1.63269 19.4465 0.820679 19.6908 0.10437 19.9487C0.102417 20.0634 0.10144 20.1784 0.10144 20.2936C0.10144 31.3393 9.05573 40.2936 20.1014 40.2936C29.3585 40.2936 37.1467 34.0045 39.4262 25.4659Z" })
-  ] });
-};
 const Background = "/build/assets/2-phones-rotated-7ae09722.png";
 const AppstoreImage = "/build/assets/appstore1-d9c57a03.png";
 const PlaystoreImage = "/build/assets/playstore1-a9eec797.png";
 const HeroImage = "/build/assets/hero-db078799.png";
 const ImageIphone16 = "/build/assets/iphone16-c0300b0d.png";
 const ImageIphone14 = "/build/assets/iphone14-a7e7536f.png";
+const grids = [
+  {
+    title: "Safe & Security",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#32ACED",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 86 89", children: [
+      /* @__PURE__ */ jsx("path", { d: "M12.484 45.3178C17.7742 43.3572 22.6316 40.2261 26.6729 36.1715C28.6426 34.2049 30.9949 32.6718 33.5566 31.6848C36.1183 30.6979 38.8243 30.2822 41.4754 30.4685", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M40.061 48.854C33.1431 55.7899 24.6248 60.9009 15.3123 63.7033", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M32.6044 42.1681C34.3944 40.3781 36.8188 39.3692 39.3442 39.3632C41.8697 39.3573 44.2894 40.3548 46.071 42.1364C47.8526 43.918 48.8501 46.3377 48.8442 48.8632C48.8382 51.3886 47.8293 53.813 46.0393 55.603C39.0959 62.5741 30.6955 67.9198 21.4471 71.2526", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M46.7175 79.5525C51.3241 76.4337 55.6252 72.8836 59.562 68.9507C64.8919 63.6207 67.9033 56.4088 67.9336 48.9013C67.964 41.3939 65.0107 34.2061 59.7236 28.919C54.4365 23.6318 47.2487 20.6786 39.7412 20.7089C32.2338 20.7393 25.0219 23.7506 19.6919 29.0806C17.4151 31.3693 14.7622 33.2493 11.8509 34.6374", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M25.2113 48.1469C21.0592 50.9495 16.5242 53.0977 11.7763 54.5108", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M51.2719 34.815C51.8592 35.2707 52.4182 35.7609 52.9463 36.2833C56.2803 39.6172 58.0871 44.2053 57.9692 49.0381C57.8514 53.871 55.8185 58.5527 52.3178 62.0534C50.1097 64.2578 47.7745 66.3307 45.3253 68.2602", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M37.9395 73.6026C36.3012 74.825 34.6351 76.0197 32.9898 77.1381", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  },
+  {
+    title: "Individuals account",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#EFA346",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 42 66", children: [
+      /* @__PURE__ */ jsx("path", { d: "M2 6.77021L2 59.2317C2 61.8657 4.12665 64.001 6.75 64.001L35.25 64.001C37.8733 64.001 40 61.8657 40 59.2317L40 6.77021C40 4.13624 37.8734 2.00098 35.25 2.00098L6.75 2.00098C4.12665 2.00098 2.00001 4.13623 2 6.77021Z", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M30 54.001L11 54.001", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  },
+  {
+    title: "Safe & Security",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#2bd866",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 86 89", children: [
+      /* @__PURE__ */ jsx("path", { d: "M12.484 45.3178C17.7742 43.3572 22.6316 40.2261 26.6729 36.1715C28.6426 34.2049 30.9949 32.6718 33.5566 31.6848C36.1183 30.6979 38.8243 30.2822 41.4754 30.4685", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M40.061 48.854C33.1431 55.7899 24.6248 60.9009 15.3123 63.7033", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M32.6044 42.1681C34.3944 40.3781 36.8188 39.3692 39.3442 39.3632C41.8697 39.3573 44.2894 40.3548 46.071 42.1364C47.8526 43.918 48.8501 46.3377 48.8442 48.8632C48.8382 51.3886 47.8293 53.813 46.0393 55.603C39.0959 62.5741 30.6955 67.9198 21.4471 71.2526", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M46.7175 79.5525C51.3241 76.4337 55.6252 72.8836 59.562 68.9507C64.8919 63.6207 67.9033 56.4088 67.9336 48.9013C67.964 41.3939 65.0107 34.2061 59.7236 28.919C54.4365 23.6318 47.2487 20.6786 39.7412 20.7089C32.2338 20.7393 25.0219 23.7506 19.6919 29.0806C17.4151 31.3693 14.7622 33.2493 11.8509 34.6374", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M25.2113 48.1469C21.0592 50.9495 16.5242 53.0977 11.7763 54.5108", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M51.2719 34.815C51.8592 35.2707 52.4182 35.7609 52.9463 36.2833C56.2803 39.6172 58.0871 44.2053 57.9692 49.0381C57.8514 53.871 55.8185 58.5527 52.3178 62.0534C50.1097 64.2578 47.7745 66.3307 45.3253 68.2602", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M37.9395 73.6026C36.3012 74.825 34.6351 76.0197 32.9898 77.1381", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  },
+  {
+    title: "Individuals account",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#d9366d",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 42 66", children: [
+      /* @__PURE__ */ jsx("path", { d: "M2 6.77021L2 59.2317C2 61.8657 4.12665 64.001 6.75 64.001L35.25 64.001C37.8733 64.001 40 61.8657 40 59.2317L40 6.77021C40 4.13624 37.8734 2.00098 35.25 2.00098L6.75 2.00098C4.12665 2.00098 2.00001 4.13623 2 6.77021Z", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M30 54.001L11 54.001", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  },
+  {
+    title: "Companies account",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#625FF9",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 83 59", children: [
+      /* @__PURE__ */ jsx("path", { d: "M77.9935 2.21313L5.01724 2.21313C3.33792 2.21313 1.97656 3.57449 1.97656 5.25381L1.97656 53.9047C1.97656 55.584 3.33792 56.9453 5.01724 56.9453L77.9935 56.9453C79.6728 56.9453 81.0342 55.584 81.0342 53.9047L81.0342 5.25381C81.0342 3.57449 79.6728 2.21313 77.9935 2.21313Z", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M56.709 44.7825L68.8717 44.7825", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M38.4648 44.7825L44.5462 44.7825", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M1.97656 17.759L81.0342 17.759", strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  },
+  {
+    title: "Quick to share",
+    content: "Easily integrate with all your need favorite tools through and APIsing including automatic",
+    color: "#F54BC3",
+    icon: ({ className, ...props }) => /* @__PURE__ */ jsxs("svg", { className, ...props, viewBox: "0 0 82 82", children: [
+      /* @__PURE__ */ jsx("path", { d: "M69.1875 46.979V60.6457C69.1875 65.3624 65.3625 69.1874 60.6458 69.1874H21.3542C16.6375 69.1874 12.8125 65.3624 12.8125 60.6457V21.354C12.8125 16.6373 16.6375 12.8124 21.3542 12.8124H35.0208", strokeWidth: "6.25", strokeMiterlimit: "10", strokeLinecap: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M29.5693 41.3022C34.9625 29.5301 46.8491 21.354 60.6456 21.354H69.1873", strokeWidth: "6.25", strokeMiterlimit: "10", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M26.479 55.5207C26.479 53.756 26.6123 52.0238 26.8702 50.3308", strokeWidth: "6.25", strokeMiterlimit: "10", strokeLinecap: "round", strokeLinejoin: "round" }),
+      /* @__PURE__ */ jsx("path", { d: "M60.646 29.8957L69.1877 21.354L60.646 12.8124", strokeWidth: "6.25", strokeMiterlimit: "10", strokeLinecap: "round", strokeLinejoin: "round" })
+    ] })
+  }
+];
 function Home({}) {
   const props = usePage().props;
   const locale = props.locale;
   useReviews$1(locale);
+  const __ = (key) => key;
   return /* @__PURE__ */ jsxs(LandingLayout, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
-    /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(HeroSection, {}) }),
-    /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(FeaturesSection, {}) }),
-    /* @__PURE__ */ jsx(HomeSection, { className: "bg-sky-200 bg-gradient-to-r from-pink-200 to-pink-100 border border-black", children: /* @__PURE__ */ jsxs("div", { className: "min-h-full h-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-10", children: [
+    /* @__PURE__ */ jsx(HomeSection, { className: "py-20 justify-center bg-white", children: /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2", children: [
+      /* @__PURE__ */ jsxs("div", { className: "px-6 py-10 relative flex flex-col items-start justify-center", children: [
+        /* @__PURE__ */ jsxs("h1", { className: "text-center md:text-start font-bold leading-[3rem] text-[2.5rem]", children: [
+          /* @__PURE__ */ jsxs("span", { className: "text-[#2273AF]", children: [
+            __("Ready To Launch Your Online Digital"),
+            " "
+          ] }),
+          /* @__PURE__ */ jsxs("span", { className: "text-[#45C8F0]", children: [
+            __("Business Card"),
+            " "
+          ] }),
+          /* @__PURE__ */ jsx("span", { className: "text-[#2273AF]", children: __("App") })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "mt-6 text-center md:text-start text-lg font-semibold leading-8 text-[#6B7280]", children: __("Tekcard is a free digital business card and contact manager app designed to help you grow your network.") }),
+        /* @__PURE__ */ jsxs("div", { className: "mt-10 mx-auto md:mx-0 grid grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", className: "h-12 md:h-16", children: /* @__PURE__ */ jsx("img", { className: "h-full w-full object-contain", src: AppstoreImage, alt: "playstore" }) }),
+          /* @__PURE__ */ jsx("a", { href: "#", className: "h-12 md:h-16", children: /* @__PURE__ */ jsx("img", { className: "h-full w-full object-contain", src: PlaystoreImage, alt: "appstore" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "px-6 py-10 mx-auto max-w-xl", children: /* @__PURE__ */ jsx("div", { className: "relative h-full flex justify-center", children: /* @__PURE__ */ jsx("img", { className: "w-full object-contain", src: HeroImage, alt: "hero" }) }) })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: "py-20 max-w-7xl mx-auto justify-center bg-gray-50", children: /* @__PURE__ */ jsx("div", { className: "px-20 py-36 rounded-2xl shadow-md bg-gradient-to-r from-[#E1ECFA] from-10% to-[#F5F5F5] to-90%", children: /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10", children: data && data.map((item, index) => /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center justify-center gap-6", children: [
+      /* @__PURE__ */ jsx("div", { className: "flex-shrink-0 h-20 w-20 rounded-full bg-sky-100 flex items-center justify-center", children: item.icon() }),
+      /* @__PURE__ */ jsx("div", { className: "flex-grow", children: /* @__PURE__ */ jsx("p", { className: "text-center text-2xl text-[#2273AF] font-bold", children: item.title }) })
+    ] }, index)) }) }) }),
+    /* @__PURE__ */ jsx(HomeSection, { className: "py-20 justify-center bg-white", children: /* @__PURE__ */ jsxs("div", { className: "min-h-full h-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-10", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-center space-y-8", children: [
         /* @__PURE__ */ jsx("h3", { className: "text-[#2273AF] text-[3rem] font-extrabold", children: "Network smarter with free digital business cards." }),
         /* @__PURE__ */ jsx("p", { className: "text-[#4E4E4E] text-[1.25rem] font-normal", children: "Stand out from the crowd with digital business cards. Not only are digital cards better for the environment, they’re also better for your wallet and will help you make a great first impression." }),
@@ -129,42 +207,75 @@ function Home({}) {
         /* @__PURE__ */ jsx("img", { className: "h-[60vh] object-contain", src: ImageIphone16, alt: "" }),
         /* @__PURE__ */ jsx("img", { className: "h-[60vh] object-contain", src: ImageIphone14, alt: "" })
       ] }) }),
-      /* @__PURE__ */ jsx("div", { className: "col-span-full", children: /* @__PURE__ */ jsx("div", { className: "py-16 mx-auto max-w-7xl w-full min-h-full rounded-2xl bg-white bg-gradient-to-r from-indigo-200 to-indigo-300", children: "1200 test" }) })
+      /* @__PURE__ */ jsx("div", { className: "col-span-full", children: /* @__PURE__ */ jsx("div", { className: "bg-white rounded-2xl shadow border", children: /* @__PURE__ */ jsxs("div", { className: "max-w-xl flex items-center flex-wrap divide-x", children: [
+        /* @__PURE__ */ jsxs("div", { className: "px-10 py-4", children: [
+          /* @__PURE__ */ jsx("div", { className: "text-blue-500 text-3xl font-bold font-['Tajawal'] leading-10", children: "12.000 +" }),
+          /* @__PURE__ */ jsx("div", { className: "text-neutral-600 text-xl font-normal font-['Tajawal'] capitalize leading-loose", children: "Downloaded" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "px-10 py-4", children: [
+          /* @__PURE__ */ jsx("div", { className: "text-blue-500 text-3xl font-bold font-['Tajawal'] leading-10", children: "$10 M" }),
+          /* @__PURE__ */ jsx("div", { className: "text-neutral-600 text-xl font-normal font-['Tajawal'] capitalize leading-loose", children: "Transactions" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "px-10 py-4", children: [
+          /* @__PURE__ */ jsx("div", { className: "text-blue-500 text-3xl font-bold font-['Tajawal'] leading-10", children: "1.000 +" }),
+          /* @__PURE__ */ jsx("div", { className: "text-neutral-600 text-xl font-normal font-['Tajawal'] capitalize leading-loose", children: "Feedback" })
+        ] })
+      ] }) }) }),
+      /* @__PURE__ */ jsx("div", { className: "lg:hidden block relative p-12 bg-gradient-to-r from-sky-200 to-sky-100 rounded-2xl", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row justify-center gap-12", children: [
+        /* @__PURE__ */ jsx("img", { className: "h-[60vh] object-contain", src: ImageIphone16, alt: "" }),
+        /* @__PURE__ */ jsx("img", { className: "h-[60vh] object-contain", src: ImageIphone14, alt: "" })
+      ] }) })
     ] }) }),
-    /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(TestimonialsSection, {}) }),
-    /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(CallToActionSection, {}) }),
+    /* @__PURE__ */ jsx(HomeSection, { className: "py-20 justify-center bg-gray-50", children: /* @__PURE__ */ jsxs("div", { className: "space-y-10", children: [
+      /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-xl text-center", children: [
+        /* @__PURE__ */ jsx("span", { className: "inline text-[#2273AF] text-5xl font-bold", children: "Easily share and receive " }),
+        /* @__PURE__ */ jsx("span", { className: "inline text-[#45C8F0] text-5xl font-bold", children: "information" }),
+        /* @__PURE__ */ jsx("span", { className: "inline text-[#2273AF] text-5xl font-bold", children: " now." })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12", children: grids && grids.map(({ title, content, color, icon: Icon }, index) => /* @__PURE__ */ jsxs("div", { className: "p-8 flex-col justify-start items-start gap-y-8 flex bg-white rounded-2xl shadow overflow-hidden", children: [
+        /* @__PURE__ */ jsxs(
+          "div",
+          {
+            className: `px-6 py-8 w-full relative rounded-2xl overflow-hidden`,
+            style: {
+              background: color ?? "#cccccc"
+            },
+            children: [
+              /* @__PURE__ */ jsx(
+                Icon,
+                {
+                  className: "h-16 text-transparent",
+                  fill: "currentColor",
+                  stroke: "white"
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                Icon,
+                {
+                  className: "z-10 absolute -top-1/4 -end-10 h-44 -rotate-[36deg] text-gray-50/50",
+                  style: { stroke: "currentColor", fill: "none" }
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "text-blue-500 text-[35px] font-medium font-['Tajawal'] leading-9", children: title }),
+        /* @__PURE__ */ jsx("div", { className: "text-neutral-600 text-xl font-normal font-['Tajawal'] leading-loose", children: content })
+      ] }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsx(HomeSection, { className: "py-20 justify-center bg-white", children: /* @__PURE__ */ jsxs("div", { className: "px-20 py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 bg-sky-200 rounded-lg", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-center space-y-8", children: [
+        /* @__PURE__ */ jsx("h2", { className: "uppercase text-center font-bold tracking-wide leading-[3rem] text-4xl text-sky-400", children: `Create your digital business card today.` }),
+        /* @__PURE__ */ jsx("button", { type: "button", className: "block px-10 py-6 text-white bg-sky-600 rounded-lg shadow", children: "Get Started" })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "", children: /* @__PURE__ */ jsx("img", { src: Background, alt: "bg-phone" }) })
+    ] }) }),
     /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(FaqsSection, {}) }),
-    /* @__PURE__ */ jsx(HomeSection, { children: /* @__PURE__ */ jsx(PartnersSection, {}) }),
     /* @__PURE__ */ jsx("div", { className: "mt-20" })
   ] });
 }
 const HomeSection = ({ children, className }) => {
-  return /* @__PURE__ */ jsx("div", { className: `min-h-screen h-full flex flex-col ${className}`, children: /* @__PURE__ */ jsx("div", { className: "flex-1 py-24 mx-auto max-w-7xl w-full min-h-full", children }) });
-};
-const HeroSection = () => {
-  usePage().props;
-  const __ = (key) => key;
-  return /* @__PURE__ */ jsxs("section", { className: "min-h-full h-full p-4 grid grid-cols-4 grid-rows-1 gap-x-6 items-center", children: [
-    /* @__PURE__ */ jsxs("div", { className: "relative col-span-full lg:col-span-2 flex flex-col items-start justify-center", children: [
-      /* @__PURE__ */ jsxs("h1", { className: "mt-6 font-extrabold leading-[2] text-[2.4375rem] text-sky-600", children: [
-        /* @__PURE__ */ jsxs("span", { children: [
-          __("Ready To Launch Your OnlineDigital"),
-          " "
-        ] }),
-        /* @__PURE__ */ jsxs("span", { className: "text-sky-400", children: [
-          "Business Card",
-          " "
-        ] }),
-        /* @__PURE__ */ jsx("span", { children: __("App") })
-      ] }),
-      /* @__PURE__ */ jsx("p", { className: "mt-6 text-base leading-8 text-gray-800", children: __("Tekcard is a free digital business card and contact manager app designed to help you grow your network.") }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-10 grid grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ jsx("a", { href: "#", className: "h-16", children: /* @__PURE__ */ jsx("img", { className: "h-full w-full object-contain", src: AppstoreImage, alt: "playstore" }) }),
-        /* @__PURE__ */ jsx("a", { href: "#", className: "h-16", children: /* @__PURE__ */ jsx("img", { className: "h-full w-full object-contain", src: PlaystoreImage, alt: "appstore" }) })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "col-span-full lg:col-span-2 hidden md:block", children: /* @__PURE__ */ jsx("div", { className: "relative h-full flex justify-center", children: /* @__PURE__ */ jsx("img", { src: HeroImage, alt: "hero" }) }) })
-  ] });
+  return /* @__PURE__ */ jsx("div", { className: `min-h-screen h-full flex flex-col ${className}`, children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl w-full min-h-full", children }) });
 };
 const data = [
   {
@@ -218,41 +329,6 @@ const data = [
     title: "Turn paper cards into digital contacts"
   }
 ];
-const FeaturesSection = () => {
-  return /* @__PURE__ */ jsx("section", { className: "max-w-7xl mx-auto py-20 bg-white ", children: /* @__PURE__ */ jsx("div", { className: "", children: /* @__PURE__ */ jsx("div", { className: "px-12 py-10 flex flex-wrap ld:flex-nowrap items-center gap-10 rounded-lg", children: data && data.map((item, index) => /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-4", children: [
-    /* @__PURE__ */ jsx("div", { className: "h-20 w-20 rounded-full bg-sky-100 flex items-center justify-center", children: item.icon() }),
-    /* @__PURE__ */ jsx("p", { className: "text-center text-gray-800 font-bold", children: item.title })
-  ] }, index)) }) }) });
-};
-const TestimonialsSection = () => {
-  const locale = usePage().props.locale;
-  const { reviews } = useReviews$1(locale);
-  return /* @__PURE__ */ jsx("section", { className: "max-w-5xl mx-auto py-20 px-24 border bg-sky-100", children: reviews && /* @__PURE__ */ jsx(Testimonials, { reviews }) });
-};
-const Testimonials = ({ reviews }) => {
-  return /* @__PURE__ */ jsx("ul", { className: "flex flex-col space-y-10", children: reviews.map((review) => /* @__PURE__ */ jsx(Review, { review }, review.id)) });
-};
-const Review = ({ review }) => {
-  return /* @__PURE__ */ jsx("div", { className: "px-24 py-20 bg-white rounded-lg shadow", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col divide-y", children: [
-    /* @__PURE__ */ jsxs("div", { className: "mb-10 flex items-center gap-10", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex-grow flex items-stretch gap-6", children: [
-        /* @__PURE__ */ jsx("div", { className: "h-12 w-12 rounded-full overflow-hidden", children: /* @__PURE__ */ jsx("img", { src: review.image, alt: "rev-o", className: "w-full h-full object-cover " }) }),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("p", { children: review.name }),
-          /* @__PURE__ */ jsx("p", { children: review.position })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "flex-shrink-0", children: /* @__PURE__ */ jsxs("svg", { width: "241", height: "50", viewBox: "0 0 241 50", children: [
-        /* @__PURE__ */ jsx("path", { d: "M22.5979 6.3541C23.1966 4.51148 25.8034 4.51148 26.4021 6.3541L29.5516 16.0471C29.8193 16.8712 30.5872 17.4291 31.4537 17.4291L41.6455 17.4291C43.583 17.4291 44.3885 19.9083 42.8211 21.0471L34.5757 27.0377C33.8747 27.547 33.5814 28.4498 33.8492 29.2738L36.9986 38.9668C37.5973 40.8094 35.4884 42.3417 33.9209 41.2029L25.6756 35.2123C24.9746 34.703 24.0254 34.703 23.3244 35.2123L15.0791 41.2029C13.5116 42.3417 11.4027 40.8094 12.0014 38.9668L15.1508 29.2738C15.4186 28.4498 15.1253 27.547 14.4243 27.0377L6.17891 21.0471C4.61148 19.9083 5.41704 17.4291 7.35448 17.4291L17.5463 17.4291C18.4128 17.4291 19.1807 16.8712 19.4484 16.0471L22.5979 6.3541Z", fill: "#FFB545" }),
-        /* @__PURE__ */ jsx("path", { d: "M120.598 6.3541C121.197 4.51148 123.803 4.51148 124.402 6.3541L127.552 16.0471C127.819 16.8712 128.587 17.4291 129.454 17.4291L139.646 17.4291C141.583 17.4291 142.389 19.9083 140.821 21.0471L132.576 27.0377C131.875 27.547 131.581 28.4498 131.849 29.2738L134.999 38.9668C135.597 40.8094 133.488 42.3417 131.921 41.2029L123.676 35.2123C122.975 34.703 122.025 34.703 121.324 35.2123L113.079 41.2029C111.512 42.3417 109.403 40.8094 110.001 38.9668L113.151 29.2738C113.419 28.4498 113.125 27.547 112.424 27.0377L104.179 21.0471C102.611 19.9083 103.417 17.4291 105.354 17.4291L115.546 17.4291C116.413 17.4291 117.181 16.8712 117.448 16.0471L120.598 6.3541Z", fill: "#FFB545" }),
-        /* @__PURE__ */ jsx("path", { d: "M71.5979 6.3541C72.1966 4.51148 74.8034 4.51148 75.4021 6.3541L78.5516 16.0471C78.8193 16.8712 79.5872 17.4291 80.4537 17.4291L90.6455 17.4291C92.583 17.4291 93.3885 19.9083 91.8211 21.0471L83.5757 27.0377C82.8747 27.547 82.5814 28.4498 82.8492 29.2738L85.9986 38.9668C86.5973 40.8094 84.4884 42.3417 82.9209 41.2029L74.6756 35.2123C73.9746 34.703 73.0254 34.703 72.3244 35.2123L64.0791 41.2029C62.5116 42.3417 60.4027 40.8094 61.0014 38.9668L64.1508 29.2738C64.4186 28.4498 64.1253 27.547 63.4243 27.0377L55.1789 21.0471C53.6115 19.9083 54.417 17.4291 56.3545 17.4291L66.5463 17.4291C67.4128 17.4291 68.1807 16.8712 68.4484 16.0471L71.5979 6.3541Z", fill: "#FFB545" }),
-        /* @__PURE__ */ jsx("path", { d: "M169.598 6.3541C170.197 4.51148 172.803 4.51148 173.402 6.3541L176.552 16.0471C176.819 16.8712 177.587 17.4291 178.454 17.4291L188.646 17.4291C190.583 17.4291 191.389 19.9083 189.821 21.0471L181.576 27.0377C180.875 27.547 180.581 28.4498 180.849 29.2738L183.999 38.9668C184.597 40.8094 182.488 42.3417 180.921 41.2029L172.676 35.2123C171.975 34.703 171.025 34.703 170.324 35.2123L162.079 41.2029C160.512 42.3417 158.403 40.8094 159.001 38.9668L162.151 29.2738C162.419 28.4498 162.125 27.547 161.424 27.0377L153.179 21.0471C151.611 19.9083 152.417 17.4291 154.354 17.4291L164.546 17.4291C165.413 17.4291 166.181 16.8712 166.448 16.0471L169.598 6.3541Z", fill: "#FFB545" }),
-        /* @__PURE__ */ jsx("path", { d: "M214.598 6.3541C215.197 4.51148 217.803 4.51148 218.402 6.3541L221.552 16.0471C221.819 16.8712 222.587 17.4291 223.454 17.4291L233.646 17.4291C235.583 17.4291 236.389 19.9083 234.821 21.0471L226.576 27.0377C225.875 27.547 225.581 28.4498 225.849 29.2738L228.999 38.9668C229.597 40.8094 227.488 42.3417 225.921 41.2029L217.676 35.2123C216.975 34.703 216.025 34.703 215.324 35.2123L207.079 41.2029C205.512 42.3417 203.403 40.8094 204.001 38.9668L207.151 29.2738C207.419 28.4498 207.125 27.547 206.424 27.0377L198.179 21.0471C196.611 19.9083 197.417 17.4291 199.354 17.4291L209.546 17.4291C210.413 17.4291 211.181 16.8712 211.448 16.0471L214.598 6.3541Z", fill: "#FFB545" })
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("p", { className: "mt-10", children: review.content }) })
-  ] }) });
-};
 function Review1() {
   return /* @__PURE__ */ jsx("section", { className: "bg-white px-6 py-24 sm:py-32 lg:px-8", children: /* @__PURE__ */ jsxs("figure", { className: "mx-auto max-w-2xl", children: [
     /* @__PURE__ */ jsx("p", { className: "sr-only", children: "5 out of 5 stars" }),
@@ -280,15 +356,6 @@ function Review1() {
     ] })
   ] }) });
 }
-const CallToActionSection = () => {
-  return /* @__PURE__ */ jsx("section", { className: "max-w-7xl mx-auto py-20", children: /* @__PURE__ */ jsxs("div", { className: "px-20 py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 bg-sky-200 rounded-lg", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-center space-y-8", children: [
-      /* @__PURE__ */ jsx("h2", { className: "uppercase text-center font-bold tracking-wide leading-[3rem] text-4xl text-sky-400", children: `Create your digital business card today.` }),
-      /* @__PURE__ */ jsx("button", { type: "button", className: "block px-10 py-6 text-white bg-sky-600 rounded-lg shadow", children: "Get Started" })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "", children: /* @__PURE__ */ jsx("img", { src: Background, alt: "bg-phone" }) })
-  ] }) });
-};
 const FaqsSection = () => {
   const locale = usePage().props.locale;
   const { faqs } = useFaqs(locale);
@@ -299,18 +366,6 @@ const FaqsSection = () => {
 };
 const Faqs = ({ Faqs: Faqs2 }) => {
   return /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: Faqs2.map((faq) => /* @__PURE__ */ jsx(Faq, { Faq: faq }, faq.number)) });
-};
-const PartnersSection = () => {
-  return /* @__PURE__ */ jsxs("section", { className: "max-w-7xl mx-auto py-20", children: [
-    /* @__PURE__ */ jsx("div", { className: "max-w-md mx-auto flex justify-center", children: /* @__PURE__ */ jsx("h2", { className: "text-center font-bold tracking-wide leading-[4.5rem] text-5xl text-sky-400", children: `Our Partners` }) }),
-    /* @__PURE__ */ jsx("div", { className: "mt-12", children: /* @__PURE__ */ jsxs("div", { className: "px-12 py-10 bg-white flex items-center gap-10 rounded-lg ", children: [
-      /* @__PURE__ */ jsx(DummySponsorIcon, { size: 12 }),
-      /* @__PURE__ */ jsx(DummySponsorIcon, { size: 12 }),
-      /* @__PURE__ */ jsx(DummySponsorIcon, { size: 12 }),
-      /* @__PURE__ */ jsx(DummySponsorIcon, { size: 12 }),
-      /* @__PURE__ */ jsx(DummySponsorIcon, { size: 12 })
-    ] }) })
-  ] });
 };
 export {
   Review1,

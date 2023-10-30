@@ -1,6 +1,6 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-9a0f5d69.mjs";
+import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
 import "react";
 import "@headlessui/react";
 import "@heroicons/react/24/outline";

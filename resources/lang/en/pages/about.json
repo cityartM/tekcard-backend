@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "hero": {
+      "title": "About us",
+      "description": "We aim to help people strengthen relationships and amplify the power of their network.",
+      "image": "http://127.0.0.1:5173/resources/images/logo-big.png"
+    },
+    "content": {
+      "text": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum been the industry's standard dummy text ever since the 1500s, when an unknown printegalley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p><h2>The Story Behind Tekcard</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum been the industry's standard dummy text ever since the 1500s, when an unknown printegalley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p><ul><li>Efficiently myocardinate market-driven innovation.</li><li>Idea - sharing with back end products.</li><li>Ballpark value added activity to beta test.</li></ul><blockquote className='border-l-[1.5rem] rtl:border-r-[1.5rem] border-sky-900 p-10 text-3xl font-bold text-gray-800 leading-normal'>\"Our team was able to teach themselves primchat in a day.it's like using a shared email inboxust way more robust looking . Primchat was the modern what we were looking.\"</blockquote><h2>Tekcard Co-founders</h2><p>remaining essentially unchanged. It was popularised in the 1960s with the release of Letrsheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'}</p><ol><li>Efficiently myocardinate market-driven innovation.</li><li>Idea - sharing with back end products.</li><li>Ballpark value added activity to beta test.</li><li>Voluptate at dolores ut dolor</li></ol>"
+    }
+  }
+}
