@@ -25,7 +25,7 @@ class Tag extends Model
     public function getJsonNameAttribute($value)
     {
         $name = $this->getTranslations('name');
-        $currentLocale = Helper::checkApiLanguage();
+        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
         $result = [];
         if ($name != null) {
             foreach ($name as $translation) {

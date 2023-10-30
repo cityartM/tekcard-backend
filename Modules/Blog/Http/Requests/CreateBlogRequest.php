@@ -23,8 +23,8 @@ class CreateBlogRequest extends Request
             'content' => 'required|array',
             'text' => 'required|string',
             'tumail' => 'image|mimes:jpeg,png,gif|max:2048',
-            'type' => ['nullable', Rule::in(BlogCategories::lists())],
-            'status' => ['nullable', Rule::in(Status::lists())],
+            'type' => 'required|array',
+            'status' => 'required|string',
 
             'gallery' => [
                 'array',
