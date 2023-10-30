@@ -19,7 +19,7 @@ class TranslationController extends Controller
             ...$this->readJsonFile(locale: $lang)
         ]);
     }
-
+ 
     public function update(Request $request, string $lang = 'en')
     {
         $this->validate($request, [

@@ -14,11 +14,11 @@ use Modules\ContactUser\Repositories\RemarkRepository;
 class RemarkController extends Controller
 {
 
-    private $contactUser;
+    private $remarkUser;
 
-    function __construct(RemarkRepository $contactUser)
+    function __construct(RemarkRepository $remarkUser)
     {
-        $this->contactUser= $contactUser;
+        $this->remarkUser= $remarkUser;
     }
 
     /**
@@ -29,10 +29,10 @@ class RemarkController extends Controller
     {
         //dd("it me");
         if ($request->wantsJson()) {
-            return $this->contactUser->getDatatables()->datatables($request);
+            return $this->remarkUser->getDatatables()->datatables($request);
         }
         return view("contactuser::indexRemark")->with([
-            "columns" => $this->contactUser->getDatatables()::columns(),
+            "columns" => $this->remarkUser->getDatatables()::columns(),
         ]);
     }
 
@@ -115,7 +115,7 @@ class RemarkController extends Controller
      */
     public function destroy($id)
     {
-        $this->contactUser->delete($id);
+        $this->remarkUser->delete($id);
 
         return redirect()->route('remarks.index')->with('success', 'remark deleted successfully');
     }
