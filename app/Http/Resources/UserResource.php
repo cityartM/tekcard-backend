@@ -7,6 +7,7 @@ use Modules\Features\Http\Resources\CountryResource;
 use Modules\Features\Http\Resources\RoleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Plan\Http\Resources\PlanResource;
+use Modules\Plan\Http\Resources\UserPlanResource;
 use Modules\Subscription\Http\Resources\SubscriptionResource;
 
 class UserResource extends JsonResource
@@ -36,6 +37,7 @@ class UserResource extends JsonResource
             'timezone' => $this->timezone,
             'socialite' => $this->socialite,
             'avatar' => $this->present()->avatar,
+            'plan' => $this->plan ? new UserPlanResource($this->plan->first()) :null,
             //'address' => $this->address,
            // 'country_id' => $this->country_id ? (int) $this->country_id : null,
             //'role_id' => (int) $this->role_id,

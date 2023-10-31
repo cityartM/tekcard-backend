@@ -20,7 +20,7 @@
 
 @section('content')
 
-    
+
 @include('partials.messages')
     <x-card-content>
         <x-card-header>
@@ -30,11 +30,9 @@
         </x-card-header>
         <x-card-body>
             <x-datatable-html>
-                <td>{{__("app.id")}}</td>
+                <td>{{__("app.background")}}</td>
                 <td>{{__("app.type")}}</td>
-                <td>{{__("app.image")}}</td>
                 <td>{{__("app.created_at")}}</td>
-                
             </x-datatable-html>
         </x-card-body>
     </x-card-content>

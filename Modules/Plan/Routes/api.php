@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/plan', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth'], function () {
+    Route::apiResource('plans', 'PlanApiController');
+    Route::post('purchase/client/{plan}', 'UserPlanApiController@storeClient')->name('purchase.client');
 });

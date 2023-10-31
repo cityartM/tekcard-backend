@@ -127,12 +127,22 @@ return [
         'Client' => 'Client',
     ],
 
+    'planDurations' => [
+        'Yearly' => 'Yearly',
+        'Monthly' => 'Monthly',
+    ],
+
     'contactTypes' => [
         'Contact Info' => 'Contact Info',
         'Social Media' => 'Social Media',
         'Recommended' => 'Recommended',
         'Business' => 'Business',
         'Personnel' => 'Personnel',
+    ],
+
+    'backgroundTypes' => [
+        'Share' => 'Share',
+        'Card' => 'Card',
     ],
 
 
@@ -400,8 +410,8 @@ return [
     'has_dashboard' => 'Has dashboard',
 
     /*** features ***/
-    'features' => 'Features',
-    'feature' => 'Features',
+    'features_company' => 'Features Company',
+    'features_client' => 'Features Client',
 
     /***  feedback  ***/
     'feedback' => 'Feedback',

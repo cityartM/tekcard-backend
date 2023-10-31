@@ -5,7 +5,9 @@ namespace Modules\Plan\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Modules\Plan\Repositories\EloquentPlan;
+use Modules\Plan\Repositories\EloquentUserPlan;
 use Modules\Plan\Repositories\PlanRepository;
+use Modules\Plan\Repositories\UserPlanRepository;
 
 class PlanServiceProvider extends ServiceProvider
 {
@@ -41,6 +43,7 @@ class PlanServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->singleton(PlanRepository::class, EloquentPlan::class);
+        $this->app->singleton(UserPlanRepository::class, EloquentUserPlan::class);
     }
 
     /**

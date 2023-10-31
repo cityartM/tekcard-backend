@@ -14,6 +14,7 @@ use App\Presenters\UserPresenter;
 use App\Support\Enum\UserStatus;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Plan\Models\Plan;
+use Modules\Plan\Models\UserPlan;
 use Modules\Subscription\Models\Subscription;
 
 
@@ -108,7 +109,7 @@ class User extends Authenticatable
 
     public function plan()
     {
-      return $this->hasMany(Plan::class,'user_id')->where('start_date', '>', Carbon::now()->subDays(30))->first() ;
+      return $this->hasMany(UserPlan::class,'user_id')->where('expired_date', '>', Carbon::now());
     }
 
     public function plans()

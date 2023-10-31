@@ -74,7 +74,7 @@ class GlobalSettingDatabaseSeeder extends Seeder
 
                     ]);
                 $settingContact = SettingContact::find($i);
-                 $settingContact->addMedia(public_path('assets/media/icons/duotune/social/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
+                $settingContact->addMedia(public_path('assets/media/icons/duotune/social/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
                 $i++;
             }
         }

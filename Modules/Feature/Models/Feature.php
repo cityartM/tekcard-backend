@@ -2,16 +2,14 @@
 
 namespace Modules\Feature\Models;
 
-use App\Models\Permission;
 use App\Models\User;
-use App\Support\Authorization\AuthorizationRoleTrait;
 use App\Traits\HasGoogleTranslationTrait;
 use Illuminate\Database\Eloquent\Model;
 
 
 class Feature extends Model
 {
-    use AuthorizationRoleTrait ,HasGoogleTranslationTrait;
+    use HasGoogleTranslationTrait;
     /**
      * The database table used by the model.
      *

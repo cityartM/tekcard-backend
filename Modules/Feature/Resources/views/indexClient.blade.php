@@ -39,7 +39,7 @@
                         <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                             <th class="min-w-125px sorting">@lang('app.name')</th>
                             @foreach ($plans as $plan)
-                                <th class="min-w-125px sorting">{{ $plan->name }}</th>
+                                <th class="min-w-125px sorting">{{ $plan->display_name }}</th>
                             @endforeach
                             <th class="min-w-125px sorting">@lang('app.action')</th>
                         </tr>

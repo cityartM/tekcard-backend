@@ -15,9 +15,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('backgrounds', function (Blueprint $table) {
-            $table->id(); 
-            $table->enum('type',array_keys(BackgroundType::lists()))->default(BackgroundType::SHARE);
-            $table->timestamps(); 
+            $table->id();
+            $table->enum('type',BackgroundType::lists())->default('Share');
+            $table->timestamps();
         });
     }
 

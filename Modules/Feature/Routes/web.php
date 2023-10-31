@@ -12,8 +12,7 @@ use Modules\Feature\Http\Controllers\FeaturesController;
 */
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('features', FeaturesController::class)->middleware('permission:plans.manage');
-    Route::post('features/save', 'FeaturesController@update')
-        ->name('features.save')
-        ->middleware('permission:features.manage');
+    Route::resource('features', FeaturesController::class)->middleware('permission:features.manage');
+    Route::get('features/company', [FeaturesController::class, 'indexCompany'])->name('company.index')->middleware('permission:features.manage');
+    Route::get('features/client', [FeaturesController::class, 'indexClient'])->name('client.index')->middleware('permission:features.manage');
 });

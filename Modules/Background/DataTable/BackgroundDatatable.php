@@ -15,9 +15,8 @@ class BackgroundDatatable
     public static function columns(): array
     {
         return [
-            'id',
             'type',
-            'image',
+            'background',
             'created_at',
         ];
     }
@@ -32,23 +31,21 @@ class BackgroundDatatable
                         ->delete(route("backgrounds.destroy", $background->id))
                         ->make();
                 })
-                ->addColumn("id", function (Background $background) {
-                    return $background->id ;
+
+                ->addColumn("background", function (Background $background) {
+                    $media = $background->getFirstMedia('background');
+                    $url = $media ? $media->getUrl() : asset('assets/media/logos/logo-3.svg');
+
+                    return (new DataTableActions())->image($url);
                 })
                 ->addColumn("type", function (Background $background) {
                     return $background->type;
                 })
-                ->addColumn("image", function (Background $background) {
-                    $media = $background->getFirstMedia('background');
-                    $url = $media ? $media->getUrl() : asset('assets/media/logos/logo-3.svg');
 
-                    return (new DataTableActions())->svg($url);
-                })
-                
                 ->addColumn("created_at", function (Background $background) {
                     return $background->created_at->format('Y-m-d');
                 })
-                ->rawColumns(['action','id','type','image','created_at'])
+                ->rawColumns(['action','background','type','created_at'])
 
                 ->make(true);
         } catch (Exception $e) {
