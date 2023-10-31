@@ -5,6 +5,7 @@ namespace Modules\Plan\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Repositories\User\UserRepository;
+use App\Support\Enum\UserStatus;
 use Illuminate\Http\Request;
 
 use Modules\Plan\Http\Filters\PlanKeywordType;
@@ -82,6 +83,8 @@ class UserPlanApiController extends ApiController
           ];
 
         $this->userPlans->create($data);
+
+        $this->users->update(auth()->user()->id, ['status' => UserStatus::ACTIVE]);
 
         return $this->respondWithSuccess([
             'user' => new UserResource(auth()->user()),

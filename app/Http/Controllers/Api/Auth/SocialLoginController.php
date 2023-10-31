@@ -118,7 +118,7 @@ class SocialLoginController extends ApiController
                      'username' => $name ?? "gratuito".$providerId,
                      'email' => $email != null ? $email : $providerId . '@' . $providerName . '.com',
                      'password' => bcrypt($providerId),
-                     'status'=>UserStatus::ACTIVE,
+                     'status'=>UserStatus::UNCONFIRMED,
                      'avatar' => $photoUrl,
                      'device_token' => $request->device_token,
                      'device_id' => $request->device_id,
