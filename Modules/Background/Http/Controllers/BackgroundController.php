@@ -35,7 +35,7 @@ class BackgroundController extends Controller
             "columns" => $this->background->getDatatables()::columns(),
         ]);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -62,7 +62,7 @@ class BackgroundController extends Controller
         }
 
         return redirect()->route('backgrounds.index')
-        ->with('success', 'background created successfully'); 
+        ->with('success', 'background created successfully');
     }
 
     /**
@@ -82,9 +82,9 @@ class BackgroundController extends Controller
      */
     public function edit($id)
     {
-        $background=Background::find($id);
+        $background = Background::find($id);
         $edit= true;
-        return view('background::add-edit', compact('edit','blog'));
+        return view('background::add-edit', compact('edit','background'));
     }
 
     /**
