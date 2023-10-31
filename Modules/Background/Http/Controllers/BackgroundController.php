@@ -28,6 +28,8 @@ class BackgroundController extends Controller
      */
     public function index(Request $request)
     {
+        $background = Background::where('type', 'Share')->first();
+        dd($background->getFirstMedia('background'));
         if ($request->wantsJson()) {
             return $this->background->getDatatables()->datatables($request);
         }
