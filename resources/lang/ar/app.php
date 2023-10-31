@@ -177,6 +177,23 @@ return [
     'country' => 'بلد',
     'add_country' => 'إضافة بلد',
 
+    /***  tags  ***/
+    'tags' => 'علامات',
+    'tag' => 'علامة',
+    'add_tag' => 'إضافة علامة',
+    'create_new_tag' => 'إنشاء علامة جديدة',
+    'tag_phrases_details' => 'تفاصيل العبارات في العلامة',
+    'a_general_tag_phrases_information' => 'معلومات عامة عن العبارات في العلامة',
+    'update_tag' => 'تحديث العلامة',
+    'create_tag' => 'إنشاء علامة',
+
+    /***  background  ***/
+    'backgrounds' => 'خلفيات',
+    'background' => 'خلفية',
+    'create_new_background' => 'إنشاء خلفية جديدة',
+    'background_phrases_details' => 'تفاصيل العبارات في الخلفية',
+    'a_general_background_phrases_information' => 'معلومات عامة عن العبارات في الخلفية',
+
 
 
 

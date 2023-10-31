@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('page-title', __('app.tag'))
-@section('page-heading', $edit ? $tag->id : __('app.create_cew_tag'))
+@section('page-heading', $edit ? $tag->id : __('app.create_new_tag'))
 
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">

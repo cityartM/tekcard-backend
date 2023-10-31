@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('page-title', __('app.background'))
-@section('page-heading', $edit ? $background->id : __('app.Create New background'))
+@section('page-heading', $edit ? $background->id : __('app.create_new_background'))
 
 
 

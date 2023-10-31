@@ -399,5 +399,25 @@ return [
 'add_country' => 'Ülke Ekle',
 
 
+/***  tags  ***/
+
+'tags' => 'etiketler',
+'tag' => 'etiket',
+'add_tag' => 'Etiket Ekle',
+'create_new_tag' => 'Yeni Etiket Oluştur',
+'tag_phrases_details' => 'Etiket Cümleleri Detayları',
+'a_general_tag_phrases_information' => 'Genel Etiket Cümleleri Bilgisi',
+'update_tag' => 'Etiketi Güncelle',
+'create_tag' => 'Etiket Oluştur',
+
+
+/***  background  ***/
+'backgrounds' => 'arkaplanlar',
+'background' => 'arkaplanlar',
+'create_new_background' => 'Yeni Arka Plan Oluştur',
+'background_phrases_details' => 'Arka Plan Cümleleri Detayları',
+'a_general_background_phrases_information' => 'Genel Arka Plan Cümleleri Bilgisi',
+
+
 
 ];
