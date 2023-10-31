@@ -31,6 +31,12 @@ return [
         'Inactive' => 'Inactive',
     ],
 
+
+    'backgroundTypes' => [
+        'Share' => 'مشاركة',
+        'Card' => 'بطاقة',
+        ],
+
     /*** Generale ***/
     "name" => "الإسـم",
     "created_at" => "تاريخ الإنشاء",

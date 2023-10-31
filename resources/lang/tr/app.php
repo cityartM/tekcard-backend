@@ -102,6 +102,22 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
     ],
+
+
+    'backgroundTypes' => [
+        'Share' => 'Paylaş',
+        'Card' => 'Kart',
+        ],
+        
+        
+        
+        
+        
+        
+
+
+
+
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
     'reset' => 'Reset',
@@ -110,6 +126,8 @@ return [
     'label_status' =>'Status',
     'optional' =>'Optional',
     'action'=>'Action',
+
+
 
     /***  User  ***/
     'add_user' =>'Add User',
