@@ -15,9 +15,4 @@ class Country extends Model
     protected $fillable = ['name', 'code', 'lat', 'lon'];
     protected array $translatable = ["name"];
 
-    public function wilaya()
-    {
-        return $this->hasMany(Wilaya::class);
-    }
-
 }
