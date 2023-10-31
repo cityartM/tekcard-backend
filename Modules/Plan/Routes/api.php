@@ -16,4 +16,5 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('plans', 'PlanApiController');
     Route::post('purchase/client/{plan}', 'UserPlanApiController@storeClient')->name('purchase.client');
+    Route::post('purchase/company/{plan}', 'UserPlanApiController@storeCompany')->name('purchase.company');
 });

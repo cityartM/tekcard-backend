@@ -13,6 +13,6 @@ class Country extends Model
     use HasGoogleTranslationTrait;
     protected $table = 'countries';
     protected $fillable = ['name', 'code', 'lat', 'lon'];
-    protected array $translatable = ["name"];
+    protected array $translatable = ["full_name"];
 
 }

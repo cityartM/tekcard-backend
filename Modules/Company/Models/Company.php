@@ -2,21 +2,17 @@
 
 namespace Modules\Company\Models;
 
-use App\Models\Follower;
+
 use App\Models\User;
+use App\Presenters\Traits\Presentable;
 use App\Traits\HasGoogleTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Modules\Address\Models\City;
 use Modules\Address\Models\Country;
-use Modules\Ads\Enum\AdsStatus;
-use Modules\Ads\Models\Ad;
-use Modules\Subscriptions\Models\UserSubscription;
+use Modules\Company\Presenters\CompanyPresenter;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
+
 
 
 /**
@@ -25,7 +21,9 @@ use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 class Company extends Model implements HasMedia
 {
 
-    use HasFactory,HasGoogleTranslationTrait,InteractsWithMedia;
+    use HasGoogleTranslationTrait,InteractsWithMedia,Presentable;
+
+    protected $presenter = CompanyPresenter::class;
 
     public $timestamps = true;
 
@@ -37,14 +35,14 @@ class Company extends Model implements HasMedia
         'bio' => 'array',
     ];
 
-    public function contry()
+    public function country()
     {
         return $this->belongsTo(Country::class);
     }
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class,'company_id','id');
     }
 
 }

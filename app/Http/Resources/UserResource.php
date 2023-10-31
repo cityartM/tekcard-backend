@@ -3,12 +3,12 @@
 namespace App\Http\Resources;
 
 use Carbon\Carbon;
-use Modules\Features\Http\Resources\CountryResource;
-use Modules\Features\Http\Resources\RoleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Plan\Http\Resources\PlanResource;
 use Modules\Plan\Http\Resources\UserPlanResource;
 use Modules\Subscription\Http\Resources\SubscriptionResource;
+use App\Http\Resources\RoleResource;
 
 class UserResource extends JsonResource
 {
@@ -24,6 +24,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             //'first_name' => $this->first_name,
             //'last_name' => $this->last_name,
+            'role' => $this->resource->role->name,//new RoleResource($this->resource->role),
             'username' => $this->username,
             'email' => $this->email,
             'lang' => $this->lang,
@@ -38,6 +39,7 @@ class UserResource extends JsonResource
             'socialite' => $this->socialite,
             'avatar' => $this->present()->avatar,
             'plan' => $this->plan ? new UserPlanResource($this->plan->first()) : null,
+            'company' => $this->company ? new CompanyResource($this->company) : null,
             //'address' => $this->address,
            // 'country_id' => $this->country_id ? (int) $this->country_id : null,
             //'role_id' => (int) $this->role_id,

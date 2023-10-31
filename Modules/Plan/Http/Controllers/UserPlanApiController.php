@@ -139,7 +139,7 @@ class UserPlanApiController extends ApiController
             );
         }
 
-        $company = $this->companies->create($dataCompany + [
+        $company = $this->companies->create($dataCompany +[
                                        'status' => UserStatus::ACTIVE,
                                        'avatar' => $avatarName
                                       ]);
@@ -147,6 +147,7 @@ class UserPlanApiController extends ApiController
         $this->userPlans->create($data);
 
         $user = $this->users->update(auth()->user()->id, [
+                                                    'role_id' => $role->id,
                                                     'status' => UserStatus::ACTIVE,
                                                     'company_id' => $company->id
                                                  ]);

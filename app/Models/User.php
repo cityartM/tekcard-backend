@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Support\Authorization\AuthorizationUserTrait;
 use App\Models\Notification;
 use Carbon\Carbon;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Mail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -13,6 +13,7 @@ use App\Presenters\Traits\Presentable;
 use App\Presenters\UserPresenter;
 use App\Support\Enum\UserStatus;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Company\Models\Company;
 use Modules\Plan\Models\Plan;
 use Modules\Plan\Models\UserPlan;
 use Modules\Subscription\Models\Subscription;
@@ -30,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $fillable = ['partner_id',
+    protected $fillable = ['company_id',
         'email', 'password', 'username', 'first_name', 'last_name', 'phone', 'avatar','gender',
         'address', 'birthday', 'last_login', 'confirmation_token', 'status',
         'remember_token','token_notification', 'role_id', 'email_verified_at',
@@ -122,11 +123,6 @@ class User extends Authenticatable
         return $this->morphMany(Notification::class, 'notifiable');
     }
 
-    public function subscription()
-    {
-        return $this->hasOne(Subscription::class,'user_id');
-    }
-
     public function hasSubscription()
     {
         return $this->hasOne(Subscription::class,'user_id');
@@ -135,6 +131,14 @@ class User extends Authenticatable
     public function social()
     {
         return $this->hasOne(Social::class,'user_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class,'company_id');
     }
 
 }

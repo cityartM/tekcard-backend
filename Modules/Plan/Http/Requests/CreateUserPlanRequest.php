@@ -14,7 +14,7 @@ class CreateUserPlanRequest extends Request
     public function rules()
     {
         return [
-            'plan_id' => 'required|exists:plans,id',
+            //'plan_id' => 'required|exists:plans,id',
         ];
     }
 }
