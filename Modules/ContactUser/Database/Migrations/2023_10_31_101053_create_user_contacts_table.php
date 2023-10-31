@@ -23,8 +23,6 @@ return new class extends Migration
           //  $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->foreign('remark_id')->references('id')->on('remarks')->onDelete('cascade');
-
-            
             $table->timestamps();
         });
     }
