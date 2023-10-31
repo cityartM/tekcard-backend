@@ -65,6 +65,9 @@ use Modules\Tag\Repositories\TagRepository;
 use Modules\Background\Repositories\EloquentBackground;
 use Modules\Background\Repositories\BackgroundRepository;
 
+use Modules\ContactUser\Repositories\UserContactRepository;
+use Modules\ContactUser\Repositories\EloquentUserContact;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -86,6 +89,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(TagRepository::class, EloquentTag::class);
         $this->app->singleton(SettingContactRepository::class, EloquentSettingContact::class);
         $this->app->singleton(BackgroundRepository::class, EloquentBackground::class);
+        $this->app->singleton(UserContactRepository::class, EloquentUserContact::class);
 
     }
 

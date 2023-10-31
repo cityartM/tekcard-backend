@@ -102,6 +102,22 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
     ],
+
+
+    'backgroundTypes' => [
+        'Share' => 'Paylaş',
+        'Card' => 'Kart',
+        ],
+        
+        
+        
+        
+        
+        
+
+
+
+
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
     'reset' => 'Reset',
@@ -110,6 +126,8 @@ return [
     'label_status' =>'Status',
     'optional' =>'Optional',
     'action'=>'Action',
+
+
 
     /***  User  ***/
     'add_user' =>'Add User',
@@ -397,6 +415,26 @@ return [
 'add_wilaya' => 'Wilaya Ekle',
 'country' => 'ülke',
 'add_country' => 'Ülke Ekle',
+
+
+/***  tags  ***/
+
+'tags' => 'etiketler',
+'tag' => 'etiket',
+'add_tag' => 'Etiket Ekle',
+'create_new_tag' => 'Yeni Etiket Oluştur',
+'tag_phrases_details' => 'Etiket Cümleleri Detayları',
+'a_general_tag_phrases_information' => 'Genel Etiket Cümleleri Bilgisi',
+'update_tag' => 'Etiketi Güncelle',
+'create_tag' => 'Etiket Oluştur',
+
+
+/***  background  ***/
+'backgrounds' => 'arkaplanlar',
+'background' => 'arkaplanlar',
+'create_new_background' => 'Yeni Arka Plan Oluştur',
+'background_phrases_details' => 'Arka Plan Cümleleri Detayları',
+'a_general_background_phrases_information' => 'Genel Arka Plan Cümleleri Bilgisi',
 
 
 
