@@ -1,7 +1,7 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { usePage, Head } from "@inertiajs/react";
 import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
-import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
+import { u as useFaqs, F as Faq } from "./Faq-ae67d0e0.mjs";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import "@headlessui/react";
@@ -365,7 +365,7 @@ const FaqsSection = () => {
   ] });
 };
 const Faqs = ({ Faqs: Faqs2 }) => {
-  return /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: Faqs2.map((faq) => /* @__PURE__ */ jsx(Faq, { Faq: faq }, faq.number)) });
+  return /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: Faqs2.map((faq) => /* @__PURE__ */ jsx(Faq, { faq }, faq.number)) });
 };
 export {
   Review1,

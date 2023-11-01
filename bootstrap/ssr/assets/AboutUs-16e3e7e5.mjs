@@ -1,7 +1,7 @@
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { Head, usePage } from "@inertiajs/react";
+import { usePage, Head } from "@inertiajs/react";
 import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
-import { u as useFaqs, F as Faq } from "./Faq-e10c77d7.mjs";
+import { u as useFaqs, F as Faq } from "./Faq-ae67d0e0.mjs";
 import "react";
 import "@headlessui/react";
 import "@heroicons/react/24/outline";
@@ -19,32 +19,43 @@ const Sections = {
   sections
 };
 function AboutUs({}) {
-  console.log(Sections.sections);
+  const locale = usePage().props.locale;
+  const { faqs } = useFaqs(locale);
   const { hero, content } = Sections.sections;
   return /* @__PURE__ */ jsxs(LandingLayout, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
     /* @__PURE__ */ jsx(Section, { className: "py-20 px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20", children: /* @__PURE__ */ jsxs("div", { className: "pt-20 grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-20", children: [
-      /* @__PURE__ */ jsx("div", { className: "text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#2273AF]", children: hero.title }),
-      /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-5xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-700", children: hero.description }),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: "text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#2273AF]",
+          children: hero.title
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: "mx-auto max-w-5xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-700",
+          children: hero.description
+        }
+      ),
       /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-lg", children: /* @__PURE__ */ jsx("img", { src: hero.image, alt: "about logo", className: "w-full h-full object-contain" }) })
     ] }) }),
-    /* @__PURE__ */ jsx(Section, { className: "py-16 px-10 justify-center bg-gradient-to-tr from-pink-100 to-white bg-opacity-20", children: /* @__PURE__ */ jsx("div", { className: "mt-10 lg:mt-20 mx-auto max-w-5xl prose-lg lg:prose-xl", dangerouslySetInnerHTML: { __html: content.text } }) }),
+    /* @__PURE__ */ jsx(Section, { className: "py-16 px-10 justify-center bg-gradient-to-tr from-pink-100 to-white bg-opacity-20", children: /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: "mt-10 lg:mt-20 mx-auto max-w-5xl prose-lg lg:prose-xl",
+        dangerouslySetInnerHTML: { __html: content.text }
+      }
+    ) }),
     /* @__PURE__ */ jsx(Section, { className: "py-16 px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10 mx-auto max-w-2xl", children: [
       /* @__PURE__ */ jsx("div", { className: "mt-16 text-center text-7xl font-extrabold text-[#2273AF]", children: `Frequently Asked Questions` }),
-      /* @__PURE__ */ jsx(FaqsSection, {})
+      /* @__PURE__ */ jsx(Fragment, { children: faqs && faqs.length > 0 && /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: faqs.map((faq) => /* @__PURE__ */ jsx(Faq, { faq }, faq.number)) }) })
     ] }) })
   ] });
 }
 const Section = ({ children, className }) => {
   return /* @__PURE__ */ jsx("div", { className: `lg:min-h-screen h-full flex flex-col ${className}`, children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl w-full min-h-full", children }) });
-};
-const FaqsSection = () => {
-  const locale = usePage().props.locale;
-  const { faqs } = useFaqs(locale);
-  return /* @__PURE__ */ jsx(Fragment, { children: faqs && /* @__PURE__ */ jsx(Faqs, { Faqs: faqs }) });
-};
-const Faqs = ({ Faqs: Faqs2 }) => {
-  return /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: Faqs2.map((faq) => /* @__PURE__ */ jsx(Faq, { Faq: faq }, faq.number)) });
 };
 export {
   AboutUs as default

@@ -73,7 +73,7 @@
                                 {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
                             </textarea>
                 </div>
-                        </div> 
+                        </div>
                     @endforeach
                 </x-languages-tab>
                 <x-select-field
@@ -82,7 +82,7 @@
                     col="12"
                     class="mb-2"
                     required
-                    :data="$tags"
+                    :data="collect(App\Support\Enum\BlogCategories::lists())"
                     :model="$edit ? $blog : null "
                     :isselect2="true"
                     multi=true

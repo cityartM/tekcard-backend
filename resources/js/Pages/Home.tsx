@@ -514,7 +514,7 @@ const Faqs: React.FC<PropsWithChildren & {Faqs: FaqType[]}> = ({Faqs}) => {
   return (
     <div className={'flex flex-col space-y-10'}>
       {Faqs.map((faq)=> (
-        <Faq Faq={faq} key={faq.number} />
+        <Faq faq={faq} key={faq.number} />
       ))}
     </div>
   )
