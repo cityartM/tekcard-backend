@@ -10,5 +10,7 @@
     "Blog": true,
     "ContactUser": true,
     "GlobalSetting": true,
-    "Tag": true
+    "Tag": true,
+    "Backgound": true,
+    "Background": true
 }

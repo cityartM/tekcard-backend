@@ -26,9 +26,9 @@ class Users extends Plugin
             ->permissions('remarks.manage');
 
         $contacts = Item::create(__('app.contacts'))
-            ->route('users.index')
+            ->route('userContacts.index')
             ->active("users*")
-            ->permissions('users.manage');
+            ->permissions('contacts.manage');
 
 
 

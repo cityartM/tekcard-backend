@@ -25,4 +25,9 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
 
 });
 
+Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
+    Route::resource('userContacts', userContactController::class)->middleware('permission:contacts.manage');
+
+});
+
 //Route::post('groups', [GroupController::class, 'index'])->name('groups.index');

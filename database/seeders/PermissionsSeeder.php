@@ -68,7 +68,6 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
-
         $permissions[] = Permission::create([
             'name' => 'address.manage',
             'display_name' => 'Manage Addresses',
@@ -117,36 +116,49 @@ class PermissionsSeeder extends Seeder
             'description' => 'Manage Feedback',
             'removable' => false
         ]);
+
         $permissions[] = Permission::create([
             'name' => 'blogs.manage',
             'display_name' => 'Manage Blogs',
             'description' => 'Manage Blogs',
             'removable' => false
         ]);
+
         $permissions[] = Permission::create([
             'name' => 'groups.manage',
             'display_name' => 'Manage groups',
             'description' => 'Manage groups',
             'removable' => false
         ]);
+
         $permissions[] = Permission::create([
             'name' => 'remarks.manage',
             'display_name' => 'Manage remarks',
             'description' => 'Manage remarks',
             'removable' => false
         ]);
+
         $permissions[] = Permission::create([
             'name' => 'tags.manage',
             'display_name' => 'Manage tags',
             'description' => 'Manage tags',
             'removable' => false
         ]);
+
         $permissions[] = Permission::create([
             'name' => 'settingContacts.manage',
             'display_name' => 'Manage setting contacts',
             'description' => 'Manage setting contacts',
             'removable' => false
         ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'contacts.manage',
+            'display_name' => 'Manage contacts contacts',
+            'description' => 'Manage contacts contacts',
+            'removable' => false
+        ]);
+
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }

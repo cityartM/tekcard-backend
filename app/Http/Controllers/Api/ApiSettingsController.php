@@ -9,8 +9,12 @@ use App\Models\Currency;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Modules\Address\Models\Country;
+use Modules\Address\Transformers\CountryResource;
 use Modules\Advice\Http\Resources\AdviceResource;
 use Modules\Advice\Models\Advice;
+use Modules\Background\Http\Resources\BackgroundResource;
+use Modules\Background\Models\Background;
 use Modules\GlobalSetting\Http\Resources\ContactSettingsResource;
 use Modules\GlobalSetting\Models\SettingContact;
 use Modules\MotivationalPhrases\Http\Resources\MotivationalPhrasesResource;
@@ -25,9 +29,14 @@ class ApiSettingsController extends ApiController
     public function general(Request $request)
     {
         $contact = SettingContact::all();
+        $shareBackground = Background::where('type', 'Share')->get();
+        $cardBackground = Background::where('type', 'Card')->get();
         $settings = [
             'app_name' => setting('app_name'),
             'contact' =>  ContactSettingsResource::collection($contact),
+            'share_background' => BackgroundResource::collection($shareBackground),
+            'card_background' => BackgroundResource::collection($cardBackground),
+            'countries' => CountryResource::collection(Country::all()),
         ];
         return $this->respondWithSuccess($settings);
     }

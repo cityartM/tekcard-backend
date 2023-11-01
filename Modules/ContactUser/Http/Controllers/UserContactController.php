@@ -1,20 +1,41 @@
 <?php
 
-namespace Modules\Feature\Http\Controllers;
+namespace Modules\ContactUser\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class FeatureController extends Controller
+use Modules\ContactUser\Http\Requests\CreateUserContactRequest; 
+use Modules\ContactUser\Repositories\UserContactRepository;
+
+use Modules\ContactUser\Models\UserContact;
+
+class UserContactController extends Controller
 {
+
+    private $userContact;
+
+    function __construct(UserContactRepository $userContact)
+    {
+        $this->userContact= $userContact;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('feature::index');
+       //dd("it me");
+       if ($request->wantsJson()) {
+        return $this->userContact->getDatatables()->datatables($request);
+    }
+        return view("contactuser::index-user-contacts")->with([
+            "columns" => $this->userContact->getDatatables()::columns(),
+        ]);
+    
     }
 
     /**
@@ -23,7 +44,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('feature::create');
+        return view('contactuser::create');
     }
 
     /**
@@ -43,7 +64,7 @@ class FeatureController extends Controller
      */
     public function show($id)
     {
-        return view('feature::show');
+        return view('contactuser::show');
     }
 
     /**
@@ -53,7 +74,7 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
-        return view('feature::edit');
+        return view('contactuser::edit');
     }
 
     /**
@@ -74,6 +95,8 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->userContact->delete($id);
+
+        return redirect()->route('userContacts.index')->with('success', 'user contacts deleted successfully');
     }
 }

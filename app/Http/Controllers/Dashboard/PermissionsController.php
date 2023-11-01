@@ -134,11 +134,8 @@ class PermissionsController extends Controller
      */
     public function saveRolePermissions(Request $request)
     {
-        //dd($request->all());
         $roles = $request->get('roles');
-        //dd($roles);
         $allRoles = $this->roles->lists('id');
-        //dd($roles);
         foreach ($allRoles as $roleId) {
             //$permissions = array_get($roles, $roleId, []);
             $permissions = Arr::get($roles, $roleId, []);

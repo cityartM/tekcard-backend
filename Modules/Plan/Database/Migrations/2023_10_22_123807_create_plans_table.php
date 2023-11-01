@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use \Modules\Plan\Support\Enum\PlanType;
+use \Modules\Plan\Support\Enum\PlanDuration;
 
 return new class extends Migration
 {
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('name', 191);
             $table->json('display_name')->nullable();
             $table->enum('type', PlanType::lists())->default('Company');
+            $table->enum('duration', PlanDuration::lists())->default('Yearly');
             $table->double('price', 20,2)->default(0);
             $table->integer('nbr_user')->default(0);
             $table->integer('nbr_card_user')->default(0);

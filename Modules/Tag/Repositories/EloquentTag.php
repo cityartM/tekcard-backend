@@ -71,7 +71,7 @@ class EloquentTag implements TagRepository
     public function update($data)
     {
         $lang = LaravelLocalization::getCurrentLocale();
-        $data['name'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['name'] = Helper::translateAttribute($data['name'] + ['lang' => $lang]);
         return $data;
     }
     

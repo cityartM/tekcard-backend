@@ -4,6 +4,8 @@ namespace Modules\Company\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Company\Repositories\CompanyRepository;
+use Modules\Company\Repositories\EloquentCompany;
 
 class CompanyServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,7 @@ class CompanyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->singleton(CompanyRepository::class, EloquentCompany::class);
     }
 
     /**

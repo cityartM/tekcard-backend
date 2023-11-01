@@ -55,6 +55,29 @@ class FeaturesController extends Controller
         ]);
     }
 
+    public function indexCompany()
+    {
+        return view('feature::indexCompany', [
+            'plans' => Plan::where('type', 'company')->get(),
+            'features' => $this->features->all()
+        ]);
+    }
+
+    public function indexClient()
+    {
+        return view('feature::indexClient', [
+            'plans' => Plan::where('type', 'client')->get(),
+            'features' => $this->features->all()
+        ]);
+    }
+
+    public function show()
+    {
+        return view('feature::indexCompany', [
+            'plans' => Plan::where('type', 'company')->get(),
+            'features' => $this->features->all()
+        ]);
+    }
     /**
      * Display form for creating new plan.
      *

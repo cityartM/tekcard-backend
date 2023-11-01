@@ -127,12 +127,22 @@ return [
         'Client' => 'Client',
     ],
 
+    'planDurations' => [
+        'Yearly' => 'Yearly',
+        'Monthly' => 'Monthly',
+    ],
+
     'contactTypes' => [
         'Contact Info' => 'Contact Info',
         'Social Media' => 'Social Media',
         'Recommended' => 'Recommended',
         'Business' => 'Business',
         'Personnel' => 'Personnel',
+    ],
+
+    'backgroundTypes' => [
+        'Share' => 'Share',
+        'Card' => 'Card',
     ],
 
 
@@ -400,8 +410,8 @@ return [
     'has_dashboard' => 'Has dashboard',
 
     /*** features ***/
-    'features' => 'Features',
-    'feature' => 'Features',
+    'features_company' => 'Features Company',
+    'features_client' => 'Features Client',
 
     /***  feedback  ***/
     'feedback' => 'Feedback',
@@ -464,6 +474,28 @@ return [
     'add_wilaya' => 'Add Wilaya',
     'add_country' => 'Add Country',
 
+
+     /***  tags  ***/
+     'tags' => 'tags',
+     'tag' => 'tag',
+     'add_tag' => 'Add Tag',
+     'create_new_tag' => 'Create New Tag',
+     'tag_phrases_details' => 'Tag Phrases Details',
+     'a_general_tag_phrases_information' => 'A General Tag Phrases Information',
+     'update_tag' => 'Update Tag',
+     'create_tag' => 'Create Tag',
+ 
+ 
+     /***  background  ***/
+     'backgrounds' => 'backgrounds',
+     'backgrounds' => 'background',
+     'create_new_background' => 'Create New Background',
+     'background_phrases_details' => 'Background Phrases Details',
+     'a_general_background_phrases_information' => 'A General Background Phrases Information',
+ 
+     'update_background' => 'Update Background',
+    ' create_background' =>  ' Create Background',
+ 
 
 
 

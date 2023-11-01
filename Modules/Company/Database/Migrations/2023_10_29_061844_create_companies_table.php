@@ -14,9 +14,8 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('reference')->nullable();
             $table->enum('status',UserStatus::lists())->default('Unconfirmed');
-            $table->json("full_name");
+            $table->string("full_name");
             $table->string("job_title")->nullable();
             $table->string("phone")->nullable();
             $table->string("mobile")->nullable();

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->json('type')->nullable();
             $table->json('content')->nullable();
             $table->json('text')->nullable();
-            $table->string('tumail')->nullable(); 
+            $table->string('tumail')->nullable();
             $table->json('gallery')->nullable();
             $table->timestamps();
         });

@@ -14,8 +14,13 @@ class PlansAndFeatures extends Plugin
             ->active("plans*")
             ->permissions('plans.manage');
 
-        $features = Item::create(__('app.features'))
-            ->route('features.index')
+        $features_company = Item::create(__('app.features_company'))
+            ->route('company.index')
+            ->active("features*")
+            ->permissions('features.manage');
+
+        $features_client = Item::create(__('app.features_client'))
+            ->route('client.index')
             ->active("features*")
             ->permissions('features.manage');
 
@@ -25,7 +30,8 @@ class PlansAndFeatures extends Plugin
             ->permissions(['plans.manage', 'features.manage'])
             ->addChildren([
                 $plans,
-                $features
+                $features_company,
+                $features_client
             ]);
     }
 }
