@@ -76,7 +76,7 @@ return [
         'Simple Customer' => 'Simple Customer',
 
     ],
-
+ 
     'methods' => [
         'Cash' => 'Cash',
         'LinkBack' => 'LinkBack',
@@ -121,31 +121,64 @@ return [
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
     'reset' => 'Reset',
-    'role' =>'Role',
+    'role' => 'rol',
     'role_list' =>'List Roles',
     'label_status' =>'Status',
     'optional' =>'Optional',
     'action'=>'Action',
+    'phone' => 'telefon',
+    'bio' => 'özgeçmiş',
+    'avatar' => 'avatar',
+    'status' => 'Durum',
+    'label_status' => 'Durum',
+    'show' => 'göster',
+    
 
+
+    /*** features ***/
+    'features_company' => 'Şirket Özellikleri',
+    'features_client' => 'Müşteri Özellikleri',
+    'add_feature' => 'Özellik Ekle',
+    'save_feature' => 'Özelliği Kaydet',
+    'update_feature' => 'Özelliği Güncelle',
+    'add_feature' => 'Özellik Ekle',
+    'feature_details' => 'Özellik Detayları',
+    'general_feature_information' => 'Genel Özellik Bilgisi',
+    'back' => 'geri',
+    'feature_name' => 'Özellik Adı',
 
 
     /***  User  ***/
-    'add_user' =>'Add User',
-    'edit_user' =>'Edit User',
-    'update_user' =>'Update User',
-    'delete_user' =>'Delete User',
-    'first_name_user' =>'First Name',
-    'last_name_user' =>'Last Name',
-    'phone_user' =>'Phone',
-    'address_user' =>'Address',
-    'update_details_user' =>'Update Details',
-    'update_auth_details_user' =>'Update Auth Details',
-    'email_user' =>'Email',
-    'username' =>'user Name',
-    'password_user' =>'Password',
-    'new_password_user' =>'New Password',
-    'confirm_new_password_user' =>'Confirm New Password',
-    'filter' =>'Filter',
+    'users' => 'Kullanıcılar',
+    'user' => 'Kullanıcı',
+    'add_user' => 'Kullanıcı Ekle',
+    'edit_user' => 'Kullanıcıyı Düzenle',
+    'update_user' => 'Kullanıcıyı Güncelle',
+    'delete_user' => 'Kullanıcıyı Sil',
+    'first_name_user' => 'Adı',
+    'last_name_user' => 'Soyadı',
+    'phone_user' => 'Telefon',
+'address_user' => 'Adres',
+'update_details_user' => 'Detayları Güncelle',
+'update_auth_details_user' => 'Kimlik Bilgilerini Güncelle',
+'email_user' => 'E-posta',
+'username' => 'Kullanıcı Adı',
+'password_user' => 'Şifre',
+'new_password_user' => 'Yeni Şifre',
+'confirm_new_password_user' => 'Yeni Şifreyi Onayla',
+'filter' => 'Filtre',
+'list_users' => 'Kullanıcı Listesi',
+'avatar' => 'Avatar',
+'last_login' => 'Son Giriş',
+'user_details' => 'Kullanıcı Detayları',
+'general_user_information' => 'Genel kullanıcı bilgileri.',
+'user_auth_details' => 'Kullanıcı Kimlik Bilgileri',
+'general_user_auth_information' => 'Genel kullanıcı kimlik bilgileri.',
+'save_user' => 'Kullanıcıyı Kaydet',
+'leave_field_blank_if_you_don_t_want_to_change_it' => 'Değiştirmek istemiyorsanız alanı boş bırakın',
+'update_avatar' => 'Avatar Güncelle',
+'information_avatar' => 'Kabul edilen format: .png, .jpg, .jpeg - maksimum 2 MB',
+'user_lang' => 'Dil',
 
 
 
@@ -155,6 +188,7 @@ return [
     'delete_category' =>'Delete Category',
     'picture_category' =>'Picture',
     'name_category' =>'Name',
+    'category' => 'kategori',
 
     'category_created'=>'The category is created successfully',
     'category_updated'=>'The category is updated successfully',
@@ -300,11 +334,14 @@ return [
  'subscriptions_list' => 'abonelikler listesi',
  'email' => 'e-posta',
  'subscriptions_date' => 'abonelik tarihi',
+ 'subscription' => 'abonelik',
+ 'subscription_list' => 'Abonelik Listesi',
 
 
  /***  general  ***/
  'actions' => 'işlemler',
  'delete' => 'sil',
+ 'home' => 'Ana Sayfa',
  'selected' => 'seçilen',
  'delete_selected' => 'seçilenleri sil',
  'user' => 'kullanıcı',
@@ -323,6 +360,7 @@ return [
  'companies' => 'şirketler',
  'users' => 'kullanıcılar',
  'groups' => 'gruplar',
+ 'group' => 'grup',
  'remarks' => 'açıklamalar',
  'contacts' => 'kişiler',
  'general' => 'genel',
@@ -336,6 +374,8 @@ return [
  'features' => 'özellikler',
  'plans_features' => 'Plan Özellikleri',
  'color' => 'renk',
+ 'remark' => 'not',
+ 'user_contacts' => 'Kullanıcı İletişimleri',
 
 
 
@@ -404,6 +444,7 @@ return [
 'update_setting_contact' => 'iletişim ayarını güncelle',
 'create_setting_contact' => 'iletişim ayarı oluştur',
 'icon_upload' => 'ikon yükle',
+'icon' => 'ikon',
 
 
 /***  Addresses  ***/
@@ -415,6 +456,7 @@ return [
 'add_wilaya' => 'Wilaya Ekle',
 'country' => 'ülke',
 'add_country' => 'Ülke Ekle',
+'Addresses' => 'Adresler',
 
 
 /***  tags  ***/
@@ -435,6 +477,22 @@ return [
 'create_new_background' => 'Yeni Arka Plan Oluştur',
 'background_phrases_details' => 'Arka Plan Cümleleri Detayları',
 'a_general_background_phrases_information' => 'Genel Arka Plan Cümleleri Bilgisi',
+
+/***  group  ***/
+'add_group' => 'Grup Ekle',
+'create_new_group' => 'Yeni Grup Oluştur',
+'a_general_group_phrases_information' => 'Genel Grup İfadeleri Bilgisi',
+'create_group' => 'Grup Oluştur',
+'update_group' => 'Grubu Güncelle',
+'group_phrases_details' => 'Grup İfadeleri Detayları',
+
+
+/***  remarks  ***/
+'remarks_list' => 'Yorumlar Listesi',
+'create_new_remark' => 'Yeni Yorum Oluştur',
+'color' => 'Renk',
+'a_general_remark_phrases_information' => 'Genel Yorum İfadeleri Bilgisi',
+'remark_phrases_details' => 'Yorum İfadeleri Detayları',
 
 
 
