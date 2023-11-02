@@ -59,26 +59,23 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'type', 'content', 'status' , 'text' ,'tumail', 'gallery']);
-
-
-       //dd($data['text']);
+        $data = $request->only(['title', 'type', 'content', 'status' , 'text' ,'thumbnail', 'gallery']);
 
         $datat=$this->blog->store($data);
 
-
         $blog = Blog::create($datat);
 
-        if ($request->hasFile('tumail')) {
-            $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
+        $blog->tags()->attach($request->input('tags', []));
+        //$package->destinations()->attach($request->destinations_ids)->save();
+
+        if ($request->hasFile('thumbnail')) {
+            $blog->addMedia($request->file('thumbnail'))->toMediaCollection('thumbnail');
         }
         if ($request->hasFile('gallery')) {
             foreach ($request->file('gallery') as $image) {
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-
-
 
         return redirect()->route('blogs.index')
         ->with('success', 'Blog entry created successfully'); // Replace 'your.route.name' with the actual route name
@@ -93,7 +90,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog=Blog::find($id);
-        
+
         return view('blog::add-edit' , compact('blog'));
     }
 
@@ -114,7 +111,7 @@ class BlogController extends Controller
     public function all()
     {
         $blog=Blog::all();
-        
+
         return view('blog::add-edit', compact('blog'));
     }
 

@@ -20,11 +20,9 @@ return new class extends Migration
             $table->id();
             $table->json('title');
             $table->enum('status',array_keys(Status::lists()))->default(Status::UNPUBLISHED);
-            $table->json('type')->nullable();
+            $table->json('tag_ids')->nullable();
             $table->json('content')->nullable();
             $table->json('text')->nullable();
-            $table->string('tumail')->nullable();
-            $table->json('gallery')->nullable();
             $table->timestamps();
         });
     }

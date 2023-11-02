@@ -73,12 +73,12 @@
                                 {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
                             </textarea>
                 </div>
-                        </div> 
+                        </div>
                     @endforeach
                 </x-languages-tab>
                 <x-select-field
                     :title="__('app.type')"
-                    name="type"
+                    name="tag_id"
                     col="12"
                     class="mb-2"
                     required
@@ -102,8 +102,8 @@
                 <x-input-field
                     :title="__('app.image_upload')"
                     type="file"
-                    name="tumail"
-                    accept="tumail/*"
+                    name="thumbnail"
+                    accept="thumbnail/*"
                     col="12"
                     row="3"
                     class="mb-2 mt-5"

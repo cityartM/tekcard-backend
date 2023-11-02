@@ -11,22 +11,27 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HasGoogleTranslationTrait;
+use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
+use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
 
 class Blog extends Model implements HasMedia
 {
-    use HasFactory , InteractsWithMedia,HasTranslations;
+    use InteractsWithMedia,HasTranslations;
 
-    protected $fillable = ['title', 'status' ,'type', 'descreption', 'text' , 'tumail', 'gallery'];
+    protected $fillable = ['title', 'status' ,'tag_ids','content', 'text' , 'thumbnail', 'gallery'];
 
     protected $casts = [
         'title' => 'json',
-        'descreption' => 'json',
         'text' => 'json',
-        'gallery' => 'json',
-        'type' => 'json',
+        'tag_ids' => 'array',
     ];
 
     protected array $translatable = ['title','content','text'];
+
+    public function tags(): BelongsToJson
+    {
+        return $this->belongsToJson(Tag::class, 'tag_ids[]->tag_id');
+    }
 
     public function getJsonTitleAttribute($value)
     {
