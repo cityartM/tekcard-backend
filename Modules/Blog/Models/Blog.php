@@ -2,6 +2,7 @@
 
 namespace Modules\Blog\Models;
 
+use App\Traits\HasGoogleTranslationTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -9,26 +10,12 @@ use Modules\Tag\Models\Tag;
 
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-//use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
-use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
-use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
-use Spatie\Translatable\HasTranslations;;
-//use App\Traits\HasGoogleTranslationTrait;
+use Spatie\Translatable\HasTranslations;
 
 class Blog extends Model implements HasMedia
 {
 
-    use InteractsWithMedia;
-
-    use HasTranslations,HasJsonRelationships {
-        HasTranslations::getAttributeValue insteadof HasJsonRelationships;
-    }
-
-    /*use HasJsonRelationships {
-         HasJsonRelationships::getAttributeValue insteadof HasTranslations;
-    }*/
-
-
+    use InteractsWithMedia,HasGoogleTranslationTrait;
 
 
     protected $fillable = ['title', 'status' ,'tag_ids','content', 'text' , 'thumbnail', 'gallery'];
