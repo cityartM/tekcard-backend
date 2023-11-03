@@ -4,17 +4,17 @@ namespace App\Support\Enum;
 
 class BlogCategories
 {
-    const TECHNICAL = 'technical';
-    const LIFESTYLE = 'lifestyle';
-    const TRAVEL = 'travel';
-    const FOOD = 'food';
-    const FASHION = 'fashion';
-    const HEALTH = 'health';
-    const ENTERTAINMENT = 'entertainment';
-    const SPORTS = 'sports';
-    const BUSINESS = 'business';
-    const POLITICS = 'politics';
-    const OTHER = 'other';
+    const TECHNICAL = 'Technical';
+    const LIFESTYLE = 'Lifestyle';
+    const TRAVEL = 'Travel';
+    const FOOD = 'Food';
+    const FASHION = 'Fashion';
+    const HEALTH = 'Health';
+    const ENTERTAINMENT = 'Entertainment';
+    const SPORTS = 'Sports';
+    const BUSINESS = 'Business';
+    const POLITICS = 'Politics';
+    const OTHER = 'Other';
 
     public static function lists()
     {
@@ -31,9 +31,9 @@ class BlogCategories
             self::BUSINESS => trans('app.categories.' . self::BUSINESS),
             self::POLITICS => trans('app.categories.' . self::POLITICS),
             self::OTHER => trans('app.categories.' . self::OTHER),
-            
+
         ];
     }
 
-    
+
 }

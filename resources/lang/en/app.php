@@ -104,17 +104,17 @@ return [
     ],
 
     'categories' => [
-        'technical' => 'Technical',
-        'lifestyle' => 'Lifestyle',
-        'travel' => 'Travel',
-        'food' => 'Food',
-        'fashion' => 'Fashion',
-        'health' => 'Health',
-        'entertainment' => 'Entertainment',
-        'sports' => 'Sports',
-        'business' => 'Business',
-        'politics' => 'Politics',
-        'other' => 'Other',
+        'Technical' => 'Technical',
+        'Lifestyle' => 'Lifestyle',
+        'Travel' => 'Travel',
+        'Food' => 'Food',
+        'Fashion' => 'Fashion',
+        'Health' => 'Health',
+        'Entertainment' => 'Entertainment',
+        'Sports' => 'Sports',
+        'Business' => 'Business',
+        'Politics' => 'Politics',
+        'Other' => 'Other',
     ],
 
     'blogStatus' => [
@@ -144,7 +144,7 @@ return [
         'Share' => 'Share',
         'Card' => 'Card',
     ],
- 
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -185,7 +185,7 @@ return [
     'phone' => 'phone',
     'bio' => 'bio',
     'avatar' => 'avatar',
-    
+
 
     /*** Company ***/
     'companies' => 'Companies',
@@ -516,7 +516,7 @@ return [
 
      'update_background' => 'Update Background',
     ' create_background' =>  ' Create Background',
- 
+
       /***  groups  ***/
       'add_group' => 'Add Group',
       'create_new_group' => 'Create New Group',
