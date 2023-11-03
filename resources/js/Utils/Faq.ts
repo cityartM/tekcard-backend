@@ -9,16 +9,15 @@ const fetchFaqs = (locale: string) => {
     if (faqs) {
         return faqs.faqs;
     } else {
-        return []; // Return an empty array if the locale is not found
+        return [];
     }
 };
-
 const useFaqs = (locale: string) => {
     const [faqs, setFaqs] = useState<FaqType[] | null>(null);
 
     useEffect(() => {
         const data = fetchFaqs(locale);
-        setFaqs(data); // Set faqs inside the useEffect hook
+        setFaqs(data);
     }, [locale]);
 
     return { faqs };

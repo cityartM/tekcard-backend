@@ -16,11 +16,10 @@ class Blog extends Model implements HasMedia
 {
     use HasFactory , InteractsWithMedia,HasTranslations;
 
-    protected $fillable = ['title', 'status' ,'type', 'descreption', 'text' , 'tumail', 'gallery'];
+    protected $fillable = ['title', 'status' ,'type', 'text'];
 
     protected $casts = [
         'title' => 'json',
-        'descreption' => 'json',
         'text' => 'json',
         'gallery' => 'json',
         'type' => 'json',

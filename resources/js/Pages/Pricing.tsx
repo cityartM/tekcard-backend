@@ -1,25 +1,101 @@
-import {PropsWithChildren} from 'react';
-import { Head } from '@inertiajs/react';
+import React, {PropsWithChildren, useEffect, useState} from 'react';
+import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
+import {Feature, Plan} from "@/types/pricing";
+import usePricing from "@/Utils/Pricing";
+import PrimaryButton from "@/Components/PrimaryButton";
+import SecondaryButton from "@/Components/SecondaryButton";
+
+import {CheckBadgeIcon, UserIcon, UsersIcon} from "@heroicons/react/24/solid";
 
 export default function Pricing({}: PropsWithChildren) {
-    return (
-        <LandingLayout>
-            <Head title="Welcome" />
-            <div className={'text-3xl'}>Pricing</div>
+  const plans: Plan[] = (usePage().props?.plans ?? []) as Plan[];
+  const features: Feature[] = (usePage().props?.features ?? []) as Feature[];
 
-          <div className={'min-h-screen h-full max-w-7xl mx-auto my-36 space-y-20'}>
+  const {filteredPlans, filterPlans, filters, handleFilters} = usePricing(plans);
 
-            <div className="Frame6 mx-auto w-96 flex-col justify-start items-center gap-10 flex">
-              <img className="Asset14 w-96 h-20" src="https://via.placeholder.com/382x75" />
-              <div className="Frame4 flex-col justify-start items-center gap-8 flex">
-                <div className="Frame1 flex-col justify-start items-center gap-3 flex">
-                  <div className="Paragraph1 text-center text-gray-800 text-4xl font-normal font-['Tajawal'] leading-10">Compare our plans</div>
+  useEffect(() => {
+    filterPlans(filters.type, filters.billing);
+  }, [filters]);
+
+  const Button = ({active = false, ...props}) => {
+    return active ? <PrimaryButton {...props} /> : <SecondaryButton {...props} />
+  }
+
+  return (
+    <LandingLayout>
+      <Head title="Welcome" />
+
+      <Section className="py-20 px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20">
+        <div className="pt-20 grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-20">
+          <div
+            className={'text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#2273AF]'}>{'Pricing'}</div>
+          <div
+            className={'mx-auto max-w-5xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-700'}>
+            <div className="text-2xl font-bold text-[#2273AF]">{'Pricing plans for everyone'}</div>
+            <div className="text-xl font-bold text-[#2273AF]">{'Choose the plan that is right for you or your organization.'}</div>
+          </div>
+        </div>
+
+        <div className={'mt-20 mx-auto max-w-md'}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <Button className="py-4 px-6 flex items-center gap-4" active={filters.type === 'Client'} onClick={(e: any) => handleFilters(e, 'type', 'Client')}>
+              <UserIcon className="h-10 text-[#2273AF]" />
+              <span className="text-xl font-semibold">{'Personal'}</span>
+            </Button>
+            <Button className="py-4 px-6 flex items-center gap-4" active={filters.type === 'Company'} onClick={(e: any) => handleFilters(e, 'type', 'Company')}>
+              <UsersIcon className="h-10 text-[#2273AF]" />
+              <span className="text-xl font-semibold">{'Company'}</span>
+            </Button>
+          </div>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <Button className="py-4 px-6 flex items-center gap-4" active={filters.billing === 'Monthly'} onClick={(e: any) => handleFilters(e, 'billing', 'Monthly')}>
+              <span className="text-xl font-semibold">{'Monthly'}</span>
+            </Button>
+            <Button className="py-4 px-6 flex items-center gap-4" active={filters.billing === 'Yearly'} onClick={(e: any) => handleFilters(e, 'billing', 'Yearly')}>
+              <span className="text-xl font-semibold">{'Yearly'}</span>
+            </Button>
+          </div>
+        </div>
+
+        <div className="my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {filteredPlans && filteredPlans.map((plan: Plan) => (
+            <div className="px-2 py-4 flex flex-col bg-[#F2F2F2] border border-[#D7D7D7] rounded-2xl shadow overflow-hidden">
+              <div className="flex-shrink-0 px-4">
+                <div className="relative p-6 bg-[#91D6E5] rounded-2xl overflow-hidden">
+                  <div className="text-3xl font-bold text-sky-700">{plan.display_name}</div>
+                  <div className="mt-6 flex items-center gap-4">
+                    <UserIcon className="h-8 text-sky-700" />
+                    <div className='text-lg font-bold text-sky-700'>{plan.nbr_user} Users</div>
+                  </div>
+                </div>
+                <div className="py-8 flex items-center justify-between">
+                  <div className="text-2xl font-semibold text-sky-700">$ {plan.price}</div>
+                  <div className="text-2xl font-semibold text-sky-700">{plan.duration}</div>
                 </div>
               </div>
+              <div className="flex-grow bg-white rounded-2xl overflow-hidden">
+                <ul className="px-6 py-8 list-disc space-y-2">
+                  {plan.features.map((feature: Feature) => (
+                    <li className="text-lg" key={feature.id}>{feature.display_name}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-shrink-0 px-6 py-4 bg- rounded-b-2xl overflow-hidden">
+                <button className="w-full px-8 py-4 bg-[#D7D7D7] rounded-full text-[#2273AF] text-lg font-bold">
+                  {'Get Started'}
+                </button>
+              </div>
             </div>
+          ))}
 
-            <div className="HeroPricing bg-slate-50 rounded border border-slate-200 justify-start items-start flex">
+        </div>
+
+        <div className={'hidden lg:block'}>
+
+          <div className="my-10">
+            <div className="bg-slate-50 rounded border border-slate-200 justify-start items-start flex">
               <div className="Title grow shrink basis-0 border-r border-slate-200 flex-col justify-start items-start inline-flex">
                 <div className="Div self-stretch h-44 px-8 py-5 border-b border-slate-200 flex-col justify-center items-start gap-3 flex">
                   <div className="Frame30 self-stretch justify-start items-center gap-4 inline-flex">
@@ -29,320 +105,70 @@ export default function Pricing({}: PropsWithChildren) {
                 <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
                   <div className="Users grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Users</div>
                 </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="UniqueDigitalBusinessCards grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Unique digital business cards</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CustomizableVirtualBackgrounds grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Customizable virtual backgrounds</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="MultipleEmailSignatureStyles grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Multiple email signature styles</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="HihelloAddressBook grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">HiHello address book</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="UnlimitedCardSharin grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Unlimited card sharin</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CustomerSupport grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Customer support</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="AdditionalCardDesigns grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Additional card designs</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="Badges grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Badges</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CustomColors grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Custom colors<br/></div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="SendSmsViaHihello grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Send SMS via HiHello</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="ProfileAndFeatureVideo grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Profile and feature video</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="PersonalizedCardLink grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Personalized card link</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="BrandedQrCode grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Branded QR code</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CustomCardNotesAndTags grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Custom card notes and tags</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CardAnalytics grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Card analytics</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="SyncWithGoogleAndOutlook grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Sync with Google and Outlook</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="PaperBusinessCardScansMonth grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">10 paper business card scans / month</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CreateCardTemplates grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Create card templates</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="PriorityZoomAndEmailSupport grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Priority Zoom and Email Support</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="SalesforceAndHubspotIntegration grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Salesforce and Hubspot integration</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CorporateDirectory grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Corporate directory</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="CorporateVirtualBackgrounds grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Corporate virtual backgrounds</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="OrganizationManagement grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Organization management</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="ZapierIntegration grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Zapier integration</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="ActiveDirectoryIntegration grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Active Directory integration</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="DirectSsoIntegrations grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Direct SSO integrations</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="Soc2Report grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">SOC 2 report</div>
-                </div>
-                <div className="Div self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
-                  <div className="OnboardingSession grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Onboarding session</div>
+                <div className="self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
+                  <div className="grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">Onboarding session</div>
                 </div>
               </div>
-              <div className="Price01 grow shrink basis-0 border-r border-slate-200 flex-col justify-center items-center inline-flex">
-                <div className=" self-stretch h-44 p-7 border-b border-slate-200 flex-col justify-center items-center gap-7 flex">
-                  <div className="Frame28 justify-center items-end gap-2 inline-flex">
-                    <div className="Free text-sky-700 text-4xl font-bold font-['Tajawal']">Free</div>
-                    <div className="Frame29 py-1.5 justify-start items-end flex">
-                      <div className="Month text-gray-400 text-sm font-medium font-['Tajawal'] leading-tight">/Month</div>
+
+              {filteredPlans && filteredPlans.map((plan: Plan) => (
+                <div className="Price01 grow shrink basis-0 border-r border-slate-200 flex-col justify-center items-center inline-flex">
+                  <div className=" self-stretch h-44 p-7 border-b border-slate-200 flex-col justify-center items-center gap-4 flex">
+                    <div className="text-sky-700 text-xl font-bold font-['Tajawal']">{plan.display_name}</div>
+                    <div className="Frame28 justify-center items-end gap-2 inline-flex">
+                      <div className="Free text-sky-700 text-4xl font-bold font-['Tajawal']">{plan.price}</div>
+                      <div className="Frame29 py-1.5 justify-start items-end flex">
+                        <div className="Month text-gray-400 text-sm font-medium font-['Tajawal'] leading-tight">/{plan.duration}</div>
+                      </div>
+                    </div>
+                    <div className="Button self-stretch px-6 py-4 bg-sky-700 rounded justify-center items-center inline-flex">
+                      <div className="ChooseThisPlan grow shrink basis-0 text-center text-slate-200 text-sm font-bold font-['Tajawal'] leading-tight">Choose This Plan</div>
                     </div>
                   </div>
-                  <div className="Button self-stretch px-6 py-4 bg-sky-700 rounded justify-center items-center inline-flex">
-                    <div className="ChooseThisPlan grow shrink basis-0 text-center text-slate-200 text-sm font-bold font-['Tajawal'] leading-tight">Choose This Plan</div>
+                  <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
+                    <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">20 </div>
+                  </div>
+                  <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
+                    <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">4</div>
                   </div>
                 </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">20 </div>
-                </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">4</div>
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-              </div>
-              <div className="Price02 grow shrink basis-0 border-r border-slate-200 flex-col justify-center items-center inline-flex">
-                <div className=" self-stretch h-44 p-7 border-b border-slate-200 flex-col justify-center items-center gap-7 flex">
-                  <div className="Frame28 justify-center items-end gap-2 inline-flex">
-                    <div className="25 text-sky-700 text-4xl font-bold font-['Tajawal']">$25</div>
-                    <div className="Frame29 py-1.5 justify-start items-end flex">
-                      <div className="Month text-gray-400 text-sm font-medium font-['Tajawal'] leading-tight">/Month</div>
-                    </div>
-                  </div>
-                  <div className="Button self-stretch px-6 py-4 bg-sky-700 rounded justify-center items-center inline-flex">
-                    <div className="ChooseThisPlan grow shrink basis-0 text-center text-slate-200 text-sm font-bold font-['Tajawal'] leading-tight">Choose This Plan</div>
-                  </div>
-                </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">60 </div>
-                </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className="Unlimited text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">Unlimited</div>
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200" />
-              </div>
-              <div className="Price03 grow shrink basis-0 border-r border-slate-200 flex-col justify-center items-center inline-flex">
-                <div className=" self-stretch h-44 p-7 border-b border-slate-200 flex-col justify-center items-center gap-7 flex">
-                  <div className="Frame28 justify-center items-end gap-2 inline-flex">
-                    <div className="40 text-sky-700 text-4xl font-bold font-['Roboto']">$40</div>
-                    <div className="Frame29 py-1.5 justify-start items-end flex">
-                      <div className="Month text-gray-400 text-sm font-medium font-['Inter'] leading-tight">/Month</div>
-                    </div>
-                  </div>
-                  <div className="Button self-stretch px-6 py-4 bg-sky-700 rounded justify-center items-center inline-flex">
-                    <div className="ChooseThisPlan grow shrink basis-0 text-center text-slate-200 text-sm font-bold font-['Tajawal'] leading-tight">Choose This Plan</div>
-                  </div>
-                </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className=" text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">100</div>
-                </div>
-                <div className=" self-stretch h-20 py-5 border-b border-slate-200 flex-col justify-center items-center gap-1 flex">
-                  <div className="Unlimited text-sky-700 text-sm font-medium font-['Tajawal'] leading-tight">Unlimited</div>
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-                <div className=" self-stretch h-20 px-32 py-5 border-b border-slate-200 justify-center items-center gap-1 inline-flex">
-                  <div className="Frame w-5 h-5 relative" />
-                </div>
-              </div>
+              ))}
             </div>
 
+            <div className="bg-slate-50 rounded border border-slate-200 justify-start items-start flex">
+              <div className="Title grow shrink basis-0 border-r border-slate-200 flex-col justify-start items-start inline-flex">
+                {features && features.map((feature: Feature) => (
+                  <div key={feature.id} className="self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-start items-center gap-2.5 inline-flex">
+                    <div className="grow shrink basis-0 text-sky-700 text-lg font-bold font-['Tajawal'] leading-relaxed">{feature.display_name}</div>
+                  </div>
+                ))}
+              </div>
+
+              {filteredPlans && filteredPlans.map((plan: Plan) => (
+                <div className="Price01 grow shrink basis-0 border-r border-slate-200 flex-col justify-center items-center inline-flex">
+                  {features && features.map((feature: Feature) => (
+                    <div key={feature.id} className="self-stretch h-20 px-8 py-5 border-b border-slate-200 justify-center items-center gap-2.5 inline-flex">
+                      {plan.features.filter((f: Feature) => f.id === feature.id).length > 0 && (
+                        <CheckBadgeIcon className={'h-6 text-sky-700'}></CheckBadgeIcon>)}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </LandingLayout>
-    );
+
+        </div>
+
+      </Section>
+    </LandingLayout>
+  );
+}
+
+const Section = ({children, className}: PropsWithChildren & { className?: string }) => {
+  return (
+    <div className={`lg:min-h-screen h-full flex flex-col ${className}`}>
+      <div className={'mx-auto max-w-7xl w-full min-h-full'}>
+        {children}
+      </div>
+    </div>
+  );
 }

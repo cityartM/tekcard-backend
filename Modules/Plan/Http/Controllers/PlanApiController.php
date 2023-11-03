@@ -27,8 +27,8 @@ class PlanApiController extends ApiController
 
     public function index(Request $request)
     {
-          $plans = QueryBuilder::for(Plan::class)
-             ->allowedFilters([
+        $plans = QueryBuilder::for(Plan::class)
+            ->allowedFilters([
                 AllowedFilter::custom('type', new PlanKeywordType),
             ])
             ->allowedSorts(['id'])
@@ -36,9 +36,9 @@ class PlanApiController extends ApiController
             ->paginate($request->per_page ?: 10);
 
 
-    return $this->respondWithSuccess([
-        'plans' => PlanResource::collection($plans)->response()->getData(true),
-    ],  'Plans retrieved successfully', 200);
+        return $this->respondWithSuccess([
+            'plans' => PlanResource::collection($plans)->response()->getData(true),
+        ],  'Plans retrieved successfully', 200);
 
     }
 

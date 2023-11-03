@@ -2,38 +2,94 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Modules\Blog\Models\Blog;
+use Modules\Feature\Models\Feature;
+use Modules\Plan\Models\Plan;
 
+Route::get('/', function () {
+    return Inertia::render('Home');
+})->name('landing.home');
 
-Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::get('/', function () {
-        return Inertia::render('Home');
-    })->name('landing.home');
+Route::get('/about-us', function () {
+    return Inertia::render('AboutUs');
+})->name('landing.about-us');
 
+Route::get('/our-blog', function () {
+    return Inertia::render('Blog');
+})->name('landing.blog');
 
-    Route::get('/about-us', function () {
-        return Inertia::render('AboutUs');
-    })->name('landing.about-us');
+Route::get('/our-blog/{blog}', function ($blog) {
+    $blogPost = Blog::with('media')->findOrFail($blog);
 
-    Route::get('/our-blog', function () {
-        return Inertia::render('Blog');
-    })->name('landing.blog');
+    $latestPosts = Blog::with('media')->orderByDesc('created_at')->paginate(4);
 
-    Route::get('/our-blog/{blog}', function () {
-        return Inertia::render('BlogSingle');
-    })->name('landing.blog.show');
+    return Inertia::render('BlogSingle', [
+        "post"  => $blogPost,
+        "posts" => $latestPosts,
+    ]);
+})->name('landing.blog.show');
 
-    Route::get('/pricing', function () {
-        return Inertia::render('Pricing');
-    })->name('landing.pricing');
+Route::get('/pricing', function () {
 
-    Route::get('/contact-us', function () {
-        return Inertia::render('ContactUs');
-    })->name('landing.contact-us');
+    $plans = Plan::query()
+        ->with('features')
+        ->get();
 
-    Route::get('/playground', function () {
-        return Inertia::render('Playground');
-    })->name('landing.playground');
-});
+    $resources = [];
+
+    foreach ($plans as $plan) {
+        $features = [];
+
+        foreach ($plan->features as $feature) {
+            $features[] = [
+                "id" => $feature->id,
+                "name" => $feature->name,
+                "display_name" => $feature->display_name,
+                "removable" => $plan->removable,
+            ];
+        }
+
+        $resources[] = [
+            "id" => $plan->id,
+            "name" => $plan->name,
+            "display_name" => $plan->display_name,
+            "type" => $plan->type,
+            "duration" => $plan->duration,
+            "price" => $plan->price,
+            "nbr_user" => $plan->nbr_user,
+            "nbr_card_user" => $plan->nbr_card_user,
+            "removable" => $plan->removable,
+            "features" => $features
+        ];
+    }
+
+    $features = Feature::query()
+        ->get();
+
+    $allFeatures = [];
+
+    foreach ($features as $feature) {
+        $allFeatures[] = [
+            "id" => $feature->id,
+            "name" => $feature->name,
+            "display_name" => $feature->display_name,
+            "removable" => $feature->removable,
+        ];
+    }
+
+    return Inertia::render('Pricing', [
+        'plans' => $resources,
+        'features' => $allFeatures,
+    ]);
+})->name('landing.pricing');
+
+Route::get('/contact-us', function () {
+    return Inertia::render('ContactUs');
+})->name('landing.contact-us');
+
+Route::get('/playground', function () {
+    return Inertia::render('Playground');
+})->name('landing.playground');
 
 Route::get('/frontend/login', function () {
     return Inertia::render('Auth/Login');
@@ -41,7 +97,7 @@ Route::get('/frontend/login', function () {
 
 Route::get('/frontend/register', function () {
     return Inertia::render('Auth/Register');
-})->name('landing.register.get');
+})->name('landing.register.get')->middleware('guest');
 
 Route::post('/contact-us', function () {
     $rules = [
@@ -57,17 +113,3 @@ Route::post('/contact-us', function () {
 
     //dd(request()->all());
 })->name('landing.contact-us.submit');
-
-Route::post('/landing/login', function () {
-    $rules = [
-        'name' => 'required|string|max:255',
-        'email' => 'required|email',
-        'password' => 'required|confirmed|string|max:255',
-    ];
-    request()->validate($rules);
-
-    return redirect()->route('landing.home')->with('success', 'Your message has been sent successfully!');
-
-    //dd(request()->all());
-})->name('landing.login');
-
