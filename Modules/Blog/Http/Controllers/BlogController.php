@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Helpers\Helper;
+use Illuminate\Support\Facades\File;
 use Modules\Blog\Models\Blog;
 use Modules\Tag\Models\Tag;
 use LaravelLocalization;
@@ -22,21 +23,21 @@ class BlogController extends Controller
      */
 
 
-     private $blog;
+     private $blogs;
 
-    function __construct(BlogRepository $blog)
+    function __construct(BlogRepository $blogs)
     {
-        $this->blog= $blog;
+        $this->blogs= $blogs;
     }
 
 
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return $this->blog->getDatatables()->datatables($request);
+            return $this->blogs->getDatatables()->datatables($request);
         }
         return view("blog::index")->with([
-            "columns" => $this->blog->getDatatables()::columns(),
+            "columns" => $this->blogs->getDatatables()::columns(),
         ]);
     }
 
@@ -47,7 +48,6 @@ class BlogController extends Controller
     public function create()
     {
         $tags = Tag::pluck('name', 'id');
-        //dd($tags);
         $edit= false;
         return view('blog::add-edit' , compact('edit','tags'));
     }
@@ -59,26 +59,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['title', 'type', 'content', 'status' , 'text' ,'tumail', 'gallery']);
+        $data = $request->only(['title', 'content','text','status']);
+        $transformedArray = array_map(function ($tag_id) {
+            return ['tag_id' => $tag_id];
+        }, $request->tag_ids);
 
+        $data['tag_ids'] = $transformedArray;
+        $blog = $this->blogs->create($data);
 
-       //dd($data['text']);
-
-        $datat=$this->blog->store($data);
-
-
-        $blog = Blog::create($datat);
-
-        if ($request->hasFile('tumail')) {
-            $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
+        if ($request->hasFile('thumbnail')) {
+            $blog->addMedia($request->file('thumbnail'))->toMediaCollection('thumbnail');
         }
         if ($request->hasFile('gallery')) {
             foreach ($request->file('gallery') as $image) {
                 $blog->addMedia($image)->toMediaCollection('gallery');
             }
         }
-
-
 
         return redirect()->route('blogs.index')
         ->with('success', 'Blog entry created successfully'); // Replace 'your.route.name' with the actual route name
@@ -93,7 +89,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog=Blog::find($id);
-        
+
         return view('blog::add-edit' , compact('blog'));
     }
 
@@ -103,18 +99,16 @@ class BlogController extends Controller
      * @return Renderable
      */
 
-     public function edit($id)
+     public function edit(Blog $blog)
      {
-         $blog=Blog::find($id);
-         $tags = Tag::pluck('name', 'id');
          $edit= true;
-         return view('blog::add-edit', compact('edit','blog','tags'));
+         return view('blog::add-edit', compact('edit','blog'));
      }
 
     public function all()
     {
         $blog=Blog::all();
-        
+
         return view('blog::add-edit', compact('blog'));
     }
 
@@ -124,18 +118,20 @@ class BlogController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
-        $data = $request->only(['title', 'content', 'status','text' , 'tumail', 'type', 'gallery']);
-        $datat=$this->blog->store($data);
+        $data = $request->only(['title', 'content','text','status']);
+        $transformedArray = array_map(function ($tag_id) {
+            return ['tag_id' => $tag_id];
+        }, $request->tag_ids);
 
-        $blog=Blog::find($id);
-        $blog->update($datat);
+        $data['tag_ids'] = $transformedArray;
+        $blog = $this->blogs->update($blog->id,$data);
 
-        if ($request->hasFile('tumail')) {
+        if ($request->hasFile('thumbnail')) {
             // Update the 'tumail' media for the Blog instance
-            $blog->clearMediaCollection('tumail'); // Remove existing media
-            $blog->addMedia($request->file('tumail'))->toMediaCollection('tumail');
+            $blog->clearMediaCollection('thumbnail'); // Remove existing media
+            $blog->addMedia($request->file('thumbnail'))->toMediaCollection('thumbnail');
         }
 
         if ($request->hasFile('gallery')) {

@@ -117,9 +117,9 @@ return [
         'other' => 'Other',
     ],
 
-    'statuses' => [
-        'published' => 'Published',
-        'unpublished' => 'Unpublished',
+    'blogStatus' => [
+        'Published' => 'Published',
+        'Unpublished' => 'Unpublished',
     ],
 
     'planTypes' => [
@@ -505,15 +505,15 @@ return [
      'a_general_tag_phrases_information' => 'A General Tag Phrases Information',
      'update_tag' => 'Update Tag',
      'create_tag' => 'Create Tag',
- 
- 
+
+
      /***  background  ***/
      'backgrounds' => 'backgrounds',
      'backgrounds' => 'background',
      'create_new_background' => 'Create New Background',
      'background_phrases_details' => 'Background Phrases Details',
      'a_general_background_phrases_information' => 'A General Background Phrases Information',
- 
+
      'update_background' => 'Update Background',
     ' create_background' =>  ' Create Background',
  
@@ -531,7 +531,6 @@ return [
       'color' => 'Color',
       'a_general_remark_phrases_information' => 'A General Remark Phrases Information',
       'remark_phrases_details' => 'Remark Phrases Details',
-
 
 
 

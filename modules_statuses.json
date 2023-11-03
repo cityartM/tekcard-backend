@@ -12,5 +12,6 @@
     "GlobalSetting": true,
     "Tag": true,
     "Backgound": true,
-    "Background": true
+    "Background": true,
+    "Card": true
 }

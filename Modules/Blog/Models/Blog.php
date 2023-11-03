@@ -9,108 +9,44 @@ use Modules\Tag\Models\Tag;
 
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Translatable\HasTranslations;
-use App\Traits\HasGoogleTranslationTrait;
+//use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
+use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
+use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
+use Spatie\Translatable\HasTranslations;;
+//use App\Traits\HasGoogleTranslationTrait;
 
 class Blog extends Model implements HasMedia
 {
-    use HasFactory , InteractsWithMedia,HasTranslations;
 
-    protected $fillable = ['title', 'status' ,'type', 'descreption', 'text' , 'tumail', 'gallery'];
+    use InteractsWithMedia;
+
+    use HasTranslations,HasJsonRelationships {
+        HasTranslations::getAttributeValue insteadof HasJsonRelationships;
+    }
+
+    /*use HasJsonRelationships {
+         HasJsonRelationships::getAttributeValue insteadof HasTranslations;
+    }*/
+
+
+
+
+    protected $fillable = ['title', 'status' ,'tag_ids','content', 'text' , 'thumbnail', 'gallery'];
 
     protected $casts = [
         'title' => 'json',
-        'descreption' => 'json',
         'text' => 'json',
-        'gallery' => 'json',
-        'type' => 'json',
+        'tag_ids' => 'array',
     ];
 
     protected array $translatable = ['title','content','text'];
 
-    public function getJsonTitleAttribute($value)
+    public function tags()
     {
-        $title = $this->getTranslations('title');
-        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
-        $result = [];
-        if ($title != null) {
-            foreach ($title as $translation) {
-                foreach ($translation as $locale => $trans) {
-                    if ($locale == $currentLocale) {
-                        $result[] = $trans;
-                    }
-                }
-            }
-            return $result;
-        } else {
-            return $title;
-        }
-    }
-
-    // Function to get the 'content' in the current locale
-    public function getJsonContentAttribute($value)
-    {
-        $content = $this->getTranslations('content');
-        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
-        $result = [];
-        if ($content != null) {
-            foreach ($content as $translation) {
-                foreach ($translation as $locale => $trans) {
-                    if ($locale == $currentLocale) {
-                        $result[] = $trans;
-                    }
-                }
-            }
-            return $result;
-        } else {
-            return $content;
-        }
-    }
-
-
-    public function getJsonTextAttribute($value)
-    {
-        $text = $this->getTranslations('text');
-        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
-        $result = [];
-        if ($text != null) {
-            foreach ($text as $translation) {
-                foreach ($translation as $locale => $trans) {
-                    if ($locale == $currentLocale) {
-                        $result[] = $trans;
-                    }
-                }
-            }
-            return $result;
-        } else {
-            return $text;
-        }
-    }
-
-    public function getBladeTitleAttribute($value)
-    {
-        return $this->getTranslations('title');
-    }
-
-    public function getBladeContentAttribute($value)
-    {
-        return $this->getTranslations('content');
-    }
-
-    public function getBladeTextAttribute($value)
-    {
-        return $this->getTranslations('text');
-    }
-
-    public function type()
-    {
-        return $this->belongsTo(Tag::class);
+        return  Tag::whereIn('id', $this->tag_ids)->get();
     }
 
 
 
-    protected static function newFactory()
-    {
-        return \Modules\Blog\Database\factories\BlogFactory::new();
-    }
+
 }
