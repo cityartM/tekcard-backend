@@ -4,14 +4,14 @@ namespace App\Support\Enum;
 
 class Status
 {
-    const PUBLISHED = 'published';
-    const UNPUBLISHED = 'unpublished';
+    const PUBLISHED = 'Published';
+    const UNPUBLISHED = 'Unpublished';
 
     public static function lists()
     {
         return [
-            self::PUBLISHED => trans('app.statuses.' . self::PUBLISHED),
-            self::UNPUBLISHED => trans('app.statuses.' . self::UNPUBLISHED),
+            self::PUBLISHED => trans('app.blogStatus.' . self::PUBLISHED),
+            self::UNPUBLISHED => trans('app.blogStatus.' . self::UNPUBLISHED),
         ];
     }
 }

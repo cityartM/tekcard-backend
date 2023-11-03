@@ -78,12 +78,13 @@
                 </x-languages-tab>
                 <x-select-field
                     :title="__('app.type')"
-                    name="tag_id"
+                    name="tag_ids"
                     col="12"
                     class="mb-2"
                     required
-                    :data="$tags"
+                    :data="collect(Modules\Tag\Models\Tag::pluck('name','id'))"
                     :model="$edit ? $blog : null "
+                    :multidata="$edit ? collect($blog->tags()->pluck('name', 'id')) : null"
                     :isselect2="true"
                     multi=true
                 />

@@ -242,4 +242,13 @@ class DataTableActions
         return '<a href="' . url('https://api.whatsapp.com/send?text=' . urlencode($links)) . '" target="__blank">' . $name . ' <span class="menu-icon ml-5"><i class="bi bi-share fs-3"></i></span></a> ' .
             '<span class="copy-link" onclick="copyToClipboard(\''. $links . '\')"><i class="bi bi-files fs-3"></i></span>';
     }
+
+    public static function tags($tags): string
+    {
+        $tagHtml = [];
+        foreach ($tags as $tag) {
+            $tagHtml[] = '<span class="badge badge-primary">' . e($tag) . '</span>';
+        };
+        return implode(' ', $tagHtml);
+    }
 }

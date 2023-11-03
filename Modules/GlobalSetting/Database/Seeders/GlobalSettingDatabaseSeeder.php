@@ -62,6 +62,7 @@ class GlobalSettingDatabaseSeeder extends Seeder
         {
             foreach($socialMediaPlatform as $k => $value)
             {
+                //$path = public_path('assets/media/icons/duotune/social/'.$value.'.svg');
                // dd($value);
                     $a = \DB::table('setting_contacts')->insert([
                         [
@@ -73,8 +74,8 @@ class GlobalSettingDatabaseSeeder extends Seeder
                         ],
 
                     ]);
-               // $settingContact = SettingContact::find($i);
-               // $settingContact->addMedia(public_path('assets/media/icons/duotune/social/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
+                $settingContact = SettingContact::find($i);
+                $settingContact->addMedia(public_path('assets/media/icons/duotune/social/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
                 $i++;
             }
         }
