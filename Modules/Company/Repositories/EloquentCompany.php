@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Company\Models\Company;
+use Modules\Company\DataTable\CompanyDatatable;
 
 class EloquentCompany implements CompanyRepository
 {
@@ -120,6 +121,13 @@ class EloquentCompany implements CompanyRepository
     {
         return Company::where('name', $name)->first();
     }
+
+    public function getDatatables():CompanyDatatable
+    { 
+        return new CompanyDatatable();
+    }
+
+
 
 }
 

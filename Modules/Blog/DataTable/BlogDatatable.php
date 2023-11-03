@@ -2,6 +2,7 @@
 
 namespace Modules\Blog\DataTable;
 
+use Illuminate\Support\Facades\File;
 use Modules\Blog\Models\Blog;
 use App\Support\DataTable\DataTableActions;
 use Exception;
@@ -14,9 +15,9 @@ class BlogDatatable
     public static function columns(): array
     {
         return [
-            "id",
+            "thumbnail",
             "title",
-            "type",
+            "tags",
             "status",
             "created_at",
         ];
@@ -32,23 +33,29 @@ class BlogDatatable
                         ->delete(route("blogs.destroy", $blog->id))
                         ->make();
                 })
-                ->addColumn("id", function (Blog $blog) {
-                    return $blog->id ;
+                ->addColumn("thumbnail", function (Blog $blog) {
+                    $media = $blog->getFirstMedia('thumbnail');
+
+                    $url = $media ? $media->getFullUrl() : public_path('assets/media/logos/logo-3.svg');
+
+                    return (new DataTableActions())->image($url);
                 })
                 ->addColumn("title", function (Blog $blog) {
                     return $blog->title ;
                 })
-                ->addColumn("type", function (Blog $blog) {
-                    return $blog->type;
+                ->addColumn("tags", function (Blog $blog) {
+                    $tags = $blog->tags()->pluck('name')->toArray();
+
+                    return (new DataTableActions())->tags($tags);
                 })
                 ->addColumn("status", function (Blog $blog) {
                     return $blog->status;
                 })
-                
+
                 ->addColumn("created_at", function (Blog $blog) {
                     return $blog->created_at->format('Y-m-d');
                 })
-                ->rawColumns(['action',"id","title","type","status","created_at",])
+                ->rawColumns(['action',"thumbnail","title","tags","status","created_at",])
 
                 ->make(true);
         } catch (Exception $e) {

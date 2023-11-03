@@ -21,13 +21,13 @@ class TagDatabaseSeeder extends Seeder
         collect(BlogCategories::lists())->each(function ($category) {
             Tag::create([
                 'name' => [
-                    'en' => trans("app.categories." . $category, locale: "en"),
-                    'ar' => trans("app.categories." . $category, locale: "ar"),
-                    'tr' => trans("app.categories." . $category, locale: "tr")
+                    'en' => trans('app.categories.' . $category, locale: "en"),
+                    'ar' => trans('app.categories.' . $category, locale: "ar"),
+                    'tr' => trans('app.categories.' . $category, locale: "tr")
                 ]
             ]);
         });
 
-        // $this->call("OthersTableSeeder");
+
     }
 }

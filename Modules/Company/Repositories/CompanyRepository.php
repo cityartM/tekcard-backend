@@ -80,4 +80,6 @@ interface CompanyRepository
      * @return bool
      */
     public function delete($id);
+
+    public function getDatatables();
 }

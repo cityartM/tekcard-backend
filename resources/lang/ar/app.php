@@ -30,7 +30,7 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
     ],
-
+ 
 
     'backgroundTypes' => [
         'Share' => 'مشاركة',
@@ -41,8 +41,69 @@ return [
     "name" => "الإسـم",
     "created_at" => "تاريخ الإنشاء",
     "control" => "الإجرائات",
+    'phone' => 'هاتف',
+    'bio' => 'نبذة',
+    'avatar' => 'الصورة الرمزية',
+    'status' => 'الحالة',
+    'label_status' => 'الحالة',
+    'status' => 'الحالة',
+    'show' => 'عرض',
+
+
+    /*** features ***/
+    'features_company' => 'ميزات الشركة',
+    'features_client' => 'ميزات العميل',
+    'add_feature' => 'إضافة ميزة',
+    'save_feature' => 'حفظ الميزة',
+    'update_feature' => 'تحديث الميزة',
+    'add_feature' => 'إضافة ميزة',
+    'feature_details' => 'تفاصيل الميزة',
+    'general_feature_information' => 'معلومات عامة عن الميزة',
+    'back' => 'عودة',
+    'feature_name' => 'اسم الميزة',
+
+
+
+      /*** user ***/
+      'last_login' => 'آخر تسجيل دخول',
+      'add_user' => 'إضافة مستخدم',
+      'users' => 'المستخدمين',
+'user' => 'مستخدم',
+'add_user' => 'إضافة مستخدم',
+'edit_user' => 'تعديل المستخدم',
+'update_user' => 'تحديث المستخدم',
+'delete_user' => 'حذف المستخدم',
+'first_name_user' => 'الاسم الأول',
+'last_name_user' => 'اسم العائلة',
+'phone_user' => 'الهاتف',
+'address_user' => 'العنوان',
+'update_details_user' => 'تحديث التفاصيل',
+'update_auth_details_user' => 'تحديث معلومات المصادقة',
+'email_user' => 'البريد الإلكتروني',
+'username' => 'اسم المستخدم',
+'password_user' => 'كلمة المرور',
+'new_password_user' => 'كلمة المرور الجديدة',
+'confirm_new_password_user' => 'تأكيد كلمة المرور الجديدة',
+'filter' => 'تصفية',
+'list_users' => 'قائمة المستخدمين',
+'avatar' => 'الصورة الرمزية',
+'last_login' => 'آخر تسجيل دخول',
+'user_details' => 'تفاصيل المستخدم',
+'general_user_information' => 'معلومات عامة عن المستخدم.',
+'user_auth_details' => 'معلومات مصادقة المستخدم',
+'general_user_auth_information' => 'معلومات عامة عن مصادقة المستخدم.',
+'save_user' => 'حفظ المستخدم',
+'leave_field_blank_if_you_don_t_want_to_change_it' => 'اترك الحقل فارغًا إذا كنت لا ترغب في تغييره',
+'update_avatar' => 'تحديث الصورة الرمزية',
+'information_avatar' => 'قبول التنسيق: .png، .jpg، .jpeg - الحد الأقصى 2 ميجابايت',
+'user_lang' => 'اللغة',
+
+
+
+
 
     /*** Role ***/
+    'role' => 'دور',
     'page_roles' =>'الأدوار',
     'role_list' => 'قائمة الأدوار',
     'add_role' => 'إضافة دور' ,
@@ -73,10 +134,13 @@ return [
     'subscriptions_list' => 'قائمة الاشتراكات' ,
     'email' => 'البريد الإلكتروني' ,
     'subscriptions_date' => 'تاريخ الاشتراكات' ,
+    'subscription' => 'اشتراك',
+    'subscription_list' => 'قائمة الاشتراك',
 
     /***  general  ***/
     'actions' => 'إجراءات',
     'delete' => 'حذف',
+    'home' => 'الصفحة الرئيسية',
     'selected' => 'محدد' ,
     'delete_selected' => 'حذف المحددين',
     'user' => 'مستخدم' ,
@@ -108,6 +172,10 @@ return [
     'features' => 'ميزات',
     'plans_features' => 'ميزات  و الخطط',
     'color' => 'لون',
+    'group' => 'مجموعة',
+    'remark' => 'ملاحظة',
+    'user_contacts' => 'جهات اتصال المستخدم',
+    'category' => 'فئة',
 
 
     'categories' => [
@@ -171,6 +239,7 @@ return [
     'update_setting_contact' => 'تحديث إعدادات الاتصال',
     'create_setting_contact' => 'إنشاء إعدادات الاتصال',
     'icon_upload' => 'تحميل الأيقونة',
+    'icon' => 'أيقونة',
 
 
     /***  Addresses  ***/
@@ -182,6 +251,7 @@ return [
     'add_wilaya' => 'إضافة ولاية',
     'country' => 'بلد',
     'add_country' => 'إضافة بلد',
+    'Addresses' => 'عناوين',
 
     /***  tags  ***/
     'tags' => 'علامات',
@@ -199,6 +269,22 @@ return [
     'create_new_background' => 'إنشاء خلفية جديدة',
     'background_phrases_details' => 'تفاصيل العبارات في الخلفية',
     'a_general_background_phrases_information' => 'معلومات عامة عن العبارات في الخلفية',
+
+    /***  group  ***/
+    'add_group' => 'إضافة مجموعة',
+    'create_new_group' => 'إنشاء مجموعة جديدة',
+    'a_general_group_phrases_information' => 'معلومات عامة عن عبارات المجموعة',
+    'create_group' => 'إنشاء مجموعة',
+    'update_group' => 'تحديث المجموعة',
+    'group_phrases_details' => 'تفاصيل عبارات المجموعة',
+
+    /***  remarks  ***/
+
+    'remarks_list' => 'قائمة الملاحظات',
+    'create_new_remark' => 'إنشاء ملاحظة جديدة',
+    'color' => 'لون',
+    'a_general_remark_phrases_information' => 'معلومات عامة عن عبارات الملاحظة',
+    'remark_phrases_details' => 'تفاصيل عبارات الملاحظة',
 
 
 

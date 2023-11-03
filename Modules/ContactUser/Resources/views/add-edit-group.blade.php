@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('page-title', __('app.group'))
-@section('page-heading', $edit ? $group->id : __('app.Create New group'))
+@section('page-heading', $edit ? $group->id : __('app.create_new_group'))
 
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -30,8 +30,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('group Phrases Details')"
-                :information="__('A general group Phrases information.')"
+                :title="__('app.group_phrases_details')"
+                :information="__('app.a_general_group_phrases_information')"
                 col="3"
             />
             <div class="col-md-9">
