@@ -199,7 +199,6 @@ class DataTableActions
     {
         return ($icon !== null)
             ? "<div class='flex items-center justify-center' style='color:$color'>"
-
                 . Blade::render('components.icons.social', [ 'icon' => $icon,  'size' => $size, ])
                 . "</div>"
             : '';

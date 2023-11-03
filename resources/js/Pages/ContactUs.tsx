@@ -5,7 +5,7 @@ import ContactForm from "../Components/ContactForm";
 
 export default function ContactUs({}: PropsWithChildren) {
   return (
-    <LandingLayout>
+    <LandingLayout className={'bg-gradient-to-tr from-pink-100 to-white'}>
       <Head title="Welcome"/>
 
       <div className={'mx-auto max-w-7xl'}>
@@ -18,11 +18,11 @@ export default function ContactUs({}: PropsWithChildren) {
             </h1>
           </div>
 
-          <div className={'grid grid-cols-1 md:grid-cols-2 gap-12 items-center'}>
+          <div className={'grid grid-cols-1 md:grid-cols-2 gap-12 items-start'}>
             {/*Header column*/}
-            <div className={'space-y-16'}>
+            <div className={'space-y-16 md:py-20 px-8 lg:px-16'}>
               <div className={'space-y-6'}>
-                <h2 className={'text-[4rem] text-[#2273AF] font-bold leading-snug'}>
+                <h2 className={'text-[2.5rem] text-[#2273AF] font-bold leading-snug'}>
                   {'Is Tekcard the right platform for your community?'}
                 </h2>
                 <p className={'text-[1.375rem] text-[#2273AF] font-normal leading-snug tracking-wide'}>
@@ -71,7 +71,7 @@ export default function ContactUs({}: PropsWithChildren) {
               </div>
             </div>
             {/*Form column*/}
-            <div className={'col-span-full md:col-span-1 py-20 px-16 bg-white rounded-3xl'}>
+            <div className={'col-span-full md:col-span-1 py-20 px-8 lg:px-16 bg-white rounded-3xl'}>
               <ContactForm></ContactForm>
             </div>
           </div>

@@ -1,26 +1,29 @@
-import { jsxs, jsx } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
-const Faq = ({ Faq: Faq2 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return /* @__PURE__ */ jsxs("div", { className: "w-full border-2 border-sky-400 rounded-lg overflow-hidden", children: [
-    /* @__PURE__ */ jsx(FaqHeader, { faq: Faq2, isOpen, setIsOpen }),
-    /* @__PURE__ */ jsx(FaqContent, { faq: Faq2, isOpen })
-  ] });
-};
-const FaqHeader = ({ faq, isOpen, setIsOpen }) => {
-  return /* @__PURE__ */ jsxs("div", { className: `w-full flex items-stretch ${isOpen ? "border-b-2 border-sky-400" : ""} `, children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex-grow px-10 py-6 flex items-center gap-10", children: [
-      /* @__PURE__ */ jsx("span", { className: "flex-shrink-0", children: faq.number }),
-      /* @__PURE__ */ jsx("p", { className: "flex-grow text-base font-semibold tracking-wide", children: faq.question })
-    ] }),
-    /* @__PURE__ */ jsx(FaqExpandButton, { faq, isOpen, setIsOpen })
-  ] });
-};
-const FaqContent = ({ faq, isOpen }) => {
-  return /* @__PURE__ */ jsx("div", { className: `${!isOpen ? "hidden" : ""} px-16 py-8`, children: /* @__PURE__ */ jsx("p", { className: "text-lg font-normal tracking-wide leading-10", children: faq.answer }) });
-};
-const FaqExpandButton = ({ faq, isOpen, setIsOpen }) => {
-  return /* @__PURE__ */ jsx("button", { onClick: (e) => setIsOpen(!isOpen), className: "flex-shrink-0 w-20 text-xl font-bold text-white bg-sky-400", children: isOpen ? /* @__PURE__ */ jsx("span", { children: `-` }) : /* @__PURE__ */ jsx("span", { children: `+` }) });
+import { jsx, jsxs } from "react/jsx-runtime";
+import { Fragment, useState, useEffect } from "react";
+import { Disclosure, Transition } from "@headlessui/react";
+const Faq = ({ faq }) => {
+  return /* @__PURE__ */ jsx(Disclosure, { children: /* @__PURE__ */ jsx(Disclosure.Panel, { static: true, as: Fragment, children: ({ open, close }) => /* @__PURE__ */ jsxs("div", { className: "w-full", children: [
+    /* @__PURE__ */ jsx(Disclosure.Button, { as: Fragment, children: /* @__PURE__ */ jsxs("div", { className: `w-full flex items-stretch border-t-2 border-l-2 border-r-2 ${!open ? "border-b-2 rounded-xl" : "rounded-t-xl"} border-indigo-500 overflow-hidden`, children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex-grow px-10 py-6 flex items-center gap-10", children: [
+        /* @__PURE__ */ jsx("span", { className: "flex-shrink-0", children: faq.number }),
+        /* @__PURE__ */ jsx("p", { className: "flex-grow text-base font-semibold tracking-wide", children: faq.question })
+      ] }),
+      /* @__PURE__ */ jsx("button", { className: "flex-shrink-0 w-20 text-xl font-bold text-white rounded-lg overflow-hidden bg-gradient-to-tr from-sky-400 to-indigo-500", children: open ? /* @__PURE__ */ jsx("span", { children: `-` }) : /* @__PURE__ */ jsx("span", { children: `+` }) })
+    ] }) }),
+    /* @__PURE__ */ jsx(
+      Transition,
+      {
+        show: open,
+        enter: "transition duration-300 ease-out",
+        enterFrom: "transform scale-95 opacity-0",
+        enterTo: "transform scale-100 opacity-100",
+        leave: "transition duration-200 ease-out",
+        leaveFrom: "transform scale-100 opacity-100",
+        leaveTo: "transform scale-95 opacity-0",
+        children: /* @__PURE__ */ jsx("div", { className: `px-16 py-8 border-b-2 border-l-2 border-r-2 ${!open ? " rounded-xl" : "rounded-b-xl"} border-indigo-500 overflow-hidden`, children: /* @__PURE__ */ jsx("p", { className: "text-lg font-normal tracking-wide leading-10", children: faq.answer }) })
+      }
+    )
+  ] }) }) });
 };
 const faqData = [
   {
@@ -127,11 +130,11 @@ const useFaqs = (locale) => {
   useEffect(() => {
     const data = fetchFaqs(locale);
     setFaqs(data);
-    console.log(data);
   }, [locale]);
   return { faqs };
 };
+const useFaqs$1 = useFaqs;
 export {
   Faq as F,
-  useFaqs as u
+  useFaqs$1 as u
 };
