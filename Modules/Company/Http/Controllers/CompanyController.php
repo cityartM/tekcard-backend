@@ -6,15 +6,31 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Modules\Company\Repositories\CompanyRepository;
+
 class CompanyController extends Controller
 {
+
+    private $company;
+
+    function __construct(CompanyRepository $company)
+    {
+        $this->company= $company;
+    }
+
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('company::index');
+        if ($request->wantsJson()) {
+            return $this->company->getDatatables()->datatables($request);
+        }
+        return view("company::index")->with([
+            "columns" => $this->company->getDatatables()::columns(),
+        ]);
     }
 
     /**

@@ -144,7 +144,7 @@ return [
         'Share' => 'Share',
         'Card' => 'Card',
     ],
-
+ 
 
     /*** Generale ***/
     'save' => 'Save',
@@ -182,6 +182,10 @@ return [
     'created at' => 'created at',
     'user_name' => 'User name',
     'Addresses' => 'Addresses',
+    'phone' => 'phone',
+    'bio' => 'bio',
+    'avatar' => 'avatar',
+    
 
     /*** Company ***/
     'companies' => 'Companies',
@@ -380,6 +384,7 @@ return [
     'companies' => 'companies',
     'users' => 'users',
     'groups' => 'groups',
+    'group' => 'group',
     'remarks' => 'remarks',
     'contacts' => 'contacts',
     'general' => 'general',
@@ -392,6 +397,10 @@ return [
     'plans' => 'plans',
     'features' => 'features',
     'color' => 'color',
+    'remark' => 'remark',
+    'user_contacts' => 'User Contacts',
+
+
 
     /*** plan ***/
     'plans' => 'Plans',
@@ -412,6 +421,14 @@ return [
     /*** features ***/
     'features_company' => 'Features Company',
     'features_client' => 'Features Client',
+    'add_feature' => 'Add Feature',
+    'save_feature' => 'Save Feature',
+    'update_feature' => 'Update Feature',
+    'add_feature' => 'Add Feature',
+    'feature_details' => 'Feature Details',
+    'general_feature_information' => 'General Feature Information',
+    'feature_name' => 'Feature Name',
+
 
     /***  feedback  ***/
     'feedback' => 'Feedback',
@@ -430,6 +447,8 @@ return [
     'subscriptions_list' => 'Subscriptions list',
     'email' => 'email',
     'subscriptions_date' => 'Subscriptions date',
+    'subscription' => 'subscription',
+    'subscription_list' => 'Subscription List',
 
 
     /***  blog  ***/
@@ -463,6 +482,7 @@ return [
     'icon_upload' => 'Icon upload',
     'update_setting_contact' => 'Update setting contact',
     'create_setting_contact' => 'Create setting contact',
+    'icon' => 'icon',
 
 
     /***  Addresses  ***/
@@ -473,6 +493,7 @@ return [
     'code' => 'code',
     'add_wilaya' => 'Add Wilaya',
     'add_country' => 'Add Country',
+    'Addresses' => 'Addresses',
 
 
      /***  tags  ***/
@@ -495,8 +516,21 @@ return [
 
      'update_background' => 'Update Background',
     ' create_background' =>  ' Create Background',
+ 
+      /***  groups  ***/
+      'add_group' => 'Add Group',
+      'create_new_group' => 'Create New Group',
+      'a_general_group_phrases_information' => 'A General Group Phrases Information',
+      'create_group' => 'Create Group',
+      'update_group' => 'Update Group',
+      'group_phrases_details' => 'Group Phrases Details',
 
-
+      /***  remarks  ***/
+      'remarks_list' => 'Remarks List',
+      'create_new_remark' => 'Create New Remark',
+      'color' => 'Color',
+      'a_general_remark_phrases_information' => 'A General Remark Phrases Information',
+      'remark_phrases_details' => 'Remark Phrases Details',
 
 
 

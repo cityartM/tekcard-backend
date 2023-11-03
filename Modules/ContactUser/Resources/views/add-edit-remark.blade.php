@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('page-title', __('app.remark'))
-@section('page-heading', $edit ? $remark->id : __('app.Create New remark'))
+@section('page-heading', $edit ? $remark->id : __('app.create_new_remark'))
 
 @section('breadcrumbs')
     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -30,8 +30,8 @@
     <div class="card-body">
         <div class="row">
             <x-card-left
-                :title="__('remark Phrases Details')"
-                :information="__('A general remark Phrases information.')"
+                :title="__('app.remark_phrases_details')"
+                :information="__('app.a_general_remark_phrases_information')"
                 col="3"
             />
               <div class="col-md-9">
