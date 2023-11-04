@@ -1,7 +1,7 @@
-import { jsxs, jsx, Fragment } from "react/jsx-runtime";
+import { jsxs, jsx } from "react/jsx-runtime";
 import { usePage, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
-import { u as useFaqs, F as Faq } from "./Faq-ae67d0e0.mjs";
+import { L as LandingLayout } from "./LandingLayout-26bef78b.mjs";
+import { u as useFaqs, F as Faq } from "./Faq-0fa63b7f.mjs";
 import "react";
 import "@headlessui/react";
 import "@heroicons/react/24/outline";
@@ -48,9 +48,16 @@ function AboutUs({}) {
         dangerouslySetInnerHTML: { __html: content.text }
       }
     ) }),
-    /* @__PURE__ */ jsx(Section, { className: "py-16 px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10 mx-auto max-w-2xl", children: [
+    /* @__PURE__ */ jsx(Section, { className: "py-16 px-6 lg:px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10 mx-auto max-w-2xl", children: [
       /* @__PURE__ */ jsx("div", { className: "mt-16 text-center text-7xl font-extrabold text-[#2273AF]", children: `Frequently Asked Questions` }),
-      /* @__PURE__ */ jsx(Fragment, { children: faqs && faqs.length > 0 && /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: faqs.map((faq) => /* @__PURE__ */ jsx(Faq, { faq }, faq.number)) }) })
+      /* @__PURE__ */ jsx("div", { className: "md:block hidden", children: faqs && faqs.length > 0 && /* @__PURE__ */ jsx("div", { className: "flex flex-col space-y-10", children: faqs.map((faq) => /* @__PURE__ */ jsx(Faq, { faq }, faq.number)) }) }),
+      /* @__PURE__ */ jsx("div", { className: "md:hidden block", children: faqs && faqs.length > 0 && /* @__PURE__ */ jsx("div", { className: "flex flex-col divide-y-2 divide-indigo-500", children: faqs.map((faq) => /* @__PURE__ */ jsxs("div", { className: "py-6 flex flex-col", children: [
+        /* @__PURE__ */ jsx("div", { className: `w-full flex items-stretch`, children: /* @__PURE__ */ jsxs("div", { className: "flex-grow px-10 py-6 flex items-center gap-6 rounded-xl bg-gradient-to-tr from-sky-100 to-indigo-200", children: [
+          /* @__PURE__ */ jsx("span", { className: "flex-shrink-0", children: faq.number }),
+          /* @__PURE__ */ jsx("p", { className: "flex-grow text-base font-semibold tracking-wide", children: faq.question })
+        ] }) }),
+        /* @__PURE__ */ jsx("div", { className: `px-8 py-8`, children: /* @__PURE__ */ jsx("p", { className: "text-lg font-normal tracking-wide leading-10", children: faq.answer }) })
+      ] }, faq.number)) }) })
     ] }) })
   ] });
 }

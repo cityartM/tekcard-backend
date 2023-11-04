@@ -3,6 +3,7 @@ import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
 import TextInput from "@/Components/Input";
 import ApplicationLogo from "@/Components/ApplicationLogo";
+import {ErrorBag, Errors, PageProps} from "@/types";
 
 /*const post: Post = {
   id: 1,
@@ -24,8 +25,9 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function BlogSingle({}: PropsWithChildren) {
 
-  const post: Post = usePage().props.post.data as Post;
-  const posts: Post[] = usePage().props.posts.data as Post[];
+  const props: PageProps<any> & { errors: Errors & ErrorBag, post: {data: Post}, posts: {data: Post[]}} = usePage().props;
+  const post: Post = props.post.data as Post;
+  const posts: Post[] = props.posts.data as Post[];
 
   console.log(post, posts)
 

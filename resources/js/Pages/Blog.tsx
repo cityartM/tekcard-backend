@@ -1,9 +1,11 @@
 import React, {PropsWithChildren} from 'react';
 import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
+import {ErrorBag, Errors, PageProps} from "@/types";
 
 export default function Blog({}: PropsWithChildren) {
-  const posts: Post[] = usePage().props.posts.data as Post[];
+  const props: PageProps<any> & { errors: Errors & ErrorBag, post: {data: Post}, posts: {data: Post[]}} = usePage().props;
+  const posts: Post[] = props.posts.data;
   return (
     <LandingLayout>
       <Head title="Welcome" />
@@ -83,7 +85,7 @@ const Section = ({children, className}: PropsWithChildren & {className?: string}
 
 type category = {title: string, href: string}
 type author = {name: string, role: string, href: string, imageUrl: string}
-type Post = {id: number, title: string, href: string, description: string, imageUrl: string, date: string, datetime: string, category: category, author: author}
+type Post = {id: number, title: string, href: string, description: string, thumbnail: string, date: string, datetime: string, category: category, author: author}
 
 
 const BlogPostCard = ({post}: PropsWithChildren & {className?: string, post: Post}) => {

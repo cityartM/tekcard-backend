@@ -2,24 +2,24 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import { Fragment, useState, useEffect } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 const Faq = ({ faq }) => {
-  return /* @__PURE__ */ jsx(Disclosure, { children: /* @__PURE__ */ jsx(Disclosure.Panel, { static: true, as: Fragment, children: ({ open, close }) => /* @__PURE__ */ jsxs("div", { className: "w-full", children: [
+  return /* @__PURE__ */ jsx(Disclosure, { children: /* @__PURE__ */ jsx(Disclosure.Panel, { static: true, as: Fragment, children: ({ open }) => /* @__PURE__ */ jsxs("div", { className: "w-full", children: [
     /* @__PURE__ */ jsx(Disclosure.Button, { as: Fragment, children: /* @__PURE__ */ jsxs("div", { className: `w-full flex items-stretch border-t-2 border-l-2 border-r-2 ${!open ? "border-b-2 rounded-xl" : "rounded-t-xl"} border-indigo-500 overflow-hidden`, children: [
       /* @__PURE__ */ jsxs("div", { className: "flex-grow px-10 py-6 flex items-center gap-10", children: [
         /* @__PURE__ */ jsx("span", { className: "flex-shrink-0", children: faq.number }),
         /* @__PURE__ */ jsx("p", { className: "flex-grow text-base font-semibold tracking-wide", children: faq.question })
       ] }),
-      /* @__PURE__ */ jsx("button", { className: "flex-shrink-0 w-20 text-xl font-bold text-white rounded-lg overflow-hidden bg-gradient-to-tr from-sky-400 to-indigo-500", children: open ? /* @__PURE__ */ jsx("span", { children: `-` }) : /* @__PURE__ */ jsx("span", { children: `+` }) })
+      /* @__PURE__ */ jsx("button", { className: "flex-shrink-0 w-20 text-xl font-bold text-white rounded-lg overflow-hidden bg-gradient-to-tr from-sky-400 to-indigo-500", children: /* @__PURE__ */ jsx("span", { children: open ? `-` : `+` }) })
     ] }) }),
     /* @__PURE__ */ jsx(
       Transition,
       {
         show: open,
         enter: "transition duration-300 ease-out",
-        enterFrom: "transform scale-95 opacity-0",
-        enterTo: "transform scale-100 opacity-100",
-        leave: "transition duration-200 ease-out",
-        leaveFrom: "transform scale-100 opacity-100",
-        leaveTo: "transform scale-95 opacity-0",
+        enterFrom: "transform -translate-y-1/4 opacity-0",
+        enterTo: "transform translate-y-0 opacity-100",
+        leave: "transition duration-100 ease-out",
+        leaveFrom: "transform translate-y-0 opacity-100",
+        leaveTo: "transform -translate-y-1/4 opacity-0",
         children: /* @__PURE__ */ jsx("div", { className: `px-16 py-8 border-b-2 border-l-2 border-r-2 ${!open ? " rounded-xl" : "rounded-b-xl"} border-indigo-500 overflow-hidden`, children: /* @__PURE__ */ jsx("p", { className: "text-lg font-normal tracking-wide leading-10", children: faq.answer }) })
       }
     )

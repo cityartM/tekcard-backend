@@ -1,31 +1,20 @@
 import { jsxs, jsx } from "react/jsx-runtime";
-import { Head } from "@inertiajs/react";
-import { L as LandingLayout, A as ApplicationLogo } from "./LandingLayout-d7c2bf56.mjs";
+import { usePage, Head } from "@inertiajs/react";
+import { L as LandingLayout, A as ApplicationLogo } from "./LandingLayout-26bef78b.mjs";
 import { T as TextInput } from "./Input-15127deb.mjs";
 import "react";
 import "@headlessui/react";
 import "@heroicons/react/24/outline";
-const post = {
-  id: 1,
-  title: "Boost your conversion rate",
-  href: "#",
-  description: "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-  imageUrl: "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-  date: "Mar 16, 2020",
-  datetime: "2020-03-16",
-  category: { title: "Marketing", href: "#" },
-  author: {
-    name: "Michael Foster",
-    role: "Co-Founder / CTO",
-    href: "#",
-    imageUrl: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-  }
-};
 function BlogSingle({}) {
+  const props = usePage().props;
+  const post = props.post.data;
+  const posts2 = props.posts.data;
+  console.log(post, posts2);
   return /* @__PURE__ */ jsxs(LandingLayout, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
-    /* @__PURE__ */ jsxs(Section, { children: [
+    post && /* @__PURE__ */ jsxs(Section, { children: [
       /* @__PURE__ */ jsx("div", { className: "mt-16 text-center text-7xl font-extrabold text-[#2273AF]", children: post.title }),
+      /* @__PURE__ */ jsx("img", { src: post.thumbnail, alt: "", className: "mt-16 w-full rounded-xl bg-gray-50 object-cover" }),
       /* @__PURE__ */ jsxs("div", { className: "relative w-full grid grid-cols-1 lg:grid-cols-7 gap-10", children: [
         /* @__PURE__ */ jsx("div", { className: "mt-16 lg:mt-20 col-span-full lg:col-span-5 max-w-5xl", children: /* @__PURE__ */ jsx(BlogPostContent, { post }) }),
         /* @__PURE__ */ jsxs("div", { className: "mt-16 lg:mt-20 col-span-full lg:col-span-2 flex-shrink-0 max-w-xl", children: [
@@ -35,76 +24,27 @@ function BlogSingle({}) {
               id: "search",
               type: "text",
               placeholder: "Search",
-              value: ""
+              value: "",
+              onChange: (event) => {
+              }
             }
           ) }),
-          /* @__PURE__ */ jsx(PostList, { posts })
+          /* @__PURE__ */ jsx(PostList, { posts: posts2 })
         ] })
       ] })
     ] })
   ] });
 }
-const posts = [
-  {
-    id: 1,
-    title: "Boost your conversion rate",
-    href: "#",
-    description: "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-    }
-  },
-  {
-    id: 2,
-    title: "Boost your conversion rate",
-    href: "#",
-    description: "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-    }
-  },
-  {
-    id: 3,
-    title: "Boost your conversion rate",
-    href: "#",
-    description: "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-    category: { title: "Marketing", href: "#" },
-    author: {
-      name: "Michael Foster",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-    }
-  }
-  // More posts...
-];
 const Section = ({ children, className }) => {
   return /* @__PURE__ */ jsx("div", { className: `min-h-screen h-full flex flex-col ${className}`, children: /* @__PURE__ */ jsx("div", { className: "flex-1 py-24 mx-auto max-w-7xl w-full min-h-full", children }) });
 };
 const PostList = ({ posts: posts2 }) => {
-  return /* @__PURE__ */ jsx("div", { className: "space-y-8 lg:space-y-10", children: posts2.map((post2) => /* @__PURE__ */ jsxs("article", { className: "relative isolate flex flex-col gap-8 lg:flex-row", children: [
+  return /* @__PURE__ */ jsx("div", { className: "space-y-8 lg:space-y-10", children: posts2.map((post) => /* @__PURE__ */ jsxs("article", { className: "relative isolate flex flex-col gap-8 lg:flex-row", children: [
     /* @__PURE__ */ jsxs("div", { className: "relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-24 lg:shrink-0", children: [
       /* @__PURE__ */ jsx(
         "img",
         {
-          src: post2.imageUrl,
+          src: post.thumbnail,
           alt: "",
           className: "absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
         }
@@ -113,54 +53,54 @@ const PostList = ({ posts: posts2 }) => {
     ] }),
     /* @__PURE__ */ jsxs("div", { children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-x-4 text-xs", children: [
-        /* @__PURE__ */ jsx("time", { dateTime: post2.datetime, className: "text-gray-500", children: post2.date }),
+        /* @__PURE__ */ jsx("time", { dateTime: post.datetime, className: "text-gray-500", children: post.date }),
         /* @__PURE__ */ jsx(
           "a",
           {
-            href: post2.category.href,
+            href: post.category.href,
             className: "relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100",
-            children: post2.category.title
+            children: post.category.title
           }
         )
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "group relative max-w-xl", children: [
-        /* @__PURE__ */ jsx("h3", { className: "mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600", children: /* @__PURE__ */ jsxs("a", { href: post2.href, children: [
+        /* @__PURE__ */ jsx("h3", { className: "mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600", children: /* @__PURE__ */ jsxs("a", { href: post.href, children: [
           /* @__PURE__ */ jsx("span", { className: "absolute inset-0" }),
-          post2.title
+          post.title
         ] }) }),
-        /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-6 text-gray-600 line-clamp-1", children: post2.description })
+        /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-6 text-gray-600 line-clamp-1", children: post.description })
       ] })
     ] })
-  ] }, post2.id)) });
+  ] }, post.id)) });
 };
-const BlogPostContent = ({ post: post2 }) => {
+const BlogPostContent = ({ post }) => {
   return /* @__PURE__ */ jsxs("div", { className: "relative w-full", children: [
     /* @__PURE__ */ jsx("figure", { className: "", children: /* @__PURE__ */ jsx(
       "img",
       {
         className: "aspect-video rounded-xl bg-gray-50 object-cover",
-        src: post2.imageUrl,
+        src: post.thumbnail,
         alt: ""
       }
     ) }),
     /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("h1", { className: "mt-10 text-3xl font-bold tracking-tight text-[#2273AF] sm:text-4xl", children: post2.title }),
+      /* @__PURE__ */ jsx("h1", { className: "mt-10 text-3xl font-bold tracking-tight text-[#2273AF] sm:text-4xl", children: post.title }),
       /* @__PURE__ */ jsxs("div", { className: "mt-10 flex justify-between items-center", children: [
         /* @__PURE__ */ jsx(ApplicationLogo, { className: "h-6 w-auto sm:h-8" }),
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-x-4 text-sm", children: [
-          /* @__PURE__ */ jsx("time", { dateTime: post2.datetime, className: "text-gray-500", children: post2.date }),
+          /* @__PURE__ */ jsx("time", { dateTime: post.datetime, className: "text-gray-500", children: post.date }),
           /* @__PURE__ */ jsx(
             "a",
             {
-              href: post2.category.href,
+              href: "post.category.href",
               className: "relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100",
-              children: post2.category.title
+              children: "post.category.title"
             }
           )
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "mt-10 prose-lg prose-stone", children: /* @__PURE__ */ jsx("p", { children: post2.description }) }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 prose-lg prose-stone", dangerouslySetInnerHTML: { __html: post.content } }),
     /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "mt-10 flex justify-between items-center", children: [
       /* @__PURE__ */ jsx("div", { className: "text-3xl font-bold tracking-tight text-[#2273AF] sm:text-4xl", children: "Share" }),
       /* @__PURE__ */ jsx("div", { className: "flex items-center gap-x-4 text-sm", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-6", children: [

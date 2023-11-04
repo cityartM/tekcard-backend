@@ -1,6 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useForm, Head } from "@inertiajs/react";
-import { L as LandingLayout } from "./LandingLayout-d7c2bf56.mjs";
+import { L as LandingLayout } from "./LandingLayout-26bef78b.mjs";
 import { I as InputLabel, T as TextArea, a as InputError } from "./InputError-fd9726b2.mjs";
 import { T as TextInput } from "./Input-15127deb.mjs";
 import "react";
@@ -99,14 +99,14 @@ const ContactForm = ({}) => {
 };
 const ContactForm$1 = ContactForm;
 function ContactUs({}) {
-  return /* @__PURE__ */ jsxs(LandingLayout, { children: [
+  return /* @__PURE__ */ jsxs(LandingLayout, { className: "bg-gradient-to-tr from-pink-100 to-white", children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
     /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl", children: /* @__PURE__ */ jsxs("div", { className: "py-28 space-y-20", children: [
       /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx("h1", { className: "text-center text-[4rem] text-[#2273AF] font-bold leading-snug", children: "Contact Us" }) }),
-      /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-12 items-center", children: [
-        /* @__PURE__ */ jsxs("div", { className: "space-y-16", children: [
+      /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-12 items-start", children: [
+        /* @__PURE__ */ jsxs("div", { className: "space-y-16 md:py-20 px-8 lg:px-16", children: [
           /* @__PURE__ */ jsxs("div", { className: "space-y-6", children: [
-            /* @__PURE__ */ jsx("h2", { className: "text-[4rem] text-[#2273AF] font-bold leading-snug", children: "Is Tekcard the right platform for your community?" }),
+            /* @__PURE__ */ jsx("h2", { className: "text-[2.5rem] text-[#2273AF] font-bold leading-snug", children: "Is Tekcard the right platform for your community?" }),
             /* @__PURE__ */ jsx("p", { className: "text-[1.375rem] text-[#2273AF] font-normal leading-snug tracking-wide", children: "Just answer a few questions so that we can personalize the right experience for you." })
           ] }),
           /* @__PURE__ */ jsxs("div", { className: "px-8 divide-y devide-[#CFCFCF] bg-white rounded-3xl shadow-2xl", children: [
@@ -165,7 +165,7 @@ function ContactUs({}) {
             ] }) })
           ] })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "col-span-full md:col-span-1 py-20 px-16 bg-white rounded-3xl", children: /* @__PURE__ */ jsx(ContactForm$1, {}) })
+        /* @__PURE__ */ jsx("div", { className: "col-span-full md:col-span-1 py-20 px-8 lg:px-16 bg-white rounded-3xl", children: /* @__PURE__ */ jsx(ContactForm$1, {}) })
       ] })
     ] }) })
   ] });
