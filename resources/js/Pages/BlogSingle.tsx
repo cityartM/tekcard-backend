@@ -1,18 +1,16 @@
 import React, {PropsWithChildren} from 'react';
-import { Head } from '@inertiajs/react';
+import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
-import InputLabel from "@/Components/Label";
 import TextInput from "@/Components/Input";
-import InputError from "@/Components/InputError";
-import {InformationCircleIcon} from "@heroicons/react/20/solid";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 
-const post: Post = {
+/*const post: Post = {
   id: 1,
   title: 'Boost your conversion rate',
   href: '#',
   description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-  imageUrl: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+  content: '<p>Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>\r\n<p style="text-align: left;">&nbsp;<\/p>\r\n<p style="text-align: left;"><img src="https://images.unsplash.com/photo-1682687982470-8f1b0e79151a?auto=format&amp;fit=crop&amp;q=60&amp;w=800&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8" alt="fsdfdsfs" width="772" height="162" /></p>',
+  thumbnail: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
   date: 'Mar 16, 2020',
   datetime: '2020-03-16',
   category: { title: 'Marketing', href: '#' },
@@ -22,35 +20,45 @@ const post: Post = {
     href: '#',
     imageUrl: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
-}
+}*/
 
 export default function BlogSingle({}: PropsWithChildren) {
+
+  const post: Post = usePage().props.post.data as Post;
+  const posts: Post[] = usePage().props.posts.data as Post[];
+
+  console.log(post, posts)
+
   return (
     <LandingLayout>
       <Head title="Welcome" />
-      <Section>
-        <div className={'mt-16 text-center text-7xl font-extrabold text-[#2273AF]'}>{post.title}</div>
+      {post && (
+        <Section>
+          <div className={'mt-16 text-center text-7xl font-extrabold text-[#2273AF]'}>{post.title}</div>
+          <img src={post.thumbnail} alt="" className="mt-16 w-full rounded-xl bg-gray-50 object-cover" />
 
-        <div className="relative w-full grid grid-cols-1 lg:grid-cols-7 gap-10">
-          <div className={'mt-16 lg:mt-20 col-span-full lg:col-span-5 max-w-5xl'}>
-            <BlogPostContent post={post} />
-          </div>
-
-          <div className={'mt-16 lg:mt-20 col-span-full lg:col-span-2 flex-shrink-0 max-w-xl'}>
-            <div className={'mb-10 flex flex-col space-y-4'}>
-              <TextInput
-                id={'search'}
-                type={'text'}
-                placeholder={'Search'}
-                value={''}
-              />
-              {/*{errors && <InputError message={errors}/>}*/}
+          <div className="relative w-full grid grid-cols-1 lg:grid-cols-7 gap-10">
+            <div className={'mt-16 lg:mt-20 col-span-full lg:col-span-5 max-w-5xl'}>
+              <BlogPostContent post={post} />
             </div>
-            <PostList posts={posts} />
-          </div>
-        </div>
 
-      </Section>
+            <div className={'mt-16 lg:mt-20 col-span-full lg:col-span-2 flex-shrink-0 max-w-xl'}>
+              <div className={'mb-10 flex flex-col space-y-4'}>
+                <TextInput
+                  id={'search'}
+                  type={'text'}
+                  placeholder={'Search'}
+                  value={''}
+                  onChange={(event) => {}}
+                />
+                {/*{errors && <InputError message={errors}/>}*/}
+              </div>
+              <PostList posts={posts} />
+            </div>
+          </div>
+
+        </Section>
+      )}
     </LandingLayout>
   );
 }
@@ -62,7 +70,8 @@ const posts: Post[] = [
     href: '#',
     description:
       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-    imageUrl:
+    content: '<p style="text-align: left;">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>\r\n<p style="text-align: left;">&nbsp;<\/p>\r\n<p style="text-align: left;"><img src="https://images.unsplash.com/photo-1682687982470-8f1b0e79151a?auto=format&amp;fit=crop&amp;q=60&amp;w=800&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8" alt="fsdfdsfs" width="772" height="162" /></p>',
+    thumbnail:
       'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
@@ -79,7 +88,8 @@ const posts: Post[] = [
     title: 'Boost your conversion rate',
     href: '#',
     description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-    imageUrl: 'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
+    content: "",
+    thumbnail: 'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
     category: { title: 'Marketing', href: '#' },
@@ -95,7 +105,8 @@ const posts: Post[] = [
     title: 'Boost your conversion rate',
     href: '#',
     description: 'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-    imageUrl: 'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
+    content: "",
+    thumbnail: 'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
     date: 'Mar 16, 2020',
     datetime: '2020-03-16',
     category: { title: 'Marketing', href: '#' },
@@ -121,7 +132,7 @@ const Section = ({children, className}: PropsWithChildren & {className?: string}
 
 type category = {title: string, href: string}
 type author = {name: string, role: string, href: string, imageUrl: string}
-type Post = {id: number, title: string, href: string, description: string, imageUrl: string, date: string, datetime: string, category: category, author: author}
+type Post = {id: number, title: string, href: string, description: string, content: string | TrustedHTML, thumbnail: string, date: string, datetime: string, category: category, author: author}
 
 const PostList = ({posts}: PropsWithChildren & {className?: string, posts: Post[]}) => {
   return (
@@ -130,7 +141,7 @@ const PostList = ({posts}: PropsWithChildren & {className?: string, posts: Post[
         <article key={post.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
           <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-24 lg:shrink-0">
             <img
-              src={post.imageUrl}
+              src={post.thumbnail}
               alt=""
               className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
             />
@@ -170,7 +181,7 @@ const BlogPostContent = ({post}: PropsWithChildren & {className?: string, post: 
       <figure className="">
         <img
           className="aspect-video rounded-xl bg-gray-50 object-cover"
-          src={post.imageUrl}
+          src={post.thumbnail}
           alt=""
         />
       </figure>
@@ -183,17 +194,15 @@ const BlogPostContent = ({post}: PropsWithChildren & {className?: string, post: 
               {post.date}
             </time>
             <a
-              href={post.category.href}
+              href={"post.category.href"}
               className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
             >
-              {post.category.title}
+              {"post.category.title"}
             </a>
           </div>
         </div>
       </div>
-      <div className="mt-10 prose-lg prose-stone">
-        <p>{post.description}</p>
-      </div>
+      <div className="mt-10 prose-lg prose-stone" dangerouslySetInnerHTML={{__html: post.content}} />
       <div>
         <div className="mt-10 flex justify-between items-center">
           <div className="text-3xl font-bold tracking-tight text-[#2273AF] sm:text-4xl">Share</div>

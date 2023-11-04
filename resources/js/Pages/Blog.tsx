@@ -1,22 +1,23 @@
 import React, {PropsWithChildren} from 'react';
-import { Head } from '@inertiajs/react';
+import {Head, usePage} from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
 
 export default function Blog({}: PropsWithChildren) {
-    return (
-        <LandingLayout>
-            <Head title="Welcome" />
-            <Section>
-              <div className={'mt-16 text-center text-7xl font-extrabold text-[#2273AF]'}>Blog</div>
+  const posts: Post[] = usePage().props.posts.data as Post[];
+  return (
+    <LandingLayout>
+      <Head title="Welcome" />
+      <Section>
+        <div className={'mt-16 text-center text-7xl font-extrabold text-[#2273AF]'}>Blog</div>
 
-              <PostGrid posts={posts} />
+        <PostGrid posts={posts} />
 
-            </Section>
-        </LandingLayout>
-    );
+      </Section>
+    </LandingLayout>
+  );
 }
 
-const posts: Post[] = [
+/*const posts: Post[] = [
   {
     id: 1,
     title: 'Boost your conversion rate',
@@ -68,7 +69,7 @@ const posts: Post[] = [
     },
   },
   // More posts...
-]
+]*/
 
 const Section = ({children, className}: PropsWithChildren & {className?: string}) => {
   return (
@@ -90,7 +91,7 @@ const BlogPostCard = ({post}: PropsWithChildren & {className?: string, post: Pos
     <article key={post.id} className="flex flex-col items-start justify-between">
       <div className="relative w-full">
         <img
-          src={post.imageUrl}
+          src={post.thumbnail}
           alt=""
           className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
         />

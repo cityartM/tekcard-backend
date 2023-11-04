@@ -29,7 +29,7 @@ class Blog extends Model implements HasMedia
 
     public function tags()
     {
-        return  Tag::whereIn('id', $this->tag_ids)->get();
+        return Tag::whereIn('id', $this->tag_ids)->get();
     }
 
 }

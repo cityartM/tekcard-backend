@@ -15,17 +15,19 @@ Route::get('/about-us', function () {
 })->name('landing.about-us');
 
 Route::get('/our-blog', function () {
-    return Inertia::render('Blog');
+    $latestPosts = Blog::with('media')->orderByDesc('created_at')->paginate(4);
+    return Inertia::render('Blog', [
+        "posts" => \Modules\Blog\Http\Resources\PostResource::collection($latestPosts),
+    ]);
 })->name('landing.blog');
 
-Route::get('/our-blog/{blog}', function ($blog) {
-    $blogPost = Blog::with('media')->findOrFail($blog);
+Route::get('/our-blog/{blog}', function (Blog $blog) {
 
     $latestPosts = Blog::with('media')->orderByDesc('created_at')->paginate(4);
 
     return Inertia::render('BlogSingle', [
-        "post"  => $blogPost,
-        "posts" => $latestPosts,
+        "post"  => new \Modules\Blog\Http\Resources\PostResource($blog),
+        "posts" => \Modules\Blog\Http\Resources\PostResource::collection($latestPosts),
     ]);
 })->name('landing.blog.show');
 
