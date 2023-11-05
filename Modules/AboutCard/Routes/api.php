@@ -14,6 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::apiResource('aboutcards', 'AboutCardApiController');
-    //Route::put('plans/reset', 'PlanApiController@reset');
+    Route::apiResource('aboutCards', 'AboutCardApiController');
 });

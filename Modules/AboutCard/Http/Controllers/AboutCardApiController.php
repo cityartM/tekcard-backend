@@ -36,12 +36,10 @@ class AboutCardApiController extends ApiController
     {
         $aboutCards = AboutCard::all();
 
-        $aboutCardsResource = AboutCardResource::collection($aboutCards);
-
         return $this->respondWithSuccess([
-            'aboutCard' => $aboutCardsResource,
+            'aboutCard' => AboutCardResource::collection($aboutCards),
         ],  'aboutCard request created successfully.',200);
     }
 
-    
+
 }

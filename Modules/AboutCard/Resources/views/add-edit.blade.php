@@ -57,7 +57,7 @@
                                 <x-fields.text-field
                                     :title="__('app.short_description')"
                                     name="description"
-                                    col="6"
+                                    col="12"
                                     type="text"
                                     required
                                     class="mt-5"
@@ -67,11 +67,11 @@
                                 />
                             </div>
                             <br>
-                            
-                        </div> 
+
+                        </div>
                     @endforeach
                 </x-languages-tab>
-               
+
 
                 <x-input-field
                     :title="__('app.image_upload')"
@@ -84,7 +84,7 @@
                     :model=" $edit ? $aboutCard : null "
                 />
 
-                
+
 
             </div>
 

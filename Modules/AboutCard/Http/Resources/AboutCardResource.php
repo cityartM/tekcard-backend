@@ -21,6 +21,7 @@ class AboutCardResource extends JsonResource
             'id' => (int) $this->id,
             'title' => $this->title,
             'description' =>  $this->description,
+            'image' =>  $this->getFirstMediaUrl('about_card'),
         ];
     }
 

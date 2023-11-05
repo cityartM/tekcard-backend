@@ -19,7 +19,7 @@
             <!--begin:Menu sub-->
             <div class="menu-sub menu-sub-accordion">
                 @foreach ($item->children() as $key => $child)
-                    @if($key <= 3)
+                    @if($key <= 6)
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{ str_replace('#', '', $child->getHref()) }}" id="{{ str_replace('#', '', $child->getHref()) }}">
@@ -32,26 +32,26 @@
                         </div>
                     @endif
                 @endforeach
-                    <div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse">
+                <div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse_{{$item->getTitle()}}">
                     @foreach ($item->children() as $key => $child)
-                        @if($key > 3)
+                        @if($key > 6)
                           <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ str_replace('#', '', $child->getHref()) }}" id="{{ str_replace('#', '', $child->getHref()) }}">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                            <span class="menu-title">{{$child->getTitle()}}</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
+                                <!--begin:Menu link-->
+                                <a class="menu-link" href="{{ str_replace('#', '', $child->getHref()) }}" id="{{ str_replace('#', '', $child->getHref()) }}">
+                                                                <span class="menu-bullet">
+                                                                    <span class="bullet bullet-dot"></span>
+                                                                </span>
+                                    <span class="menu-title">{{$child->getTitle()}}</span>
+                                </a>
+                                <!--end:Menu link-->
+                          </div>
                         @endif
                     @endforeach
                     </div>
-                @if($key > 3)
+                @if($key > 6)
                      <div class="menu-item">
                         <div class="menu-content">
-                            <a class="btn btn-flex btn-color-primary d-flex flex-stack fs-base p-0 ms-2 mb-2 toggle collapsible collapsed" data-bs-toggle="collapse" href="#kt_app_sidebar_menu_dashboards_collapse" data-kt-toggle-text="Show Less">
+                            <a class="btn btn-flex btn-color-primary d-flex flex-stack fs-base p-0 ms-2 mb-2 toggle collapsible collapsed" data-bs-toggle="collapse" href="#kt_app_sidebar_menu_dashboards_collapse_{{$item->getTitle()}}" data-kt-toggle-text="Show Less">
                                 <span data-kt-toggle-text-target="true">Show More</span>
                                 <i class="ki-duotone ki-minus-square toggle-on fs-2 me-0">
                                     <span class="path1"></span>
