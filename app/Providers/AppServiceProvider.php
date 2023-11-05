@@ -68,6 +68,9 @@ use Modules\Background\Repositories\BackgroundRepository;
 use Modules\ContactUser\Repositories\UserContactRepository;
 use Modules\ContactUser\Repositories\EloquentUserContact;
 
+use Modules\AboutCard\Repositories\AboutCardRepository;
+use Modules\AboutCard\Repositories\EloquentAboutCard;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -90,6 +93,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(SettingContactRepository::class, EloquentSettingContact::class);
         $this->app->singleton(BackgroundRepository::class, EloquentBackground::class);
         $this->app->singleton(UserContactRepository::class, EloquentUserContact::class);
+        $this->app->singleton(AboutCardRepository::class, EloquentAboutCard::class);
 
     }
 

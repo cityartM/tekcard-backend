@@ -41,7 +41,11 @@ class Settings extends Plugin
             ->route('backgrounds.index')
             ->active("settings")
             ->permissions('backgrounds.manage');
-       
+            
+        $settingAboutCard = Item::create(__('app.aboutcard'))
+            ->route('aboutCards.index')
+            ->active("settings")
+            ->permissions('aboutcards.manage');
 
         return Item::create(__('app.settings'))
             ->href('#settings-dropdown')
@@ -52,6 +56,7 @@ class Settings extends Plugin
                 $settingContacts,
                 $settingTags,
                 $settingBackground,
+                $settingAboutCard
                 //$authAndRegistration,
                 //$notifications,
             ]);
