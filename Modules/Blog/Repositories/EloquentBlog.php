@@ -28,7 +28,7 @@ class EloquentBlog implements BlogRepository
 
     public function index()
     {
-        return Blog::all();;
+        return Blog::all();
     }
 
     /**

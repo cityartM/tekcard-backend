@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import {ReviewType} from "@/types/review";
+
 import reviewsData from '../../assets/reviews.json';
-import {ReviewType} from "../types/review";
 
 const fetchReviews = (locale: string) => {
     const reviews = reviewsData.find((item) => item.locale === locale);

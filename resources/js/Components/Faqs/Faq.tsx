@@ -1,12 +1,12 @@
 import React, {Fragment, PropsWithChildren} from "react";
-import {FaqContentProps, FaqExpandButtonProps, FaqHeaderProps, FaqType} from "@/types/faq";
+import {FaqType} from "@/types/faq";
 import {Disclosure, Transition} from "@headlessui/react";
 
 const Faq: React.FC<PropsWithChildren & {faq: FaqType}> = ({faq}) => {
   return (
     <Disclosure>
       <Disclosure.Panel static as={Fragment}>
-        { ({open, close}) => (
+        { ({open}) => (
           <div className="w-full">
             <Disclosure.Button as={Fragment}>
               <div className={`w-full flex items-stretch border-t-2 border-l-2 border-r-2 ${(!open ? 'border-b-2 rounded-xl' : 'rounded-t-xl')} border-indigo-500 overflow-hidden`}>
@@ -23,26 +23,22 @@ const Faq: React.FC<PropsWithChildren & {faq: FaqType}> = ({faq}) => {
             </Disclosure.Button>
             <Transition
               show={open}
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-y-75 opacity-0"
-              enterTo="transform scale-y-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-y-100 opacity-100"
-              leaveTo="transform scale-y-75 opacity-0"
+              enter="transition duration-300 ease-out"
+              enterFrom="transform -translate-y-1/4 opacity-0"
+              enterTo="transform translate-y-0 opacity-100"
+              leave="transition duration-100 ease-out"
+              leaveFrom="transform translate-y-0 opacity-100"
+              leaveTo="transform -translate-y-1/4 opacity-0"
             >
               <div className={`px-16 py-8 border-b-2 border-l-2 border-r-2 ${!open ? ' rounded-xl' : 'rounded-b-xl'} border-indigo-500 overflow-hidden`}>
                 <p className={'text-lg font-normal tracking-wide leading-10'}>{faq.answer}</p>
               </div>
             </Transition>
           </div>
-        )}
-
+        ) }
       </Disclosure.Panel>
     </Disclosure>
   )
 }
 
-
-export {
-  Faq,
-}
+export { Faq }
