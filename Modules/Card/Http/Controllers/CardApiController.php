@@ -63,6 +63,8 @@ class CardApiController extends ApiController
 
         $card = Card::create($data);
 
+        $card->cardApps()->attach($request->card_apps);
+
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
         ], 'Card created successfully', 200);
