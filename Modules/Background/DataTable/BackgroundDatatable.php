@@ -15,8 +15,8 @@ class BackgroundDatatable
     public static function columns(): array
     {
         return [
-            'type',
             'background',
+            'type',
             'created_at',
         ];
     }

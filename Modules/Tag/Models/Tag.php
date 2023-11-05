@@ -4,47 +4,23 @@ namespace Modules\Tag\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Blog\Models\Blog;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HasGoogleTranslationTrait;
+use Staudenmeir\EloquentJsonRelations\Relations\HasManyJson;
 
 class Tag extends Model
 {
     use HasFactory ,HasTranslations;
 
-    protected $table = 'tags'; 
+    protected $table = 'tags';
 
-    protected $fillable = ['name']; 
+    protected $fillable = ['name'];
 
     protected $casts = [
         'name' => 'json',
     ];
-    
+
     protected array $translatable = ['name'];
 
-
-    public function getJsonNameAttribute($value)
-    {
-        $name = $this->getTranslations('name');
-        $currentLocale = Helper::checkApiLanguage(); // You may need to adjust this line
-        $result = [];
-        if ($name != null) {
-            foreach ($name as $translation) {
-                foreach ($translation as $locale => $trans) {
-                    if ($locale == $currentLocale) {
-                        $result[] = $trans;
-                    }
-                }
-            }
-            return $result;
-        } else {
-            return $name;
-        }
-    }
-
-
-
-    protected static function newFactory()
-    {
-        return \Modules\Tag\Database\factories\TagFactory::new();
-    }
 }

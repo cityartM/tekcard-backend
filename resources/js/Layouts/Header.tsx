@@ -76,9 +76,9 @@ const HeaderElement: React.FC<PropsWithChildren & {className?: string}> = ({clas
 
   useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 0) {
-        setHeaderClass('bg-sky-200/90 transition-bg');
-        setHeaderShadow('shadow-lg shadow-sky-200 transition-shadow');
+      if (window.scrollY > 30) {
+        setHeaderClass('bg-white transition-bg');
+        setHeaderShadow('shadow-md transition-shadow');
         setHeaderFixed('fixed');
       } else {
         setHeaderClass('bg-transparent transition-bg');

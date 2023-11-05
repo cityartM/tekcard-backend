@@ -10,6 +10,7 @@ use Modules\Feature\Database\Seeders\FeatureDatabaseSeeder;
 use Modules\GlobalSetting\Database\Seeders\GlobalSettingDatabaseSeeder;
 use Modules\Plan\Database\Seeders\PlanDatabaseSeeder;
 use Modules\Strategy\Database\Seeders\StrategyDatabaseSeeder;
+use Modules\Tag\Database\Seeders\TagDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,8 +32,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RemarkDatabaseSeeder::class);
         $this->call(GroupDatabaseSeeder::class);
         $this->call(GlobalSettingDatabaseSeeder::class);
-        $this->call(BlogDatabaseSeeder::class);
         $this->call(FeatureDatabaseSeeder::class);
+        $this->call(TagDatabaseSeeder::class);
+        $this->call(BlogDatabaseSeeder::class);
         Model::reguard();
     }
 }

@@ -73,17 +73,18 @@
                                 {{ old("text.{$locale}", isset($model) ? $model->getTranslationWithFallback('text', $locale) : ($edit ? $blog->text : null)) }}
                             </textarea>
                 </div>
-                        </div> 
+                        </div>
                     @endforeach
                 </x-languages-tab>
                 <x-select-field
                     :title="__('app.type')"
-                    name="type"
+                    name="tag_ids"
                     col="12"
                     class="mb-2"
                     required
-                    :data="$tags"
+                    :data="collect(Modules\Tag\Models\Tag::pluck('name','id'))"
                     :model="$edit ? $blog : null "
+                    :multidata="$edit ? collect($blog->tags()->pluck('name', 'id')) : null"
                     :isselect2="true"
                     multi=true
                 />
@@ -102,8 +103,8 @@
                 <x-input-field
                     :title="__('app.image_upload')"
                     type="file"
-                    name="tumail"
-                    accept="tumail/*"
+                    name="thumbnail"
+                    accept="thumbnail/*"
                     col="12"
                     row="3"
                     class="mb-2 mt-5"

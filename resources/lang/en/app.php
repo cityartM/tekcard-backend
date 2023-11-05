@@ -104,22 +104,22 @@ return [
     ],
 
     'categories' => [
-        'technical' => 'Technical',
-        'lifestyle' => 'Lifestyle',
-        'travel' => 'Travel',
-        'food' => 'Food',
-        'fashion' => 'Fashion',
-        'health' => 'Health',
-        'entertainment' => 'Entertainment',
-        'sports' => 'Sports',
-        'business' => 'Business',
-        'politics' => 'Politics',
-        'other' => 'Other',
+        'Technical' => 'Technical',
+        'Lifestyle' => 'Lifestyle',
+        'Travel' => 'Travel',
+        'Food' => 'Food',
+        'Fashion' => 'Fashion',
+        'Health' => 'Health',
+        'Entertainment' => 'Entertainment',
+        'Sports' => 'Sports',
+        'Business' => 'Business',
+        'Politics' => 'Politics',
+        'Other' => 'Other',
     ],
 
-    'statuses' => [
-        'published' => 'Published',
-        'unpublished' => 'Unpublished',
+    'blogStatus' => [
+        'Published' => 'Published',
+        'Unpublished' => 'Unpublished',
     ],
 
     'planTypes' => [
@@ -144,7 +144,7 @@ return [
         'Share' => 'Share',
         'Card' => 'Card',
     ],
- 
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -518,18 +518,18 @@ return [
      'a_general_tag_phrases_information' => 'A General Tag Phrases Information',
      'update_tag' => 'Update Tag',
      'create_tag' => 'Create Tag',
- 
- 
+
+
      /***  background  ***/
      'backgrounds' => 'backgrounds',
      'backgrounds' => 'background',
      'create_new_background' => 'Create New Background',
      'background_phrases_details' => 'Background Phrases Details',
      'a_general_background_phrases_information' => 'A General Background Phrases Information',
- 
+
      'update_background' => 'Update Background',
     ' create_background' =>  ' Create Background',
- 
+
       /***  groups  ***/
       'add_group' => 'Add Group',
       'create_new_group' => 'Create New Group',
@@ -544,7 +544,6 @@ return [
       'color' => 'Color',
       'a_general_remark_phrases_information' => 'A General Remark Phrases Information',
       'remark_phrases_details' => 'Remark Phrases Details',
-
 
 
 
