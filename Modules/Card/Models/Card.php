@@ -41,4 +41,11 @@ class Card extends Model
     public function contactApps() {
         return $this->hasMany(CardApps::class);
     }
+
+
+    public function cardContacts()
+    {
+        return $this->hasMany(CardContact::class);
+    }
+
 }

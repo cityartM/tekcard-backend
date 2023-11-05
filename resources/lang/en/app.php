@@ -145,6 +145,11 @@ return [
         'Card' => 'Card',
     ],
 
+    'groupType' => [
+        'Peoples' => 'Peoples',
+        'Works' => 'Works',
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -186,7 +191,7 @@ return [
     'bio' => 'bio',
     'avatar' => 'avatar',
     'background' => 'Background',
-    
+
 
     /*** Company ***/
     'companies' => 'Companies',
@@ -411,7 +416,7 @@ return [
     'a_general_about_Card_phrases_information' => 'A General About Card Phrases Information',
     'update_about_card' => 'Update About Card',
     'create_about_card' => 'Create About Card',
-    
+
 
 
 
