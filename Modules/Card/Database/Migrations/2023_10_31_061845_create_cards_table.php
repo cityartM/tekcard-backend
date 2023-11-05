@@ -23,11 +23,11 @@ return new class extends Migration
             $table->string("color")->nullable();
             $table->boolean("is_single_link")->nullable();
             $table->integer("single_link_contact_id")->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
-    //contact_id ,title,value
 
     /**
      * Reverse the migrations.
