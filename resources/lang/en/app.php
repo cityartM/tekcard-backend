@@ -186,12 +186,14 @@ return [
     'bio' => 'bio',
     'avatar' => 'avatar',
     'background' => 'Background',
-    
-
-    /*** Company ***/
     'companies' => 'Companies',
     'company' => 'Company',
-
+    'companies_list' => 'Companies List',
+    'groups_list' => 'Groups List',
+    'update' => 'Update',
+    'create' => 'Create',
+    'general_settings' => 'General Settings',
+    'add_background' => 'Add Background',
 
     /*** Role ***/
 
@@ -411,7 +413,8 @@ return [
     'a_general_about_Card_phrases_information' => 'A General About Card Phrases Information',
     'update_about_card' => 'Update About Card',
     'create_about_card' => 'Create About Card',
-    
+    'free_days' => 'Free Days',
+    'price_subscribe' => 'Price to Subscribe',
 
 
 
@@ -435,12 +438,14 @@ return [
     'features_company' => 'Features Company',
     'features_client' => 'Features Client',
     'add_feature' => 'Add Feature',
+    'save_features' => 'Save Feature',
     'save_feature' => 'Save Feature',
     'update_feature' => 'Update Feature',
     'add_feature' => 'Add Feature',
     'feature_details' => 'Feature Details',
     'general_feature_information' => 'General Feature Information',
     'feature_name' => 'Feature Name',
+    'feature_list' => 'Feature List',
 
 
     /***  feedback  ***/
@@ -496,6 +501,7 @@ return [
     'update_setting_contact' => 'Update setting contact',
     'create_setting_contact' => 'Create setting contact',
     'icon' => 'icon',
+    'user_contacts_list' => 'User Contacts List',
 
 
     /***  Addresses  ***/
@@ -507,6 +513,10 @@ return [
     'add_wilaya' => 'Add Wilaya',
     'add_country' => 'Add Country',
     'Addresses' => 'Addresses',
+    'country_name' => 'Country Name',
+    'create_country' => 'Create Country',
+    'cancel' => 'Cancel',
+    'edit_country' => 'Edit Country',
 
 
      /***  tags  ***/
@@ -537,6 +547,7 @@ return [
       'create_group' => 'Create Group',
       'update_group' => 'Update Group',
       'group_phrases_details' => 'Group Phrases Details',
+      'groups_list' => 'Groups List',
 
       /***  remarks  ***/
       'remarks_list' => 'Remarks List',
@@ -544,6 +555,7 @@ return [
       'color' => 'Color',
       'a_general_remark_phrases_information' => 'A General Remark Phrases Information',
       'remark_phrases_details' => 'Remark Phrases Details',
+      'add_remark' => 'Add Remark',
 
 
 
