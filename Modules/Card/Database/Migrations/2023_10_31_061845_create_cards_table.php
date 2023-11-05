@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->string("reference")->index()->unique();
             $table->string("name");
             $table->string("full_name");
             $table->string("company_name")->nullable();

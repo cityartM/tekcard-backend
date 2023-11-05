@@ -3,19 +3,16 @@
 namespace Modules\Card\Http\Controllers;
 
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardRequest;
+use Modules\Card\Http\Requests\UpdateRefCardRequest;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Card\Repositories\CardRepository;
-use Modules\ContactUser\Http\Controllers\Controller;
-use Modules\ContactUser\Models\Remark;
-use Modules\ContactUser\Http\Requests\CreateRemarkRequest;
-use Modules\ContactUser\Repositories\RemarkRepository;
 use App\Http\Controllers\Api\ApiController;
-use Modules\ContactUser\Http\Filters\RemarkKeywordSearch;
-
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -61,6 +58,7 @@ class CardApiController extends ApiController
     public function store(CreateCardRequest $request)
     {
         $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id']);
+        $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
         $card = Card::create($data);
@@ -70,10 +68,6 @@ class CardApiController extends ApiController
         ], 'Card created successfully', 200);
     }
 
-    public function update(CreateRemarkRequest $request, $id)
-    {
-
-    }
 
     public function destroy($id)
     {
@@ -97,5 +91,34 @@ class CardApiController extends ApiController
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
         ],  'Card deleted successfully', 200);
+    }
+
+
+    public function checkAvailability(Request $request)
+    {
+        $card = Card::where('reference', $request->reference)->first();
+
+        if (!$card) {
+            return $this->respondWithSuccess(
+                [ 'availability' => true],
+                'Card not found',200
+            );
+        }
+
+        return $this->respondWithSuccess([
+            'availability' => false,
+        ],  'Card retrieved successfully', 200);
+    }
+
+    public function updateReference(UpdateRefCardRequest $request)
+    {
+
+         $card = Card::find($request->card_id);
+
+         $newCard = $this->cards->update($card->id, ['reference' => $request->new_reference]);
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($newCard),
+        ],  'Card reference updated successfully', 200);
     }
 }

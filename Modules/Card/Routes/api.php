@@ -15,4 +15,6 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('cards', 'CardApiController');
+    Route::post('cards/checkAvailability', 'CardApiController@checkAvailability');
+    Route::post('cards/updateReference', 'CardApiController@updateReference');
 });

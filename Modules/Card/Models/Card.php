@@ -12,7 +12,7 @@ class Card extends Model
 {
     use HasFactory ;
 
-    protected $fillable = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id', 'user_id'];
+    protected $fillable = ['reference','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id', 'user_id'];
 
     protected $casts = [
         'is_single_link' => 'boolean',
