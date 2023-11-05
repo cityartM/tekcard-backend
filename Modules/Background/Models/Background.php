@@ -3,11 +3,10 @@
 namespace Modules\Background\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory; 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Card\Models\Card;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-
 use App\Support\Enum\BackgroundType;
 
 class Background extends Model implements HasMedia
@@ -16,18 +15,10 @@ class Background extends Model implements HasMedia
 
     protected $fillable = ['type'];
 
-     
-    public static function backgroundTypes()
+
+    public function cards()
     {
-        return BackgroundType::lists();
+        return $this->hasMany(Card::class);
     }
 
-
-
-
-    
-    protected static function newFactory()
-    {
-        return \Modules\Background\Database\factories\BackgroundFactory::new();
-    }
 }

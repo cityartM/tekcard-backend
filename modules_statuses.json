@@ -13,5 +13,9 @@
     "Tag": true,
     "Backgound": true,
     "Background": true,
+<<<<<<< HEAD
     "AboutCard": true
+=======
+    "Card": true
+>>>>>>> 6749a9a569af91cbf6d75e9ac017758c5f00fca6
 }

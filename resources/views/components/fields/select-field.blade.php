@@ -10,6 +10,7 @@
             <option value="" selected disabled>{{__('Choose An Option')}}</option>
         @endif
         @foreach($data as $key => $value)
+
             <option
                 @if($multi)
                     @if(!is_null($model))

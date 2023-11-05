@@ -2,8 +2,10 @@
 
 namespace Modules\Tag\Database\Seeders;
 
+use App\Support\Enum\BlogCategories;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Tag\Models\Tag;
 
 class TagDatabaseSeeder extends Seeder
 {
@@ -16,6 +18,16 @@ class TagDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        collect(BlogCategories::lists())->each(function ($category) {
+            Tag::create([
+                'name' => [
+                    'en' => trans('app.categories.' . $category, locale: "en"),
+                    'ar' => trans('app.categories.' . $category, locale: "ar"),
+                    'tr' => trans('app.categories.' . $category, locale: "tr")
+                ]
+            ]);
+        });
+
+
     }
 }
