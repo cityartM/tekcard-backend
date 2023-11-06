@@ -14,7 +14,7 @@ class CardContact extends Model
 {
     use HasFactory ;
 
-    protected $fillable = ['user_id','card_id', 'remark_id'];
+    protected $fillable = ['user_id','card_id', 'remark_id','group'];
 
 
     public function card()
@@ -26,6 +26,5 @@ class CardContact extends Model
     {
         return $this->belongsTo(Remark::class);
     }
-
 
 }

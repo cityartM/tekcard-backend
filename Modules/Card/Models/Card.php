@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Background\Models\Background;
 use Modules\Company\Models\Company;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Card extends Model
+class Card extends Model implements HasMedia
 {
-    use HasFactory ;
+    use HasFactory ,InteractsWithMedia;
 
-    protected $fillable = ['reference','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id', 'user_id'];
+    protected $fillable = ['reference','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main', 'user_id'];
 
     protected $casts = [
         'is_single_link' => 'boolean',
+        'is_main' => 'boolean',
     ];
     public function user()
     {

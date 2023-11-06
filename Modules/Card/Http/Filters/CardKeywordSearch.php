@@ -11,6 +11,7 @@ class CardKeywordSearch implements Filter
     {
         $query->where(function ($q) use ($search) {
             $q->where('name', "like", "%{$search}%");
+            $q->orWhere('reference', "like", "%{$search}%");
         });
     }
 }

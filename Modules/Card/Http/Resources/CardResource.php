@@ -32,6 +32,8 @@ class CardResource extends JsonResource
             'color' =>  $this->color,
             'is_single_link' =>  $this->is_single_link,
             'single_link_contact_id' =>  $this->single_link_contact_id,
+            'is_main' =>  $this->is_main,
+            'card_avatar' => $this->getFirstMedia('CARD_AVATAR')?->getFullUrl() ?? null,
             'card_apps' =>  CardAppsResource::collection($this->contactApps),
         ];
     }

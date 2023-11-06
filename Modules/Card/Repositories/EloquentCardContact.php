@@ -57,7 +57,16 @@ class EloquentCardContact implements CardContactRepository
     }
 
 
+    public function countUserPeoples($id)
+    {
+        return CardContact::where('user_id',$id)->where('group','Peoples')->count();
+    }
 
+
+    public function countUserWorks($id)
+    {
+        return CardContact::where('user_id',$id)->where('group','Works')->count();
+    }
 
     public function getDatatables():CardDatatable
     {
