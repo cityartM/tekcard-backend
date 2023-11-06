@@ -51,4 +51,9 @@ class Card extends Model implements HasMedia
         return $this->hasMany(CardContact::class);
     }
 
+    protected static function newFactory()
+    {
+        return \Modules\Card\Database\factories\CardFactory::new();
+    }
+
 }

@@ -62,16 +62,15 @@ class GlobalSettingDatabaseSeeder extends Seeder
         {
             foreach($socialMediaPlatform as $k => $value)
             {
-                    \DB::table('setting_contacts')->insert([
-                        [
-                            'display_name' => $value,
-                            'category' => $key,
-                            'value' => 'value',
-                            'user_id' => 1,
-                            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                        ],
-
-                    ]);
+                \DB::table('setting_contacts')->insert([
+                    [
+                        'display_name' => $value,
+                        'category' => $key,
+                        'value' => 'value',
+                        'user_id' => 1,
+                        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    ],
+                ]);
                 $settingContact = SettingContact::find($i);
                 $settingContact->addMedia(public_path('socialMedia/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
                 $i++;
