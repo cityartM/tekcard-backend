@@ -118,4 +118,4 @@ Route::post('/contact-us', function () {
 
 Route::get('/{reference}', function (string $reference) {
     return Inertia::render('CardShare');
-})
+});
