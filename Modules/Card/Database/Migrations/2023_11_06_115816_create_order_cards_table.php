@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('order_cards', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('card_id');
+            $table->integer('quantity');
+            $table->string('color');
+            $table->unsignedBigInteger("company_id")->nullable();
+
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
+            $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
 
             $table->timestamps();
         });

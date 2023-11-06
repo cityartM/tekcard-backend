@@ -9,10 +9,29 @@ class Cards extends Plugin
 {
     public function sidebar()
     {
-        return Item::create(__('app.cards'))
-            ->route('cards.index')
-            ->icon('<span class="svg-icon svg-icon-2"><i class="fa fa-cubes mx-1"></i></span>')
-            ->active("cards*")
-            ->permissions('cards.manage');
+        $cards = Item::create(__('app.cards'))
+        ->route('cards.index')
+        ->active("cards")
+        ->permissions('cards.manage');
+
+        $cardOrders = Item::create(__('app.card_orders'))
+        ->route('cardOrders.index')
+        ->active("cardsh")
+        ->permissions('cards.manage');
+
+    
+
+    return Item::create(__('app.cards'))
+        ->href('#settings-dropdown')
+        ->icon('fas fa-cogs')
+        ->permissions(['cards.manage'])
+        ->addChildren([
+            $cards,
+            $cardOrders,
+            
+        ]);
+
+
+        
     }
 }
