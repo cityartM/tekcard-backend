@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Card\Http\Resources\CardResource;
 use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Plan\Http\Resources\PlanResource;
 use Modules\Plan\Http\Resources\UserPlanResource;
@@ -40,6 +41,7 @@ class UserResource extends JsonResource
             'avatar' => $this->present()->avatar,
             'plan' => $this->plan ? new UserPlanResource($this->plan->first()) : null,
             'company' => $this->company ? new CompanyResource($this->company) : null,
+            'cards' => CardResource::collection($this->cards),
             //'address' => $this->address,
            // 'country_id' => $this->country_id ? (int) $this->country_id : null,
             //'role_id' => (int) $this->role_id,

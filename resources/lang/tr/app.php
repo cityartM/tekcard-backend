@@ -552,7 +552,21 @@ return [
 'nbr_card_user' => 'Kullanıcılar için Kart Sayısı',
 'has_dashboard' => 'Panoya Sahip mi?',
 'price' => 'Fiyat',
+ 
 
+
+        /***  cards  ***/
+
+
+        'user' => 'Kullanıcı',
+        'full_name' => 'Tam Adı',
+        'card' => 'Kart',
+        'name' => 'Adı',
+        'card_list' => 'Kart Listesi',
+        'job_title' => 'İş Başlığı',
+        'company_name' => 'Şirket Adı',
+        'reference' => 'Referans',
+        'cards' => 'Kartlar',
 
 
 ];

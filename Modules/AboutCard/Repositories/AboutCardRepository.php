@@ -28,8 +28,8 @@ interface AboutCardRepository
 
     public function getDatatables();
 
-    public function store($data);
+    public function create($data);
 
-    public function update($data);
+    public function update($id,$data);
 
 }

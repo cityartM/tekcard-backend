@@ -6,12 +6,15 @@ namespace Modules\Card\Http\Controllers;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Modules\Card\Http\Filters\CardContactKeywordSearch;
 use Modules\Card\Http\Filters\CardKeywordSearch;
-use Modules\Card\Http\Requests\CreateCardRequest;
+use Modules\Card\Http\Requests\CreateCardContactRequest;
 use Modules\Card\Http\Requests\UpdateRefCardRequest;
+use Modules\Card\Http\Resources\CardContactResource;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
-use Modules\Card\Repositories\CardRepository;
+use Modules\Card\Models\CardContact;
+use Modules\Card\Repositories\CardContactRepository;
 use App\Http\Controllers\Api\ApiController;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -19,20 +22,20 @@ use Spatie\QueryBuilder\QueryBuilder;
 use Modules\ContactUser\Http\Resources\RemarkResource;
 
 
-class CardApiController extends ApiController
+class CardContactApiController extends ApiController
 {
-    private $cards;
+    private $cardContacts;
 
-    public function __construct(CardRepository $cards)
+    public function __construct(CardContactRepository $cardContacts)
     {
-        $this->cards = $cards;
+        $this->cardContacts = $cardContacts;
     }
     public function index(Request $request)
     {
-        $cards = QueryBuilder::for(Card::class)
+        $cards = QueryBuilder::for(CardContact::class)
          ->where('user_id',auth()->user()->id)
          ->allowedFilters([
-            AllowedFilter::custom('search', new CardKeywordSearch),
+            AllowedFilter::custom('search', new CardContactKeywordSearch),
         ])
         ->allowedSorts(['id'])
         ->defaultSort('id')
@@ -40,8 +43,8 @@ class CardApiController extends ApiController
 
 
         return $this->respondWithSuccess([
-            'remarks' => CardResource::collection($cards)->response()->getData(true),
-        ],  'Cards retrieved successfully', 200);
+            'cardContacts' => CardContactResource::collection($cards)->response()->getData(true),
+        ],  'Card Contacts retrieved successfully', 200);
 
     }
 
@@ -51,23 +54,21 @@ class CardApiController extends ApiController
         $card = Card::find($id);
 
         return $this->respondWithSuccess([
-            'card' => new CardResource($card),
+            'cardContact' => new CardResource($card),
         ], 'Card retrieved successfully', 200);
     }
 
-    public function store(CreateCardRequest $request)
+    public function store(CreateCardContactRequest $request)
     {
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id']);
-        $data['reference'] = Helper::generateCode(15);
+        $data = $request->only(['card_id', 'remark_id', 'group']);
+
         $data['user_id'] = auth()->id();
 
-        $card = Card::create($data);
-
-        $card->cardApps()->attach($request->card_apps);
+        $cardContact = $this->cardContacts->create($data);
 
         return $this->respondWithSuccess([
-            'card' => new CardResource($card),
-        ], 'Card created successfully', 200);
+            'cardContact' => new CardContactResource($cardContact),
+        ], 'Card Contact created successfully', 200);
     }
 
 

@@ -15,11 +15,11 @@ use Modules\AboutCard\Repositories\AboutCardRepository;
 
 class AboutCardController extends Controller
 {
-    private $aboutCard;
+    private $aboutCards;
 
-    function __construct(AboutCardRepository $aboutCard)
+    function __construct(AboutCardRepository $aboutCards)
     {
-        $this->aboutCard= $aboutCard;
+        $this->aboutCards = $aboutCards;
     }
 
 
@@ -31,10 +31,10 @@ class AboutCardController extends Controller
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return $this->aboutCard->getDatatables()->datatables($request);
+            return $this->aboutCards->getDatatables()->datatables($request);
         }
         return view("aboutcard::index")->with([
-            "columns" => $this->aboutCard->getDatatables()::columns(),
+            "columns" => $this->aboutCards->getDatatables()::columns(),
         ]);
     }
 
@@ -56,18 +56,13 @@ class AboutCardController extends Controller
     public function store(CreateAboutCardRequest $request)
     {
         $data = $request->only(['title', 'description']);
-         //dd($data);
 
-        //dd($data['text']);
- 
-         $datat=$this->aboutCard->store($data);
+        $aboutCard = $this->aboutCards->create($data);
 
-         $aboutCard = AboutCard::create($datat);
- 
          if ($request->hasFile('image')) {
              $aboutCard->addMedia($request->file('image'))->toMediaCollection('about_card');
          }
-        
+
          return redirect()->route('aboutCards.index')
          ->with('success', 'aboutCards entry created successfully');
     }
@@ -89,8 +84,8 @@ class AboutCardController extends Controller
      */
     public function edit($id)
     {
-        $aboutCard=AboutCard::find($id);
-        $edit= true;
+        $aboutCard = AboutCard::find($id);
+        $edit = true;
         return view('aboutcard::add-edit', compact('edit','aboutCard'));
     }
 
@@ -100,21 +95,17 @@ class AboutCardController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(CreateAboutCardRequest $request, $id)
+    public function update(CreateAboutCardRequest $request, AboutCard $aboutCard)
     {
         $data = $request->only(['title', 'description']);
-        $datat=$this->aboutCard->store($data);
 
-        $aboutCard=AboutCard::find($id);
-        $aboutCard->update($datat);
+        $this->aboutCards->update($aboutCard->id,$data);
 
         if ($request->hasFile('image')) {
-            // Update the 'tumail' media for the aboutCards instance
             $aboutCard->clearMediaCollection('about_card'); // Remove existing media
             $aboutCard->addMedia($request->file('image'))->toMediaCollection('about_card');
         }
 
-        
         return redirect()->route('aboutCards.index')
             ->with('success', 'aboutCard entry updated successfully');
     }
@@ -133,8 +124,9 @@ class AboutCardController extends Controller
                 ->with('error', 'aboutCard entry not found');
         }
         $aboutCard->clearMediaCollection('about_card');
-       
+
         $aboutCard->delete();
+
         return redirect()->route('aboutCards.index')->with('success', 'aboutCard entry deleted successfully');
     }
 }

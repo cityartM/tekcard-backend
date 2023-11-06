@@ -31,4 +31,21 @@ class Card extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function cardApps()
+    {
+        return $this->belongsToMany(CardApps::class, 'card_apps', 'card_id', 'contact_id')
+            ->withPivot('title', 'value');
+    }
+
+    public function contactApps() {
+        return $this->hasMany(CardApps::class);
+    }
+
+
+    public function cardContacts()
+    {
+        return $this->hasMany(CardContact::class);
+    }
+
 }

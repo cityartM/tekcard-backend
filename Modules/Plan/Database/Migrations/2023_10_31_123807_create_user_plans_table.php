@@ -34,6 +34,8 @@ return new class extends Migration
             $table->integer('currency_id')->nullable();
             $table->string('provider',50)->nullable();
             $table->json('features')->nullable();
+            $table->integer('current_nbr_user')->default(0);
+            $table->integer('current_nbr_card_user')->default(0);
             $table->unsignedInteger('user_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('plan_id')->default(1);

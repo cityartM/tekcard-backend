@@ -1,13 +1,16 @@
 <?php
 
-namespace Modules\AboutCard\Http\Resources;
+namespace Modules\Card\Http\Resources;
 
 use App\Http\Resources\CurrenciesResource;
 use App\Http\Resources\PermissionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Background\Http\Resources\BackgroundResource;
+use Modules\Company\Http\Resources\CompanyResource;
+use Modules\GlobalSetting\Http\Resources\ContactSettingsResource;
 use Spatie\QueryBuilder\AllowedInclude;
 
-class AboutCardResource extends JsonResource
+class CardAppsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,10 +22,11 @@ class AboutCardResource extends JsonResource
     {
         return [
             'id' => (int) $this->id,
+            'contact' => new ContactSettingsResource($this->app),
             'title' => $this->title,
-            'description' =>  $this->description,
-            'image' =>  $this->getFirstMediaUrl('about_card'),
+            'value' =>  $this->value,
         ];
     }
 
 }
+

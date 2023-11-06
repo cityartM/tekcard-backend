@@ -14,7 +14,7 @@ use DateTime;
 
 class EloquentAboutCard implements AboutCardRepository
 {
- 
+
     protected $request;
     public function __construct(Request $request)
     {
@@ -47,35 +47,40 @@ class EloquentAboutCard implements AboutCardRepository
     public function delete($id)
     {
         $AboutCard= AboutCard::findOrFail($id);
-       
+
 
         return $AboutCard->delete();
     }
 
 
     public function getDatatables():AboutCardDatatable
-    { 
+    {
         return new AboutCardDatatable();
     }
 
-    public function store($data)
-    {
-        $lang = LaravelLocalization::getCurrentLocale();
-        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
-        $data['description'] = Helper::translateAttribute($data['description'] + ['lang' => $lang]);
-         return $data;
-    }
-
-
-    public function update($data)
+    public function create($data)
     {
         $lang = LaravelLocalization::getCurrentLocale();
         $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
         $data['description'] = Helper::translateAttribute($data['description'] + ['lang' => $lang]);
 
-        return $data;
+        return AboutCard::create($data);
+
     }
-    
+
+
+    public function update($id,$data)
+    {
+        $lang = LaravelLocalization::getCurrentLocale();
+        $data['title'] = Helper::translateAttribute($data['title'] + ['lang' => $lang]);
+        $data['description'] = Helper::translateAttribute($data['description'] + ['lang' => $lang]);
+        $aboutCard = $this->find($id);
+
+        $aboutCard->update($data);
+
+        return $aboutCard;
+    }
+
 
 }
 

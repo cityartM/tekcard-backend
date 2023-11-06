@@ -15,6 +15,7 @@ class PluginServiceProvider extends BaseVanguardServiceProvider
     {
         return [
             \App\Support\Plugins\Companies::class,
+            \App\Support\Plugins\Cards::class,
             \App\Support\Plugins\Users::class,
             \App\Support\Plugins\Settings::class,
             \App\Support\Plugins\RolesAndPermissions::class,

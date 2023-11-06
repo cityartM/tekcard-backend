@@ -14,10 +14,15 @@ return new class extends Migration
     {
         Schema::create('card_apps', function (Blueprint $table) {
             $table->id();
-            $table->string("contact_id");
+            $table->unsignedBigInteger('card_id');
+            $table->unsignedBigInteger('contact_id');
             $table->string("title");
+            $table->string("value");
+            $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
+            $table->foreign('contact_id')->references('id')->on('setting_contacts')->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('card_apps');
     }
 };

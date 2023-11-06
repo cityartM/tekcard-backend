@@ -145,6 +145,11 @@ return [
         'Card' => 'Card',
     ],
 
+    'groupType' => [
+        'Peoples' => 'Peoples',
+        'Works' => 'Works',
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -186,6 +191,9 @@ return [
     'bio' => 'bio',
     'avatar' => 'avatar',
     'background' => 'Background',
+
+
+    /*** Company ***/
     'companies' => 'Companies',
     'company' => 'Company',
     'companies_list' => 'Companies List',
@@ -195,7 +203,7 @@ return [
     'general_settings' => 'General Settings',
     'add_background' => 'Add Background',
 
-    /*** Role ***/
+    /*** Role ***/ 
 
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
@@ -413,8 +421,7 @@ return [
     'a_general_about_Card_phrases_information' => 'A General About Card Phrases Information',
     'update_about_card' => 'Update About Card',
     'create_about_card' => 'Create About Card',
-    'free_days' => 'Free Days',
-    'price_subscribe' => 'Price to Subscribe',
+
 
 
 
@@ -556,6 +563,17 @@ return [
       'a_general_remark_phrases_information' => 'A General Remark Phrases Information',
       'remark_phrases_details' => 'Remark Phrases Details',
       'add_remark' => 'Add Remark',
+
+ /***  cards  ***/
+        'user' => 'User',
+        'full_name' => 'Full Name',
+        'card' => 'Card',
+        'name' => 'Name',
+        'card_list' => 'Card List',
+        'job_title' => 'Job Title',
+        'company_name' => 'Company Name',
+        'reference' => 'Reference',
+        'cards' => 'Cards',
 
 
 
