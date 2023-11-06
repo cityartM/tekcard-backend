@@ -223,6 +223,21 @@ return [
     'a_general_blog_phrases_information' => 'معلومات عامة عن عبارات المدونة',
     'company' => 'شركة',
     'subject' => 'موضوع',
+    'description' => 'الوصف',
+    'background' => 'خلفية',
+    'image' => 'صورة',
+    'about_cards' => 'عن البطاقات',
+    'about_cards_list' => 'قائمة بطاقات المعلومات',
+    'add_about_cards' => 'إضافة بطاقات المعلومات',
+    'aboutCards' => 'حول البطاقات',
+    'aboutCard' => 'حول البطاقات',
+    'about_Cards' => 'حول البطاقات',
+    'aboutcard' => 'حول البطاقات',
+    'create_new_about_card' => 'إنشاء بطاقة معلومات جديدة',
+    'about_Card_phrases_details' => 'تفاصيل عبارات بطاقة المعلومات',
+    'a_general_about_Card_phrases_information' => 'معلومات عامة عن عبارات بطاقة المعلومات',
+    'update_about_card' => 'تحديث بطاقة المعلومات',
+    'create_about_card' => 'إنشاء بطاقة المعلومات',
 
 
     /***  setting contact  ***/

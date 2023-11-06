@@ -145,6 +145,11 @@ return [
         'Card' => 'Card',
     ],
 
+    'groupType' => [
+        'Peoples' => 'Peoples',
+        'Works' => 'Works',
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -185,6 +190,7 @@ return [
     'phone' => 'phone',
     'bio' => 'bio',
     'avatar' => 'avatar',
+    'background' => 'Background',
 
 
     /*** Company ***/
@@ -399,6 +405,18 @@ return [
     'color' => 'color',
     'remark' => 'remark',
     'user_contacts' => 'User Contacts',
+    'about_cards' => 'About Cards',
+    'about_cards_list' => 'About Cards List',
+    'add_about_cards' => 'Add About Cards',
+    'aboutCards' => 'About Cards',
+    'aboutCard' => 'About Card',
+    'aboutcard' => 'About Card',
+    'create_new_about_card' => 'Create New About Card',
+    'about_Card_phrases_details' => 'About Card Phrases Details',
+    'a_general_about_Card_phrases_information' => 'A General About Card Phrases Information',
+    'update_about_card' => 'Update About Card',
+    'create_about_card' => 'Create About Card',
+
 
 
 

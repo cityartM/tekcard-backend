@@ -4,6 +4,10 @@ namespace Modules\Card\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Card\Repositories\CardContactRepository;
+use Modules\Card\Repositories\CardRepository;
+use Modules\Card\Repositories\EloquentCard;
+use Modules\Card\Repositories\EloquentCardContact;
 
 class CardServiceProvider extends ServiceProvider
 {
@@ -38,6 +42,8 @@ class CardServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->singleton(CardRepository::class, EloquentCard::class);
+        $this->app->singleton(CardContactRepository::class, EloquentCardContact::class);
     }
 
     /**

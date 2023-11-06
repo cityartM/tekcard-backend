@@ -13,5 +13,7 @@
     "Tag": true,
     "Backgound": true,
     "Background": true,
-    "Card": true
+    "Card": true,
+    
+    "AboutCard": true
 }

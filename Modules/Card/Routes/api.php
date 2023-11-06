@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/card', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth'], function () {
+    // Card
+    Route::apiResource('cards', 'CardApiController');
+    Route::post('cards/checkAvailability', 'CardApiController@checkAvailability');
+    Route::post('cards/updateReference', 'CardApiController@updateReference');
+
+    // Card Contact
+    Route::apiResource('cardContacts', 'CardContactApiController');
 });

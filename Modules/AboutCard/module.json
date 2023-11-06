@@ -1,0 +1,11 @@
+{
+    "name": "AboutCard",
+    "alias": "aboutcard",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AboutCard\\Providers\\AboutCardServiceProvider"
+    ],
+    "files": []
+}

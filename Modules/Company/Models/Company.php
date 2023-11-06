@@ -9,6 +9,7 @@ use App\Traits\HasGoogleTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Models\Country;
+use Modules\Card\Models\Card;
 use Modules\Company\Presenters\CompanyPresenter;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -43,6 +44,11 @@ class Company extends Model implements HasMedia
     public function users()
     {
         return $this->hasMany(User::class,'company_id','id');
+    }
+
+    public function cards()
+    {
+        return $this->hasMany(Card::class,'company_id','id');
     }
 
 }

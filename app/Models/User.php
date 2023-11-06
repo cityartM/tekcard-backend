@@ -13,6 +13,7 @@ use App\Presenters\Traits\Presentable;
 use App\Presenters\UserPresenter;
 use App\Support\Enum\UserStatus;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Card\Models\Card;
 use Modules\Company\Models\Company;
 use Modules\Plan\Models\Plan;
 use Modules\Plan\Models\UserPlan;
@@ -139,6 +140,12 @@ class User extends Authenticatable
     public function company()
     {
         return $this->belongsTo(Company::class,'company_id');
+    }
+
+
+    public function cards()
+    {
+        return $this->hasMany(Card::class,'user_id');
     }
 
 }

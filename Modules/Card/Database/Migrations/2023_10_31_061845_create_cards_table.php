@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->string("reference")->index()->unique();
             $table->string("name");
             $table->string("full_name");
             $table->string("company_name")->nullable();
@@ -23,17 +24,17 @@ return new class extends Migration
             $table->string("color")->nullable();
             $table->boolean("is_single_link")->nullable();
             $table->integer("single_link_contact_id")->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
-    //contact_id ,title,value
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('cards');
     }
 };
