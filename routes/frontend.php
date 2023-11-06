@@ -115,3 +115,7 @@ Route::post('/contact-us', function () {
 
     //dd(request()->all());
 })->name('landing.contact-us.submit');
+
+Route::get('/{reference}', function (string $reference) {
+    return Inertia::render('CardShare');
+});
