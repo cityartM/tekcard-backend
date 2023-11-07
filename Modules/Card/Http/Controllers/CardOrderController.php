@@ -6,15 +6,15 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-use Modules\Card\Repositories\CardRepository;
-use Modules\Card\Models\Card;
+use Modules\Card\Repositories\CardOrderRepository;
+use Modules\Card\Models\CardOrder;
 
-class CardController extends Controller
+class CardOrderController extends Controller
 {
 
     private $cards;
 
-    function __construct(CardRepository $cards)
+    function __construct(CardOrderRepository $cards)
     {
         $this->cards= $cards;
     }
@@ -27,7 +27,7 @@ class CardController extends Controller
         if ($request->wantsJson()) {
             return $this->cards->getDatatables()->datatables($request);
         }
-        return view("card::index")->with([
+        return view("card::index_orders")->with([
             "columns" => $this->cards->getDatatables()::columns(),
         ]);
     }

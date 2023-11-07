@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>@lang('Create country')</h4>
+                            <h4>@lang('app.create_country')</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -24,7 +24,7 @@
                                                     <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">
                                                         <div class="row">
                                                             <x-fields.text-field
-                                                                :title="__('Counrty Name')"
+                                                                :title="__('app.country_name')"
                                                                 name="name"
                                                                 col="6"
                                                                 type="text"
@@ -44,13 +44,13 @@
 {{--                                        {!! Form::text('name['.$locale.']', null, ['class' => 'form-control', 'required']) !!}--}}
 {{--                                    @endforeach--}}
 
-                                    {!! Form::label('code', __('Code')) !!}
+                                    {!! Form::label('code', __('app.code')) !!}
                                     {!! Form::text('code', null, ['class' => 'form-control', 'required']) !!}
 
-                                    {!! Form::label('lat', __('Latitude')) !!}
+                                    {!! Form::label('lat', __('app.latitude')) !!}
                                     {!! Form::text('lat', null, ['class' => 'form-control', 'required']) !!}
 
-                                    {!! Form::label('lon', __('Longitude')) !!}
+                                    {!! Form::label('lon', __('app.longitude')) !!}
                                     {!! Form::text('lon', null, ['class' => 'form-control', 'required']) !!}
                                 </div>
                             </div>
@@ -61,9 +61,9 @@
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <a href="{{ route('country.index') }}" class="btn btn-outline-secondary mr-1">
-                                <i class="fas fa-times"></i> @lang('Cancel')
+                                <i class="fas fa-times"></i> @lang('app.cancel')
                             </a>
-                            {!! Form::submit(__('Save'), ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit(__('app.save'), ['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
                 </div>

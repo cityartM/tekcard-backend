@@ -1,14 +1,14 @@
 @extends('layouts.dash')
 
-@section('page-title', __('General Settings'))
-@section('page-heading', __('General Settings'))
+@section('page-title', __('app.general_settings'))
+@section('page-heading', __('app.general_settings'))
 
 @section('breadcrumbs')
     <li class="breadcrumb-item text-muted">
-        @lang('Settings')
+        @lang('app.settings')
     </li>
     <li class="breadcrumb-item active">
-        @lang('General')
+        @lang('app.general')
     </li>
 @stop
 
@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="name">@lang('Name')</label>
+                    <label for="name">@lang('app.name')</label>
                     <input type="text" class="form-control input-solid" id="app_name"
                            name="app_name" value="{{ setting('app_name') }}">
                 </div>
@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-12 mt-2">
         <button type="submit" class="btn btn-primary mt-2">
-            @lang('Update')
+            @lang('app.update')
         </button>
     </div>
 </div>

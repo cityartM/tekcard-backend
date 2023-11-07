@@ -132,6 +132,7 @@ return [
     'status' => 'Durum',
     'label_status' => 'Durum',
     'show' => 'göster',
+    'page_status' => 'Status',
     
 
 
@@ -139,6 +140,7 @@ return [
     'features_company' => 'Şirket Özellikleri',
     'features_client' => 'Müşteri Özellikleri',
     'add_feature' => 'Özellik Ekle',
+    'save_features' => 'Özelliği Kaydet',
     'save_feature' => 'Özelliği Kaydet',
     'update_feature' => 'Özelliği Güncelle',
     'add_feature' => 'Özellik Ekle',
@@ -146,6 +148,7 @@ return [
     'general_feature_information' => 'Genel Özellik Bilgisi',
     'back' => 'geri',
     'feature_name' => 'Özellik Adı',
+    'feature_list' => 'Özellik Listesi',
 
 
     /***  User  ***/
@@ -205,7 +208,7 @@ return [
 
     'user_auth'=>'The user is authenticated successfully',
     'user_logout'=>'The user is logged out successfully',
-    'app_version'=>'App Version',
+    'app_version' => 'Uygulama Sürümü',
 
     'min_area'=>'min area',
     'max_area'=>'max area',
@@ -323,6 +326,23 @@ return [
     'a_general_about_Card_phrases_information' => 'Genel Kart İfadeleri Bilgisi',
     'update_about_card' => 'Kartı Güncelle',
     'create_about_card' => 'Kart Oluştur',
+    'free_days' => 'Ücretsiz Günler',
+    'price_subscribe' => 'Abonelik Fiyatı',
+    'update' => 'Güncelle',
+    'create' => 'Oluştur',
+    'general_settings' => 'Genel Ayarlar',
+    'add_background' => 'Arka Plan Ekle',
+    'of_users_with_this_role' => 'bu role sahip kullanıcılar',
+    'roles_permissions' => 'Roller ve İzinler',
+    'save_role' => 'Rolü Kaydet',
+    'role_details' => 'Rol Detayları',
+    'general_role_information' => 'Genel Rol Bilgileri',
+    'permission_list' => 'İzin Listesi',
+    'permission_details' => 'İzin Detayları',
+    'general_permission_information' => 'Genel İzin Bilgileri',
+    'permission_name' => 'İzin Adı',
+    'update_permission' => 'İzni Güncelle',
+    'save_permission' => 'İzni Kaydet',
 
 /*** contact_us ***/
 
@@ -389,6 +409,7 @@ return [
  'color' => 'renk',
  'remark' => 'not',
  'user_contacts' => 'Kullanıcı İletişimleri',
+ 'companies_list' => 'Şirketler Listesi',
 
 
 
@@ -458,6 +479,7 @@ return [
 'create_setting_contact' => 'iletişim ayarı oluştur',
 'icon_upload' => 'ikon yükle',
 'icon' => 'ikon',
+'user_contacts_list' => 'Kullanıcı İletişim Listesi',
 
 
 /***  Addresses  ***/
@@ -470,6 +492,11 @@ return [
 'country' => 'ülke',
 'add_country' => 'Ülke Ekle',
 'Addresses' => 'Adresler',
+'country_name' => 'Ülke Adı',
+'create_country' => 'Ülke Oluştur',
+'cancel' => 'İptal',
+'save' => 'Kaydet',
+'edit_country' => 'Ülke Düzenle',
 
 
 /***  tags  ***/
@@ -498,6 +525,7 @@ return [
 'create_group' => 'Grup Oluştur',
 'update_group' => 'Grubu Güncelle',
 'group_phrases_details' => 'Grup İfadeleri Detayları',
+'groups_list' => 'Gruplar Listesi',
 
 
 /***  remarks  ***/
@@ -506,7 +534,39 @@ return [
 'color' => 'Renk',
 'a_general_remark_phrases_information' => 'Genel Yorum İfadeleri Bilgisi',
 'remark_phrases_details' => 'Yorum İfadeleri Detayları',
+'add_remark' => 'Not Ekle',
 
+/*** plan ***/
+'plans' => 'Planlar',
+'plan' => 'Plan',
+'plans_features' => 'Planlar ve Özellikler',
+'plan_list' => 'Plan Listesi',
+'add_plan' => 'Plan Ekle',
+'of_users_with_this_plan' => 'bu plana sahip kullanıcıların sayısı',
+'plan_details' => 'Plan Detayları',
+'general_plan_information' => 'Genel Plan Bilgileri',
+'plan_name' => 'Plan Adı',
+'save_plan' => 'Planı Kaydet',
+'update_plan' => 'Planı Güncelle',
+'nbr_user' => 'Kullanıcı Sayısı',
+'nbr_card_user' => 'Kullanıcılar için Kart Sayısı',
+'has_dashboard' => 'Panoya Sahip mi?',
+'price' => 'Fiyat',
+ 
+
+
+        /***  cards  ***/
+
+
+        'user' => 'Kullanıcı',
+        'full_name' => 'Tam Adı',
+        'card' => 'Kart',
+        'name' => 'Adı',
+        'card_list' => 'Kart Listesi',
+        'job_title' => 'İş Başlığı',
+        'company_name' => 'Şirket Adı',
+        'reference' => 'Referans',
+        'cards' => 'Kartlar',
 
 
 ];

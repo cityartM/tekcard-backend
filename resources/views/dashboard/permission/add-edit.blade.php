@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-9">
                 <div class="form-group">
-                    <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="name">@lang('Name')</label>
+                    <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="name">@lang('app.name')</label>
                     <input type="text"
                            class="form-control input-solid mb-2"
                            id="name"

@@ -1,0 +1,23 @@
+<?php
+
+namespace Modules\Card\Http\Requests;
+
+use App\Http\Requests\Request;
+
+class CreateCardOrderRequest extends Request
+{
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'card_id' => 'required|exists:cards,id',
+            'quantity' => 'required|integer',
+            'color' => 'required|string',
+            'company_id' => 'nullable|exists:companies,id',
+        ];
+    }
+}

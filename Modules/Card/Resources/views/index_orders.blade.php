@@ -1,20 +1,20 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.cards'))
-@section('page-heading', __('app.cards'))
+@section('page-title', __('app.card_orders'))
+@section('page-heading', __('app.card_orders'))
 
 @section('breadcrumbs')
-<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.card')</h1>
+<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.card_order')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
-            <a href="" class="text-muted text-hover-primary">@lang('app.card_list')</a>
+            <a href="" class="text-muted text-hover-primary">@lang('app.card_orders_list')</a>
         </li>
     </ul>
 @stop
 @section('actions')
-    <a href="{{ route('cards.create') }}" class="btn btn-sm btn-primary">
+    <a href="{{ route('cardOrders.create') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-        @lang('app.card')
+        @lang('app.card_orders')
     </a>
 @endsection
 
@@ -30,12 +30,11 @@
         </x-card-header>
         <x-card-body>
             <x-datatable-html>
-                <td>{{__("app.reference")}}</td>
-                <td>{{__("app.name")}}</td>
-                <td>{{__("app.full_name")}}</td>
-                <td>{{__("app.company_name")}}</td>
-                <td>{{__("app.job_title")}}</td>
-                <td>{{__("app.user")}}</td>
+                <td>{{__("app.card")}}</td>
+                <td>{{__("app.quantity")}}</td>
+                <td>{{__("app.color")}}</td>
+                <td>{{__("app.company")}}</td>
+                <td>{{__("app.created_at")}}</td>
             </x-datatable-html>
         </x-card-body>
     </x-card-content>
@@ -44,7 +43,7 @@
 <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
     <x-datatable.script
         :columns="$columns"
-        :route="route('cards.index')"
+        :route="route('cardOrders.index')"
     />
     <script>
         "use strict";

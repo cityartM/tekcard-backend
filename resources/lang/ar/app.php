@@ -48,12 +48,32 @@ return [
     'label_status' => 'الحالة',
     'status' => 'الحالة',
     'show' => 'عرض',
+    'page_status' =>'الحالة',
+    'app_version' => 'إصدار التطبيق',
+    'free_days' => 'أيام مجانية',
+    'price_subscribe' => 'السعر للاشتراك',
+    'update' => 'تحديث',
+    'create' => 'إنشاء',
+    'general_settings' => 'إعدادات عامة',
+    'add_background' => 'إضافة خلفية',
+    'of_users_with_this_role' => 'من المستخدمين بهذا الدور',
+    'roles_permissions' => 'الأدوار والصلاحيات',
+    'save_role' => 'حفظ الدور',
+    'role_details' => 'تفاصيل الدور',
+    'general_role_information' => 'معلومات الدور العامة',
+    'permission_list' => 'قائمة الأذونات',
+    'permission_details' => 'تفاصيل الإذن',
+    'general_permission_information' => 'معلومات الإذن العامة',
+    'permission_name' => 'اسم الإذن',
+    'update_permission' => 'تحديث الإذن',
+    'save_permission' => 'حفظ الإذن',
 
 
     /*** features ***/
     'features_company' => 'ميزات الشركة',
     'features_client' => 'ميزات العميل',
     'add_feature' => 'إضافة ميزة',
+    'save_features' => 'حفظ الميزة',
     'save_feature' => 'حفظ الميزة',
     'update_feature' => 'تحديث الميزة',
     'add_feature' => 'إضافة ميزة',
@@ -61,6 +81,7 @@ return [
     'general_feature_information' => 'معلومات عامة عن الميزة',
     'back' => 'عودة',
     'feature_name' => 'اسم الميزة',
+    'feature_list' => 'قائمة الميزات',
 
 
 
@@ -176,6 +197,7 @@ return [
     'remark' => 'ملاحظة',
     'user_contacts' => 'جهات اتصال المستخدم',
     'category' => 'فئة',
+    'companies_list' => 'قائمة الشركات',
 
 
     'categories' => [
@@ -255,6 +277,7 @@ return [
     'create_setting_contact' => 'إنشاء إعدادات الاتصال',
     'icon_upload' => 'تحميل الأيقونة',
     'icon' => 'أيقونة',
+    'user_contacts_list' => 'قائمة جهات اتصال المستخدم',
 
 
     /***  Addresses  ***/
@@ -267,6 +290,11 @@ return [
     'country' => 'بلد',
     'add_country' => 'إضافة بلد',
     'Addresses' => 'عناوين',
+    'country_name' => 'اسم البلد',
+    'create_country' => 'إنشاء بلد',
+    'cancel' => 'إلغاء',
+    'save' => 'حفظ',
+    'edit_country' => 'تحرير البلد',
 
     /***  tags  ***/
     'tags' => 'علامات',
@@ -292,6 +320,7 @@ return [
     'create_group' => 'إنشاء مجموعة',
     'update_group' => 'تحديث المجموعة',
     'group_phrases_details' => 'تفاصيل عبارات المجموعة',
+    'groups_list' => 'قائمة المجموعات',
 
     /***  remarks  ***/
 
@@ -300,8 +329,36 @@ return [
     'color' => 'لون',
     'a_general_remark_phrases_information' => 'معلومات عامة عن عبارات الملاحظة',
     'remark_phrases_details' => 'تفاصيل عبارات الملاحظة',
+    'add_remark' => 'إضافة ملاحظة',
+
+    /*** plan ***/
+    'plans' => 'الخطط',
+    'plan' => 'الخطة',
+    'plans_features' => 'الخطط والمميزات',
+    'plan_list' => 'قائمة الخطط',
+    'add_plan' => 'إضافة خطة',
+    'of_users_with_this_plan' => 'من المستخدمين بهذه الخطة',
+    'plan_details' => 'تفاصيل الخطة',
+    'general_plan_information' => 'معلومات عامة عن الخطة',
+    'plan_name' => 'اسم الخطة',
+    'save_plan' => 'حفظ الخطة',
+    'update_plan' => 'تحديث الخطة',
+    'nbr_user' => 'عدد المستخدمين',
+    'nbr_card_user' => 'عدد البطاقات للمستخدمين',
+    'has_dashboard' => 'يحتوي على لوحة تحكم',
+    'price' => 'السعر',
 
 
+    /***  cards  ***/
+    'user' => 'مستخدم',
+    'full_name' => 'الاسم الكامل',
+    'card' => 'بطاقة',
+    'name' => 'الاسم',
+    'card_list' => 'قائمة البطاقات',
+    'job_title' => 'المسمى الوظيفي',
+    'company_name' => 'اسم الشركة',
+    'reference' => 'المرجع',
+    'cards' => 'البطاقات',
 
 
 ];

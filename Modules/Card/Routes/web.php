@@ -14,3 +14,14 @@
 Route::prefix('card')->group(function() {
     Route::get('/', 'CardController@index');
 });
+
+
+Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
+    Route::resource('cards', \Modules\Card\Http\Controllers\CardController::class)->middleware('permission:cards.manage');
+
+});
+
+Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
+    Route::resource('cardOrders', \Modules\Card\Http\Controllers\CardOrderController::class)->middleware('permission:cards.manage');
+
+});

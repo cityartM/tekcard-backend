@@ -6,30 +6,32 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-use Modules\Card\Repositories\CardRepository;
-use Modules\Card\Models\Card;
+use App\Http\Controllers\Api\ApiController;
+use Modules\Card\Repositories\CardOrderRepository;
 
-class CardController extends Controller
+use Modules\Card\Http\Requests\CreateCardOrderRequest;
+use Modules\Card\Http\Resources\CardOrderResource;
+
+use Modules\Card\Models\CardOrder;
+
+
+class CardOrderApiController extends ApiController
 {
 
-    private $cards;
+    private $cardOrders;
 
-    function __construct(CardRepository $cards)
+    public function __construct(CardOrderRepository $cardOrders)
     {
-        $this->cards= $cards;
+        $this->cardOrders = $cardOrders;
     }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->wantsJson()) {
-            return $this->cards->getDatatables()->datatables($request);
-        }
-        return view("card::index")->with([
-            "columns" => $this->cards->getDatatables()::columns(),
-        ]);
+        return view('card::index');
     }
 
     /**
@@ -46,9 +48,17 @@ class CardController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateCardOrderRequest $request)
     {
-        //
+        
+        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id']);
+
+        $order = $this->cardOrders->create($data);
+
+        return $this->respondWithSuccess([
+            'cardorder' => new CardOrderResource($order),
+        ], 'card order  created successfully', 200);
+
     }
 
     /**
@@ -89,6 +99,20 @@ class CardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = CardOrder::find($id);
+        
+        if (!$order) {
+        return $this->respondWithSuccess(
+            ['message' => 'order not found'],
+            'order not found',404
+        );}
+
+       
+
+        $order->delete();
+
+        return $this->respondWithSuccess([
+            'order' => new CardOrderResource($order),
+        ],  'order deleted successfully', 200);
     }
 }
