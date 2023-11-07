@@ -57,7 +57,7 @@
 
 
                     <x-input-field
-                    :title="__('Color')"
+                    :title="__('app.color')"
                     name="color"
                     type="color"
                     col="2"

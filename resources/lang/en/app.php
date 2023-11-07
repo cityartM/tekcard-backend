@@ -600,6 +600,9 @@ return [
         'a_general_card_phrases_information' => 'General Card Phrases Information',
         'card_order_phrases_details' => 'Card Order Phrases Details',
         'a_general_card_order_phrases_information' => 'General Card Order Phrases Information',
+        'card_phrases_details' => 'Card Phrases Details',
+        'background_id' => 'Background ID',
+        'card_orders_list' => 'Card Orders List',
 
 
 
