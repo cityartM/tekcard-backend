@@ -33,6 +33,7 @@
                 <td>{{__("app.card")}}</td>
                 <td>{{__("app.quantity")}}</td>
                 <td>{{__("app.color")}}</td>
+                <td>{{__("app.status_order")}}</td>
                 <td>{{__("app.company")}}</td>
                 <td>{{__("app.created_at")}}</td>
             </x-datatable-html>

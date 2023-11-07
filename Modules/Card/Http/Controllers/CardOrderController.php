@@ -5,18 +5,20 @@ namespace Modules\Card\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use Modules\Card\Repositories\CardOrderRepository;
 use Modules\Card\Models\CardOrder;
+use Modules\Card\Http\Requests\CreateCardOrderRequest;
 
 class CardOrderController extends Controller
 {
 
-    private $cards;
+    private $cardOder;
 
-    function __construct(CardOrderRepository $cards)
+    function __construct(CardOrderRepository $cardOder)
     {
-        $this->cards= $cards;
+        $this->cardOder= $cardOder;
     }
     /**
      * Display a listing of the resource.
@@ -25,10 +27,10 @@ class CardOrderController extends Controller
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return $this->cards->getDatatables()->datatables($request);
+            return $this->cardOder->getDatatables()->datatables($request);
         }
         return view("card::index_orders")->with([
-            "columns" => $this->cards->getDatatables()::columns(),
+            "columns" => $this->cardOder->getDatatables()::columns(),
         ]);
     }
 
@@ -38,7 +40,11 @@ class CardOrderController extends Controller
      */
     public function create()
     {
-        return view('card::create');
+        $user = Auth::user(); 
+        $userCards = $user->cards; 
+        //dd($userCards);
+        $edit=false;
+        return view('card::add-edit-order',compact("edit","userCards"));
     }
 
     /**
@@ -46,9 +52,14 @@ class CardOrderController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateCardOrderRequest $request)
     {
-        //
+        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id']);
+
+        $order = $this->cardOder->create($data);
+
+        return redirect()->route('cardOrders.index')
+        ->with('success', 'card Order entry created successfully');
     }
 
     /**
@@ -89,6 +100,16 @@ class CardOrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = CardOrder::find($id);
+        
+        if (!$order) {
+            return redirect()->route('cardOrders.index')
+            ->with('success', 'card Order dont exist');
+        }
+
+        $order->delete();
+
+        return redirect()->route('cardOrders.index')
+        ->with('success', 'card Order entry created successfully');
     }
 }
