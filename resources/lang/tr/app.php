@@ -555,9 +555,7 @@ return [
  
 
 
-        /***  cards  ***/
-
-
+    /***  cards  ***/
         'user' => 'Kullanıcı',
         'full_name' => 'Tam Adı',
         'card' => 'Kart',
@@ -567,6 +565,31 @@ return [
         'company_name' => 'Şirket Adı',
         'reference' => 'Referans',
         'cards' => 'Kartlar',
+        'status_order' => 'Durum Sırası',
+        'quantity' => 'Miktar',
+        'card_order' => 'Kart Sırası',
+        'card_orders' => 'Kart Siparişleri',
+        'color' => 'Renk',
+        'company' => 'Şirket',
+        'card_order' => 'Kart Sırası',
+        'create_new_card_order' => 'Yeni Kart Sırası Oluştur',
+        'breadcrumbs' => 'Kurumsal Kimlik',
+        'cardOrders' => 'Kart Siparişleri',
+        'Edit' => 'Düzenle',
+        'cardOrders-form' => 'Kart Siparişleri Formu',
+        'multipart/form-data' => 'Çoklu Parça Veri Formu',
+        'quantity' => 'Miktar',
+        'save-or-update-btn' => 'Kaydet veya Güncelle Düğmesi',
+        'label' => 'Etiket',
+        'progress' => 'İlerleme',
+        'Please wait' => 'Lütfen bekleyin',
+        'card_order' => 'Kart Sırası Detayları',
+        'a_general_card_phrases_information' => 'Genel Kart İfadeleri Bilgileri',
+        'card_order_phrases_details' => 'Kart Sipariş İfadeleri Detayları',
+        'a_general_card_order_phrases_information' => 'Genel Kart Sipariş İfadeleri Bilgileri',
+
+
+
 
 
 ];

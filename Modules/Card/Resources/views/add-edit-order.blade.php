@@ -47,7 +47,7 @@
                 />
 
 
-                <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.Quantity')</label>
+                <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.quantity')</label>
                         <input type="string"
                             class="form-control input-solid mb-2"
                             id="quantity"

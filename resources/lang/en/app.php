@@ -564,7 +564,7 @@ return [
       'remark_phrases_details' => 'Remark Phrases Details',
       'add_remark' => 'Add Remark',
 
- /***  cards  ***/
+      /***  cards  ***/
         'user' => 'User',
         'full_name' => 'Full Name',
         'card' => 'Card',
@@ -574,6 +574,32 @@ return [
         'company_name' => 'Company Name',
         'reference' => 'Reference',
         'cards' => 'Cards',
+        'status_order' => 'Status Order',
+        'quantity' => 'Quantity',
+        'card_order' => 'Card Order',
+        'card_orders' => 'Card Orders',
+        'color' => 'Color',
+        'company' => 'Company',
+
+        'card_order' => 'Card Order',
+        'create_new_card_order' => 'Create New Card Order',
+        'breadcrumbs' => 'Breadcrumbs',
+        'cardOrders' => 'Card Orders',
+        'Edit' => 'Edit',
+        'cardOrders-form' => 'Card Orders Form',
+        'multipart/form-data' => 'Multipart/Form-Data',
+        'card' => 'Card',
+        'quantity' => 'Quantity',
+        'color' => 'Color',
+        'model' => 'Model',
+        'save-or-update-btn' => 'Save or Update Button',
+        'label' => 'Label',
+        'progress' => 'Progress',
+        'Please wait' => 'Please Wait',
+        'card_order' => 'Card Order Details',
+        'a_general_card_phrases_information' => 'General Card Phrases Information',
+        'card_order_phrases_details' => 'Card Order Phrases Details',
+        'a_general_card_order_phrases_information' => 'General Card Order Phrases Information',
 
 
 
