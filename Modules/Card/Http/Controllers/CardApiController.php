@@ -46,9 +46,10 @@ class CardApiController extends ApiController
     }
 
 
-    public function show($id)
+    public function show($ref)
     {
-        $card = Card::find($id);
+        //$card = Card::find($id);
+        $card = Card::where('reference',$ref)->first();
 
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
@@ -125,6 +126,15 @@ class CardApiController extends ApiController
 
         return $this->respondWithSuccess([
             'card' => new CardResource($newCard),
+        ],  'Card reference updated successfully', 200);
+    }
+
+    public function setMainCard($id)
+    {
+        Card::query()->update(['is_main'=>0]);
+        $card = $this->cards->update($id,['is_main' => 1]);
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
         ],  'Card reference updated successfully', 200);
     }
 }

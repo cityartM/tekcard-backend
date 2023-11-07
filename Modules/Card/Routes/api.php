@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('cards', 'CardApiController');
     Route::post('cards/checkAvailability', 'CardApiController@checkAvailability');
     Route::post('cards/updateReference', 'CardApiController@updateReference');
+    Route::put('cards/setMain/{id}', 'CardApiController@setMainCard');
 
     // Card Contact
     Route::apiResource('cardContacts', 'CardContactApiController');
