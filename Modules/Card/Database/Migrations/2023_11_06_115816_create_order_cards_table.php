@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger("company_id")->nullable();
            // $table->enum("status", OrderStatus::lists())->default('Pending'); didnt work it save as (app.orderStatus . pending or delivring )in database 
             $table->enum('status',array_keys(OrderStatus::lists()))->default('Pending');
+            
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
 
