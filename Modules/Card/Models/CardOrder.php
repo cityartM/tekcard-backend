@@ -18,6 +18,7 @@ class CardOrder extends Model
         'quantity',
         'color',
         'company_id',
+        'status'
     ];
 
     public function company()
