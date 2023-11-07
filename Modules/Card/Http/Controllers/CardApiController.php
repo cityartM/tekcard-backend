@@ -16,7 +16,6 @@ use App\Http\Controllers\Api\ApiController;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-use Modules\ContactUser\Http\Resources\RemarkResource;
 
 
 class CardApiController extends ApiController
