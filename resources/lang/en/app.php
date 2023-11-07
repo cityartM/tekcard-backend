@@ -150,6 +150,12 @@ return [
         'Works' => 'Works',
     ],
 
+    'contactAppsType' => [
+        'Link' => 'Link',
+        'Call' => 'Call',
+        'Mail' => 'Mail'
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',
@@ -203,7 +209,7 @@ return [
     'general_settings' => 'General Settings',
     'add_background' => 'Add Background',
 
-    /*** Role ***/ 
+    /*** Role ***/
 
     'no_data_found' => 'No data found',
     'apply' => 'Apply',
