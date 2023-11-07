@@ -8,15 +8,19 @@ use Illuminate\Routing\Controller;
 
 use Modules\Card\Repositories\CardRepository;
 use Modules\Card\Models\Card;
+use Modules\Background\Models\Background;
+use App\Helpers\Helper;
+use Modules\Card\Http\Requests\CreateCardRequest;
+
 
 class CardController extends Controller
 {
 
     private $cards;
 
-    function __construct(CardRepository $cards)
+    public function __construct(CardRepository $cards)
     {
-        $this->cards= $cards;
+        $this->cards = $cards;
     }
     /**
      * Display a listing of the resource.
@@ -38,7 +42,9 @@ class CardController extends Controller
      */
     public function create()
     {
-        return view('card::create');
+        $backgrounds = Background::all();
+        $edit=false;
+        return view('card::add-edit-card',compact("edit","backgrounds"));
     }
 
     /**
@@ -46,9 +52,22 @@ class CardController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateCardRequest $request)
     {
-        //
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
+        $data['reference'] = Helper::generateCode(15);
+        $data['user_id'] = auth()->id();
+        
+        $cards = $this->cards->create($data);
+        
+     //   $card->cardApps()->attach($request->card_apps);
+
+        if ($request->hasFile('avatar') ) {
+            $cards->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        return redirect()->route('cards.index')
+        ->with('success', 'card  entry created successfully');
     }
 
     /**
