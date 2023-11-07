@@ -34,9 +34,9 @@ class CardApiController extends ApiController
          ->allowedFilters([
             AllowedFilter::custom('search', new CardKeywordSearch),
         ])
-        ->allowedSorts(['id'])
-        ->defaultSort('id')
-        ->paginate($request->per_page ?: 1);
+        ->allowedSorts(['id,is_main'])
+        ->defaultSort('-is_main')
+        ->paginate($request->per_page ?: 10);
 
 
         return $this->respondWithSuccess([
@@ -57,13 +57,17 @@ class CardApiController extends ApiController
 
     public function store(CreateCardRequest $request)
     {
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id']);
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main']);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
         $card = Card::create($data);
 
         $card->cardApps()->attach($request->card_apps);
+
+        if ($request->hasFile('card_avatar') ) {
+            $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
 
         return $this->respondWithSuccess([
             'card' => new CardResource($card),

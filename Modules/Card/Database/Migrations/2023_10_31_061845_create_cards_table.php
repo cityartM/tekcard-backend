@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean("is_single_link")->nullable();
             $table->integer("single_link_contact_id")->nullable();
             $table->unsignedInteger('user_id');
+            $table->boolean("is_main")->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

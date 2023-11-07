@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardContactKeywordSearch;
 use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardContactRequest;
+use Modules\Card\Http\Requests\UpdateCardContactRequest;
 use Modules\Card\Http\Requests\UpdateRefCardRequest;
 use Modules\Card\Http\Resources\CardContactResource;
 use Modules\Card\Http\Resources\CardResource;
@@ -36,6 +37,7 @@ class CardContactApiController extends ApiController
          ->where('user_id',auth()->user()->id)
          ->allowedFilters([
             AllowedFilter::custom('search', new CardContactKeywordSearch),
+            AllowedFilter::exact('group'),
         ])
         ->allowedSorts(['id'])
         ->defaultSort('id')
@@ -44,6 +46,8 @@ class CardContactApiController extends ApiController
 
         return $this->respondWithSuccess([
             'cardContacts' => CardContactResource::collection($cards)->response()->getData(true),
+            'count_peoples' => $this->cardContacts->countUserPeoples(auth()->user()->id),
+            'count_works' => $this->cardContacts->countUserWorks(auth()->user()->id),
         ],  'Card Contacts retrieved successfully', 200);
 
     }
@@ -72,56 +76,21 @@ class CardContactApiController extends ApiController
     }
 
 
+    public function update(UpdateCardContactRequest $request, CardContact $cardContact)
+    {
+        $data = $request->only(['remark_id', 'group']);
+
+        $updatedCardContact = $this->cardContacts->update($cardContact->id,$data);
+
+        return $this->respondWithSuccess([
+            'cardContact' => new CardContactResource($updatedCardContact),
+        ], 'Card Contact updated successfully', 200);
+    }
+
+
     public function destroy($id)
     {
-        $card = Card::find($id);
-
-        if (!$card) {
-        return $this->respondWithSuccess(
-            ['message' => 'Card not found'],
-            'Card not found',404
-        );}
-
-        if ($card->user_id !== auth()->id()) {
-            return $this->respondWithSuccess(
-                ['message' => 'You are not authorized to delete this card'],
-                'Authorization failed',403
-            );
-        }
-
-        $card->delete();
-
-        return $this->respondWithSuccess([
-            'card' => new CardResource($card),
-        ],  'Card deleted successfully', 200);
+      //delete
     }
 
-
-    public function checkAvailability(Request $request)
-    {
-        $card = Card::where('reference', $request->reference)->first();
-
-        if (!$card) {
-            return $this->respondWithSuccess(
-                [ 'availability' => true],
-                'Card not found',200
-            );
-        }
-
-        return $this->respondWithSuccess([
-            'availability' => false,
-        ],  'Card retrieved successfully', 200);
-    }
-
-    public function updateReference(UpdateRefCardRequest $request)
-    {
-
-         $card = Card::find($request->card_id);
-
-         $newCard = $this->cards->update($card->id, ['reference' => $request->new_reference]);
-
-        return $this->respondWithSuccess([
-            'card' => new CardResource($newCard),
-        ],  'Card reference updated successfully', 200);
-    }
 }

@@ -2,13 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Modules\Blog\Http\Resources\PostResource;
 use Modules\Blog\Models\Blog;
+use Modules\Card\Http\Resources\CardResource;
+use Modules\Card\Models\Card;
 use Modules\Feature\Models\Feature;
 use Modules\Plan\Models\Plan;
 
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('landing.home');
+
+Route::get('/card/{reference}', function (string $reference) {
+    $card = Card::where('reference', $reference)->firstOrFail();
+    return Inertia::render('CardShare', [
+        "card" => new CardResource($card)
+    ]);
+});
 
 Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
@@ -17,7 +27,7 @@ Route::get('/about-us', function () {
 Route::get('/our-blog', function () {
     $latestPosts = Blog::with('media')->orderByDesc('created_at')->paginate(4);
     return Inertia::render('Blog', [
-        "posts" => \Modules\Blog\Http\Resources\PostResource::collection($latestPosts),
+        "posts" => PostResource::collection($latestPosts),
     ]);
 })->name('landing.blog');
 
@@ -26,8 +36,8 @@ Route::get('/our-blog/{blog}', function (Blog $blog) {
     $latestPosts = Blog::with('media')->orderByDesc('created_at')->paginate(4);
 
     return Inertia::render('BlogSingle', [
-        "post"  => new \Modules\Blog\Http\Resources\PostResource($blog),
-        "posts" => \Modules\Blog\Http\Resources\PostResource::collection($latestPosts),
+        "post"  => new PostResource($blog),
+        "posts" => PostResource::collection($latestPosts),
     ]);
 })->name('landing.blog.show');
 
