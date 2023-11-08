@@ -375,6 +375,7 @@ return [
  'actions' => 'işlemler',
  'delete' => 'sil',
  'home' => 'Ana Sayfa',
+ 'rating' => 'Değerlendirme',
  'selected' => 'seçilen',
  'delete_selected' => 'seçilenleri sil',
  'user' => 'kullanıcı',

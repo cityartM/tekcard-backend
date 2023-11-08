@@ -162,6 +162,7 @@ return [
     'actions' => 'إجراءات',
     'delete' => 'حذف',
     'home' => 'الصفحة الرئيسية',
+    'rating' => 'التقييم',
     'selected' => 'محدد' ,
     'delete_selected' => 'حذف المحددين',
     'user' => 'مستخدم' ,

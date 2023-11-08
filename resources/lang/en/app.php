@@ -191,6 +191,7 @@ return [
     'bio' => 'bio',
     'avatar' => 'avatar',
     'background' => 'Background',
+    'rating' => 'Rating',
 
 
     /*** Company ***/
