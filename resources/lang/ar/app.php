@@ -382,5 +382,12 @@ return [
     'a_general_card_phrases_information' => 'معلومات عامة عن عبارات البطاقة',
     'card_order_phrases_details' => 'تفاصيل عبارات طلب البطاقة',
     'a_general_card_order_phrases_information' => 'معلومات عامة حول عبارات طلب البطاقة',
+    'card_phrases_details' => 'تفاصيل عبارات البطاقة',
+    'background_id' => 'معرف الخلفية',
+    'card_orders_list' => 'قائمة طلبات البطاقات',
+
+
+
+
 ];
  

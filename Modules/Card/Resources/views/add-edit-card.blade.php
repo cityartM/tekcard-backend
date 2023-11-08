@@ -180,6 +180,7 @@
             </div>
             <div class="col-md-12 mt-2">
                <x-save-or-update-btn
+                    class="d-none"
                     :label="__($edit ? 'app.update' : 'app.save')"
                     :progress="__('Please wait...')"
                 />

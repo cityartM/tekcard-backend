@@ -66,6 +66,14 @@ class CardContactApiController extends ApiController
     {
         $data = $request->only(['card_id', 'remark_id', 'group']);
 
+        $existCard = $this->cardContacts->checkExistCard($data['card_id'],auth()->id());
+
+        if($existCard){
+            return $this->respondWithSuccess([
+                'cardContact' => new CardContactResource($existCard),
+            ], 'Card Contact created successfully', 200);
+        }
+
         $data['user_id'] = auth()->id();
 
         $cardContact = $this->cardContacts->create($data);

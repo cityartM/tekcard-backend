@@ -198,7 +198,6 @@ return [
     'bio' => 'Bio',
     'avatar' => 'Avatar',
     'background' => 'Background',
-    'avatar' =>'Avatar',
     'color' => 'Color',
     'next'=>'Next',
     'previous'=>'Previous',
@@ -331,7 +330,7 @@ return [
     'Advices' => 'Advices',
     'Address' => 'Address',
     'City' => 'City',
-    'Wilaya' => 'Wilaya',
+    'Wilaya' => 'Province',
     'Countries' => 'Countries',
     'Subscription' => 'Subscription',
     'Subscription attribute' => 'Subscription attribute',
@@ -400,9 +399,9 @@ return [
     'city' => 'city',
     'groups' => 'groups',
     'group' => 'group',
-    'remarks' => 'remarks',
-    'contacts' => 'contacts',
-    'general' => 'general',
+    'remarks' => 'Remarks',
+    'contacts' => 'Contacts',
+    'general' => 'General',
     'auth_&_registration' => 'Auth & Registration',
     'notifications' => 'notifications',
     'settings' => 'settings',
@@ -510,7 +509,7 @@ return [
 
     /***  Addresses  ***/
     'add_city' => 'Add City',
-    'wilaya' => 'wilaya',
+    'wilaya' => 'Province',
     'latitude' => 'latitude',
     'longitude' => 'longitude',
     'Addresses' => 'Addresses',
@@ -521,7 +520,7 @@ return [
 
 
      /***  tags  ***/
-     'tags' => 'tags',
+     'tags' => 'Tags',
      'tag' => 'tag',
      'add_tag' => 'Add Tag',
      'create_new_tag' => 'Create New Tag',
@@ -584,6 +583,8 @@ return [
         'a_general_card_phrases_information' => 'General Card Phrases Information',
         'card_order_phrases_details' => 'Card Order Phrases Details',
         'a_general_card_order_phrases_information' => 'General Card Order Phrases Information',
+        'background_id' => 'Background ID',
+        'card_orders_list' => 'Card Orders List',
 
 
 
