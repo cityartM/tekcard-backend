@@ -16,7 +16,7 @@ interface ContactUsRepository
 
     public function index();
 
-
+    public function create($data);
 
     /**
      * Remove Subscription from repository.

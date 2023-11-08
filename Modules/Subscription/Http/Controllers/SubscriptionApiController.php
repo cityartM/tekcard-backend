@@ -53,12 +53,13 @@ class SubscriptionApiController extends ApiController
     {
         $data = $request->only(['email']);
 
+        $subscription = $this->subscriptions->create($data);
 
-        $subscription = Subscription::create($data);
+       //$subscription = Subscription::create($data);
         
 
         return $this->respondWithSuccess([
-            'Subscription' => new SubscriptionResource($subscriptions),
+            'Subscription' => new SubscriptionResource($data),
         ],  'Subscription request created successfully.',200);
     }
 

@@ -19,7 +19,7 @@ class SubscriptionResource extends JsonResource
     {
         return [
             
-            'email' => $this->date,
+            'email' => $this->email,
         
         ];
     }

@@ -40,6 +40,12 @@ class EloquentSubscription implements SubscriptionRepository
         return Subscription::find($id);
     }
 
+    public function create($data)
+    {
+        $subscription=Subscription::create($data);
+        return $subscription;
+    }
+
     /**
      * {@inheritdoc}
      */

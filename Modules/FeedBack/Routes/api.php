@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/feedback', function (Request $request) {
-    return $request->user();
+
+
+
+Route::group(['middleware' => 'auth'], function () {
+    // Card
+    Route::post('feedback', 'FeedBackApiController@store');
+    
+
 });
