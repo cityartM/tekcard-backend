@@ -43,7 +43,6 @@ class CardController extends Controller
     public function create()
     {
         $backgrounds = Background::query();
-        //dd($backgrounds->pluck('id', 'id')->toArray());
         $edit=false;
         return view('card::add-edit-card',compact("edit","backgrounds"));
     }
@@ -55,16 +54,27 @@ class CardController extends Controller
      */
     public function store(CreateCardRequest $request)
     {
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','contact_apps']);
+
+        $items = collect($data['contact_apps'])->map(function($item){
+            foreach ($item as $key => $value) {
+                $items['contact_id'] = $value['contact_id'];
+                $items['title'] = $value['title'];
+                $items['value'] = $value['value'];
+            }
+
+            return $items;
+            });
         $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
-        $cards = $this->cards->create($data);
+        $card = $this->cards->create($data);
 
-     //   $card->cardApps()->attach($request->card_apps);
+       $card->cardApps()->attach($items);
 
         if ($request->hasFile('avatar') ) {
-            $cards->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
+            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
         }
 
         return redirect()->route('cards.index')
@@ -107,8 +117,12 @@ class CardController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Card $card)
     {
-        //
+            $card->clearMediaCollection('CARD_AVATAR');
+            $card->delete();
+
+            return redirect()->route('cards.index')
+            ->with('success', 'card  entry deleted successfully');
     }
 }

@@ -88,9 +88,10 @@ class CardApiController extends ApiController
         if ($card->user_id !== auth()->id()) {
             return $this->respondWithSuccess(
                 ['message' => 'You are not authorized to delete this card'],
-                'Authorization failed',403
+                'Authorization failed',200
             );
         }
+        $card->clearMediaCollection('CARD_AVATAR');
 
         $card->delete();
 
