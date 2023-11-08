@@ -322,7 +322,7 @@ return [
     'Advices' => 'Advices',
     'Address' => 'Address',
     'City' => 'City',
-    'Wilaya' => 'Wilaya',
+    'Wilaya' => 'Province',
     'Countries' => 'Countries',
     'Subscription' => 'Subscription',
     'Subscription attribute' => 'Subscription attribute',
@@ -388,22 +388,22 @@ return [
     'code' => 'Code',
     'addresses' => 'Addresses',
     'country' => 'Country',
-    'add_wilaya' => 'add_wilaya',
-    'countries' => 'countries',
-    'address' => 'address',
-    'city' => 'city',
-    'companies' => 'companies',
-    'users' => 'users',
-    'groups' => 'groups',
+    'add_wilaya' => 'add_Province',
+    'countries' => 'Countries',
+    'address' => 'Address',
+    'city' => 'City',
+    'companies' => 'Companies',
+    'users' => 'Users',
+    'groups' => 'Groups',
     'group' => 'group',
-    'remarks' => 'remarks',
-    'contacts' => 'contacts',
-    'general' => 'general',
+    'remarks' => 'Remarks',
+    'contacts' => 'Contacts',
+    'general' => 'General',
     'auth_&_registration' => 'Auth & Registration',
     'notifications' => 'notifications',
-    'settings' => 'settings',
-    'roles' => 'roles',
-    'permissions' => 'permissions',
+    'settings' => 'Settings',
+    'roles' => 'Roles',
+    'permissions' => 'Permissions',
     'roles_&_permissions' => 'Roles & Permissions',
     'plans' => 'plans',
     'features' => 'features',
@@ -513,11 +513,11 @@ return [
 
     /***  Addresses  ***/
     'add_city' => 'Add City',
-    'wilaya' => 'wilaya',
+    'wilaya' => 'Province',
     'latitude' => 'latitude',
     'longitude' => 'longitude',
     'code' => 'code',
-    'add_wilaya' => 'Add Wilaya',
+    'add_wilaya' => 'Add Province',
     'add_country' => 'Add Country',
     'Addresses' => 'Addresses',
     'country_name' => 'Country Name',
@@ -527,7 +527,7 @@ return [
 
 
      /***  tags  ***/
-     'tags' => 'tags',
+     'tags' => 'Tags',
      'tag' => 'tag',
      'add_tag' => 'Add Tag',
      'create_new_tag' => 'Create New Tag',
@@ -538,8 +538,8 @@ return [
 
 
      /***  background  ***/
-     'backgrounds' => 'backgrounds',
-     'backgrounds' => 'background',
+     'backgrounds' => 'Backgrounds',
+     'backgrounds' => 'Background',
      'create_new_background' => 'Create New Background',
      'background_phrases_details' => 'Background Phrases Details',
      'a_general_background_phrases_information' => 'A General Background Phrases Information',
@@ -600,6 +600,9 @@ return [
         'a_general_card_phrases_information' => 'General Card Phrases Information',
         'card_order_phrases_details' => 'Card Order Phrases Details',
         'a_general_card_order_phrases_information' => 'General Card Order Phrases Information',
+        'card_phrases_details' => 'Card Phrases Details',
+        'background_id' => 'Background ID',
+        'card_orders_list' => 'Card Orders List',
 
 
 

@@ -587,6 +587,9 @@ return [
         'a_general_card_phrases_information' => 'Genel Kart İfadeleri Bilgileri',
         'card_order_phrases_details' => 'Kart Sipariş İfadeleri Detayları',
         'a_general_card_order_phrases_information' => 'Genel Kart Sipariş İfadeleri Bilgileri',
+        'card_phrases_details' => 'Kart İfadeleri Detayları',
+        'background_id' => 'Arka Plan Kimliği',
+        'card_orders_list' => 'Kart Siparişleri Listesi',
 
 
 
