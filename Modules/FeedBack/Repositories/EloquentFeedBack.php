@@ -49,6 +49,17 @@ class EloquentFeedBack implements FeedBackRepository
         return $feedBack;
     }
 
+    public function update($feedback)
+    {
+        if ($feedback->status == "published") {
+            $newStatus = "unpublished";
+        } else {
+            $newStatus = "published";
+        }
+   
+        return $feedback->update(['status' => $newStatus]);
+    }
+
 
     public function delete($id)
     {

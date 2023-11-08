@@ -9,9 +9,13 @@ use Illuminate\Routing\Controller;
 use App\Http\Controllers\Api\ApiController;
 use Modules\FeedBack\Models\FeedBack;
 
+
+use Modules\FeedBack\Http\Resources\FeedbackResource;
+
 use Modules\FeedBack\Http\Requests\FeedBackRequest;
 
 use Modules\FeedBack\Repositories\FeedBackRepository;
+use App\Support\Enum\Status;
 
 
 class FeedBackApiController extends ApiController
@@ -29,10 +33,13 @@ class FeedBackApiController extends ApiController
      * @return Renderable
      */
     public function index()
-    {
-        return view('feedback::index');
-    }
+{
+    $publishedFeedback = Feedback::where('status', Status::PUBLISHED)->get();
 
+    return $this->respondWithSuccess([
+        'feedBack' => FeedbackResource::collection($publishedFeedback),
+    ], 'feedBack request back successfully.', 200);
+}
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -58,8 +65,8 @@ class FeedBackApiController extends ApiController
         $feedBack = $this->feedBack->create($data);
 
         return $this->respondWithSuccess([
-            'Subscription' => "$feedBack",
-        ],  'Subscription request created successfully.',200);
+            'feedBack' => new FeedbackResource($feedBack),
+        ],  'feedBack request created successfully.',200);
     }
 
     /**

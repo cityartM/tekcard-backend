@@ -19,3 +19,5 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
     Route::resource('feedback', \Modules\FeedBack\Http\Controllers\FeedBackController::class)->middleware('permission:feedback.manage');
    
 }); 
+
+Route::get('/feedback-home', [\Modules\FeedBack\Http\Controllers\FeedBackController::class, 'getPublishedFeedback'])->name('published-feedback');

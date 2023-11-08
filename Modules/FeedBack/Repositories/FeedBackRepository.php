@@ -17,6 +17,7 @@ interface FeedBackRepository
     public function index();
 
     public function create($data);
+    public function update($feedback);
 
     /**
      * Remove Subscription from repository.

@@ -4,8 +4,8 @@ namespace App\Support\Enum;
 
 class Status
 {
-    const PUBLISHED = 'Published';
-    const UNPUBLISHED = 'Unpublished';
+    const PUBLISHED = 'published';
+    const UNPUBLISHED = 'unpublished';
 
     public static function lists()
     {
