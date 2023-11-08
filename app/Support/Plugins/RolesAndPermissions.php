@@ -9,7 +9,7 @@ class RolesAndPermissions extends Plugin
 {
     public function sidebar()
     {
-        $roles = Item::create(__('app.roles'))
+        $roles = Item::create(__('app.page_roles'))
             ->route('roles.index')
             ->active("roles*")
             ->permissions('roles.manage');

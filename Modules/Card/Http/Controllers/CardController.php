@@ -42,7 +42,8 @@ class CardController extends Controller
      */
     public function create()
     {
-        $backgrounds = Background::all();
+        $backgrounds = Background::query();
+        //dd($backgrounds->pluck('id', 'id')->toArray());
         $edit=false;
         return view('card::add-edit-card',compact("edit","backgrounds"));
     }
@@ -57,9 +58,9 @@ class CardController extends Controller
         $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
-        
+
         $cards = $this->cards->create($data);
-        
+
      //   $card->cardApps()->attach($request->card_apps);
 
         if ($request->hasFile('avatar') ) {
