@@ -3,6 +3,7 @@
 namespace Modules\Plan\Http\Controllers;
 
 
+use App\Helpers\Helper;
 use App\Http\Resources\UserResource;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\UserRepository;
@@ -10,6 +11,7 @@ use App\Support\Enum\UserStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+use Modules\Card\Repositories\CardRepository;
 use Modules\Company\Repositories\CompanyRepository;
 use Modules\Company\Services\CompanyAvatarManager;
 use Modules\Plan\Http\Filters\PlanKeywordType;
@@ -37,9 +39,11 @@ class UserPlanApiController extends ApiController
 
     private $companies;
 
+    private $cards;
+
     private $only = ['full_name','job_title','phone','bio','country_id','address'];
 
-    public function __construct(CompanyRepository $companies, UserRepository $users,PlanRepository $plans ,UserPlanRepository $userPlans,RoleRepository $roles,CompanyAvatarManager $avatarManager)
+    public function __construct(CompanyRepository $companies, UserRepository $users,PlanRepository $plans ,UserPlanRepository $userPlans,RoleRepository $roles,CompanyAvatarManager $avatarManager,CardRepository $cards)
     {
         $this->users = $users;
         $this->plans = $plans;
@@ -47,6 +51,7 @@ class UserPlanApiController extends ApiController
         $this->roles = $roles;
         $this->avatarManager = $avatarManager;
         $this->companies = $companies;
+        $this->cards = $cards;
     }
 
     public function index(Request $request)
@@ -152,6 +157,23 @@ class UserPlanApiController extends ApiController
                                                     'company_id' => $company->id
                                                  ]);
 
+          /****Start Create card for company****/
+
+            $dataCard['reference'] = Helper::generateCode(15);
+            $dataCard['name'] = $request->name;
+            $dataCard['full_name'] = $request->full_name;
+            $dataCard['company_name'] = $request->full_name;
+            $dataCard['user_id'] = $user->id;
+            $dataCard['company_id'] = $company->id;
+            $dataCard['is_main'] = 1;
+
+            $card = $this->cards->create($dataCard);
+
+            if ($request->hasFile('file') ) {
+                $card->addMedia($request->file('file'))->toMediaCollection('CARD_AVATAR');
+            }
+
+          /****End Create card for company****/
         return $this->respondWithSuccess([
             'user' => new UserResource($user),
         ],  'Plan purchased successfully', 200);

@@ -61,7 +61,7 @@ class CardApiController extends ApiController
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
-        $card = Card::create($data);
+        $card = $this->cards->create($data);
 
         $card->cardApps()->attach($request->card_apps);
 
@@ -107,7 +107,7 @@ class CardApiController extends ApiController
             }
 
         }
-        
+
     }
 
 
