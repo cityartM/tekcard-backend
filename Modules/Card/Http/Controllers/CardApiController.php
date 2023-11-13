@@ -89,13 +89,25 @@ class CardApiController extends ApiController
                 'Authorization failed',200
             );
         }
-        $card->clearMediaCollection('CARD_AVATAR');
+        if($card->is_main){
+            $card->clearMediaCollection('CARD_AVATAR');
 
-        $card->delete();
+            $card->delete();
 
-        return $this->respondWithSuccess([
-            'card' => new CardResource($card),
-        ],  'Card deleted successfully', 200);
+            $mainCard = Card::where('user_id',auth()->id())->first();
+            if($mainCard){
+                $mainCard->update(['is_main' => 1]);
+                return $this->respondWithSuccess([
+                    'card' => new CardResource($mainCard),
+                ],  'Card deleted successfully', 200);
+            }else{
+                return $this->respondWithSuccess([
+                    'card' => null,
+                ],  'Card deleted successfully', 200);
+            }
+
+        }
+        
     }
 
 
