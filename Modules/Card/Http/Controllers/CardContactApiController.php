@@ -104,7 +104,7 @@ class CardContactApiController extends ApiController
                 'Authorization failed',200
             );
         }
-        
+
         $cardContact->delete();
 
         return $this->respondWithSuccess([
