@@ -147,7 +147,12 @@
                         <div class="tab-pane fade" id="contact_apps_card_tab" role="tabpanel">
                             <div class="card card-flush mb-6 mb-xl-9">
                                 <div class="card-body">
-                                    @include("card::contact-apps")
+                                    @if($edit)
+                                        @include("card::edit-contact-apps", ['card' => $card,'backgrounds' => $backgrounds])
+                                    @else
+                                        @include("card::contact-apps")
+                                    @endif
+
                                 </div>
                             </div>
                         </div>

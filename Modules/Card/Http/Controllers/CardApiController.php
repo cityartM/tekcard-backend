@@ -75,10 +75,8 @@ class CardApiController extends ApiController
     }
 
 
-    public function destroy($id)
+    public function destroy(Card $card)
     {
-        $card = Card::find($id);
-
         if (!$card) {
         return $this->respondWithSuccess(
             ['message' => 'Card not found'],
