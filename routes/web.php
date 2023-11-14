@@ -185,6 +185,11 @@ Route::group(['namespace' => 'Dashboard'],function (){
 
     Route::post('/media/{lang}/{collection}', [TranslationController::class, 'addMedia'])
         ->name('media.store');
+
+    route::get('/send-email', function () {
+        $user = \App\Models\User::find(1);
+        Mail::to('daoudbelmerabet@gmail.com')->send(new \App\Mail\UserRegistered($user));
+    })->name('send-email');
 });
 
 require __DIR__.'/frontend.php';

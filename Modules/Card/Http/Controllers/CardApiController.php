@@ -4,6 +4,10 @@ namespace Modules\Card\Http\Controllers;
 
 
 use App\Helpers\Helper;
+use App\Models\User;
+use App\Repositories\Role\RoleRepository;
+use App\Support\Enum\UserStatus;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardKeywordSearch;
@@ -22,9 +26,14 @@ class CardApiController extends ApiController
 {
     private $cards;
 
-    public function __construct(CardRepository $cards)
+    private $roles;
+
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main'];
+
+    public function __construct(CardRepository $cards,RoleRepository $roles)
     {
         $this->cards = $cards;
+        $this->roles = $roles;
     }
     public function index(Request $request)
     {
@@ -57,9 +66,49 @@ class CardApiController extends ApiController
 
     public function store(CreateCardRequest $request)
     {
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main']);
+        $data = $request->only($this->only);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
+
+        $card = $this->cards->create($data);
+
+        $card->cardApps()->attach($request->card_apps);
+
+        if ($request->hasFile('card_avatar') ) {
+            $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ], 'Card created successfully', 200);
+    }
+
+    public function storeUserCompany(CreateCardRequest $request)
+    {
+        $adminCompany = auth()->user();
+        if($adminCompany->role->name != 'Company'){
+            return $this->sendFailedResponse('You are not allowed to create card for this company', 200);
+        }
+        $data = $request->only($this->only);
+        $existUser = User::where('email',$request->email)->first();
+
+        if($existUser){
+            $data['user_id'] = $existUser->id;
+        }else{
+            $role = $this->roles->findByName('User');
+            $userData = [
+                'company_id' => $adminCompany->company_id,
+                'role_id' => $role->id,
+                'username' => $request->username,
+                'email' => $request->email,
+                'status'=>UserStatus::ACTIVE,
+                'password' => Str::random(8),
+            ];
+            $user = User::create($userData);
+            $data['user_id'] = $user->id;
+        }
+
+        $data['reference'] = Helper::generateCode(15);
 
         $card = $this->cards->create($data);
 
@@ -80,7 +129,7 @@ class CardApiController extends ApiController
         if (!$card) {
         return $this->respondWithSuccess(
             ['message' => 'Card not found'],
-            'Card not found',404
+            'Card not found',200
         );}
 
         if ($card->user_id !== auth()->id()) {

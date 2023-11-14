@@ -34,7 +34,12 @@ class UserRegistered extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        $subject = sprintf("[%s] %s", setting('app_name'), __('New User Registration'));
-        return $this->subject($subject)->markdown('mail.user-registered');
+        /*$subject = sprintf("[%s] %s", setting('app_name'), __('New User Registration'));
+        return $this->subject($subject)->markdown('mail.user-registered');*/
+
+        return $this->markdown('mail.userSignup')
+            ->from('noreply@justravel.pro', 'Just Travel')
+            ->replyTo('contact@justravel.pro')
+            ->subject("Bonne nouvelle, votre compte a été activé | Justravel.pro");
     }
 }

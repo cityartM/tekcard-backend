@@ -163,6 +163,7 @@ class UserPlanApiController extends ApiController
             $dataCard['name'] = $request->name;
             $dataCard['full_name'] = $request->full_name;
             $dataCard['company_name'] = $request->full_name;
+            $dataCard['job_title'] = $request->job_title;
             $dataCard['user_id'] = $user->id;
             $dataCard['company_id'] = $company->id;
             $dataCard['is_main'] = 1;
