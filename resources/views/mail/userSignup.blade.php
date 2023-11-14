@@ -1,25 +1,24 @@
 @component('mail::message')
 
-# Salam {{ $user->email }}!
+# @lang('mail.Hello!')
 
-Nous vous remercions de l'intérêt que vous portez à notre service, nous avons examiné votre inscription, et nous sommes heureux de vous annoncer que nous avons activé votre compte.
-Ci-dessous vous trouverez vos informations de connexion.
-
-Pour référence, voici vos informations de connexion :
+@lang('mail.an_account_has_been_created_for_you', ['app' => setting('app_name'),'company' => $user->company?->full_name ?? 'TeKCard'])
 
 
-**E-mail**: {{ $user->email }}<br>
-**Mot de passe**: {{ $user->password }}<br>
-**Statut**: <span style="background:green; color:white">{{ $user->status }}</span>
+@lang('mail.to_view_user_details')<br>
 
-@component('mail::button', ['url' => env("APP_FRONT_URL", "https://justravel.pro"), 'color' => 'success'])
-Connexion
+@lang('mail.your_email') {{ $user->email }}<br>
+@lang('mail.your_password') {{ $password }}<br>
+
+@component('mail::button-Android', ['url' => env("ANDROID_APP_URL"), 'color' => 'success'])
+@endcomponent
+@component('mail::button-Apple', ['url' => env("APPLE_APP_URL"), 'color' => 'success'])
 @endcomponent
 
-Si vous avez des questions, vous pouvez contacter notre centre d'assistance.
+@lang('If you have any questions, you can contact our support center.')
 
 
-Salutations,<br>
+<br>
 {{ setting('app_name') }}
 
 @endcomponent

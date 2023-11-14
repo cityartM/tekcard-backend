@@ -160,7 +160,7 @@ class UserPlanApiController extends ApiController
           /****Start Create card for company****/
 
             $dataCard['reference'] = Helper::generateCode(15);
-            $dataCard['name'] = $request->name;
+            $dataCard['name'] = $request->full_name;
             $dataCard['full_name'] = $request->full_name;
             $dataCard['company_name'] = $request->full_name;
             $dataCard['job_title'] = $request->job_title;

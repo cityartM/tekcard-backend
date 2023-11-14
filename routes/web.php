@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TranslationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Users\UsersController;
+use Illuminate\Support\Str;
 
 
 Route::get('/lang/{locale}', function (string $locale) {
@@ -188,7 +189,8 @@ Route::group(['namespace' => 'Dashboard'],function (){
 
     route::get('/send-email', function () {
         $user = \App\Models\User::find(1);
-        Mail::to('daoudbelmerabet@gmail.com')->send(new \App\Mail\UserRegistered($user));
+        $password = Str::random(8);
+        Mail::to('daoudbelmerabet@gmail.com')->send(new \App\Mail\UserRegistered($user,$password));
     })->name('send-email');
 });
 

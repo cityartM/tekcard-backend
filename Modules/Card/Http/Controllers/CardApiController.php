@@ -9,6 +9,7 @@ use App\Repositories\Role\RoleRepository;
 use App\Support\Enum\UserStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardRequest;
@@ -96,16 +97,18 @@ class CardApiController extends ApiController
             $data['user_id'] = $existUser->id;
         }else{
             $role = $this->roles->findByName('User');
+            $password = Str::random(8);
             $userData = [
                 'company_id' => $adminCompany->company_id,
                 'role_id' => $role->id,
                 'username' => $request->username,
                 'email' => $request->email,
                 'status'=>UserStatus::ACTIVE,
-                'password' => Str::random(8),
+                'password' => $password,
             ];
             $user = User::create($userData);
             $data['user_id'] = $user->id;
+            Mail::to($request->email)->send(new \App\Mail\UserRegistered($user,$password));
         }
 
         $data['reference'] = Helper::generateCode(15);
