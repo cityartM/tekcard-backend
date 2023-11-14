@@ -115,7 +115,7 @@ class CardApiController extends ApiController
 
         $card = $this->cards->create($data);
 
-        $card->cardApps()->attach($request->card_apps);
+        //$card->cardApps()->attach($request->card_apps);
 
         if ($request->hasFile('card_avatar') ) {
             $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
