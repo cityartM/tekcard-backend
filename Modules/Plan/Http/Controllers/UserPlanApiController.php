@@ -113,9 +113,6 @@ class UserPlanApiController extends ApiController
 
         $existPlan= auth()->user()->plan->first();
 
-        /*return $this->respondWithSuccess([
-            'user' =>$existPlan,
-        ],  'Plan purchased successfully', 200);*/
 
         if($existPlan) return $this->sendFailedResponse('You already have a plan', 200);
 
