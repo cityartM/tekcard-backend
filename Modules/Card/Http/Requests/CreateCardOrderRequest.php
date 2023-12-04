@@ -14,7 +14,7 @@ class CreateCardOrderRequest extends Request
     public function rules()
     {
         return [
-            'card_id' => 'required|exists:cards,id',
+            'card_ids.*' => 'required|exists:cards,id',
             'quantity' => 'required|integer',
             'color' => 'required|string',
             'company_id' => 'nullable|exists:companies,id',

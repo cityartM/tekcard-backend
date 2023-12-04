@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('cardContacts', 'CardContactApiController');
 
     // card order
-    Route::post('cardOrder', 'CardOrderApiController@store');
+    Route::post('orders', 'CardOrderApiController@store');
 
    // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
 });

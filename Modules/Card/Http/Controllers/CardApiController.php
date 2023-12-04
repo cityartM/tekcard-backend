@@ -67,6 +67,7 @@ class CardApiController extends ApiController
 
     public function store(CreateCardRequest $request)
     {
+
         $data = $request->only($this->only);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();

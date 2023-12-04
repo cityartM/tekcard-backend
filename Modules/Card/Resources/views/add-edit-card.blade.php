@@ -66,42 +66,128 @@
                         <div class="tab-pane fade show active" id="general_card_information_tab" role="tabpanel">
                             <div class="card card-flush mb-6 mb-xl-9">
                                 <div class="card-body">
-                                    <x-input-field
-                                        :title="__('app.name')"
-                                        name="name"
-                                        col="6"
-                                        type="text"
-                                        required
-                                        class="mt-5"
-                                        :model=" $edit ? $card : null "
-                                    />
-                                    <x-input-field
-                                        :title="__('app.full_name')"
-                                        name="full_name"
-                                        col="6"
-                                        type="text"
-                                        required
-                                        class="mt-5"
-                                        :model=" $edit ? $card : null "
-                                    />
-                                    <x-input-field
-                                        :title="__('app.company_name')"
-                                        name="company_name"
-                                        col="6"
-                                        type="text"
-                                        required
-                                        class="mt-5"
-                                        :model=" $edit ? $card : null "
-                                    />
-                                    <x-input-field
-                                        :title="__('app.job_title')"
-                                        name="job_title"
-                                        col="6"
-                                        type="text"
-                                        required
-                                        class="mt-5 mb-5"
-                                        :model=" $edit ? $card : null "
-                                    />
+                                    <div class="row">
+                                        <x-input-field
+                                            :title="__('app.name')"
+                                            name="name"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.full_name')"
+                                            name="full_name"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                    </div>
+                                    <div class="row">
+                                        <x-input-field
+                                            :title="__('app.company_name')"
+                                            name="company_name"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.job_title')"
+                                            name="job_title"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                    </div>
+
+                                    <div class="row">
+                                        <x-input-field
+                                            :title="__('app.email')"
+                                            name="email"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.phone')"
+                                            name="phone"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                    </div>
+
+                                    <div class="row">
+                                        <x-input-field
+                                            :title="__('app.url_web_site')"
+                                            name="url_web_site"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.iban')"
+                                            name="iban"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                    </div>
+
+                                    <div class="row">
+                                        <x-input-field
+                                            :title="__('app.latitude')"
+                                            name="lat"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.longitude')"
+                                            name="long"
+                                            col="6"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.address')"
+                                            name="address"
+                                            col="12"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                        <x-input-field
+                                            :title="__('app.note')"
+                                            name="note"
+                                            col="12"
+                                            type="text"
+                                            required
+                                            class="mt-5 mb-5"
+                                            :model=" $edit ? $card : null "
+                                        />
+                                    </div>
+
 
                                     <!--begin::Input group-->
                                     <div class="form-floating form-control-solid-bg rounded">

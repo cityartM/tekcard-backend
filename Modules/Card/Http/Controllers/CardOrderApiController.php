@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 use App\Http\Controllers\Api\ApiController;
+use Illuminate\Support\Facades\Auth;
+use Modules\Card\Models\Shipping;
 use Modules\Card\Repositories\CardOrderRepository;
 
 use Modules\Card\Http\Requests\CreateCardOrderRequest;
@@ -50,14 +52,19 @@ class CardOrderApiController extends ApiController
      */
     public function store(CreateCardOrderRequest $request)
     {
-        
-        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id']);
+
+        $data = $request->only(['card_ids', 'quantity', 'color' , 'company_id','country_id','state','zip_code','address']);
 
         $order = $this->cardOrders->create($data);
 
+        $order->cards()->attach($request->card_ids)->save();
+
+        $order->cards()->create($data);
+
+
         return $this->respondWithSuccess([
-            'cardorder' => new CardOrderResource($order),
-        ], 'card order  created successfully', 200);
+            'order' => new CardOrderResource($order),
+        ], 'Order created successfully', 200);
 
     }
 
@@ -100,14 +107,14 @@ class CardOrderApiController extends ApiController
     public function destroy($id)
     {
         $order = CardOrder::find($id);
-        
+
         if (!$order) {
         return $this->respondWithSuccess(
             ['message' => 'order not found'],
             'order not found',404
         );}
 
-       
+
 
         $order->delete();
 

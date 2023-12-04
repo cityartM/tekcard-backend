@@ -15,21 +15,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_cards', function (Blueprint $table) {
+        Schema::create('shipping', function (Blueprint $table) {
             $table->id();
-            $table->json('card_ids');
-            $table->integer('quantity');
-            $table->string('color');
-            $table->enum('status',array_keys(OrderStatus::lists()))->default('Pending');
-            $table->unsignedBigInteger("company_id")->nullable();
-            $table->unsignedInteger("user_id")->nullable();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
             $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('address')->nullable();
+            $table->boolean('is_main')->nullable();
             $table->unsignedBigInteger("country_id");
+            $table->unsignedInteger("user_id");
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -41,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_cards');
+        Schema::dropIfExists('shipping');
     }
 };

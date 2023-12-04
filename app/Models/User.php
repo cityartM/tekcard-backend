@@ -14,6 +14,7 @@ use App\Presenters\UserPresenter;
 use App\Support\Enum\UserStatus;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Card\Models\Card;
+use Modules\Card\Models\Shipping;
 use Modules\Company\Models\Company;
 use Modules\Plan\Models\Plan;
 use Modules\Plan\Models\UserPlan;
@@ -146,6 +147,17 @@ class User extends Authenticatable
     public function cards()
     {
         return $this->hasMany(Card::class,'user_id');
+    }
+
+
+    public function shipping()
+    {
+        return $this->hasMany(Shipping::class,'user_id');
+    }
+
+    public function mainShipping()
+    {
+        return Shipping::query()->where('is_main',1)->first();
     }
 
 }
