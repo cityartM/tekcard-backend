@@ -198,13 +198,10 @@ return [
     'bio' => 'Bio',
     'avatar' => 'Avatar',
     'background' => 'Background',
-<<<<<<< HEAD
-    'rating' => 'Rating',
-=======
     'color' => 'Color',
     'next'=>'Next',
     'previous'=>'Previous',
->>>>>>> 294f33aa0201f449b21a8b6d8536b2f44df74d1d
+    'rating' => 'Rating',
 
 
     /*** Company ***/
