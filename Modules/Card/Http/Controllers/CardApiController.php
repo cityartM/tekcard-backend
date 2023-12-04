@@ -200,4 +200,43 @@ class CardApiController extends ApiController
             'card' => new CardResource($card),
         ],  'Card reference updated successfully', 200);
     }
+
+    public function updateGeneraleInfo(Request $request)
+    {
+        $card = Card::find($request->card_id);
+        $data = $request->only($this->only);
+        $card->update($data);
+
+        if ($request->hasFile('card_avatar') ) {
+            $card->clearMediaCollection('CARD_AVATAR');
+            $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ],  'Card updated successfully', 200);
+    }
+
+
+    public function updateCardApps(Request $request)
+    {
+        $card = Card::find($request->card_id);
+        $card->cardApps()->detach();
+        $card->cardApps()->attach($request->card_apps);
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ],  'Card updated successfully', 200);
+    }
+
+
+    public function updateCardBackgroundAndColor(Request $request)
+    {
+        $card = Card::find($request->card_id);
+        $card->update(['background_id' => $request->background_id, 'color' => $request->color]);
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ],  'Card updated successfully', 200);
+    }
 }
