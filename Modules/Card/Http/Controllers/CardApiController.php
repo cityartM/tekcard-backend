@@ -239,4 +239,15 @@ class CardApiController extends ApiController
             'card' => new CardResource($card),
         ],  'Card updated successfully', 200);
     }
+
+
+    public function updateLink(Request $request)
+    {
+        $card = Card::find($request->card_id);
+        $card->update(['is_single_link' => $request->is_single_link, 'single_link_contact_id' => $request->single_link_contact_id]);
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ],  'Card updated successfully', 200);
+    }
 }
