@@ -26,6 +26,14 @@ return new class extends Migration
             $table->integer("single_link_contact_id")->nullable();
             $table->unsignedInteger('user_id');
             $table->boolean("is_main")->default(0);
+            $table->string("email")->nullable();
+            $table->string("phone")->nullable();
+            $table->string("url_web_site")->nullable();
+            $table->string("iban")->nullable();
+            $table->string("lat")->nullable();
+            $table->string("lon")->nullable();
+            $table->string("address")->nullable();
+            $table->string("note")->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

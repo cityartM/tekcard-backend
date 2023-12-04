@@ -17,14 +17,17 @@ class UserRegistered extends Mailable implements ShouldQueue
      */
     public $user;
 
+    public $password;
+
     /**
      * Create a new message instance.
      *
      * @param User $user
      */
-    public function __construct(User $user)
+    public function __construct(User $user,$password)
     {
         $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -34,7 +37,13 @@ class UserRegistered extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        $subject = sprintf("[%s] %s", setting('app_name'), __('New User Registration'));
-        return $this->subject($subject)->markdown('mail.user-registered');
+        return $this->markdown('mail.userSignup')
+            ->with([
+                'password' => $this->password,
+            ])
+            ->from(env('MAIL_FROM_ADDRESS'), env('APP_NAME'))
+            ->replyTo(env('MAIL_REPLY_TO'))
+            ->subject(__('mail.userRegistered.subject'));
     }
 }
+

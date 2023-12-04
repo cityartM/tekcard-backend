@@ -39,4 +39,7 @@ interface CardContactRepository
 
 
     public function getDatatables();
+
+
+    public function checkExistCard($card_id,$user_id);
 }

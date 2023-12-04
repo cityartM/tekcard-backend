@@ -57,6 +57,46 @@ class GlobalSettingDatabaseSeeder extends Seeder
                 'medium' => 'Medium',
             ],
         ];
+
+        $baseUrlSocialMedia = [
+            'Social Media' => [
+                'facebook' => 'https://www.facebook.com/',
+                'instagram' => 'https://www.instagram.com/',
+                'linkedin' => 'https://www.linkedin.com/',
+                'youtube' => 'https://www.youtube.com/',
+                'snapchat' => 'https://www.snapchat.com/',
+                'reddit' => 'https://www.reddit.com/',
+                'tiktok' => 'https://www.tiktok.com/',
+                'twitch' => 'https://www.twitch.tv/',
+                'soundcloud' => 'https://soundcloud.com/',
+                'spotify' => 'https://www.spotify.com/',
+                'vimeo' => 'https://vimeo.com/',
+                'flickr' => 'https://www.flickr.com/',
+            ],
+            'Contact Info' => [
+                'email' => 'Email',
+                'phone' => 'Phone',
+                'whatsapp' => 'https://web.whatsapp.com/',
+                'telegram' => 'https://web.telegram.org/',
+                'pinterest' => 'https://www.pinterest.com/',
+                'tumblr' => 'https://www.tumblr.com/',
+                'viber' => 'https://www.viber.com/',
+                'line' => 'https://line.me/',
+                'qq' => 'https://www.imqq.com/',
+            ],
+            'Business' => [
+                'github' => 'https://github.com/',
+                'gitlab' => 'https://gitlab.com/',
+                'bitbucket' => 'https://bitbucket.org/',
+            ],
+            'Personnel' => [
+                'wechat' => 'Wechat',
+                'skype' => 'Skype',
+                'dribbble' => 'https://dribbble.com/',
+                'behance' => 'https://www.behance.net/',
+                'medium' => 'https://medium.com/',
+                ]
+        ];
         $i = 1;
         foreach($socialMediaPlatforms as $key => $socialMediaPlatform )
         {
@@ -68,11 +108,13 @@ class GlobalSettingDatabaseSeeder extends Seeder
                         'category' => $key,
                         'value' => 'value',
                         'user_id' => 1,
+                        'base_url' => $baseUrlSocialMedia[$key][$k],
+                        'type' => $k === 'email' ? 'Mail' : ($k === 'phone' ? 'Call' : 'Link'),
                         'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     ],
                 ]);
                 $settingContact = SettingContact::find($i);
-                $settingContact->addMedia(public_path('socialMedia/'.$value.'.svg'))->toMediaCollection(ContactType::ICONCONTACT);
+                $settingContact->addMedia(public_path('socialMedia/'.$value.'.svg'))->preservingOriginal()->toMediaCollection(ContactType::ICONCONTACT);
                 $i++;
             }
         }

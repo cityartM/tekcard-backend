@@ -28,33 +28,34 @@ class CardOrderDatatable
     {
         try {
             return datatables($this->query($request))
-                ->addColumn("action", function (CardOrder $card) {
+                ->addColumn("action", function (CardOrder $orderCard) {
                     return (new DataTableActions())
-                        ->delete(route("cardOrders.destroy", $card->id))
+                        ->delete(route("cardOrders.destroy", $orderCard->id))
                         ->make();
                 })
-                
-                ->addColumn("card", function (CardOrder $card) {
-                    return $card->card_id;
+
+                ->addColumn("card", function (CardOrder $orderCard) {
+                    return $orderCard->card->full_name;
                 })
-                ->addColumn("quantity", function (CardOrder $card) {
-                    return $card->quantity ;
+                ->addColumn("quantity", function (CardOrder $orderCard) {
+                    return $orderCard->quantity ;
                 })
-                ->addColumn("color", function (CardOrder $card) {
-                    return (new DataTableActions())->color($card->color)  ;
+                ->addColumn("color", function (CardOrder $orderCard) {
+                    return  (new DataTableActions())->color($orderCard->color)  ;
                 })
-                ->addColumn("company", function (CardOrder $card) {
-                    if ($card->company) {
-                        return $card->company->name;
+                ->addColumn("company", function (CardOrder $orderCard) {
+
+                    if ($orderCard->company) {
+                        return $orderCard->company->name;
                     } else {
                         return 'N/A'; // Replace with an appropriate message for when the company is not available.
                     }
                 })
-                ->addColumn("status_order", function (CardOrder $card) {
-                    return $card->status;
+                ->addColumn("status_order", function (CardOrder $orderCard) {
+                    return $orderCard->status;
                 })
-                ->addColumn("created_at", function (Blog $blog) {
-                    return $blog->created_at->format('Y-m-d');
+                ->addColumn("created_at", function (CardOrder $orderCard) {
+                    return $orderCard->created_at->format('Y-m-d');
                 })
 
                 ->rawColumns(['action',"card","quantity","color","company","status_order","created_at",])
@@ -69,7 +70,15 @@ class CardOrderDatatable
     {
         $query = CardOrder::query();
 
+        if(auth()->user()->hasRole('Admin-IT') || auth()->user()->hasRole('Admin')) {
+            // No need to add any additional conditions, return all records.
+        } else {
+            $query->whereHas('card', function ($q) {
+                $q->where('user_id', auth()->user()->id);
+            });
+        }
         return $query->get();
+
     }
 
 }

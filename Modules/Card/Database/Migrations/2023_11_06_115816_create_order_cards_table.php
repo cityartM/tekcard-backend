@@ -17,16 +17,19 @@ return new class extends Migration
     {
         Schema::create('order_cards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('card_id');
+            $table->json('card_ids');
             $table->integer('quantity');
             $table->string('color');
-            $table->unsignedBigInteger("company_id")->nullable();
-           // $table->enum("status", OrderStatus::lists())->default('Pending'); didnt work it save as (app.orderStatus . pending or delivring )in database 
             $table->enum('status',array_keys(OrderStatus::lists()))->default('Pending');
-            
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
-            $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
+            $table->unsignedBigInteger("company_id")->nullable();
+            $table->unsignedInteger("user_id")->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
+            $table->string('state')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('address')->nullable();
+            $table->unsignedBigInteger("country_id");
             $table->timestamps();
         });
     }

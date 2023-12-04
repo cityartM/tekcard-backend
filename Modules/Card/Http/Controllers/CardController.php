@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Modules\Card\Http\Requests\UpdateCardRequest;
 use Modules\Card\Repositories\CardRepository;
 use Modules\Card\Models\Card;
 use Modules\Background\Models\Background;
@@ -17,6 +18,8 @@ class CardController extends Controller
 {
 
     private $cards;
+
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','contact_apps'];
 
     public function __construct(CardRepository $cards)
     {
@@ -42,7 +45,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        $backgrounds = Background::all();
+        $backgrounds = Background::query();
         $edit=false;
         return view('card::add-edit-card',compact("edit","backgrounds"));
     }
@@ -54,20 +57,31 @@ class CardController extends Controller
      */
     public function store(CreateCardRequest $request)
     {
+        $data = $request->only($this->only);
+
+        $items = collect($data['contact_apps'])->map(function($item){
+            foreach ($item as $key => $value) {
+                $items['contact_id'] = $value['contact_id'];
+                $items['title'] = $value['title'];
+                $items['value'] = $value['value'];
+            }
+
+            return $items;
+            });
         $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
-        
-        $cards = $this->cards->create($data);
-        
-     //   $card->cardApps()->attach($request->card_apps);
+
+        $card = $this->cards->create($data);
+
+       $card->cardApps()->attach($items);
 
         if ($request->hasFile('avatar') ) {
-            $cards->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
+            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
         }
 
         return redirect()->route('cards.index')
-        ->with('success', 'card  entry created successfully');
+        ->with('success', 'Card  entry created successfully');
     }
 
     /**
@@ -85,9 +99,11 @@ class CardController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Card $card)
     {
-        return view('card::edit');
+        $backgrounds = Background::query();
+        $edit= true;
+        return view('card::add-edit-card', compact('edit','card','backgrounds'));
     }
 
     /**
@@ -96,9 +112,31 @@ class CardController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCardRequest $request, Card $card)
     {
-        //
+        $data = $request->only($this->only);
+
+        $items = collect($data['contact_apps'])->map(function($item){
+            foreach ($item as $key => $value) {
+                $items['contact_id'] = $value['contact_id'];
+                $items['title'] = $value['title'];
+                $items['value'] = $value['value'];
+            }
+
+            return $items;
+        });
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
+
+        $card = $this->cards->update($card->id,$data);
+
+        $card->cardApps()->sync($items);
+
+        if ($request->hasFile('avatar') ) {
+            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        return redirect()->route('cards.index')
+            ->with('success', 'Card  entry updated successfully');
     }
 
     /**
@@ -106,8 +144,12 @@ class CardController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Card $card)
     {
-        //
+            $card->clearMediaCollection('CARD_AVATAR');
+            $card->delete();
+
+            return redirect()->route('cards.index')
+            ->with('success', 'card  entry deleted successfully');
     }
 }

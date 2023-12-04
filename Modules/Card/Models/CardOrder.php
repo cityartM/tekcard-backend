@@ -3,14 +3,15 @@
 namespace Modules\Card\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Staudenmeir\EloquentJsonRelations\HasJsonRelationships;
+use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
 use Modules\Company\Models\Company;
 use Modules\Card\Models\Card;
 
 
 class CardOrder extends Model
 {
+    use HasJsonRelationships;
     protected $table = 'order_cards';
 
     protected $fillable = [
@@ -21,13 +22,19 @@ class CardOrder extends Model
         'status'
     ];
 
+    protected $casts = [
+        'card_ids' => 'array'
+    ];
+
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');
     }
 
-    public function card()
+
+    public function cards() :belongsToJson
     {
-        return $this->belongsTo(Card::class, 'card_id');
+        return $this->belongsToJson(Card::class, 'card_ids[]->card_id');
     }
+
 }

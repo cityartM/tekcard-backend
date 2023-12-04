@@ -1,4 +1,4 @@
-<button type="submit" {{$attributes->merge(['class' => 'btn btn-sm btn-primary'])}} id="saveOrUpdateBtn">
+<button type="submit" {{$attributes->merge(['class' => 'btn btn-sm btn-primary'])}} id="saveOrUpdateBtn" >
         <i class="ki-duotone ki-check-square fs-2">
             <span class="path1"></span>
             <span class="path2"></span>

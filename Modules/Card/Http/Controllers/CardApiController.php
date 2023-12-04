@@ -4,7 +4,12 @@ namespace Modules\Card\Http\Controllers;
 
 
 use App\Helpers\Helper;
+use App\Models\User;
+use App\Repositories\Role\RoleRepository;
+use App\Support\Enum\UserStatus;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardRequest;
@@ -16,16 +21,20 @@ use App\Http\Controllers\Api\ApiController;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-use Modules\ContactUser\Http\Resources\RemarkResource;
 
 
 class CardApiController extends ApiController
 {
     private $cards;
 
-    public function __construct(CardRepository $cards)
+    private $roles;
+
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main'];
+
+    public function __construct(CardRepository $cards,RoleRepository $roles)
     {
         $this->cards = $cards;
+        $this->roles = $roles;
     }
     public function index(Request $request)
     {
@@ -58,11 +67,12 @@ class CardApiController extends ApiController
 
     public function store(CreateCardRequest $request)
     {
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main']);
+
+        $data = $request->only($this->only);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
-        $card = Card::create($data);
+        $card = $this->cards->create($data);
 
         $card->cardApps()->attach($request->card_apps);
 
@@ -75,29 +85,82 @@ class CardApiController extends ApiController
         ], 'Card created successfully', 200);
     }
 
-
-    public function destroy($id)
+    public function storeUserCompany(CreateCardRequest $request)
     {
-        $card = Card::find($id);
+        $adminCompany = auth()->user();
+        if($adminCompany->role->name != 'Company'){
+            return $this->sendFailedResponse('You are not allowed to create card for this company', 200);
+        }
+        $data = $request->only($this->only);
+        $existUser = User::where('email',$request->email)->first();
 
+        if($existUser){
+            $data['user_id'] = $existUser->id;
+        }else{
+            $role = $this->roles->findByName('User');
+            $password = Str::random(8);
+            $userData = [
+                'company_id' => $adminCompany->company_id,
+                'role_id' => $role->id,
+                'username' => $request->username,
+                'email' => $request->email,
+                'status'=>UserStatus::ACTIVE,
+                'password' => $password,
+            ];
+            $user = User::create($userData);
+            $data['user_id'] = $user->id;
+            Mail::to($request->email)->send(new \App\Mail\UserRegistered($user,$password));
+        }
+
+        $data['reference'] = Helper::generateCode(15);
+
+        $card = $this->cards->create($data);
+
+        //$card->cardApps()->attach($request->card_apps);
+
+        if ($request->hasFile('card_avatar') ) {
+            $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ], 'Card created successfully', 200);
+    }
+
+
+    public function destroy(Card $card)
+    {
         if (!$card) {
         return $this->respondWithSuccess(
             ['message' => 'Card not found'],
-            'Card not found',404
+            'Card not found',200
         );}
 
         if ($card->user_id !== auth()->id()) {
             return $this->respondWithSuccess(
                 ['message' => 'You are not authorized to delete this card'],
-                'Authorization failed',403
+                'Authorization failed',200
             );
         }
+        if($card->is_main){
+            $card->clearMediaCollection('CARD_AVATAR');
 
-        $card->delete();
+            $card->delete();
 
-        return $this->respondWithSuccess([
-            'card' => new CardResource($card),
-        ],  'Card deleted successfully', 200);
+            $mainCard = Card::where('user_id',auth()->id())->first();
+            if($mainCard){
+                $mainCard->update(['is_main' => 1]);
+                return $this->respondWithSuccess([
+                    'card' => new CardResource($mainCard),
+                ],  'Card deleted successfully', 200);
+            }else{
+                return $this->respondWithSuccess([
+                    'card' => null,
+                ],  'Card deleted successfully', 200);
+            }
+
+        }
+
     }
 
 

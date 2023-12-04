@@ -164,6 +164,12 @@ class PermissionsSeeder extends Seeder
             'description' => 'Manage About Cards',
             'removable' => false
         ]);
+        $permissions[] = Permission::create([
+            'name' => 'cards.manage',
+            'display_name' => 'Manage Cards',
+            'description' => 'Manage  Cards',
+            'removable' => false
+        ]);
 
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);

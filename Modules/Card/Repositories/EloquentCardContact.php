@@ -72,4 +72,10 @@ class EloquentCardContact implements CardContactRepository
     {
         return new CardDatatable();
     }
+
+
+    public function checkExistCard($card_id,$user_id)
+    {
+        return CardContact::where('card_id',$card_id)->where('user_id',$user_id)->first();
+    }
 }

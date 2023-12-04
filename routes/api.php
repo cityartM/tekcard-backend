@@ -34,7 +34,7 @@ Route::group(['middleware' => ['guest', 'password-reset']], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     /*** Profile ***/
-    
+
     Route::delete('user/delete', 'Auth\RegistrationController@destroy');
 
     Route::group(['namespace' => 'Profile'], function () {
@@ -44,14 +44,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('me/avatar', 'AvatarController@update');
         Route::delete('me/avatar', 'AvatarController@destroy');
         Route::put('me/avatar/external', 'AvatarController@updateExternal');
-        
+
     });
 
-    /***General Setting***/
-    Route::get('general_settings', 'ApiSettingsController@general');
 });
 
-
+/***General Setting***/
+Route::get('general_settings', 'ApiSettingsController@general');
 
 Route::get('test', function (Request $request) {
     return response()->json([

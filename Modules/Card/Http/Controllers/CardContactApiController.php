@@ -66,6 +66,14 @@ class CardContactApiController extends ApiController
     {
         $data = $request->only(['card_id', 'remark_id', 'group']);
 
+        $existCard = $this->cardContacts->checkExistCard($data['card_id'],auth()->id());
+
+        if($existCard){
+            return $this->respondWithSuccess([
+                'cardContact' => new CardContactResource($existCard),
+            ], 'Card Contact created successfully', 200);
+        }
+
         $data['user_id'] = auth()->id();
 
         $cardContact = $this->cardContacts->create($data);
@@ -88,9 +96,20 @@ class CardContactApiController extends ApiController
     }
 
 
-    public function destroy($id)
+    public function destroy(CardContact $cardContact)
     {
-      //delete
+        if ($cardContact->user_id !== auth()->id()) {
+            return $this->respondWithSuccess(
+                ['message' => 'You are not authorized to delete this card contact'],
+                'Authorization failed',200
+            );
+        }
+
+        $cardContact->delete();
+
+        return $this->respondWithSuccess([
+            'card' => new CardContactResource($cardContact),
+        ],  'Card contact deleted successfully', 200);
     }
 
 }
