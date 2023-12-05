@@ -43,6 +43,24 @@ class EloquentFeedBack implements FeedBackRepository
     /**
      * {@inheritdoc}
      */
+    public function create($data)
+    {
+        $feedBack=FeedBack::create($data);
+        return $feedBack;
+    }
+
+    public function update($feedback)
+    {
+        if ($feedback->status == "published") {
+            $newStatus = "unpublished";
+        } else {
+            $newStatus = "published";
+        }
+   
+        return $feedback->update(['status' => $newStatus]);
+    }
+
+
     public function delete($id)
     {
         $FeedBack= FeedBack::findOrFail($id);

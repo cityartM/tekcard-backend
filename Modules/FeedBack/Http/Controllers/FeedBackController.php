@@ -5,6 +5,7 @@ namespace Modules\FeedBack\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Support\Enum\Status;
 
 use Modules\FeedBack\Http\Requests\FeedBackRequest;
 
@@ -38,6 +39,25 @@ class FeedBackController extends Controller
             "columns" => $this->feedBack->getDatatables()::columns(),
         ]);
     }
+
+    public function show($id)
+    {
+        $feedback = Feedback::findOrFail($id);
+
+        $this->feedBack->update($feedback);
+    
+    return redirect()->back()->with('success', 'Status updated successfully');
+    }
+
+    public function getPublishedFeedback()
+{
+    // Retrieve all published feedback
+    $publishedFeedback = Feedback::where('status', Status::PUBLISHED)->get();
+
+    dd($publishedFeedback);
+
+    return view('your-view', compact("publishedFeedback"));
+}
 
 
     /**

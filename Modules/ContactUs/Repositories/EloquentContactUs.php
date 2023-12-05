@@ -39,6 +39,10 @@ class EloquentContactUs implements ContactUsRepository
         return ContactUs::find($id);
     }
 
+    public function create($data)
+    {
+        return ContactUs::create($data);
+    }
     /**
      * {@inheritdoc}
      */

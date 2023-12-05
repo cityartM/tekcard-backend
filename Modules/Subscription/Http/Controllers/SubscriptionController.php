@@ -42,7 +42,8 @@ class SubscriptionController extends Controller
     {
         $data = $request->only(['email']);
 
-        Subscription::create($data);
+        $this->subscriptions->create($data);
+       // Subscription::create($data);
 
         return redirect()->back()
             ->with('success', 'Subscription created successfully');

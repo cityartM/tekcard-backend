@@ -27,6 +27,7 @@ class FeedBackDatatable
             return datatables($this->query($request))
                 ->addColumn("action", function (FeedBack $feedback) {
                     return (new DataTableActions())
+                        ->edit(route("feedback.update", $feedback->id))
                         ->delete(route("feedback.destroy", $feedback->id))
                         ->make();
                 })

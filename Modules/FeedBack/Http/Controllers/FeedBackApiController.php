@@ -9,17 +9,37 @@ use Illuminate\Routing\Controller;
 use App\Http\Controllers\Api\ApiController;
 use Modules\FeedBack\Models\FeedBack;
 
+
+use Modules\FeedBack\Http\Resources\FeedbackResource;
+
+use Modules\FeedBack\Http\Requests\FeedBackRequest;
+
+use Modules\FeedBack\Repositories\FeedBackRepository;
+use App\Support\Enum\Status;
+
+
 class FeedBackApiController extends ApiController
 {
+
+    private $feedBack;
+
+    function __construct(FeedBackRepository $feedBack)
+    {
+        $this->feedBack= $feedBack;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
-    {
-        return view('feedback::index');
-    }
+{
+    $publishedFeedback = Feedback::where('status', Status::PUBLISHED)->get();
 
+    return $this->respondWithSuccess([
+        'feedBack' => FeedbackResource::collection($publishedFeedback),
+    ], 'feedBack request back successfully.', 200);
+}
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -34,9 +54,19 @@ class FeedBackApiController extends ApiController
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(FeedBackRequest $request)
     {
-        //
+        $data = $request->only(['rating','comment']);
+
+        $user_id = auth()->user()->id;
+
+        $data['user_id'] = $user_id;
+
+        $feedBack = $this->feedBack->create($data);
+
+        return $this->respondWithSuccess([
+            'feedBack' => new FeedbackResource($feedBack),
+        ],  'feedBack request created successfully.',200);
     }
 
     /**

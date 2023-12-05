@@ -14,7 +14,8 @@ class FeedBackRequest extends Request
     public function rules()
     {
         return [
-        'comment' => 'required',
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'required|string',
         ];
     }
 }

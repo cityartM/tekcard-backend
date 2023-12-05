@@ -56,7 +56,9 @@ class ContactUsController extends Controller
     $validatedData['full_name'] = $validatedData['name'];
     unset($validatedData['name']);
 
-    ContactUs::create($validatedData);
+    $this->contactUs->create($validatedData);
+
+   // ContactUs::create($validatedData);
 
     return redirect()->back()->with('success', 'Message sent successfully!');
 }

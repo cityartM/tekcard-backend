@@ -201,6 +201,7 @@ return [
     'color' => 'Color',
     'next'=>'Next',
     'previous'=>'Previous',
+    'rating' => 'Rating',
 
 
     /*** Company ***/

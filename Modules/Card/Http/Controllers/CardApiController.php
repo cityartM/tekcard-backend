@@ -201,9 +201,9 @@ class CardApiController extends ApiController
         ],  'Card reference updated successfully', 200);
     }
 
-    public function updateGeneraleInfo(Request $request)
+    public function updateGeneraleInfo(Request $request ,$cardId)
     {
-        $card = Card::find($request->card_id);
+        $card = Card::find($cardId);
         $data = $request->only($this->only);
         $card->update($data);
 
@@ -218,9 +218,9 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateCardApps(Request $request)
+    public function updateCardApps(Request $request ,$cardId)
     {
-        $card = Card::find($request->card_id);
+        $card = Card::find($cardId);
         $card->cardApps()->detach();
         $card->cardApps()->attach($request->card_apps);
 
@@ -230,9 +230,9 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateCardBackgroundAndColor(Request $request)
+    public function updateCardBackgroundAndColor(Request $request  ,$cardId)
     {
-        $card = Card::find($request->card_id);
+        $card = Card::find($cardId);
         $card->update(['background_id' => $request->background_id, 'color' => $request->color]);
 
         return $this->respondWithSuccess([
@@ -241,9 +241,9 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateLink(Request $request)
+    public function updateLink(Request $request ,$cardId)
     {
-        $card = Card::find($request->card_id);
+        $card = Card::find($cardId);
         $card->update(['is_single_link' => $request->is_single_link, 'single_link_contact_id' => $request->single_link_contact_id]);
 
         return $this->respondWithSuccess([
