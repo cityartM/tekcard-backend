@@ -28,17 +28,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('orders', 'CardOrderApiController@store');
 
      // card update
-     Route::post('card_info/{id}', 'CardApiController@updateGeneraleInfo');
+     Route::put('cards/card_info/{card}', 'CardApiController@updateGeneraleInfo');
 
       // card update link
-    Route::post('card_link/{id}', 'CardApiController@updateLink');
+    Route::put('cards/card_link/{card}', 'CardApiController@updateLink');
 
 
      // card update background and color
-     Route::post('card_background/{id}', 'CardApiController@updateCardBackgroundAndColor');
+     Route::put('cards/card_background/{card}', 'CardApiController@updateCardBackgroundAndColor');
 
       // card update app
-    Route::post('card_app/{id}', 'CardApiController@updateCardApps');
+    Route::put('cards/card_app/{card}', 'CardApiController@updateCardApps');
 
    // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
 });

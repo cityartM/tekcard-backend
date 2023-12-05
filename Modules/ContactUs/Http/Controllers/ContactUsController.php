@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\ContactUs\Models\ContactUs;
 
-use Modules\ContactUs\Http\Requests\CreateContactUsRequest; 
+use Modules\ContactUs\Http\Requests\CreateContactUsRequest;
 
 use Modules\ContactUs\Repositories\ContactUsRepository;
 
@@ -43,7 +43,7 @@ class ContactUsController extends Controller
     {
         return view('contactus::create');
     }
- 
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -57,8 +57,6 @@ class ContactUsController extends Controller
     unset($validatedData['name']);
 
     $this->contactUs->create($validatedData);
-
-   // ContactUs::create($validatedData);
 
     return redirect()->back()->with('success', 'Message sent successfully!');
 }
@@ -107,4 +105,3 @@ class ContactUsController extends Controller
     }
 
 }
- 

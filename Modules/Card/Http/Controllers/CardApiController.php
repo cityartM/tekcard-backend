@@ -29,7 +29,9 @@ class CardApiController extends ApiController
 
     private $roles;
 
-    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main'];
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
+                    'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
+                    ];
 
     public function __construct(CardRepository $cards,RoleRepository $roles)
     {
@@ -201,9 +203,8 @@ class CardApiController extends ApiController
         ],  'Card reference updated successfully', 200);
     }
 
-    public function updateGeneraleInfo(Request $request ,$cardId)
+    public function updateGeneraleInfo(Request $request ,Card $card)
     {
-        $card = Card::find($cardId);
         $data = $request->only($this->only);
         $card->update($data);
 
@@ -218,9 +219,8 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateCardApps(Request $request ,$cardId)
+    public function updateCardApps(Request $request ,Card $card)
     {
-        $card = Card::find($cardId);
         $card->cardApps()->detach();
         $card->cardApps()->attach($request->card_apps);
 
@@ -230,9 +230,8 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateCardBackgroundAndColor(Request $request  ,$cardId)
+    public function updateCardBackgroundAndColor(Request $request  ,Card $card)
     {
-        $card = Card::find($cardId);
         $card->update(['background_id' => $request->background_id, 'color' => $request->color]);
 
         return $this->respondWithSuccess([
@@ -241,13 +240,14 @@ class CardApiController extends ApiController
     }
 
 
-    public function updateLink(Request $request ,$cardId)
+    public function updateLink(Request $request ,Card $card)
     {
-        $card = Card::find($cardId);
         $card->update(['is_single_link' => $request->is_single_link, 'single_link_contact_id' => $request->single_link_contact_id]);
 
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
         ],  'Card updated successfully', 200);
     }
+
+
 }

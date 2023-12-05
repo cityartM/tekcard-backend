@@ -23,13 +23,15 @@ return new class extends Migration
             $table->enum('status',array_keys(OrderStatus::lists()))->default('Pending');
             $table->unsignedBigInteger("company_id")->nullable();
             $table->unsignedInteger("user_id")->nullable();
+            $table->unsignedInteger("shipping_id")->nullable();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('shipping_id')->references('id')->on('shipping')->onDelete('cascade');
 
-            $table->string('state')->nullable();
+            /*$table->string('state')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('address')->nullable();
-            $table->unsignedBigInteger("country_id");
+            $table->unsignedBigInteger("country_id");*/
             $table->timestamps();
         });
     }
