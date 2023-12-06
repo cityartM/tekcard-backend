@@ -77,6 +77,9 @@ use Modules\Card\Repositories\EloquentCard;
 use Modules\Card\Repositories\CardOrderRepository;
 use Modules\Card\Repositories\EloquentCardOrder;
 
+use Modules\Card\Repositories\ShippingRepository;
+use Modules\Card\Repositories\EloquentShipping;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -102,6 +105,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(AboutCardRepository::class, EloquentAboutCard::class);
         $this->app->singleton(CardRepository::class, EloquentCard::class);
         $this->app->singleton(CardOrderRepository::class, EloquentCardOrder::class);
+        $this->app->singleton(ShippingRepository::class, EloquentShipping::class);
 
     }
 
