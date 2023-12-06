@@ -21,7 +21,7 @@ class CardOrderResource extends JsonResource
     {
         return [
             'id' => (int) $this->id,
-            'card_id' => $this->card_id,
+            'card_id' => CardResource::collection($this->cards),
             'quantity' => $this->quantity,
             'color' =>  $this->color,
             'company' =>  $this->company_id != null ? new CompanyResource($this->company) : null,

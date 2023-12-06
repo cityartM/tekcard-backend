@@ -28,10 +28,10 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('shipping_id')->references('id')->on('shipping')->onDelete('cascade');
 
-            /*$table->string('state')->nullable();
+            $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('address')->nullable();
-            $table->unsignedBigInteger("country_id");*/
+            $table->unsignedBigInteger("country_id");
             $table->timestamps();
         });
     }

@@ -52,14 +52,24 @@ class CardOrderApiController extends ApiController
      */
     public function store(CreateCardOrderRequest $request)
     {
-
+        $user = Auth::user();
+        $userCards = $user->cards;
+        $userCardsIds = $userCards->pluck('id')->toArray();
+        $requestCardsIds = $request->card_ids;
+        $diff = array_diff($requestCardsIds, $userCardsIds);
+        if (!empty($diff)) {
+            return $this->respondWithError(
+                ['message' => 'You can not order cards that are not yours'],
+                'You can not order cards that are not yours', 403
+            );
+        }
         $data = $request->only(['card_ids', 'quantity', 'color' , 'company_id','country_id','state','zip_code','address']);
 
         $order = $this->cardOrders->create($data);
 
         $order->cards()->attach($request->card_ids)->save();
 
-        $order->cards()->create($data);
+        //$order->cards()->create($data);
 
 
         return $this->respondWithSuccess([
