@@ -82,6 +82,14 @@ class CardApiController extends ApiController
             $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
         }
 
+        if ($request->hasFile('card_video') ) {
+            $card->addMedia($request->file('card_video'))->toMediaCollection('CARD_VIDEO');
+        }
+
+        if ($request->hasFile('card_pdf') ) {
+            $card->addMedia($request->file('card_pdf'))->toMediaCollection('CARD_PDF');
+        }
+
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
         ], 'Card created successfully', 200);
