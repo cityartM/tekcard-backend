@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('order_cards', function (Blueprint $table) {
             $table->id();
-            $table->json('card_ids');
+            $table->json('card_ids')->nullable();
             $table->integer('quantity');
             $table->string('color');
             $table->enum('status',array_keys(OrderStatus::lists()))->default('Pending');

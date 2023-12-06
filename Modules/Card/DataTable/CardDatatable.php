@@ -34,7 +34,7 @@ class CardDatatable
                         ->delete(route("cards.destroy", $card->id))
                         ->make();
                 })
-                
+
                 ->addColumn("reference", function (Card $card) {
                     return $card->reference ;
                 })

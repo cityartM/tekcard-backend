@@ -114,12 +114,10 @@ class CardOrderApiController extends ApiController
             'order not found',404
         );}
 
-
-
         $order->delete();
 
         return $this->respondWithSuccess([
             'order' => new CardOrderResource($order),
-        ],  'order deleted successfully', 200);
+        ],  'Order deleted successfully', 200);
     }
 }
