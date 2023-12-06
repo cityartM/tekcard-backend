@@ -19,7 +19,9 @@ class CardController extends Controller
 
     private $cards;
 
-    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','contact_apps'];
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
+    'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
+    ];
 
     public function __construct(CardRepository $cards)
     {
@@ -57,8 +59,9 @@ class CardController extends Controller
      */
     public function store(CreateCardRequest $request)
     {
+       // dd($request['contact_apps']);
         $data = $request->only($this->only);
-
+        
         $items = collect($data['contact_apps'])->map(function($item){
             foreach ($item as $key => $value) {
                 $items['contact_id'] = $value['contact_id'];
@@ -78,6 +81,16 @@ class CardController extends Controller
 
         if ($request->hasFile('avatar') ) {
             $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $image) {
+                $card->addMedia($image)->toMediaCollection('gallery');
+            }
+        }
+
+        if ($request->hasFile('pdf_file')) {
+            $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
         }
 
         return redirect()->route('cards.index')
