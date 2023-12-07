@@ -41,7 +41,7 @@ class EloquentShipping implements ShippingRepository
     /**
      * {@inheritdoc}
      */
-    public function create(array $data): Card
+    public function create(array $data): Shipping
     {
         $shipping = Shipping::create($data);
 

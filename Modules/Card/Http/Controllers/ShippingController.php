@@ -12,6 +12,8 @@ use Modules\Card\Models\Shipping;
 use Modules\Background\Models\Background;
 use App\Helpers\Helper;
 use Modules\Card\Http\Requests\CreateShippingRequest;
+use Modules\Address\Models\Country;
+use Illuminate\Support\Facades\Auth;
 
 
 class ShippingController extends Controller
@@ -43,9 +45,9 @@ class ShippingController extends Controller
      */
     public function create()
     {
-        $backgrounds = Background::query();
-        $edit=false;
-        return view('card::add-edit-card',compact("edit","backgrounds"));
+        $countries = Country::pluck('name', 'id');
+        $edit= false;
+        return view('card::add-edit-shipping' , compact('edit','countries'));
     }
 
     /**
@@ -53,44 +55,16 @@ class ShippingController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreateCardRequest $request)
+    public function store(CreateShippingRequest $request)
     {
-       // dd($request['contact_apps']);
-        $data = $request->only($this->only);
-        
-        $items = collect($data['contact_apps'])->map(function($item){
-            foreach ($item as $key => $value) {
-                $items['contact_id'] = $value['contact_id'];
-                $items['title'] = $value['title'];
-                $items['value'] = $value['value'];
-            }
+       // dd($request);
+        $data = $request->only(['country_id','state','zip_code','address']);
 
-            return $items;
-            });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
-        $data['reference'] = Helper::generateCode(15);
-        $data['user_id'] = auth()->id();
+        $data['user_id'] = Auth::id();
 
-        $card = $this->cards->create($data);
+        $shipping = $this->shippings->create($data);
 
-       $card->cardApps()->attach($items);
-
-        if ($request->hasFile('avatar') ) {
-            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
-        }
-
-        if ($request->hasFile('gallery')) {
-            foreach ($request->file('gallery') as $image) {
-                $card->addMedia($image)->toMediaCollection('gallery');
-            }
-        }
-
-        if ($request->hasFile('pdf_file')) {
-            $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
-        }
-
-        return redirect()->route('cards.index')
-        ->with('success', 'Card  entry created successfully');
+        return redirect()->route('shippings.index')->with('success', 'shipping address created successfully');
     }
 
     /**
@@ -108,11 +82,11 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit(Card $card)
+    public function edit(Shipping $shipping)
     {
-        $backgrounds = Background::query();
+        $countries = Country::pluck('name', 'id');
         $edit= true;
-        return view('card::add-edit-card', compact('edit','card','backgrounds'));
+        return view('card::add-edit-shipping', compact('edit','shipping','countries'));
     }
 
     /**
@@ -121,31 +95,15 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(UpdateCardRequest $request, Card $card)
+    public function update(CreateShippingRequest $request, Shipping $shipping)
     {
-        $data = $request->only($this->only);
+        $data = $request->only(['country_id','state','zip_code','address']);
 
-        $items = collect($data['contact_apps'])->map(function($item){
-            foreach ($item as $key => $value) {
-                $items['contact_id'] = $value['contact_id'];
-                $items['title'] = $value['title'];
-                $items['value'] = $value['value'];
-            }
+        $shipping = $this->shippings->update($shipping->id,$data);
 
-            return $items;
-        });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
 
-        $card = $this->cards->update($card->id,$data);
-
-        $card->cardApps()->sync($items);
-
-        if ($request->hasFile('avatar') ) {
-            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
-        }
-
-        return redirect()->route('cards.index')
-            ->with('success', 'Card  entry updated successfully');
+        return redirect()->route('shippings.index')
+            ->with('success', 'shipping address  entry updated successfully');
     }
 
     /**
@@ -153,12 +111,11 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy(Card $card)
+    public function destroy(Shipping $shipping)
     {
-            $card->clearMediaCollection('CARD_AVATAR');
-            $card->delete();
+            $shipping->delete();
 
-            return redirect()->route('cards.index')
-            ->with('success', 'card  entry deleted successfully');
+            return redirect()->route('shippings.index')
+            ->with('success', 'shipping address  entry deleted successfully');
     }
 }
