@@ -8,9 +8,22 @@ use Illuminate\Routing\Controller;
 
 use App\Http\Controllers\Api\ApiController;
 use Modules\ContactUs\Models\ContactUs;
+use Modules\ContactUs\Http\Resources\ContactUsResource;
+
+
+
+use Modules\ContactUs\Http\Requests\CreateContactUsRequest;
+
+use Modules\ContactUs\Repositories\ContactUsRepository;
 
 class ContactUsApiController extends ApiController
 {
+
+    function __construct(ContactUsRepository $contactUs)
+    {
+        $this->contactUs= $contactUs;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -34,9 +47,20 @@ class ContactUsApiController extends ApiController
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateContactUsRequest $request)
     {
-        //
+        $validatedData = $request->only(['name','company','email','subject','message']);
+
+        $validatedData['full_name'] = $validatedData['name'];
+        unset($validatedData['name']);
+
+        $contactus=$this->contactUs->create($validatedData);
+
+        return $this->respondWithSuccess([
+            'card' => new ContactUsResource($contactus),
+        ], 'Card created successfully', 200);
+
+
     }
 
     /**

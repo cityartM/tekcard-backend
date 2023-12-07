@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/contactus', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('contact_us', 'ContactUsApiController@store');

@@ -171,6 +171,13 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        $permissions[] = Permission::create([
+            'name' => 'shippings.manage',
+            'display_name' => 'Manage shippings',
+            'description' => 'Manage  shippings',
+            'removable' => false
+        ]);
+
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }
