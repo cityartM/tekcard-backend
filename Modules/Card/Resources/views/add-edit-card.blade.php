@@ -205,7 +205,7 @@
                                     <!--end::Input group-->
 
                                     <x-input-field
-                                        :title="__('Color')"
+                                        :title="__('app.color')"
                                         name="color"
                                         type="color"
                                         col="2"
@@ -224,6 +224,16 @@
                                         class="mb-2 mt-5"
                                         :model=" $edit ? $card : null "
                                     />
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="gallery">@lang('app.upload_gallery')</label>
+                                        <input type="file" id="gallery" name="gallery[]" class="form-control" multiple>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="pdf_file">@lang('app.pdf_file')</label>
+                                        <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept=".pdf">
+                                    </div>
                                 </div>
                             </div>
 

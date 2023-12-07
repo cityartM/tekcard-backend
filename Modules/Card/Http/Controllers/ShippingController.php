@@ -6,26 +6,22 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-use Modules\Card\Http\Requests\UpdateCardRequest;
-use Modules\Card\Repositories\CardRepository;
-use Modules\Card\Models\Card;
+
+use Modules\Card\Repositories\ShippingRepository;
+use Modules\Card\Models\Shipping;
 use Modules\Background\Models\Background;
 use App\Helpers\Helper;
-use Modules\Card\Http\Requests\CreateCardRequest;
+use Modules\Card\Http\Requests\CreateShippingRequest;
 
 
-class CardController extends Controller
+class ShippingController extends Controller
 {
 
-    private $cards;
+    
 
-    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
-    'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
-    ];
-
-    public function __construct(CardRepository $cards)
+    public function __construct(ShippingRepository $shippings)
     {
-        $this->cards = $cards;
+        $this->shippings = $shippings;
     }
     /**
      * Display a listing of the resource.
@@ -34,10 +30,10 @@ class CardController extends Controller
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return $this->cards->getDatatables()->datatables($request);
+            return $this->shippings->getDatatables()->datatables($request);
         }
-        return view("card::index")->with([
-            "columns" => $this->cards->getDatatables()::columns(),
+        return view("card::index_shipping")->with([
+            "columns" => $this->shippings->getDatatables()::columns(),
         ]);
     }
 
