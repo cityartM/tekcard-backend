@@ -17,8 +17,12 @@ use Modules\Card\Http\Requests\CreateShippingRequest;
 class ShippingController extends Controller
 {
 
-    
+    public $shippings;
 
+
+    /**
+     * @param ShippingRepository $shippings
+     */
     public function __construct(ShippingRepository $shippings)
     {
         $this->shippings = $shippings;
@@ -43,9 +47,7 @@ class ShippingController extends Controller
      */
     public function create()
     {
-        $backgrounds = Background::query();
-        $edit=false;
-        return view('card::add-edit-card',compact("edit","backgrounds"));
+
     }
 
     /**
@@ -53,44 +55,9 @@ class ShippingController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreateCardRequest $request)
+    public function store(Request $request)
     {
-       // dd($request['contact_apps']);
-        $data = $request->only($this->only);
-        
-        $items = collect($data['contact_apps'])->map(function($item){
-            foreach ($item as $key => $value) {
-                $items['contact_id'] = $value['contact_id'];
-                $items['title'] = $value['title'];
-                $items['value'] = $value['value'];
-            }
 
-            return $items;
-            });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
-        $data['reference'] = Helper::generateCode(15);
-        $data['user_id'] = auth()->id();
-
-        $card = $this->cards->create($data);
-
-       $card->cardApps()->attach($items);
-
-        if ($request->hasFile('avatar') ) {
-            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
-        }
-
-        if ($request->hasFile('gallery')) {
-            foreach ($request->file('gallery') as $image) {
-                $card->addMedia($image)->toMediaCollection('gallery');
-            }
-        }
-
-        if ($request->hasFile('pdf_file')) {
-            $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
-        }
-
-        return redirect()->route('cards.index')
-        ->with('success', 'Card  entry created successfully');
     }
 
     /**
@@ -100,7 +67,7 @@ class ShippingController extends Controller
      */
     public function show($id)
     {
-        return view('card::show');
+
     }
 
     /**
@@ -121,31 +88,9 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(UpdateCardRequest $request, Card $card)
+    public function update(Request $request)
     {
-        $data = $request->only($this->only);
 
-        $items = collect($data['contact_apps'])->map(function($item){
-            foreach ($item as $key => $value) {
-                $items['contact_id'] = $value['contact_id'];
-                $items['title'] = $value['title'];
-                $items['value'] = $value['value'];
-            }
-
-            return $items;
-        });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
-
-        $card = $this->cards->update($card->id,$data);
-
-        $card->cardApps()->sync($items);
-
-        if ($request->hasFile('avatar') ) {
-            $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
-        }
-
-        return redirect()->route('cards.index')
-            ->with('success', 'Card  entry updated successfully');
     }
 
     /**
@@ -153,12 +98,8 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy(Card $card)
+    public function destroy(Request $request)
     {
-            $card->clearMediaCollection('CARD_AVATAR');
-            $card->delete();
 
-            return redirect()->route('cards.index')
-            ->with('success', 'card  entry deleted successfully');
     }
 }

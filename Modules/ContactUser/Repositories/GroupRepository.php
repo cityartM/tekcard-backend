@@ -13,17 +13,12 @@ interface GroupRepository
      */
     public function all();
 
-
     public function index();
 
+    public function create($data);
 
+    public function update($id, $data);
 
-    /**
-     * Remove Subscription from repository.
-     *
-     * @param $id Subscription Id
-     * @return bool
-     */
     public function delete($id);
 
 

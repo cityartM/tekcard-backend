@@ -97,6 +97,7 @@ class UserPlanApiController extends ApiController
                 'plan_id' => $plan->id,
           ];
 
+
         $this->userPlans->create($data);
 
         $user = $this->users->update(auth()->user()->id, ['status' => UserStatus::ACTIVE]);

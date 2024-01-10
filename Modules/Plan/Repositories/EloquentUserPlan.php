@@ -32,10 +32,10 @@ class EloquentUserPlan implements UserPlanRepository
     public function create(array $data)
     {
         if($this->request->isJson() || $this->request->is('multipart/form-data')){
-            $data['bio'] = Helper::translateAttribute($data['bio']);
+            $data['display_name'] = Helper::translateAttribute($data['display_name']);
         }else{
             $lang = LaravelLocalization::getCurrentLocale();
-            $data['bio'] = Helper::translateAttribute($data['bio'] + ['lang' => $lang]);
+            $data['display_name'] = Helper::translateAttribute($data['display_name'] + ['lang' => $lang]);
         }
 
         $userPlan = UserPlan::create($data);

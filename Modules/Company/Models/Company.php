@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Models\Country;
 use Modules\Card\Models\Card;
 use Modules\Company\Presenters\CompanyPresenter;
+use Modules\ContactUser\Models\Group;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -49,6 +50,11 @@ class Company extends Model implements HasMedia
     public function cards()
     {
         return $this->hasMany(Card::class,'company_id','id');
+    }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class,'company_id','id');
     }
 
 }

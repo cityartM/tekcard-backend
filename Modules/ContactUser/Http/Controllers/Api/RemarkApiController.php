@@ -1,20 +1,18 @@
 <?php
 
-namespace Modules\ContactUser\Http\Controllers;
+namespace Modules\ContactUser\Http\Controllers\Api;
 
 
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 use Modules\ContactUser\Http\Controllers\Controller;
-use Modules\ContactUser\Models\Remark;
-use Modules\ContactUser\Http\Requests\CreateRemarkRequest;
-use Modules\ContactUser\Repositories\RemarkRepository;
-use App\Http\Controllers\Api\ApiController;
 use Modules\ContactUser\Http\Filters\RemarkKeywordSearch;
-
+use Modules\ContactUser\Http\Requests\CreateRemarkRequest;
+use Modules\ContactUser\Http\Resources\RemarkResource;
+use Modules\ContactUser\Models\Remark;
+use Modules\ContactUser\Repositories\RemarkRepository;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-
-use Modules\ContactUser\Http\Resources\RemarkResource;
 
 
 class RemarkApiController extends ApiController
@@ -37,7 +35,7 @@ class RemarkApiController extends ApiController
             ->defaultSort('id')
             ->paginate($request->per_page ?: 1);
 
-        
+
     return $this->respondWithSuccess([
         'remarks' => RemarkResource::collection($remarks)->response()->getData(true),
     ],  'Remarks retrieved successfully', 200);
@@ -59,9 +57,9 @@ class RemarkApiController extends ApiController
     {
         $data = $request->only(['title', 'color']);
         $data['user_id'] = auth()->id();
-    
+
         $remark = Remark::create($data);
-    
+
         return $this->respondWithSuccess([
             'remark' => new RemarkResource($remark),
         ], 'Remark created successfully', 200);
@@ -71,7 +69,7 @@ class RemarkApiController extends ApiController
     {
         return response()->json(['message' => $request->all()], 200);
         $data = $request->only(['title', 'color']);
-        
+
         $remark = Remark::find($id);
 
         if (!$remark) {
@@ -80,7 +78,7 @@ class RemarkApiController extends ApiController
                 'Remark not found',404
             );
         }
-    
+
         if ($remark->user_id !== auth()->id()) {
             return $this->respondWithSuccess(
                 ['message' => 'You are not authorized to update this remark'],
@@ -88,7 +86,7 @@ class RemarkApiController extends ApiController
             );
         }
 
-        
+
         $remark->update($data);
 
         return $this->respondWithSuccess([
@@ -99,7 +97,7 @@ class RemarkApiController extends ApiController
     public function destroy($id)
     {
         $remark = Remark::find($id);
-        
+
         if (!$remark) {
         return $this->respondWithSuccess(
             ['message' => 'Remark not found'],

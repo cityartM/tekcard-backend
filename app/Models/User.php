@@ -150,7 +150,7 @@ class User extends Authenticatable
     }
 
 
-    public function shipping()
+    public function shippings()
     {
         return $this->hasMany(Shipping::class,'user_id');
     }

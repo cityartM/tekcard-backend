@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('address')->nullable();
-            $table->boolean('is_main')->nullable();
+            $table->boolean('is_main')->nullable()->default(0);
             $table->unsignedBigInteger("country_id");
             $table->unsignedInteger("user_id");
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

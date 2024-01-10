@@ -1,20 +1,15 @@
 <?php
 
-namespace Modules\Card\Http\Controllers;
-
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+namespace Modules\Card\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\ApiController;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Modules\Card\Models\Shipping;
-use Modules\Card\Repositories\CardOrderRepository;
-
 use Modules\Card\Http\Requests\CreateCardOrderRequest;
 use Modules\Card\Http\Resources\CardOrderResource;
-
 use Modules\Card\Models\CardOrder;
+use Modules\Card\Repositories\CardOrderRepository;
 
 
 class CardOrderApiController extends ApiController

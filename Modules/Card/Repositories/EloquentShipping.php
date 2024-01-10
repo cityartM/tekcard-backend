@@ -21,14 +21,6 @@ class EloquentShipping implements ShippingRepository
         return Shipping::all();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getAllWithUsersCount()
-    {
-        return Shipping::withCount('users')->get();
-    }
-
 
     /**
      * {@inheritdoc}
@@ -41,7 +33,7 @@ class EloquentShipping implements ShippingRepository
     /**
      * {@inheritdoc}
      */
-    public function create(array $data): Card
+    public function create(array $data): Shipping
     {
         $shipping = Shipping::create($data);
 
@@ -74,23 +66,6 @@ class EloquentShipping implements ShippingRepository
 
 
 
-    /**
-     * {@inheritdoc}
-     */
-    public function lists($column = 'name', $key = 'id')
-    {
-        return Shipping::pluck($column, $key);
-    }
-
-    /**
-     * @param $name
-     * @param $lang
-     * @return Shipping|mixed
-     */
-    public function findByName($name)
-    {
-        return Shipping::where('name', $name)->first();
-    }
 
     public function getDatatables():ShippingDatatable
     {
