@@ -39,6 +39,23 @@ class EloquentGroup implements GroupRepository
         return Group::find($id);
     }
 
+    /*
+     * {@inheritdoc}
+     */
+    public function create($data)
+    {
+        $group = Group::create($data);
+        return $group;
+    }
+
+
+    public function update($id, $data)
+    {
+        $group = Group::findOrFail($id);
+        $group->update($data);
+        return $group;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -51,7 +68,7 @@ class EloquentGroup implements GroupRepository
     }
 
     public function getDatatables():GroupDatatable
-    { 
+    {
         return new GroupDatatable();
     }
 

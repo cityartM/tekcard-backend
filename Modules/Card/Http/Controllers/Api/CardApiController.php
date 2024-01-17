@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Card\Http\Controllers;
+namespace Modules\Card\Http\Controllers\Api;
 
 
 use App\Helpers\Helper;
+use App\Http\Controllers\Api\ApiController;
 use App\Models\User;
 use App\Repositories\Role\RoleRepository;
 use App\Support\Enum\UserStatus;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -17,10 +17,8 @@ use Modules\Card\Http\Requests\UpdateRefCardRequest;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Card\Repositories\CardRepository;
-use App\Http\Controllers\Api\ApiController;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-
 
 
 class CardApiController extends ApiController
@@ -80,6 +78,14 @@ class CardApiController extends ApiController
 
         if ($request->hasFile('card_avatar') ) {
             $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        if ($request->hasFile('card_video') ) {
+            $card->addMedia($request->file('card_video'))->toMediaCollection('CARD_VIDEO');
+        }
+
+        if ($request->hasFile('card_pdf') ) {
+            $card->addMedia($request->file('card_pdf'))->toMediaCollection('CARD_PDF');
         }
 
         return $this->respondWithSuccess([

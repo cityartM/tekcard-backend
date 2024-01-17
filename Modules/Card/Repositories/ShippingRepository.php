@@ -14,22 +14,6 @@ interface ShippingRepository
     public function all();
 
     /**
-     * Lists all system Shipping into $key => $column value pairs.
-     *
-     * @param string $column
-     * @param string $key
-     * @return mixed
-     */
-    public function lists($column = 'name', $key = 'id');
-
-    /**
-     * Get all system Shipping with number of users for each card.
-     *
-     * @return mixed
-     */
-    public function getAllWithUsersCount();
-
-    /**
      * Find system Shipping by id.
      *
      * @param $id Shipping Id
@@ -37,13 +21,6 @@ interface ShippingRepository
      */
     public function find($id);
 
-    /**
-     * Find Shipping by name:
-     *
-     * @param $name
-     * @return mixed
-     */
-    public function findByName($name);
 
     /**
      * Create new system Shipping.

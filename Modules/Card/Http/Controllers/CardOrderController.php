@@ -40,8 +40,8 @@ class CardOrderController extends Controller
      */
     public function create()
     {
-        $user = Auth::user(); 
-        $userCards = $user->cards; 
+        $user = Auth::user();
+        $userCards = $user->cards;
         //dd($userCards);
         $edit=false;
         return view('card::add-edit-order',compact("edit","userCards"));
@@ -101,7 +101,7 @@ class CardOrderController extends Controller
     public function destroy($id)
     {
         $order = CardOrder::find($id);
-        
+
         if (!$order) {
             return redirect()->route('cardOrders.index')
             ->with('success', 'card Order dont exist');

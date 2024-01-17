@@ -20,7 +20,7 @@
 
 @section('content')
 
-    
+
 @include('partials.messages')
     <x-card-content>
         <x-card-header>
@@ -57,6 +57,7 @@
                 serverSide: true,
                 responsive: true,
                 searchDelay: 500,
+                order: [[0, 'desc']]
                 @if(\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() == "ar")
                 language: {
                     url: "{{asset("assets/datatable-ar.json")}}"

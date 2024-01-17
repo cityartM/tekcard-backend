@@ -1,26 +1,20 @@
 <?php
 
-namespace Modules\Card\Http\Controllers;
+namespace Modules\Card\Http\Controllers\Api;
 
 
-use App\Helpers\Helper;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardContactKeywordSearch;
-use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardContactRequest;
 use Modules\Card\Http\Requests\UpdateCardContactRequest;
-use Modules\Card\Http\Requests\UpdateRefCardRequest;
 use Modules\Card\Http\Resources\CardContactResource;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Card\Models\CardContact;
 use Modules\Card\Repositories\CardContactRepository;
-use App\Http\Controllers\Api\ApiController;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-
-use Modules\ContactUser\Http\Resources\RemarkResource;
 
 
 class CardContactApiController extends ApiController

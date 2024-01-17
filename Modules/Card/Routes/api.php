@@ -15,30 +15,33 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'auth'], function () {
     // Card
-    Route::apiResource('cards', 'CardApiController');
-    Route::post('cards/checkAvailability', 'CardApiController@checkAvailability');
-    Route::post('cards/updateReference', 'CardApiController@updateReference');
-    Route::put('cards/setMain/{id}', 'CardApiController@setMainCard');
-    Route::post('cards/store/user-card', 'CardApiController@storeUserCompany');
+    Route::apiResource('cards', 'Api\CardApiController');
+    Route::post('cards/checkAvailability', 'Api\CardApiController@checkAvailability');
+    Route::post('cards/updateReference', 'Api\CardApiController@updateReference');
+    Route::put('cards/setMain/{id}', 'Api\CardApiController@setMainCard');
+    Route::post('cards/store/user-card', 'Api\CardApiController@storeUserCompany');
 
     // Card Contact
-    Route::apiResource('cardContacts', 'CardContactApiController');
+    Route::apiResource('cardContacts', 'Api\CardContactApiController');
 
     // card order
-    Route::post('orders', 'CardOrderApiController@store');
+    Route::post('orders', 'Api\CardOrderApiController@store');
 
      // card update
-     Route::put('cards/card_info/{card}', 'CardApiController@updateGeneraleInfo');
+     Route::put('cards/card_info/{card}', 'Api\CardApiController@updateGeneraleInfo');
 
       // card update link
-    Route::put('cards/card_link/{card}', 'CardApiController@updateLink');
+    Route::put('cards/card_link/{card}', 'Api\CardApiController@updateLink');
 
 
      // card update background and color
-     Route::put('cards/card_background/{card}', 'CardApiController@updateCardBackgroundAndColor');
+     Route::put('cards/card_background/{card}', 'Api\CardApiController@updateCardBackgroundAndColor');
 
       // card update app
     Route::put('cards/card_app/{card}', 'CardApiController@updateCardApps');
 
-   // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
+    // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
+
+    // Shipping
+    Route::apiResource('shipping', 'Api\ShippingApiController');
 });

@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Card\Http\Resources\CardResource;
+use Modules\Card\Http\Resources\ShippingResource;
 use Modules\Company\Http\Resources\CompanyResource;
 use Modules\Plan\Http\Resources\PlanResource;
 use Modules\Plan\Http\Resources\UserPlanResource;
@@ -42,8 +43,9 @@ class UserResource extends JsonResource
             'plan' => $this->plan ? new UserPlanResource($this->plan->first()) : null,
             'company' => $this->company ? new CompanyResource($this->company) : null,
             'cards' => CardResource::collection($this->cards),
+            'shipping' => new ShippingResource($this->mainShipping()),
             //'address' => $this->address,
-           // 'country_id' => $this->country_id ? (int) $this->country_id : null,
+            // 'country_id' => $this->country_id ? (int) $this->country_id : null,
             //'role_id' => (int) $this->role_id,
             //'birthday' => $this->birthday ? $this->birthday->format('Y-m-d') : null,
             //'last_login' => (string) $this->last_login,
@@ -51,7 +53,7 @@ class UserResource extends JsonResource
             //'two_factor_phone' => (string) $this->two_factor_phone,
             //'two_factor_options' => json_decode($this->two_factor_options, true),
             //'email_verified_at' => $this->email_verified_at ? (string) $this->email_verified_at : null,
-           // 'created_at' => (string) $this->created_at,
+           //'created_at' => (string) $this->created_at,
            // 'updated_at' => (string) $this->updated_at,
            // 'country' => new CountryResource($this->whenLoaded('country')),
             /*'role' => $this->when($this->canViewRole($request), function () {

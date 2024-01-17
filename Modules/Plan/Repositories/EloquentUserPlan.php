@@ -11,6 +11,12 @@ use Modules\Plan\Models\UserPlan;
 class EloquentUserPlan implements UserPlanRepository
 {
 
+    protected $request;
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -25,6 +31,13 @@ class EloquentUserPlan implements UserPlanRepository
      */
     public function create(array $data)
     {
+        if($this->request->isJson() || $this->request->is('multipart/form-data')){
+            $data['display_name'] = Helper::translateAttribute($data['display_name']);
+        }else{
+            $lang = LaravelLocalization::getCurrentLocale();
+            $data['display_name'] = Helper::translateAttribute($data['display_name'] + ['lang' => $lang]);
+        }
+
         $userPlan = UserPlan::create($data);
 
         return $userPlan;

@@ -2,14 +2,12 @@
 
 namespace Modules\Card\Http\Resources;
 
-use App\Http\Resources\CurrenciesResource;
-use App\Http\Resources\PermissionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Address\Transformers\CountryResource;
 use Modules\Background\Http\Resources\BackgroundResource;
 use Modules\Company\Http\Resources\CompanyResource;
-use Spatie\QueryBuilder\AllowedInclude;
 
-class CardOrderResource extends JsonResource
+class ShippingResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,10 +19,11 @@ class CardOrderResource extends JsonResource
     {
         return [
             'id' => (int) $this->id,
-            'card_id' => CardResource::collection($this->cards),
-            'quantity' => $this->quantity,
-            'color' =>  $this->color,
-            'company' =>  $this->company_id != null ? new CompanyResource($this->company) : null,
+            'country' =>  new CountryResource($this->country),
+            'state' =>  $this->state,
+            'zip_code' =>  $this->zip_code,
+            'address' =>  $this->address,
+            'is_main' =>  $this->is_main,
         ];
     }
 

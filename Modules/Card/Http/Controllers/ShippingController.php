@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Auth;
 class ShippingController extends Controller
 {
 
-    
+    public $shippings;
 
+
+    /**
+     * @param ShippingRepository $shippings
+     */
     public function __construct(ShippingRepository $shippings)
     {
         $this->shippings = $shippings;
@@ -45,9 +49,7 @@ class ShippingController extends Controller
      */
     public function create()
     {
-        $countries = Country::pluck('name', 'id');
-        $edit= false;
-        return view('card::add-edit-shipping' , compact('edit','countries'));
+
     }
 
     /**
@@ -55,16 +57,9 @@ class ShippingController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreateShippingRequest $request)
+    public function store(Request $request)
     {
-       // dd($request);
-        $data = $request->only(['country_id','state','zip_code','address']);
 
-        $data['user_id'] = Auth::id();
-
-        $shipping = $this->shippings->create($data);
-
-        return redirect()->route('shippings.index')->with('success', 'shipping address created successfully');
     }
 
     /**
@@ -74,7 +69,7 @@ class ShippingController extends Controller
      */
     public function show($id)
     {
-        return view('card::show');
+
     }
 
     /**
@@ -95,15 +90,9 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(CreateShippingRequest $request, Shipping $shipping)
+    public function update(Request $request)
     {
-        $data = $request->only(['country_id','state','zip_code','address']);
 
-        $shipping = $this->shippings->update($shipping->id,$data);
-
-
-        return redirect()->route('shippings.index')
-            ->with('success', 'shipping address  entry updated successfully');
     }
 
     /**
@@ -111,11 +100,8 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy(Shipping $shipping)
+    public function destroy(Request $request)
     {
-            $shipping->delete();
 
-            return redirect()->route('shippings.index')
-            ->with('success', 'shipping address  entry deleted successfully');
     }
 }
