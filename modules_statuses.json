@@ -16,5 +16,6 @@
     "Card": true,
     "AboutCard": true,
     "ShippingAdd": true,
-    "Shipping": true
+    "Shipping": true,
+    "CompanyList": true
 }
