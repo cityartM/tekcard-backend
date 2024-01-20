@@ -215,6 +215,16 @@
                                     />
 
                                     <x-input-field
+                                        :title="__('app.color_social')"
+                                        name="color_social"
+                                        type="color"
+                                        col="2"
+                                        class="mb-2 mt-5"
+                                        required
+                                        :model=" $edit ? $card : null "
+                                    />
+
+                                    <x-input-field
                                         :title="__('app.image_upload')"
                                         type="file"
                                         name="avatar"

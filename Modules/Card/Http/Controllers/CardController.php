@@ -19,7 +19,7 @@ class CardController extends Controller
 
     private $cards;
 
-    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
+    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','color_icon', 'is_single_link', 'single_link_contact_id','is_main',
     'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
     ];
 
@@ -71,7 +71,7 @@ class CardController extends Controller
 
             return $items;
             });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','color_icon']);
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
@@ -138,7 +138,7 @@ class CardController extends Controller
 
             return $items;
         });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color']);
+        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','color_icon']);
 
         $card = $this->cards->update($card->id,$data);
 
