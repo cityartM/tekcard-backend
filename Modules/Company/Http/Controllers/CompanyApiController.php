@@ -6,11 +6,11 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\User;
-
+use App\Http\Controllers\Api\ApiController;
 use Modules\Company\Repositories\CompanyRepository;
 use Modules\Company\Http\Resources\CompanyUsersResource;
 
-class CompanyApiController extends Controller
+class CompanyApiController extends ApiController
 {
 
     private $company;
@@ -25,7 +25,7 @@ class CompanyApiController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function company_users()
+    public function index()
 {
     $companyId = auth()->user()->company_id;
 

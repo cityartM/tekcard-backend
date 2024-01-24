@@ -17,5 +17,7 @@
     "AboutCard": true,
     "ShippingAdd": true,
     "Shipping": true,
-    "CompanyList": true
+    "CompanyList": true,
+    "Pages": true,
+    "Page": true
 }
