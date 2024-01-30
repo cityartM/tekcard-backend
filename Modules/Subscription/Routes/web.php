@@ -15,8 +15,10 @@
 use Modules\Subscription\Http\Controllers\SubscriptionController;
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('subscriptions', SubscriptionController::class)->middleware('permission:subscriptions.manage');
+    Route::resource('subscriptions', SubscriptionController::class)->middleware('permission:subscriptions.manage')->except(['show']);
 
 });
 
 Route::post('subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
+
+Route::get('subscriptions/download', [SubscriptionController::class, 'download'])->name('sub.download');
