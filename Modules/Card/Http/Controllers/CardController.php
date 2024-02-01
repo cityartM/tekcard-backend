@@ -12,6 +12,8 @@ use Modules\Card\Models\Card;
 use Modules\Background\Models\Background;
 use App\Helpers\Helper;
 use Modules\Card\Http\Requests\CreateCardRequest;
+//Qr
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class CardController extends Controller
@@ -92,6 +94,12 @@ class CardController extends Controller
         if ($request->hasFile('pdf_file')) {
             $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
         }
+        // Qr generate and save 
+        // Generate a QR code for the link "cards/{id}"
+         $qrCode = QrCode::size(300)->generate(route('cards.show', $card->id));
+
+        // Save the QR code image to the media library
+        $card->addMediaFromBase64(base64_encode($qrCode))->toMediaCollection('qrcodes');
 
         return redirect()->route('cards.index')
         ->with('success', 'Card  entry created successfully');
