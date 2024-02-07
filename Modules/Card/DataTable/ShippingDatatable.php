@@ -38,7 +38,7 @@ class ShippingDatatable
                     return $shipping->is_main ;
                 })
                 ->addColumn("country", function (Shipping $shipping) {
-                    return $shipping->country->id ;
+                    return $shipping->country->name;
                 })
                 ->addColumn("state", function (Shipping $shipping) {
                     return $shipping->state ;

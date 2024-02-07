@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Modules\Company\Http\Controllers\CompanyApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/company', function (Request $request) {
     return $request->user();
 });
+
+Route::get('company_list', 'CompanyApiController@index');

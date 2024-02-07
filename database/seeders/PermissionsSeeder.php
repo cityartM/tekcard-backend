@@ -178,6 +178,35 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        //////////
+        $permissions[] = Permission::create([
+            'name' => 'pages.manage',
+            'display_name' => 'Manage pages',
+            'description' => 'Manage  pages',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'pages.edit',
+            'display_name' => 'edit pages',
+            'description' => 'edit  pages',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'pages.destroy',
+            'display_name' => 'destroy pages',
+            'description' => 'destroy  pages',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'pages.add',
+            'display_name' => 'add pages',
+            'description' => 'add  pages',
+            'removable' => false
+        ]);
+
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }
