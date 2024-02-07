@@ -27,6 +27,17 @@ return new class extends Migration
             $table->integer('nbr_user')->default(0);
             $table->integer('nbr_card_user')->default(0);
             $table->boolean('has_dashboard')->default(0);
+            $table->boolean('has_video')->default(0);
+            $table->boolean('has_pdf')->default(0);
+            $table->boolean('has_multiple_image')->default(0);
+            $table->boolean('has_water_mark')->default(0);
+            $table->boolean('has_share_offline')->default(0);
+            $table->boolean('share_with_image')->default(0);
+            $table->boolean('has_scan_ia')->default(0);
+            $table->boolean('has_group_contact')->default(0);
+            $table->boolean('has_scan_location')->default(0);
+            $table->boolean('has_note_contact')->default(0);
+            $table->boolean('has_statistic')->default(0);
             $table->string('orderId', 255)->nullable();
             $table->longText('purchaseToken')->nullable();
             $table->dateTime('purchaseDate')->nullable();
