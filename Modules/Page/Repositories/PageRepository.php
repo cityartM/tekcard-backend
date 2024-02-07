@@ -1,0 +1,36 @@
+<?php
+
+namespace Modules\Page\Repositories;
+
+use Modules\MissionAndVision\Models\Page;
+
+interface PageRepository
+{
+    /**
+     * Get all system Page.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function all();
+
+
+    public function index();
+
+
+
+    /**
+     * Remove Subscription from repository.
+     *
+     * @param $id Subscription Id
+     * @return bool
+     */
+    public function delete($id);
+
+    public function getDatatables();
+
+    public function create($data);
+
+    public function update($id,$data);
+
+
+}

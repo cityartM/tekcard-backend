@@ -54,7 +54,7 @@ class FeedBackController extends Controller
     // Retrieve all published feedback
     $publishedFeedback = Feedback::where('status', Status::PUBLISHED)->get();
 
-    dd($publishedFeedback);
+    //dd($publishedFeedback);
 
     return view('your-view', compact("publishedFeedback"));
 }

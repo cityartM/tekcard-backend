@@ -12,6 +12,8 @@ use Modules\Card\Models\Shipping;
 use Modules\Background\Models\Background;
 use App\Helpers\Helper;
 use Modules\Card\Http\Requests\CreateShippingRequest;
+use Modules\Address\Models\Country;
+use Illuminate\Support\Facades\Auth;
 
 
 class ShippingController extends Controller
@@ -75,11 +77,11 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit(Card $card)
+    public function edit(Shipping $shipping)
     {
-        $backgrounds = Background::query();
+        $countries = Country::pluck('name', 'id');
         $edit= true;
-        return view('card::add-edit-card', compact('edit','card','backgrounds'));
+        return view('card::add-edit-shipping', compact('edit','shipping','countries'));
     }
 
     /**

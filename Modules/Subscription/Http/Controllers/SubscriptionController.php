@@ -9,6 +9,12 @@ use Modules\Subscription\Models\Subscription;
 use Modules\Subscription\Http\Requests\CreateSubscriptionRequest;
 use Modules\Subscription\Repositories\SubscriptionRepository;
 
+use Illuminate\Support\Facades\Response as LaravelResponse;
+
+
+use Illuminate\Support\Facades\Storage;
+use League\Csv\Writer;
+
 class SubscriptionController extends Controller
 {
     private $subscriptions; 
@@ -58,4 +64,27 @@ class SubscriptionController extends Controller
 
         return redirect()->route('subscriptions.index')->with('success', 'subscription deleted successfully.');
     }
+
+    public function download()
+    {
+        $data = Subscription::all(); // Fetch data from your table
+
+        $csv = Writer::createFromFileObject(new \SplTempFileObject());
+
+        // Add CSV header
+        $csv->insertOne(['id', 'email', 'created_at']); // Replace with your actual column names
+
+        // Add data to CSV
+        foreach ($data as $row) {
+            $csv->insertOne($row->toArray());
+        }
+
+        $filename = 'data.csv';
+
+        return LaravelResponse::make($csv->output(), 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ]);
+    }
+
 }
