@@ -19,5 +19,6 @@
     "Shipping": true,
     "CompanyList": true,
     "Pages": true,
-    "Page": true
+    "Page": true,
+    "CompanyGroups": true
 }

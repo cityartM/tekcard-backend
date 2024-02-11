@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\ContactUser\Http\Requests;
+namespace Modules\Companygroups\Http\Requests;
 
 use App\Http\Requests\Request;
 
