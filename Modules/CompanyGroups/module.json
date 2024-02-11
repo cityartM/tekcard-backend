@@ -1,0 +1,11 @@
+{
+    "name": "CompanyGroups",
+    "alias": "companygroups",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CompanyGroups\\Providers\\CompanyGroupsServiceProvider"
+    ],
+    "files": []
+}

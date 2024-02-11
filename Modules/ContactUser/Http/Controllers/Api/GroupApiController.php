@@ -43,7 +43,7 @@ class GroupApiController extends ApiController
 
         return $this->respondWithSuccess([
             'groups' => GroupResource::collection($groups)->response()->getData(true),
-        ],  'Remarks retrieved successfully', 200);
+        ],  'groups retrieved successfully', 200);
 
     }
 
@@ -81,25 +81,25 @@ class GroupApiController extends ApiController
 
     public function destroy($id)
     {
-        $remark = Remark::find($id);
+        $Group = Group::find($id);
 
-        if (!$remark) {
+        if (!$Group) {
         return $this->respondWithSuccess(
-            ['message' => 'Remark not found'],
-            'Remark not found',404
+            ['message' => 'Group not found'],
+            'Group not found',404
         );}
 
-        if ($remark->user_id !== auth()->id()) {
+        if ($Group->user_id !== auth()->id()) {
             return $this->respondWithSuccess(
-                ['message' => 'You are not authorized to delete this remark'],
+                ['message' => 'You are not authorized to delete this Group'],
                 'Authorization failed',403
             );
         }
 
-        $remark->delete();
+        $Group->delete();
 
         return $this->respondWithSuccess([
-            'remark' => new RemarkResource($remark),
-        ],  'Remark deleted successfully', 200);
+            'Group' => new GroupResource($Group),
+        ],  'Group deleted successfully', 200);
     }
 }
