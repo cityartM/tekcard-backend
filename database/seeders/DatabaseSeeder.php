@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GlobalSettingDatabaseSeeder::class);
         $this->call(FeatureDatabaseSeeder::class);
         $this->call(TagDatabaseSeeder::class);
-        $this->call(BlogDatabaseSeeder::class);
         $this->call(CardDatabaseSeeder::class);
+        $this->call(BlogDatabaseSeeder::class);
         Model::reguard();
     }
 }
