@@ -84,6 +84,9 @@ use Modules\Card\Repositories\EloquentShipping;
 use Modules\Page\Repositories\PageRepository;
 use Modules\Page\Repositories\EloquentPage;
 
+use Modules\CompanyGroups\Repositories\CompanyGroupRepository;
+use Modules\CompanyGroups\Repositories\EloquentCompanyGroup;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -111,6 +114,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CardOrderRepository::class, EloquentCardOrder::class);
         $this->app->singleton(ShippingRepository::class, EloquentShipping::class);
         $this->app->singleton(PageRepository::class, EloquentPage::class);
+        $this->app->singleton(CompanyGroupRepository::class, EloquentCompanyGroup::class);
 
     }
 
