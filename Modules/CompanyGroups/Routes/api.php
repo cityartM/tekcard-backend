@@ -3,17 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-    |--------------------------------------------------------------------------
-    | API Routes
-    |--------------------------------------------------------------------------
-    |
-    | Here is where you can register API routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group which
-    | is assigned the "api" middleware group. Enjoy building your API!
-    |
-*/
+use Modules\CompanyGroups\Http\Controllers\CompanyGroupsApiController;
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
-    Route::get('companygroups', fn (Request $request) => $request->user())->name('companygroups');
+Route::group(['prefix' => 'companygroups', 'middleware' => 'auth'], function () {
+    Route::get('/', [CompanyGroupsApiController::class, 'index']);
+    Route::post('/', [CompanyGroupsApiController::class, 'store']);
+    Route::get('/{id}', [CompanyGroupsApiController::class, 'show']);
+    Route::post('/{id}', [CompanyGroupsApiController::class, 'update']);
+    Route::delete('/{id}', [CompanyGroupsApiController::class, 'destroy']);
 });
