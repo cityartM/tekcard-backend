@@ -125,6 +125,97 @@
                     :status=" $edit && $plan->has_dashboard === true ? 'true' : 'false'"
                 />
                 </div>
+                
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_video')"
+                    name="has_video"
+                    col="3"
+                    :status=" $edit && $plan->has_video === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_pdf')"
+                    name="has_pdf"
+                    col="3"
+                    :status=" $edit && $plan->has_pdf === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_multiple_image')"
+                    name="has_multiple_image"
+                    col="3"
+                    :status=" $edit && $plan->has_multiple_image === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_water_mark')"
+                    name="has_water_mark"
+                    col="3"
+                    :status=" $edit && $plan->has_water_mark === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_share_offline')"
+                    name="has_share_offline"
+                    col="3"
+                    :status=" $edit && $plan->has_share_offline === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.share_with_image')"
+                    name="share_with_image"
+                    col="3"
+                    :status=" $edit && $plan->share_with_image === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_scan_ia')"
+                    name="has_scan_ia"
+                    col="3"
+                    :status=" $edit && $plan->has_scan_ia === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_group_contact')"
+                    name="has_group_contact"
+                    col="3"
+                    :status=" $edit && $plan->has_group_contact === true ? 'true' : 'false'"
+                />
+                </div>
+
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_scan_location')"
+                    name="has_scan_location"
+                    col="3"
+                    :status=" $edit && $plan->has_scan_location === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_note_contact')"
+                    name="has_note_contact"
+                    col="3"
+                    :status=" $edit && $plan->has_note_contact === true ? 'true' : 'false'"
+                />
+                </div>
+                <div class="row">
+                <x-input-switch
+                    :title="__('app.has_statistic')"
+                    name="has_statistic"
+                    col="3"
+                    :status=" $edit && $plan->has_statistic === true ? 'true' : 'false'"
+                />
+                </div>
+
             </div>
         </div>
         <div class="col-md-12 mt-2">

@@ -25,10 +25,23 @@ class Plan extends Model
 
     protected $casts = [
         'removable' => 'boolean',
-        'has_dashboard' => 'boolean'
+        'has_dashboard' => 'boolean',
+        'has_video'=> 'boolean',
+        'has_pdf'=> 'boolean',
+        'has_multiple_image'=> 'boolean',
+        'has_water_mark'=> 'boolean',
+        'has_share_offline'=> 'boolean',
+        'share_with_image'=> 'boolean',
+        'has_scan_ia'=> 'boolean',
+        'has_group_contact'=> 'boolean',
+        'has_scan_location'=> 'boolean',
+        'has_note_contact'=> 'boolean',
+        'has_statistic'=> 'boolean',
     ];
 
-    protected $fillable = ['type','name', 'display_name','price','nbr_user','nbr_card_user','has_dashboard','removable'];
+    protected $fillable = ['type','name', 'display_name','price','nbr_user','nbr_card_user','has_dashboard','has_video','has_pdf',
+    'has_multiple_image','has_water_mark','has_share_offline','share_with_image','has_scan_ia',
+    'has_group_contact','has_scan_location','has_note_contact','has_statistic','removable'];
 
     public function users()
     {

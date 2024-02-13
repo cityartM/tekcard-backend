@@ -57,7 +57,6 @@ class CompanyGroupDatatable
     
         // Check if the user exists and has a company id
         if ($user && $user->company_id) {
-            // Retrieve CompanyGroup where company_id matches the user's company id
             return CompanyGroup::where('company_id', $user->company_id)->get();
         }
         
