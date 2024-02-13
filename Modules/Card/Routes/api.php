@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
      Route::post('cards/card_background/{card}', 'Api\CardApiController@updateCardBackgroundAndColor');
 
       // card update app
-    Route::post('cards/card_app/{card}', 'CardApiController@updateCardApps');
+    Route::post('cards/card_app/{card}', 'Api\CardApiController@updateCardApps');
 
     // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
 
