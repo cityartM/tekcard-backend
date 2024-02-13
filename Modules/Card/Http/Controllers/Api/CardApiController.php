@@ -211,7 +211,9 @@ class CardApiController extends ApiController
 
     public function updateGeneraleInfo(Request $request ,Card $card)
     {
+
         $data = $request->only($this->only);
+
         $card->update($data);
 
         if ($request->hasFile('card_avatar') ) {
