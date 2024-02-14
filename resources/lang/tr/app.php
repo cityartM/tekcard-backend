@@ -653,6 +653,30 @@ return [
         'image_upload' => 'Resim Yükleme',
         'update_page' => 'Sayfayı Güncelle',
         'create_page' => 'Sayfa Oluştur',
+        'about_card' => 'Kart Hakkında',
+        'shippings' => 'Kargolar',
+        'IS_MAIN' => 'Ana mı',
+        'is_main' => 'Ana mı',
+        'state' => 'Durum',
+        'zip_code' => 'Posta Kodu',
+        'shippings_list' => 'Kargo Listesi',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

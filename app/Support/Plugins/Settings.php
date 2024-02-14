@@ -42,7 +42,7 @@ class Settings extends Plugin
             ->active("settings")
             ->permissions('backgrounds.manage');
 
-        $settingAboutCard = Item::create(__('app.aboutcard'))
+        $settingAboutCard = Item::create(__('app.about_card'))
             ->route('aboutCards.index')
             ->active("settings")
             ->permissions('aboutCards.manage');

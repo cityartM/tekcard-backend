@@ -448,6 +448,14 @@ return [
     'image_upload' => 'تحميل الصورة',
     'update_page' => 'تحديث الصفحة',
     'create_page' => 'إنشاء صفحة',
+    'about_card' => 'حول البطاقة',
+    'shippings' => 'الشحن',
+    'IS_MAIN' => 'هل هو الرئيسي',
+    'is_main' =>'هل هو الرئيسي',
+    'state' => 'الولاية',
+    'zip_code' => 'الرمز البريدي',
+    'shippings_list' => 'قائمة الشحن',
+
 
 
 

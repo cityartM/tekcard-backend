@@ -647,6 +647,13 @@ return [
         'image_upload' => 'Image Upload',
         'update_page' => 'Update Page',
         'create_page' => 'Create Page',
+        'about_card' => 'About Card',
+        'shippings' => 'Shippings',
+        'IS_MAIN' => 'Is Main',
+        'is_main' => 'Is Main',
+        'state' => 'State',
+        'zip_code' => 'Zip Code',
+        'shippings_list' => 'Shippings List',
 
 
 
