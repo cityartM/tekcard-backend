@@ -3,6 +3,7 @@
 namespace Modules\ContactUser\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Company\Http\Resources\CompanyCardContactResource;
 use Modules\Company\Http\Resources\CompanyResource;
 
 class GroupResource extends JsonResource
@@ -19,7 +20,8 @@ class GroupResource extends JsonResource
             'id' => (int) $this->id,
             'display_name' => $this->display_name,
             'bio' =>  $this->bio,
-            'company' =>  new CompanyResource($this->company),
+            'cards' => CompanyCardContactResource::collection($this->companyCardContacts),
+            //'company' =>  new CompanyResource($this->company),
         ];
     }
 
