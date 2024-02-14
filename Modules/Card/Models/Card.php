@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Background\Models\Background;
 use Modules\Company\Models\Company;
+use Modules\GlobalSetting\Models\SettingContact;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -57,6 +58,11 @@ class Card extends Model implements HasMedia
     protected static function newFactory()
     {
         return \Modules\Card\Database\factories\CardFactory::new();
+    }
+
+    public function singleLink()
+    {
+        return $this->belongsTo(SettingContact::class, 'single_link_contact_id');
     }
 
 }

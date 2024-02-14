@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Http\Controllers\Api\ApiController;
 use Modules\Company\Repositories\CompanyRepository;
 use Modules\Company\Http\Resources\CompanyUsersResource;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class CompanyApiController extends ApiController
 {
@@ -26,15 +27,41 @@ class CompanyApiController extends ApiController
      * @return Renderable
      */
     public function index()
-{
-    $companyId = auth()->user()->company_id;
+    {;
 
-    $companyUsers = User::where('company_id', $companyId)->get();
+        $companyUsers = QueryBuilder::for(User::class)
+            ->where('company_id', auth()->user()->company_id)
+            ->allowedFilters(['name', 'email'])
+            ->allowedSorts(['id'])
+            ->defaultSort('-id')
+            ->paginate(10);
 
-    return $this->respondWithSuccess([
-        'CompanyUsers' => CompanyUsersResource::collection($companyUsers),
-    ], 'CompanyUsers request back successfully.', 200);
-}
+        return $this->respondWithSuccess([
+            'CompanyUsers' => CompanyUsersResource::collection($companyUsers),
+        ], 'CompanyUsers request back successfully.', 200);
+    }
+
+
+    public function storeCardContact(CreateCardContactRequest $request)
+    {
+        $data = $request->only(['card_id', 'remark_id', 'group']);
+
+        $existCard = $this->cardContacts->checkExistCard($data['card_id'],auth()->id());
+
+        if($existCard){
+            return $this->respondWithSuccess([
+                'cardContact' => new CardContactResource($existCard),
+            ], 'Card Contact created successfully', 200);
+        }
+
+        $data['user_id'] = auth()->id();
+
+        $cardContact = $this->cardContacts->create($data);
+
+        return $this->respondWithSuccess([
+            'cardContact' => new CardContactResource($cardContact),
+        ], 'Card Contact created successfully', 200);
+    }
 
     /**
      * Show the form for creating a new resource.

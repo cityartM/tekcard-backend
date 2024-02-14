@@ -14,8 +14,5 @@ use Modules\Company\Http\Controllers\CompanyApiController;
 |
 */
 
-Route::middleware('auth:api')->get('/company', function (Request $request) {
-    return $request->user();
-});
 
 Route::get('company_list', 'CompanyApiController@index');

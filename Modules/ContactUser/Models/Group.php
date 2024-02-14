@@ -10,7 +10,7 @@ class Group extends Model
 {
     protected $table = 'groups';
 
-    protected $fillable = ['display_name', 'user_id'];
+    protected $fillable = ['display_name','company_id','bio','user_id'];
 
 
     public function user()

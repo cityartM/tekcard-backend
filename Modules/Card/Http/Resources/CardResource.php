@@ -7,6 +7,7 @@ use App\Http\Resources\PermissionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Background\Http\Resources\BackgroundResource;
 use Modules\Company\Http\Resources\CompanyResource;
+use Modules\GlobalSetting\Http\Resources\ContactSettingsResource;
 use Spatie\QueryBuilder\AllowedInclude;
 
 class CardResource extends JsonResource
@@ -31,7 +32,7 @@ class CardResource extends JsonResource
             'background' =>  new BackgroundResource($this->background),
             'color' =>  $this->color,
             'is_single_link' =>  $this->is_single_link,
-            'single_link_contact_id' =>  $this->single_link_contact_id,
+            'single_link_contact_id' =>  new ContactSettingsResource($this->singleLink),
             'is_main' =>  $this->is_main,
             'email' =>  $this->email,
             'phone' =>  $this->phone,
