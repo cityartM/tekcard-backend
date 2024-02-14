@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_cards_contacts', function (Blueprint $table) {
+        Schema::create('company_card_contacts', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger("user_id");
             $table->unsignedBigInteger("company_id");
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('company_cards_contacts');
+        Schema::dropIfExists('company_card_contacts');
     }
 };

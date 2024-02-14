@@ -2,11 +2,11 @@
 
 namespace Modules\Company\Http\Resources;
 
-use App\Http\Resources\CurrenciesResource;
-use App\Http\Resources\PermissionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Address\Transformers\CountryResource;
-use Spatie\QueryBuilder\AllowedInclude;
+use Modules\Card\Http\Resources\CardContactResource;
+use Modules\Card\Http\Resources\CardResource;
+use Modules\Card\Http\Resources\CompanyCardResource;
 
 class CompanyResource extends JsonResource
 {
@@ -28,6 +28,7 @@ class CompanyResource extends JsonResource
             'country' => new CountryResource($this->country),
             'address' => $this->address,
             'avatar' => $this->present()->avatar,
+            'cards' => CompanyCardResource::collection($this->cards)
         ];
     }
 

@@ -5,6 +5,7 @@ namespace Modules\Company\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Card\Models\Card;
+use Modules\ContactUser\Models\Group;
 use Modules\ContactUser\Models\Remark;
 
 class CompanyCardContact extends Model
@@ -22,6 +23,11 @@ class CompanyCardContact extends Model
     public function remark()
     {
         return $this->belongsTo(Remark::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
     }
 
 }

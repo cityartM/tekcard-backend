@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-use Modules\Company\Http\Controllers\CompanyApiController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +12,7 @@ use Modules\Company\Http\Controllers\CompanyApiController;
 */
 
 
-Route::get('company_list', 'CompanyApiController@index');
+Route::group(['middleware' => 'auth'], function () {
+    Route::apiResource('companies', 'Api\CompanyApiController');
+    Route::post('companies/storeCardContact', 'Api\CompanyApiController@storeCardContact');
+});

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Card\Repositories;
+namespace Modules\Company\Repositories;
 
-use Modules\Card\Models\CardContact;
+use Modules\Company\Models\CompanyCardContact;
 
-interface CardContactRepository
+interface CompanyCardContactRepository
 {
     /**
      * {@inheritdoc}
@@ -37,9 +37,4 @@ interface CardContactRepository
     public function delete($id);
 
 
-
-    public function getDatatables();
-
-
-    public function checkExistCard($card_id,$user_id);
 }
