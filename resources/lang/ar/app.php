@@ -423,6 +423,32 @@ return [
     'business' => 'عمل',
     'personnel' => 'الشخصي',
 
+    'has_dashboard' => 'يحتوي على لوحة تحكم',
+    'has_video' => 'يحتوي على فيديو',
+    'has_pdf' => 'يحتوي على ملف PDF',
+    'has_multiple_image' => 'يحتوي على صور متعددة',
+    'has_water_mark' => 'يحتوي على علامة مائية',
+    'has_share_offline' => 'يحتوي على مشاركة دون اتصال',
+    'share_with_image' => 'مشاركة مع صورة',
+    'has_scan_ia' => 'يحتوي على مسح ذكاء اصطناعي',
+    'has_group_contact' => 'يحتوي على جهة اتصال مجموعة',
+    'has_scan_location' => 'يحتوي على مسح الموقع',
+    'has_note_contact' => 'يحتوي على ملاحظة جهة الاتصال',
+    'has_statistic' => 'يحتوي على إحصائيات',
+    'custom_pages' => 'صفحات مخصصة',
+    'add_page' => 'إضافة صفحة',
+    'custom_pages_list' => 'قائمة الصفحات المخصصة',
+    'custom_pages' => 'صفحات مخصصة',
+    'create_new_page' => 'إنشاء صفحة جديدة',
+    'page_phrases_details' => 'تفاصيل عبارات الصفحة',
+    'a_general_page_phrases_information' => 'معلومات عامة عن عبارات الصفحة',
+    'title' => 'العنوان',
+    'short_description' => 'وصف مختصر',
+    'content' => 'المحتوى',
+    'image_upload' => 'تحميل الصورة',
+    'update_page' => 'تحديث الصفحة',
+    'create_page' => 'إنشاء صفحة',
+
 
 
 ];

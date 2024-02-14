@@ -622,6 +622,32 @@ return [
         'business' => 'Business',
         'personnel' => 'Personnel',
 
+        'has_dashboard' => 'Has Dashboard',
+        'has_video' => 'Has Video',
+        'has_pdf' => 'Has PDF',
+        'has_multiple_image' => 'Has Multiple Images',
+        'has_water_mark' => 'Has Watermark',
+        'has_share_offline' => 'Has Offline Sharing',
+        'share_with_image' => 'Share with Image',
+        'has_scan_ia' => 'Has IA Scan',
+        'has_group_contact' => 'Has Group Contact',
+        'has_scan_location' => 'Has Location Scan',
+        'has_note_contact' => 'Has Contact Note',
+        'has_statistic' => 'Has Statistics',
+        'custom_pages' => 'Custom Pages',
+        'add_page' => 'Add Page',
+        'custom_pages_list' => 'Custom Pages List',
+        'custom_pages' => 'Custom Pages',
+        'create_new_page' => 'Create New Page',
+        'page_phrases_details' => 'Page Phrases Details',
+        'a_general_page_phrases_information' => 'A General Page Phrases Information',
+        'title' => 'Title',
+        'short_description' => 'Short Description',
+        'content' => 'Content',
+        'image_upload' => 'Image Upload',
+        'update_page' => 'Update Page',
+        'create_page' => 'Create Page',
+
 
 
 ];
