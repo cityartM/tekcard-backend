@@ -4,6 +4,7 @@ namespace Modules\ContactUser\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Card\Models\Card;
 use Modules\Company\Models\Company;
 use Modules\Company\Models\CompanyCardContact;
 
@@ -28,5 +29,10 @@ class Group extends Model
     public function companyCardContacts()
     {
         return $this->hasMany(CompanyCardContact::class);
+    }
+
+    public function cards()
+    {
+        return $this->hasManyThrough(Card::class, CompanyCardContact::class, 'group_id', 'id', 'id', 'card_id');
     }
 }
