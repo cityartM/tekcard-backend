@@ -37,6 +37,16 @@
                 col="3"
             />
             <div class="col-md-9">
+           
+
+<label class="d-flex align-items-center fs-5 fw-bold mb-2" for="name">@lang('app.name')</label>
+        <input type="text"
+               class="form-control input-solid mb-2"
+               id="name"
+               name="name"
+               placeholder="@lang('app.name')"
+               value="{{ $edit ? $page->name : null }}">
+    
                 <x-languages-tab>
                     @foreach(\App\Helper\Helper::getLocalesOrder() as $locale => $value)
                         <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">

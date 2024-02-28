@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TranslationController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\Users\UsersController;
 use Illuminate\Support\Str;
@@ -195,3 +196,5 @@ Route::group(['namespace' => 'Dashboard'],function (){
 });
 
 require __DIR__.'/frontend.php';
+
+

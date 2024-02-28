@@ -58,7 +58,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-    $data = $request->only(['title', 'short_description','description',/*'type'*/]);
+    $data = $request->only(['name','title', 'short_description','description',/*'type'*/]);
        
 
         $pages = $this->pages->create($data);
@@ -107,7 +107,8 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        $data = $request->only(['title', 'short_description','description',/*'type'*/]);
+        
+        $data = $request->only(['name','title', 'short_description','description',/*'type'*/]);
 
         $page = $this->pages->update($page->id,$data);
 
