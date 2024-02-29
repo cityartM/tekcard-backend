@@ -6,6 +6,7 @@ namespace Modules\ContactUser\Http\Controllers\Api;
 use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 use Modules\ContactUser\Http\Controllers\Controller;
+use Modules\ContactUser\Http\Filters\GroupKeywordSearch;
 use Modules\ContactUser\Http\Filters\RemarkKeywordSearch;
 use Modules\ContactUser\Http\Requests\CreateGroupRequest;
 use Modules\ContactUser\Http\Requests\CreateRemarkRequest;
@@ -32,18 +33,19 @@ class GroupApiController extends ApiController
     public function index(Request $request)
     {
           $groups = QueryBuilder::for(Group::class)
-             ->where('company_id',auth()->user()->company()->id)
+             ->where('company_id',auth()->user()->company?->id)
+             ->where('company_id','!=',null)
              ->allowedFilters([
-                AllowedFilter::custom('search', new RemarkKeywordSearch),
+                AllowedFilter::custom('search', new GroupKeywordSearch),
             ])
             ->allowedSorts(['id'])
             ->defaultSort('id')
-            ->paginate($request->per_page ?: 1);
+            ->get();
 
 
         return $this->respondWithSuccess([
-            'groups' => GroupResource::collection($groups)->response()->getData(true),
-        ],  'groups retrieved successfully', 200);
+            'groups' => GroupResource::collection($groups),
+        ],  'Groups retrieved successfully', 200);
 
     }
 
@@ -58,7 +60,11 @@ class GroupApiController extends ApiController
 
     public function store(CreateGroupRequest $request)
     {
+        if(!auth()->user()->hasRole('Company') || auth()->user()->company_id == null  ) {
+            return $this->respondWithError('You are not authorized to create a group', 403);
+        }
         $data = $request->only(['display_name', 'company_id','bio']);
+        $data['company_id'] = auth()->user()->company->id;
         $data['user_id'] = auth()->id();
 
         $group = $this->groups->create($data);

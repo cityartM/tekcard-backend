@@ -4,8 +4,11 @@ namespace Modules\Company\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Company\Http\Resources\CompanyCardContactResource;
+use Modules\Company\Repositories\CompanyCardContactRepository;
 use Modules\Company\Repositories\CompanyRepository;
 use Modules\Company\Repositories\EloquentCompany;
+use Modules\Company\Repositories\EloquentCompanyCardContact;
 
 class CompanyServiceProvider extends ServiceProvider
 {
@@ -41,6 +44,7 @@ class CompanyServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->singleton(CompanyRepository::class, EloquentCompany::class);
+        $this->app->singleton(CompanyCardContactRepository::class, EloquentCompanyCardContact::class);
     }
 
     /**
