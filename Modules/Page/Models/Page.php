@@ -20,7 +20,7 @@ class Page extends Model implements HasMedia
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['title','short_description', 'description'];
+    protected $fillable = ['name','title','short_description', 'description'];
 
 
     protected $casts = [

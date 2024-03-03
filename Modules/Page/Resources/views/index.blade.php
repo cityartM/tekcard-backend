@@ -1,13 +1,13 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.pages'))
-@section('page-heading', __('app.pages'))
+@section('page-title', __('app.custom_pages'))
+@section('page-heading', __('app.custom_pages'))
 
 @section('breadcrumbs')
-<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.Mission_And_Vision')</h1>
+<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.custom_pages')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
         <li class="breadcrumb-item text-muted">
-            <a href="" class="text-muted text-hover-primary">@lang('app.Pages_And_Visions_list')</a>
+            <a href="" class="text-muted text-hover-primary">@lang('app.custom_pages_list')</a>
         </li>
     </ul>
 @stop

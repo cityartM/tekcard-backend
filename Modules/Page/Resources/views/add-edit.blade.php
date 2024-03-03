@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
-@section('page-title', __('app.Pages'))
-@section('page-heading', $edit ? $page->id : __('app.Create New page'))
+@section('page-title', __('app.custom_pages'))
+@section('page-heading', $edit ? $page->id : __('app.create_new_page'))
 
 
 
@@ -11,7 +11,7 @@
                 <span class="bullet bg-gray-200 w-5px h-2px"></span>
             </li>
             <li class="breadcrumb-item text-dark">
-                <a href="{{ route('pages.index') }}">@lang('app.page')</a>
+                <a href="{{ route('pages.index') }}">@lang('app.custom_pages')</a>
             </li>
             <span class="h-20px border-gray-200 border-start mx-4"></span>
             <li class="breadcrumb-item text-dark">{{ __($edit ? 'Edit' : 'Create') }}</li>
@@ -37,6 +37,16 @@
                 col="3"
             />
             <div class="col-md-9">
+           
+
+<label class="d-flex align-items-center fs-5 fw-bold mb-2" for="name">@lang('app.name')</label>
+        <input type="text"
+               class="form-control input-solid mb-2"
+               id="name"
+               name="name"
+               placeholder="@lang('app.name')"
+               value="{{ $edit ? $page->name : null }}">
+    
                 <x-languages-tab>
                     @foreach(\App\Helper\Helper::getLocalesOrder() as $locale => $value)
                         <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">
@@ -98,7 +108,7 @@
         </div>
         <div class="col-md-12 mt-2">
            <x-save-or-update-btn
-                :label="__($edit ? 'app.update_page_and_vision' : 'app.create_page_and_vision')"
+                :label="__($edit ? 'app.update_page' : 'app.create_page')"
                 :progress="__('Please wait...')"
             />
         </div>

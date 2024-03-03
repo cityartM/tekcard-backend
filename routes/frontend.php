@@ -8,6 +8,9 @@ use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Feature\Models\Feature;
 use Modules\Plan\Models\Plan;
+use App\Http\Controllers\FrontController;
+use Modules\Page\Models\Page;
+use Modules\Page\Http\Resources\PageResource;
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -125,3 +128,18 @@ Route::post('/contact-us', function () {
 
     //dd(request()->all());
 })->name('landing.contact-us.submit');
+
+
+
+
+
+
+Route::get('/custom_page', function () {
+
+    $page = Page::where('name', 'about_us')->first();
+    return Inertia::render('About_us', [
+        "post"  => new PageResource($page),
+        
+    ]);
+})->name('landing.custom_page');
+

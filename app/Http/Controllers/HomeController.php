@@ -29,7 +29,14 @@ class HomeController extends Controller
     {
        // $orders_by_state = [50,60,90]; ,compact('orders_by_state')
 
-        return view('dashboard.dashboard');
+        if (auth()->user()->hasRole('Company')) {
+
+            // If user has role of 'Company', proceed to view
+            return view('dashboard.dashboard_company');
+        } else {
+            // If user does not have the role, redirect them or show an error
+            return view('dashboard.dashboard');
+        }
 
     }
 

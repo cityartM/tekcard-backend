@@ -38,7 +38,7 @@ class FeedBackApiController extends ApiController
 
     return $this->respondWithSuccess([
         'feedBack' => FeedbackResource::collection($publishedFeedback),
-    ], 'feedBack request back successfully.', 200);
+    ],  'feedBack request back successfully.', 200);
 }
     /**
      * Show the form for creating a new resource.

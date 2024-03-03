@@ -628,6 +628,56 @@ return [
         'business' => 'İş',
         'personnel' => 'Personel',
 
+        'has_dashboard' => 'Panoya Sahibi',
+        'has_video' => 'Video Sahibi',
+        'has_pdf' => 'PDF Sahibi',
+        'has_multiple_image' => 'Birden Fazla Resme Sahip',
+        'has_water_mark' => 'Firmanız Var',
+        'has_share_offline' => 'Çevrimdışı Paylaşım Var',
+        'share_with_image' => 'Resimli Paylaşım',
+        'has_scan_ia' => 'Yapay Zeka Taraması Var',
+        'has_group_contact' => 'Grup İletişim Var',
+        'has_scan_location' => 'Konum Taraması Var',
+        'has_note_contact' => 'İletişim Notu Var',
+        'has_statistic' => 'İstatistikler Var',
+        'custom_pages' => 'Özel Sayfalar',
+        'add_page' => 'Sayfa Ekle',
+        'custom_pages_list' => 'Özel Sayfalar Listesi',
+        'custom_pages' => 'Özel Sayfalar',
+        'create_new_page' => 'Yeni Sayfa Oluştur',
+        'page_phrases_details' => 'Sayfa İfadeleri Detayları',
+        'a_general_page_phrases_information' => 'Genel Sayfa İfadeleri Bilgisi',
+        'title' => 'Başlık',
+        'short_description' => 'Kısa Açıklama',
+        'content' => 'İçerik',
+        'image_upload' => 'Resim Yükleme',
+        'update_page' => 'Sayfayı Güncelle',
+        'create_page' => 'Sayfa Oluştur',
+        'about_card' => 'Kart Hakkında',
+        'shippings' => 'Kargolar',
+        'IS_MAIN' => 'Ana mı',
+        'is_main' => 'Ana mı',
+        'state' => 'Durum',
+        'zip_code' => 'Posta Kodu',
+        'shippings_list' => 'Kargo Listesi',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
