@@ -8,6 +8,12 @@ use Illuminate\Routing\Controller;
 
 use Modules\Company\Repositories\CompanyRepository;
 
+//csv
+use Illuminate\Support\Facades\Response as LaravelResponse;
+use Illuminate\Support\Facades\Storage;
+use League\Csv\Writer;
+use App\Models\User;
+
 class CompanyController extends Controller
 {
 
@@ -91,5 +97,37 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    public function download()
+    {
+        $user = auth()->user();
+
+        if ($user->hasPermission('companies.manage')) {
+            $data = User::select('id', 'first_name', 'last_name', 'email', 'phone')
+            ->where('company_id', $user->company_id)
+            ->get();
+        } else {
+            $data = User::select('id', 'first_name', 'last_name', 'email', 'phone')->get();
+        }
+
+        $csv = Writer::createFromFileObject(new \SplTempFileObject());
+
+        // Add CSV header
+        $csv->insertOne(['id','first_name','last_name','email','phone']); // Replace with your actual column names
+
+        // Add data to CSV
+        foreach ($data as $row) {
+            $csv->insertOne($row->toArray());
+        }
+
+        $filename = 'data.csv';
+
+        return LaravelResponse::make($csv->output(), 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ]);
     }
 }

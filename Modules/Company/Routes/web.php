@@ -18,3 +18,6 @@ Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
     Route::resource('companiesList', \Modules\Company\Http\Controllers\CompanyListController::class)->middleware('permission:companies.manage');
 });
+
+
+Route::get('user/download', [\Modules\Company\Http\Controllers\CompanyController::class, 'download'])->name('user.download');

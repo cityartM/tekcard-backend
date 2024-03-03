@@ -3,6 +3,8 @@
 @section('page-title', __('app.users'))
 @section('page-heading', __('app.users'))
 
+
+
 @section('breadcrumbs')
     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.users')</h1>
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -18,6 +20,12 @@
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
         @lang('app.add_user')
     </a>
+   
+    <a href="{{ route('user.download') }}" class="btn btn-sm btn-primary">
+        <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+        @lang('app.download_data')
+    </a>
+
 @endsection
 @include('partials.messages')
 <x-card-content>
