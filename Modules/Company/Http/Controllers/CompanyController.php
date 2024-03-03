@@ -105,7 +105,7 @@ class CompanyController extends Controller
     {
         $user = auth()->user();
 
-        if ($user->hasPermission('companies.manage')) {
+        if ($user->hasRole('Company')) {
             $data = User::select('id', 'first_name', 'last_name', 'email', 'phone')
             ->where('company_id', $user->company_id)
             ->get();
