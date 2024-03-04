@@ -455,7 +455,7 @@ return [
     'state' => 'الولاية',
     'zip_code' => 'الرمز البريدي',
     'shippings_list' => 'قائمة الشحن',
-
+    'download_data' => 'تنزيل البيانات',
 
 
 
