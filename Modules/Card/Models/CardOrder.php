@@ -19,7 +19,8 @@ class CardOrder extends Model
         'quantity',
         'color',
         'company_id',
-        'status'
+        'status',
+        'country_id'
     ];
 
     protected $casts = [

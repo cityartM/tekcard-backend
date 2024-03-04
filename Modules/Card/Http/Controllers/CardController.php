@@ -63,7 +63,8 @@ class CardController extends Controller
     {
        // dd($request['contact_apps']);
         $data = $request->only($this->only);
-        
+        dd($data);
+
         $items = collect($data['contact_apps'])->map(function($item){
             foreach ($item as $key => $value) {
                 $items['contact_id'] = $value['contact_id'];
@@ -94,7 +95,7 @@ class CardController extends Controller
         if ($request->hasFile('pdf_file')) {
             $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
         }
-        // Qr generate and save 
+        // Qr generate and save
         // Generate a QR code for the link "cards/{id}"
          $qrCode = QrCode::size(300)->generate(route('cards.show', $card->id));
 

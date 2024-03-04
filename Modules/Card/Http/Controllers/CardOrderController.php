@@ -54,7 +54,7 @@ class CardOrderController extends Controller
      */
     public function store(CreateCardOrderRequest $request)
     {
-        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id']);
+        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id','country_id']);
 
         $order = $this->cardOder->create($data);
 
