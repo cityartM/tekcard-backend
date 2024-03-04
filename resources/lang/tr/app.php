@@ -660,7 +660,7 @@ return [
         'state' => 'Durum',
         'zip_code' => 'Posta Kodu',
         'shippings_list' => 'Kargo Listesi',
-
+        'download_data' => 'Veri İndirme',
 
 
 

@@ -67,7 +67,7 @@ class UserDatatable
         $user = auth()->user();
     
         // Check if the user has permission to manage companies
-        if ($user->hasPermission('companies.manage')) {
+        if ($user->hasRole('Company')) {
             // If the user has permission, fetch users only from their company
             return User::where('company_id', $user->company_id)->get();
         } else {
