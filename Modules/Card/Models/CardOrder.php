@@ -19,6 +19,11 @@ class CardOrder extends Model
         'quantity',
         'color',
         'company_id',
+        'country_id',
+        'state',
+        'zip_code',
+        'address',
+        'user_id',
         'status'
     ];
 

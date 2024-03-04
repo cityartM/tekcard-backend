@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
+use Modules\Address\Models\Country;
+
 use Modules\Card\Repositories\CardOrderRepository;
 use Modules\Card\Models\CardOrder;
 use Modules\Card\Http\Requests\CreateCardOrderRequest;
@@ -16,9 +18,9 @@ class CardOrderController extends Controller
 
     private $cardOder;
 
-    function __construct(CardOrderRepository $cardOder)
+    public function __construct(CardOrderRepository $cardOrders)
     {
-        $this->cardOder= $cardOder;
+        $this->cardOrders = $cardOrders;
     }
     /**
      * Display a listing of the resource.
@@ -27,10 +29,10 @@ class CardOrderController extends Controller
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return $this->cardOder->getDatatables()->datatables($request);
+            return $this->cardOrders->getDatatables()->datatables($request);
         }
         return view("card::index_orders")->with([
-            "columns" => $this->cardOder->getDatatables()::columns(),
+            "columns" => $this->cardOrders->getDatatables()::columns(),
         ]);
     }
 
@@ -42,9 +44,10 @@ class CardOrderController extends Controller
     {
         $user = Auth::user();
         $userCards = $user->cards;
+        $country = Country::pluck('name', 'id');
         //dd($userCards);
         $edit=false;
-        return view('card::add-edit-order',compact("edit","userCards"));
+        return view('card::add-edit-order',compact("edit","userCards","country"));
     }
 
     /**
@@ -54,9 +57,25 @@ class CardOrderController extends Controller
      */
     public function store(CreateCardOrderRequest $request)
     {
-        $data = $request->only(['card_id', 'quantity', 'color' , 'company_id']);
+        $user = Auth::user();
+        $userCards = $user->cards;
+        $userCardsIds = $userCards->pluck('id')->toArray();
+        $requestCardsIds = $request->card_ids;
+        $diff = array_diff($requestCardsIds, $userCardsIds);
+        if (!empty($diff)) {
+            return $this->respondWithError(
+                ['message' => 'You can not order cards that are not yours'],
+                'You can not order cards that are not yours', 403
+            );
+        }
+        $data = $request->only(['card_ids', 'quantity', 'color' , 'company_id','country_id','state','zip_code','address']);
 
-        $order = $this->cardOder->create($data);
+        $data['user_id'] = $user->id;
+        $data['company_id'] = $user->company_id;
+
+        $order = $this->cardOrders->create($data);
+
+        $order->cards()->attach($request->card_ids)->save();
 
         return redirect()->route('cardOrders.index')
         ->with('success', 'card Order entry created successfully');
