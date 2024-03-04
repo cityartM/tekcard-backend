@@ -56,30 +56,43 @@ class CardOrderController extends Controller
      * @return Renderable
      */
     public function store(CreateCardOrderRequest $request)
-    {
-        $user = Auth::user();
-        $userCards = $user->cards;
-        $userCardsIds = $userCards->pluck('id')->toArray();
-        $requestCardsIds = $request->card_ids;
-        $diff = array_diff($requestCardsIds, $userCardsIds);
-        if (!empty($diff)) {
-            return $this->respondWithError(
-                ['message' => 'You can not order cards that are not yours'],
-                'You can not order cards that are not yours', 403
-            );
-        }
-        $data = $request->only(['card_ids', 'quantity', 'color' , 'company_id','country_id','state','zip_code','address']);
+{
+    $user = Auth::user();
+    $userCards = $user->cards;
+    $userCardsIds = $userCards->pluck('id')->toArray();
+    $requestCardsIds = $request->card_ids;
 
-        $data['user_id'] = $user->id;
-        $data['company_id'] = $user->company_id;
-
-        $order = $this->cardOrders->create($data);
-
-        $order->cards()->attach($request->card_ids)->save();
-
-        return redirect()->route('cardOrders.index')
-        ->with('success', 'card Order entry created successfully');
+    // Check if 'is_checked' is true
+    if ($request->has('is_checked') && $request->is_checked === 'on') {
+        // Save all card_ids of the user
+        $cardIdsToSave = $userCardsIds;
+    } else {
+        // Save only card_ids that come from the request
+        $cardIdsToSave = $requestCardsIds;
     }
+
+    // Check if there are any card IDs in the request that are not associated with the current user
+    $diff = array_diff($requestCardsIds, $userCardsIds);
+    if (!empty($diff)) {
+        return $this->respondWithError(
+            ['message' => 'You can not order cards that are not yours'],
+            'You can not order cards that are not yours', 403
+        );
+    }
+
+    // Prepare data for the order
+    $data = $request->only(['quantity', 'color', 'company_id', 'country_id', 'state', 'zip_code', 'address']);
+    $data['user_id'] = $user->id;
+    $data['company_id'] = $user->company_id;
+
+    // Create the order
+    $order = $this->cardOrders->create($data);
+
+    // Attach the appropriate card IDs based on 'is_checked'
+    $order->cards()->attach($cardIdsToSave)->save();
+
+    return redirect()->route('cardOrders.index')->with('success', 'card Order entry created successfully');
+}
 
     /**
      * Show the specified resource.

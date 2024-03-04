@@ -35,6 +35,7 @@
                 col="3"
             />
               <div class="col-md-9">
+              
 
               <x-select-field
                     :title="__('app.card')"
@@ -48,6 +49,11 @@
                     :isselect2="true"
                     multi=true
                 />
+
+                <label class="form-check-label d-flex align-items-center fs-5 fw-bold mb-2">
+                    <input type="checkbox" class="form-check-input" id="is_checked" name="is_checked" {{ $edit && $order->is_checked ? 'checked' : '' }}>
+                    @lang('app.select_all_cards')
+                </label>
 
               <x-select-field
                     :title="__('app.country')"
