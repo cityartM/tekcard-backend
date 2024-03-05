@@ -16,4 +16,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('companies', 'Api\CompanyApiController');
     Route::post('companies/storeCardContact', 'Api\CompanyApiController@storeCardContact');
     Route::delete('companies/{cardId}', 'Api\CompanyApiController@destroy');
+   // Route::delete('companies/{userId}/{cardId}/{groupId}', 'Api\CompanyApiController@destroy');
 });

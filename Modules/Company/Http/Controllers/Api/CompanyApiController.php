@@ -142,7 +142,7 @@ class CompanyApiController extends ApiController
 {
     try {
       
-        $companyCardContact = CompanyCardContact::where('card_id', $cardId)->first();
+        $companyCardContact = CompanyCardContact::where('id', $cardId)->first();
 
         if (!$companyCardContact) {
             return $this->respondWithError('Company Card Contact not found.', 404);
@@ -158,4 +158,37 @@ class CompanyApiController extends ApiController
         return $this->respondWithError('Failed to delete Company Card Contact.', 500);
     }
 }
+
+/*
+public function destroy($userId, $cardId, $groupId)
+{
+    try {
+        // Assuming you have the necessary models imported
+
+        // Find the company card contact with given user_id, card_id, and group_id
+        $companyCardContact = CompanyCardContact::where('user_id', $userId)
+            ->where('card_id', $cardId)
+            ->where('group_id', $groupId)
+            ->first();
+
+        // If the company card contact doesn't exist, return a 404 response
+        if (!$companyCardContact) {
+            return $this->respondWithError('Company Card Contact not found.', 404);
+        }
+
+        // Delete the company card contact
+        $companyCardContact->delete();
+
+        // Return a success response
+        return $this->respondWithSuccess([
+            'companyCardContact' => new CompanyCardContactResource($companyCardContact),
+        ], 'Company Card Contact deleted successfully', 200);
+    } catch (\Exception $e) {
+        // If an exception occurs during the process, return a 500 response
+        return $this->respondWithError('Failed to delete Company Card Contact.', 500);
+    }
+}*/
+
+
+
 }
