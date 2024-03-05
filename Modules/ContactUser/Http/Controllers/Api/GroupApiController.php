@@ -93,27 +93,28 @@ class GroupApiController extends ApiController
         ], 'Group updated successfully', 200);
     }
 
-    public function destroy($id)
+    public function destroy(Group $group)
     {
-        $Group = Group::find($id);
+       // $Group = Group::find($id);
+        $group = Group::where('id',$group->id)->where('company_id',auth()->user()->company?->id)->first();
 
-        if (!$Group) {
+        if (!$group) {
         return $this->respondWithSuccess(
             ['message' => 'Group not found'],
             'Group not found',404
         );}
 
-        if ($Group->user_id !== auth()->id()) {
+        if ($group->company_id !== auth()->user()->company?->id) {
             return $this->respondWithSuccess(
                 ['message' => 'You are not authorized to delete this Group'],
                 'Authorization failed',403
             );
         }
 
-        $Group->delete();
+        $group->delete();
 
         return $this->respondWithSuccess([
-            'Group' => new GroupResource($Group),
+            'Group' => new GroupResource($group),
         ],  'Group deleted successfully', 200);
     }
 }
