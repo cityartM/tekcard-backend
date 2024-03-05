@@ -46,7 +46,7 @@ class  CompanyDatatable {
                     return $company->bio;
                 })
                 ->addColumn("country_id", function (Company $company) {
-                    return $company->country->citizenship;
+                    return $company->country?->citizenship;
                 })
                 ->addColumn("address", function (Company $company) {
                     return $company->address;

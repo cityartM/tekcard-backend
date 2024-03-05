@@ -146,7 +146,7 @@ class UserPlanApiController extends ApiController
             'user_id' => auth()->user()->id,
             'plan_id' => $plan->id,
         ];
-        
+
 
         $role = $this->roles->findByName('Company');
 

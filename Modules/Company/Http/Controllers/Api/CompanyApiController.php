@@ -63,6 +63,10 @@ class CompanyApiController extends ApiController
     {
         $data = $request->only(['card_id', 'remark_id', 'group_id']);
 
+        if(auth()->user()->company_id == null){
+            return $this->setStatusCode(403)->respondWithError('You are not allowed to create a company card contact',);
+        }
+
         $existCard = $this->companyCardContacts->checkExistCard($data['card_id'],auth()->user()->company_id);
 
         if($existCard){
