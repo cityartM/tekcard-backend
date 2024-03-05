@@ -35,16 +35,59 @@
                 col="3"
             />
               <div class="col-md-9">
+              
+
               <x-select-field
                     :title="__('app.card')"
-                    name="card_id" 
+                    name="card_ids"
                     col="12"
                     class="mb-2"
                     required
                     :data="collect($userCards->pluck('name', 'id')->toArray())"
+                    :model="$edit ? $order : null "
+                    :multidata="$edit ? $order : null"
+                    :isselect2="true"
+                    multi=true
+                />
+
+                <label class="form-check-label d-flex align-items-center fs-5 fw-bold mb-2">
+                    <input type="checkbox" class="form-check-input" id="is_checked" name="is_checked" {{ $edit && $order->is_checked ? 'checked' : '' }}>
+                    @lang('app.select_all_cards')
+                </label>
+
+              <x-select-field
+                    :title="__('app.country')"
+                    name="country_id" 
+                    col="12"
+                    class="mb-2"
+                    required
+                    :data="collect(Modules\Address\Models\Country::pluck('name','id'))"
                     :model="$edit ? $order : null"
                     :isselect2="true"
                 />
+                <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.state')</label>
+                        <input type="string"
+                            class="form-control input-solid mb-2"
+                            id="state"
+                            name="state"
+                            placeholder="@lang('app.state')"
+                            value="{{ $edit ? $order->state : null }}">
+                 <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.zip_code')</label>
+                        <input type="string"
+                            class="form-control input-solid mb-2"
+                            id="zip_code"
+                            name="zip_code"
+                            placeholder="@lang('app.zip_code')"
+                            value="{{ $edit ? $order->zip_code : null }}">
+                 <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.address')</label>
+                        <input type="string"
+                            class="form-control input-solid mb-2"
+                            id="address"
+                            name="address"
+                            placeholder="@lang('app.address')"
+                            value="{{ $edit ? $order->address : null }}">
+
+
 
 
                 <label class="d-flex align-items-center fs-5 fw-bold mb-2" for="display_name">@lang('app.quantity')</label>

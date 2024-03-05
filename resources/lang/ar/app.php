@@ -456,7 +456,7 @@ return [
     'zip_code' => 'الرمز البريدي',
     'shippings_list' => 'قائمة الشحن',
     'download_data' => 'تنزيل البيانات',
-
+    'select_all_cards' => 'تحديد كل البطاقات',
 
 
 ];

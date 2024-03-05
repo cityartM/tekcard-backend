@@ -655,6 +655,7 @@ return [
         'zip_code' => 'Zip Code',
         'shippings_list' => 'Shippings List',
         'download_data' => 'Download Data',
+        'select_all_cards' => 'Select All Cards',
 
 
 
