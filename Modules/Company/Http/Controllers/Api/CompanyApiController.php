@@ -15,6 +15,8 @@ use Modules\Company\Repositories\CompanyCardContactRepository;
 use Modules\Company\Repositories\CompanyRepository;
 use Spatie\QueryBuilder\QueryBuilder;
 
+use Modules\Company\Models\CompanyCardContact;
+
 class CompanyApiController extends ApiController
 {
 
@@ -136,8 +138,24 @@ class CompanyApiController extends ApiController
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($cardId)
+{
+    try {
+      
+        $companyCardContact = CompanyCardContact::where('card_id', $cardId)->first();
+
+        if (!$companyCardContact) {
+            return $this->respondWithError('Company Card Contact not found.', 404);
+        }
+
+        $companyCardContact->delete();
+
+        return $this->respondWithSuccess([
+            'companyCardContact' => new CompanyCardContactResource($companyCardContact),
+        ], 'Company Card Contact deleted successfully', 200);
+    } catch (\Exception $e) {
+        
+        return $this->respondWithError('Failed to delete Company Card Contact.', 500);
     }
+}
 }
