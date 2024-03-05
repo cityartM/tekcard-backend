@@ -35,7 +35,7 @@ class CardOrderDatatable
                 })
 
                 ->addColumn("card", function (CardOrder $orderCard) {
-                    return $orderCard->card->full_name;
+                    return $orderCard->card?->full_name;
                 })
                 ->addColumn("quantity", function (CardOrder $orderCard) {
                     return $orderCard->quantity ;
@@ -46,9 +46,10 @@ class CardOrderDatatable
                 ->addColumn("company", function (CardOrder $orderCard) {
 
                     if ($orderCard->company) {
-                        return $orderCard->company->full_name;
+                      return $orderCard->company?->full_name;
+
                     } else {
-                        return 'N/A'; 
+                        return 'N/A';
                     }
                 })
                 ->addColumn("status_order", function (CardOrder $orderCard) {

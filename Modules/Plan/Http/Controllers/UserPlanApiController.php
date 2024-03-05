@@ -131,10 +131,22 @@ class UserPlanApiController extends ApiController
             'nbr_user' => $plan->nbr_user,
             'nbr_card_user' => $plan->nbr_card_user,
             'has_dashboard' => $plan->has_dashboard,
+            'has_video' => $plan->has_video,
+            'has_pdf' => $plan->has_pdf,
+            'has_multiple_image' => $plan->has_multiple_image,
+            'has_water_mark' => $plan->has_water_mark,
+            'has_share_offline' => $plan->has_share_offline,
+            'share_with_image' => $plan->share_with_image,
+            'has_scan_ia' => $plan->has_scan_ia,
+            'has_group_contact' => $plan->has_group_contact,
+            'has_scan_location' => $plan->has_scan_location,
+            'has_note_contact' => $plan->has_note_contact,
+            'has_statistic' => $plan->has_statistic,
             'features' => $plan->features,
             'user_id' => auth()->user()->id,
             'plan_id' => $plan->id,
         ];
+
 
         $role = $this->roles->findByName('Company');
 

@@ -25,7 +25,7 @@
         "laravelcollective/html": "^6.4",
         "lcobucci/clock": "3.0.0",
         "lcobucci/jwt": "4.3.0",
-        "league/csv": "^9.14",
+        "league/csv": "^9.15",
         "mcamara/laravel-localization": "^1.8",
         "nwidart/laravel-modules": "^10.0",
         "proengsoft/laravel-jsvalidation": "^4.8",
@@ -37,7 +37,7 @@
         "staudenmeir/eloquent-json-relations": "^1.8",
         "stichoza/google-translate-php": "^5.1",
         "tightenco/ziggy": "^1.8",
-        "vanguardapp/plugins": "^5.0",
+        "vanguardapp/plugins": "5.0",
         "webpatser/laravel-countries": "dev-master",
         "yajra/laravel-datatables-oracle": "^10.4"
     },
