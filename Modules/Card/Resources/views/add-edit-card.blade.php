@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @php
-    $userPlan = Auth::user()->userPlan; // Assuming userPlan is the relationship between User and UserPlan
+    $userPlan = Auth::user()->userPlan; 
 @endphp
 
 @section('page-title', __('app.card'))
