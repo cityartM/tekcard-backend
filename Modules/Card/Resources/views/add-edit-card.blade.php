@@ -1,5 +1,9 @@
 @extends('layouts.dash')
 
+@php
+    $userPlan = Auth::user()->userPlan; // Assuming userPlan is the relationship between User and UserPlan
+@endphp
+
 @section('page-title', __('app.card'))
 @section('page-heading', $edit ? $card->id : __('app.create_new_card'))
 
@@ -235,15 +239,19 @@
                                         :model=" $edit ? $card : null "
                                     />
                                     <br>
+                                    @if($userPlan && $userPlan->canUploadMultipleImage())
                                     <div class="form-group">
                                         <label for="gallery">@lang('app.upload_gallery')</label>
                                         <input type="file" id="gallery" name="gallery[]" class="form-control" multiple>
                                     </div>
+                                    @endif
                                     <br>
+                                    @if($userPlan && $userPlan->canUploadPdf())
                                     <div class="form-group">
                                         <label for="pdf_file">@lang('app.pdf_file')</label>
                                         <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept=".pdf">
                                     </div>
+                                    @endif
                                 </div>
                             </div>
 
