@@ -72,10 +72,10 @@ class CardApiController extends ApiController
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
 
-        $userPlan = auth()->user()->plan->first();
+        $userPlan = auth()->user()->plan;
 
         return $this->respondWithSuccess([
-            'card' => $userPlan,
+            'card' => $userPlan->first()->canUploadVideo(),
         ], 'Card created successfully', 200);
 
         $card = $this->cards->create($data);

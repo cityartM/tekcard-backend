@@ -49,7 +49,7 @@ class UserPlan extends Model
 
     public function canUploadVideo()
     {
-        return $this->has_video;
+        return $this->has_video == 0 ?  false : true ;
     }
 
     public function canUploadPdf()
