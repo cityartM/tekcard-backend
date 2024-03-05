@@ -160,10 +160,20 @@ class CompanyApiController extends ApiController
 }
 
 /*
-public function destroy($userId, $cardId, $groupId)
+public function destroy(Request $request)
 {
     try {
-        // Assuming you have the necessary models imported
+        // Validate the incoming request
+        $request->validate([
+            'user_id' => 'required|integer',
+            'card_id' => 'required|integer',
+            'group_id' => 'required|integer',
+        ]);
+
+        // Extract parameters from the request
+        $userId = $request->input('user_id');
+        $cardId = $request->input('card_id');
+        $groupId = $request->input('group_id');
 
         // Find the company card contact with given user_id, card_id, and group_id
         $companyCardContact = CompanyCardContact::where('user_id', $userId)
