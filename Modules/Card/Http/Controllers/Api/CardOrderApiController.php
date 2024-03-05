@@ -59,7 +59,7 @@ class CardOrderApiController extends ApiController
             );
         }
         $data = $request->only(['card_ids', 'quantity', 'color' , 'company_id','country_id','state','zip_code','address']);
-
+        $data['user_id'] = $user->id;
         $order = $this->cardOrders->create($data);
 
         $order->cards()->attach($request->card_ids)->save();

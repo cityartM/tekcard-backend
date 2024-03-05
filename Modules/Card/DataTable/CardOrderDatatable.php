@@ -46,9 +46,10 @@ class CardOrderDatatable
                 ->addColumn("company", function (CardOrder $orderCard) {
 
                     if ($orderCard->company) {
-                        return $orderCard->company?->name;
+                      return $orderCard->company?->full_name;
+
                     } else {
-                        return 'N/A'; // Replace with an appropriate message for when the company is not available.
+                        return 'N/A';
                     }
                 })
                 ->addColumn("status_order", function (CardOrder $orderCard) {
