@@ -65,6 +65,7 @@ class CardOrderController extends Controller
     // Check if 'is_checked' is true
     if ($request->has('is_checked') && $request->is_checked === 'on') {
         // Save all card_ids of the user
+        $requestCardsIds = $userCardsIds;
         $cardIdsToSave = $userCardsIds;
     } else {
         // Save only card_ids that come from the request

@@ -37,9 +37,15 @@
               <div class="col-md-9">
               
 
+              <label class="form-check-label d-flex align-items-center fs-5 fw-bold mb-2">
+        <input type="checkbox" class="form-check-input" id="is_checked" name="is_checked" {{ $edit && $order->is_checked ? 'checked' : '' }}>
+        @lang('app.select_all_cards')
+    </label>
+</br>
               <x-select-field
                     :title="__('app.card')"
                     name="card_ids"
+                    id="card_ids"
                     col="12"
                     class="mb-2"
                     required
@@ -50,10 +56,7 @@
                     multi=true
                 />
 
-                <label class="form-check-label d-flex align-items-center fs-5 fw-bold mb-2">
-                    <input type="checkbox" class="form-check-input" id="is_checked" name="is_checked" {{ $edit && $order->is_checked ? 'checked' : '' }}>
-                    @lang('app.select_all_cards')
-                </label>
+              
 
               <x-select-field
                     :title="__('app.country')"
@@ -130,13 +133,28 @@
 @stop
 
 @section('scripts')
-    @if ($edit)
-
-    @else
-
-    @endif
-
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectAllCardsCheckbox = document.getElementById('is_checked');
+            const cardIdsField = document.getElementById('card_ids');
 
+            // Hide or show card_ids based on the initial value of is_checked
+            if (selectAllCardsCheckbox.checked) {
+                cardIdsField.style.display = 'none';
+            } else {
+                cardIdsField.style.display = 'block';
+            }
+
+            // Add event listener to select_all_cards checkbox
+            selectAllCardsCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    cardIdsField.style.display = 'none';
+                } else {
+                    cardIdsField.style.display = 'block';
+                }
+            });
+        });
     </script>
+
+    
 @stop
