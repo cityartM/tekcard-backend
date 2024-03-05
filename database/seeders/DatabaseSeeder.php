@@ -3,6 +3,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Background\Database\Seeders\BackgroundDatabaseSeeder;
 use Modules\Blog\Database\Seeders\BlogDatabaseSeeder;
 use Modules\Card\Database\Seeders\CardDatabaseSeeder;
 use Modules\ContactUser\Database\Seeders\GroupDatabaseSeeder;
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FeatureDatabaseSeeder::class);
         $this->call(TagDatabaseSeeder::class);
         $this->call(CardDatabaseSeeder::class);
+        $this->call(BackgroundDatabaseSeeder::class);
         $this->call(BlogDatabaseSeeder::class);
         Model::reguard();
     }

@@ -22,7 +22,7 @@ class CardController extends Controller
     private $cards;
 
     public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','color_icon', 'is_single_link', 'single_link_contact_id','is_main',
-    'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
+    'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note','contact_apps',
     ];
 
     public function __construct(CardRepository $cards)
@@ -61,9 +61,7 @@ class CardController extends Controller
      */
     public function store(CreateCardRequest $request)
     {
-       // dd($request['contact_apps']);
         $data = $request->only($this->only);
-        dd($data);
 
         $items = collect($data['contact_apps'])->map(function($item){
             foreach ($item as $key => $value) {
@@ -74,9 +72,11 @@ class CardController extends Controller
 
             return $items;
             });
-        $data = $request->only(['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color','color_icon']);
+
         $data['reference'] = Helper::generateCode(15);
         $data['user_id'] = auth()->id();
+        $data['is_single_link'] = 0;
+        $data['is_main'] = 0;
 
         $card = $this->cards->create($data);
 
@@ -86,15 +86,20 @@ class CardController extends Controller
             $card->addMedia($request->file('avatar'))->toMediaCollection('CARD_AVATAR');
         }
 
+        if ($request->hasFile('card_video') ) {
+            $card->addMedia($request->file('card_video'))->toMediaCollection('CARD_VIDEO');
+        }
+
+        if ($request->hasFile('pdf_file') ) {
+            $card->addMedia($request->file('pdf_file'))->toMediaCollection('CARD_PDF');
+        }
+
         if ($request->hasFile('gallery')) {
             foreach ($request->file('gallery') as $image) {
-                $card->addMedia($image)->toMediaCollection('gallery');
+                $card->addMedia($image)->toMediaCollection('CARD_GALLERY');
             }
         }
 
-        if ($request->hasFile('pdf_file')) {
-            $card->addMedia($request->file('pdf_file'))->toMediaCollection('pdf_files');
-        }
         // Qr generate and save
         // Generate a QR code for the link "cards/{id}"
          $qrCode = QrCode::size(300)->generate(route('cards.show', $card->id));
