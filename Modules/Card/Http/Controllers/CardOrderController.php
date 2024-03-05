@@ -56,17 +56,17 @@ class CardOrderController extends Controller
      * @return Renderable
      */
     public function store(CreateCardOrderRequest $request)
-    {
-        //$data = $request->only(['card_id', 'quantity', 'color' , 'company_id','country_id']);
-        $user = Auth::user();
-        $userCards = $user->cards;
-        $userCardsIds = $userCards->pluck('id')->toArray();
-        $requestCardsIds = $request->card_ids;
+{
+    $user = Auth::user();
+    $userCards = $user->cards;
+    $userCardsIds = $userCards->pluck('id')->toArray();
+    $requestCardsIds = $request->card_ids;
 
-        // Check if 'is_checked' is true
-        if ($request->has('is_checked') && $request->is_checked === 'on') {
-            // Save all card_ids of the user
-            $cardIdsToSave = $userCardsIds;
+    // Check if 'is_checked' is true
+    if ($request->has('is_checked') && $request->is_checked === 'on') {
+        // Save all card_ids of the user
+        $requestCardsIds = $userCardsIds;
+        $cardIdsToSave = $userCardsIds;
     } else {
         // Save only card_ids that come from the request
         $cardIdsToSave = $requestCardsIds;
