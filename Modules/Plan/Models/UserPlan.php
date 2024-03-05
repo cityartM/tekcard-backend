@@ -44,7 +44,7 @@ class UserPlan extends Model
 
     public function canAccessDashboard()
     {
-        return $this->has_dashboard;
+        return $this->has_dashboard == 0 ?  false : true ;
     }
 
     public function canUploadVideo()
@@ -54,49 +54,49 @@ class UserPlan extends Model
 
     public function canUploadPdf()
     {
-        return $this->has_pdf;
+        return $this->has_pdf == 0 ?  false : true ;
     }
 
     public function canUploadMultipleImage()
     {
-        return $this->has_multiple_image;
+        return $this->has_multiple_image == 0 ?  false : true ;
     }
     public function canMakeWaterMark()
     {
-        return $this->has_water_mark;
+        return $this->has_water_mark == 0 ?  false : true ;
     }
     public function canShareOffline()
     {
-        return $this->has_share_offline;
+        return $this->has_share_offline == 0 ?  false : true ;
     }
 
     public function canShareWithImage()
     {
-        return $this->share_with_image;
+        return $this->share_with_image == 0 ?  false : true ;
     }
 
     public function canScanIA()
     {
-        return $this->has_scan_ia;
+        return $this->has_scan_ia == 0 ?  false : true ;
     }
     public function canCreateGroupContact()
     {
-        return $this->group_contact;
+        return $this->group_contact == 0 ?  false : true ;
     }
 
     public function canScanLocation()
     {
-        return $this->has_scan_location;
+        return $this->has_scan_location == 0 ?  false : true ;
     }
 
     public function canNoteContact()
     {
-        return $this->has_note_contact;
+        return $this->has_note_contact  == 0 ?  false : true ;
     }
 
     public function canViewStatistic()
     {
-        return $this->has_statistic;
+        return $this->has_statistic == 0 ?  false : true ;
     }
 
 
