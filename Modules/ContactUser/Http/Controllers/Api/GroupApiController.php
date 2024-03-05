@@ -78,6 +78,14 @@ class GroupApiController extends ApiController
     {
         $data = $request->only(['display_name', 'company_id','bio']);
 
+        $group = Group::where('id',$group->id)->where('company_id',auth()->user()->company?->id)->first();
+        if (!$group) {
+            return $this->respondWithSuccess(
+                ['message' => 'This is not your group'],
+                'Group not found',404
+            );
+        }
+
         $group = $this->groups->update($group->id, $data);
 
         return $this->respondWithSuccess([

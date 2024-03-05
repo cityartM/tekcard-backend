@@ -17,7 +17,7 @@ class UpdateGroupRequest extends Request
 
         return [
             'display_name' => 'required|string|max:255',
-            'company_id' => 'required|exists:companies,id,' . $company->id,
+            //'company_id' => 'required|exists:companies,id,' . $company->id,
         ];
     }
 }
