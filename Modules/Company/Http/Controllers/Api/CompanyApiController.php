@@ -15,6 +15,8 @@ use Modules\Company\Repositories\CompanyCardContactRepository;
 use Modules\Company\Repositories\CompanyRepository;
 use Spatie\QueryBuilder\QueryBuilder;
 
+use Modules\Company\Models\CompanyCardContact;
+
 class CompanyApiController extends ApiController
 {
 
@@ -140,8 +142,67 @@ class CompanyApiController extends ApiController
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($cardId)
+{
+    try {
+      
+        $companyCardContact = CompanyCardContact::where('id', $cardId)->first();
+
+        if (!$companyCardContact) {
+            return $this->respondWithError('Company Card Contact not found.', 404);
+        }
+
+        $companyCardContact->delete();
+
+        return $this->respondWithSuccess([
+            'companyCardContact' => new CompanyCardContactResource($companyCardContact),
+        ], 'Company Card Contact deleted successfully', 200);
+    } catch (\Exception $e) {
+        
+        return $this->respondWithError('Failed to delete Company Card Contact.', 500);
     }
+}
+
+/*
+public function destroy(Request $request)
+{
+    try {
+        // Validate the incoming request
+        $request->validate([
+            'user_id' => 'required|integer',
+            'card_id' => 'required|integer',
+            'group_id' => 'required|integer',
+        ]);
+
+        // Extract parameters from the request
+        $userId = $request->input('user_id');
+        $cardId = $request->input('card_id');
+        $groupId = $request->input('group_id');
+
+        // Find the company card contact with given user_id, card_id, and group_id
+        $companyCardContact = CompanyCardContact::where('user_id', $userId)
+            ->where('card_id', $cardId)
+            ->where('group_id', $groupId)
+            ->first();
+
+        // If the company card contact doesn't exist, return a 404 response
+        if (!$companyCardContact) {
+            return $this->respondWithError('Company Card Contact not found.', 404);
+        }
+
+        // Delete the company card contact
+        $companyCardContact->delete();
+
+        // Return a success response
+        return $this->respondWithSuccess([
+            'companyCardContact' => new CompanyCardContactResource($companyCardContact),
+        ], 'Company Card Contact deleted successfully', 200);
+    } catch (\Exception $e) {
+        // If an exception occurs during the process, return a 500 response
+        return $this->respondWithError('Failed to delete Company Card Contact.', 500);
+    }
+}*/
+
+
+
 }
