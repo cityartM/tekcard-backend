@@ -93,11 +93,11 @@ class CompanyApiController extends ApiController
      * @param int $id
      * @return Renderable
      */
-    public function destroy(Card $card)
+    public function destroy(CompanyCardContact $companyCardContact)
     {
         try {
 
-            $companyCardContact = CompanyCardContact::where('id', $card->id)->first();
+            $companyCardContact = CompanyCardContact::where('id', $companyCardContact->id)->first();
 
             if (!$companyCardContact) {
                 return $this->setStatusCode(400)->respondWithError('Company Card Contact not found.');

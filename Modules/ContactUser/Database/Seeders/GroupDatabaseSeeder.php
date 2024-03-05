@@ -17,19 +17,11 @@ class GroupDatabaseSeeder extends Seeder
         //Model::unguard();
         \DB::table('groups')->insert([
             [
-                'display_name' => 'Friends',
+                'display_name' => 'Peoples',
                 'user_id' => 1, // Replace with the appropriate user_id
             ],
             [
                 'display_name' => '	Workes',
-                'user_id' => 1, // Replace with the appropriate user_id
-            ],
-            [
-                'display_name' => 'Family',
-                'user_id' => 1, // Replace with the appropriate user_id
-            ],
-            [
-                'display_name' => '	Other',
                 'user_id' => 1, // Replace with the appropriate user_id
             ],
         ]);

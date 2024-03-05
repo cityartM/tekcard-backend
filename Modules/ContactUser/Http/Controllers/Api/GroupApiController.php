@@ -13,6 +13,7 @@ use Modules\ContactUser\Http\Requests\CreateRemarkRequest;
 use Modules\ContactUser\Http\Requests\UpdateGroupRequest;
 use Modules\ContactUser\Http\Resources\GroupResource;
 use Modules\ContactUser\Http\Resources\RemarkResource;
+use Modules\ContactUser\Http\Resources\UserGroupResource;
 use Modules\ContactUser\Models\Group;
 use Modules\ContactUser\Models\Remark;
 use Modules\ContactUser\Repositories\GroupRepository;
@@ -45,6 +46,24 @@ class GroupApiController extends ApiController
 
         return $this->respondWithSuccess([
             'groups' => GroupResource::collection($groups),
+        ],  'Groups retrieved successfully', 200);
+
+    }
+
+    public function groupUser(Request $request)
+    {
+          $groups = QueryBuilder::for(Group::class)
+             ->where('company_id','=',null)
+             ->allowedFilters([
+                AllowedFilter::custom('search', new GroupKeywordSearch),
+            ])
+            ->allowedSorts(['id'])
+            ->defaultSort('id')
+            ->get();
+
+
+        return $this->respondWithSuccess([
+            'groups' => UserGroupResource::collection($groups),
         ],  'Groups retrieved successfully', 200);
 
     }

@@ -16,5 +16,6 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('remarks', 'Api\RemarkApiController');
     Route::apiResource('groups', 'Api\GroupApiController');
+    Route::get('users/groups', 'Api\GroupApiController@groupUser');
     //Route::put('plans/reset', 'PlanApiController@reset');
 });
