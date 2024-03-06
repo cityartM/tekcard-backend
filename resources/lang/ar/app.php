@@ -460,8 +460,8 @@ return [
 
     'delivery_price' => 'سعر التوصيل',
     'order_price' => 'سعر الطلب',
-    'URL_Andriod' => 'رابط أندرويد',
-    'URL_Apple' => 'رابط آبل',
+    'url_andriod' => 'رابط أندرويد',
+    'url_apple' => 'رابط آبل',
 
 
 ];

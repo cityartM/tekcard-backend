@@ -658,8 +658,8 @@ return [
         'select_all_cards' => 'Select All Cards',
         'delivery_price' => 'Delivery Price',
         'order_price' => 'Order Price',
-        'URL_Andriod' => 'URL Andriod',
-        'URL_Apple' => 'URL Apple',
+        'url_andriod' => 'URL Andriod',
+        'url_apple' => 'URL Apple',
 
 
 

@@ -54,14 +54,14 @@
                            name="order_price" value="{{ setting('order_price') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="name">@lang('app.URL_Andriod')</label>
-                    <input type="text" class="form-control input-solid" id="URL_Andriod"
-                           name="URL_Andriod" value="{{ setting('URL_Andriod') }}">
+                    <label for="name">@lang('app.url_andriod')</label>
+                    <input type="text" class="form-control input-solid" id="url_andriod"
+                           name="url_andriod" value="{{ setting('url_andriod') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="name">@lang('app.URL_Apple')</label>
-                    <input type="text" class="form-control input-solid" id="URL_Apple"
-                           name="URL_Apple" value="{{ setting('URL_Apple') }}">
+                    <label for="name">@lang('app.url_apple')</label>
+                    <input type="text" class="form-control input-solid" id="url_apple"
+                           name="url_apple" value="{{ setting('url_apple') }}">
                 </div>
             </div>
         </div>
