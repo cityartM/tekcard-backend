@@ -91,7 +91,7 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        dd('salam');
+        //dd('salam');
         $user = User::create(
             array_merge($request->validFormData(),
                 ['role' => BannerType::USER,
