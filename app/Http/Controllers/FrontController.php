@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Modules\Page\Models\Page;
+use Modules\Card\Models\Card;
 
 class FrontController extends Controller
 {
@@ -14,6 +15,15 @@ class FrontController extends Controller
         $page = Page::where('name', 'about_us')->first();
         
         return view('About_us', compact('page'));
+    }
+
+
+    public function show($ref)
+    {
+        //$card = Card::find($id);
+        $card = Card::where('reference',$ref)->first();
+       // dd($card);
+        return view('card',compact('card'));
     }
 
 
