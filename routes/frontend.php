@@ -143,3 +143,7 @@ Route::get('/custom_page', function () {
     ]);
 })->name('landing.custom_page');
 
+
+
+Route::get('/card/{ref}', 'FrontController@show')->name('card.show');
+
