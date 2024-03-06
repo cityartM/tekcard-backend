@@ -405,7 +405,7 @@ return [
     'general' => 'General',
     'auth_&_registration' => 'Auth & Registration',
     'notifications' => 'notifications',
-    'settings' => 'settings',
+    'settings' => 'Settings',
     'roles_&_permissions' => 'Roles & Permissions',
     'features' => 'features',
     'remark' => 'remark',
@@ -656,6 +656,10 @@ return [
         'shippings_list' => 'Shippings List',
         'download_data' => 'Download Data',
         'select_all_cards' => 'Select All Cards',
+        'delivery_price' => 'Delivery Price',
+        'order_price' => 'Order Price',
+        'url_andriod' => 'URL Andriod',
+        'url_apple' => 'URL Apple',
 
 
 

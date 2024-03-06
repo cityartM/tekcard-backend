@@ -49,19 +49,19 @@
                            name="delivery_price" value="{{ setting('delivery_price') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="name">@lang('app.price_subscribe')</label>
-                    <input type="text" class="form-control input-solid" id="price_subscribe"
-                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                    <label for="name">@lang('app.order_price')</label>
+                    <input type="text" class="form-control input-solid" id="order_price"
+                           name="order_price" value="{{ setting('order_price') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="name">@lang('app.price_subscribe')</label>
-                    <input type="text" class="form-control input-solid" id="price_subscribe"
-                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                    <label for="name">@lang('app.url_andriod')</label>
+                    <input type="text" class="form-control input-solid" id="url_andriod"
+                           name="url_andriod" value="{{ setting('url_andriod') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="name">@lang('app.price_subscribe')</label>
-                    <input type="text" class="form-control input-solid" id="price_subscribe"
-                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                    <label for="name">@lang('app.url_apple')</label>
+                    <input type="text" class="form-control input-solid" id="url_apple"
+                           name="url_apple" value="{{ setting('url_apple') }}">
                 </div>
             </div>
         </div>
