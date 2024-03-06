@@ -207,6 +207,27 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        $permissions[] = Permission::create([
+            'name' => 'users.add',
+            'display_name' => 'add user',
+            'description' => 'add  user',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'users.edit',
+            'display_name' => 'edit user',
+            'description' => 'edit  user',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'users.destroy',
+            'display_name' => 'destroy user',
+            'description' => 'destroy  user',
+            'removable' => false
+        ]);
+
         $adminITRole->attachPermissions($permissions);
         $adminRole->attachPermissions($permissions);
     }

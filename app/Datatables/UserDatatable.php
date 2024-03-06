@@ -28,8 +28,8 @@ class UserDatatable
                 ->addColumn("action", function (User $user) {
                     return (new DataTableActions())
                         ->show(route("users.show", $user->id))
-                        ->edit(route("users.edit", $user->id))
-                        ->delete(route("users.destroy", $user->id))
+                        ->edit(route("users.edit", $user->id),\Auth::user()->hasPermission('users.edit'))
+                        ->delete(route("users.destroy", $user->id),\Auth::user()->hasPermission('users.destroy'))
                         ->make();
                 })
                 ->addColumn("avatar", function (User $user) {
