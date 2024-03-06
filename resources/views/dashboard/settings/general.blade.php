@@ -43,6 +43,26 @@
                     <input type="text" class="form-control input-solid" id="price_subscribe"
                            name="price_subscribe" value="{{ setting('price_subscribe') }}">
                 </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.delivery_price')</label>
+                    <input type="text" class="form-control input-solid" id="delivery_price"
+                           name="delivery_price" value="{{ setting('delivery_price') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.price_subscribe')</label>
+                    <input type="text" class="form-control input-solid" id="price_subscribe"
+                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.price_subscribe')</label>
+                    <input type="text" class="form-control input-solid" id="price_subscribe"
+                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.price_subscribe')</label>
+                    <input type="text" class="form-control input-solid" id="price_subscribe"
+                           name="price_subscribe" value="{{ setting('price_subscribe') }}">
+                </div>
             </div>
         </div>
     </div>

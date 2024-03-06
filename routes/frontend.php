@@ -143,3 +143,6 @@ Route::get('/privacy_policy', function () {
     return view('privacy-policy');
 })->name('privacy_policy');
 
+Route::get('/card/{ref}', 'FrontController@show')->name('card.show');
+
+
