@@ -20,6 +20,6 @@ class SendCard extends Mailable
     public function build()
     {
         return $this->subject('Subject of the Email')
-                    ->view('card');
+                    ->view('email');
     }
 }

@@ -32,38 +32,12 @@
                 <b>Social media</b>
             </div>
             <div class="holder">
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
-                <div class="social-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="social media image">
-                    <p>Facebook</p>
-                </div>
+                @foreach($cardApps as $app)
+                    <div class="social-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/2048px-Facebook_logo_36x36.svg.png" alt="">
+                        <p>{{ $app->title }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
 
