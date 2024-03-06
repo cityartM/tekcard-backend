@@ -71,7 +71,12 @@
             <button class="add-card-btn">Add card</button>
             <button class="save-card-btn">Save card</button>
         </div>
+        <form method="POST" action="{{ route('send-card-by-email', ['card' => $card->id]) }}">
+            @csrf
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="send-email-btn">Send Card via Email</button>
+        </form>
     </div>
-
+    
 </body>
 </html>

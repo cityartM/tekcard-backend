@@ -16,12 +16,12 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('landing.home');
 
-Route::get('/card/{reference}', function (string $reference) {
+/*Route::get('/card/{reference}', function (string $reference) {
     $card = Card::where('reference', $reference)->firstOrFail();
     return Inertia::render('CardShare', [
         "card" => new CardResource($card)
     ]);
-});
+});*/
 
 Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
@@ -144,5 +144,7 @@ Route::get('/privacy_policy', function () {
 })->name('privacy_policy');
 
 Route::get('/card/{ref}', 'FrontController@show')->name('card.show');
+
+Route::post('/send-card-by-email/{card}', [FrontController::class, 'sendCardByEmail'])->name('send-card-by-email');
 
 
