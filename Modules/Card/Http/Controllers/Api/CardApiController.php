@@ -74,9 +74,9 @@ class CardApiController extends ApiController
 
         $userPlan = auth()->user()->plan;
 
-        return $this->respondWithSuccess([
+        /*return $this->respondWithSuccess([
             'card' => $userPlan->first()->canUploadVideo(),
-        ], 'Card created successfully', 200);
+        ], 'Card created successfully', 200);*/
 
         $card = $this->cards->create($data);
 
