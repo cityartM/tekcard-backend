@@ -458,6 +458,11 @@ return [
     'download_data' => 'تنزيل البيانات',
     'select_all_cards' => 'تحديد كل البطاقات',
 
+    'delivery_price' => 'سعر التوصيل',
+    'order_price' => 'سعر الطلب',
+    'URL_Andriod' => 'رابط أندرويد',
+    'URL_Apple' => 'رابط آبل',
+
 
 ];
  

@@ -663,6 +663,11 @@ return [
         'download_data' => 'Veri İndirme',
         'select_all_cards' => 'Tüm Kartları Seç',
 
+        'delivery_price' => 'Teslimat Fiyatı',
+        'order_price' => 'Sipariş Fiyatı',
+        'URL_Andriod' => 'Android Bağlantısı',
+        'URL_Apple' => 'Apple Bağlantısı',
+
 
 
 
