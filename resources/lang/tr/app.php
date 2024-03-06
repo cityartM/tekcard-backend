@@ -665,8 +665,8 @@ return [
 
         'delivery_price' => 'Teslimat Fiyatı',
         'order_price' => 'Sipariş Fiyatı',
-        'URL_Andriod' => 'Android Bağlantısı',
-        'URL_Apple' => 'Apple Bağlantısı',
+        'url_andriod' => 'Android Bağlantısı',
+        'url_apple' => 'Apple Bağlantısı',
 
 
 
