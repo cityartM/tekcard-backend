@@ -17,7 +17,8 @@ class CreateCardOrderRequest extends Request
             'card_ids.*' => 'required|exists:cards,id',
             'quantity' => 'required|integer',
             'color' => 'required|string',
-            'company_id' => 'nullable|exists:companies,id',
+            'country_id' => 'required|exists:countries,id',
+            //'company_id' => 'nullable|exists:companies,id',
         ];
     }
 }
