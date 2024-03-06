@@ -22,7 +22,7 @@ class GroupResource extends JsonResource
             'id' => (int) $this->id,
             'display_name' => $this->display_name,
             'bio' =>  $this->bio,
-            //'company_card_contact' => CompanyCardContactResource::collection($this->companyCardContacts),
+            'company_card_contact' => CompanyCardContactResource::collection($this->companyCardContacts),
             //'cards' => CompanyCardResource::collection($this->cards),
             //'company' =>  new CompanyResource($this->company),
         ];
