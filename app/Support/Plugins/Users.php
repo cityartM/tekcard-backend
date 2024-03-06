@@ -42,7 +42,7 @@ class Users extends Plugin
         return Item::create(__('app.users'))
             ->href('#users-dropdown')
             ->icon('fas fa-users-cog')
-            ->permissions(['roles.manage', 'permissions.manage'])
+            ->permissions(['users.manage'])
             ->addChildren([
                 $users,
                 $groups,
