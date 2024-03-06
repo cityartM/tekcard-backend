@@ -129,17 +129,17 @@ Route::post('/contact-us', function () {
     //dd(request()->all());
 })->name('landing.contact-us.submit');
 
-
-
-
-
-
 Route::get('/custom_page', function () {
 
     $page = Page::where('name', 'about_us')->first();
     return Inertia::render('About_us', [
         "post"  => new PageResource($page),
-        
+
     ]);
 })->name('landing.custom_page');
+
+
+Route::get('/privacy_policy', function () {
+    return view('privacy-policy');
+})->name('privacy_policy');
 
