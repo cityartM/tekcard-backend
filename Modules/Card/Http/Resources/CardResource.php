@@ -43,6 +43,9 @@ class CardResource extends JsonResource
             'address' =>  $this->address,
             'note' =>  $this->note,
             'card_avatar' => $this->getFirstMedia('CARD_AVATAR')?->getFullUrl() ?? null,
+            'card_video' => $this->getFirstMedia('CARD_PDF')?->getFullUrl() ?? null,
+            'card_pdf' => $this->getFirstMedia('CARD_VIDEO')?->getFullUrl() ?? null,
+            'card_gallery' => $this->getMedia('CARD_GALLERY')->map?->getUrl() ?? [],
             'card_apps' =>  CardAppsResource::collection($this->contactApps),
         ];
     }
