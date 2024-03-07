@@ -39,8 +39,11 @@ class ApiSettingsController extends ApiController
             'countries' => CountryResource::collection(Country::all()),
             'delivery_price' => setting('delivery_price') ?? 0,
             'order_price' => setting('order_price') ?? 0,
-            'url_andriod' => setting('url_andriod') ?? 0,
-            'url_apple' => setting('url_apple') ?? 0,
+            'url_android' => setting('url_android') ?? null,
+            'url_apple' => setting('url_apple') ?? null,
+            'whatsApp' => setting('whatsApp') ?? null,
+            'privacy-policy' => setting('privacy-policy') ?? null,
+            'about' => setting('about') ?? null,
         ];
         return $this->respondWithSuccess($settings);
     }

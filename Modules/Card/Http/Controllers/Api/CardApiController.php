@@ -74,9 +74,9 @@ class CardApiController extends ApiController
 
         $userPlan = auth()->user()->plan;
 
-        return $this->respondWithSuccess([
+        /*return $this->respondWithSuccess([
             'card' => $userPlan->first()->canUploadVideo(),
-        ], 'Card created successfully', 200);
+        ], 'Card created successfully', 200);*/
 
         $card = $this->cards->create($data);
 
@@ -136,10 +136,24 @@ class CardApiController extends ApiController
 
         $card = $this->cards->create($data);
 
-        //$card->cardApps()->attach($request->card_apps);
+        $card->cardApps()->attach($request->card_apps);
 
         if ($request->hasFile('card_avatar') ) {
             $card->addMedia($request->file('card_avatar'))->toMediaCollection('CARD_AVATAR');
+        }
+
+        if ($request->hasFile('card_video') ) {
+            $card->addMedia($request->file('card_video'))->toMediaCollection('CARD_VIDEO');
+        }
+
+        if ($request->hasFile('card_pdf') ) {
+            $card->addMedia($request->file('card_pdf'))->toMediaCollection('CARD_PDF');
+        }
+
+        if ($request->hasFile('card_gallery')) {
+            foreach ($request->file('card_gallery') as $image) {
+                $card->addMedia($image)->toMediaCollection('CARD_GALLERY');
+            }
         }
 
         return $this->respondWithSuccess([

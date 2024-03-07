@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, PropsWithChildren} from 'react';
 import { Head, usePage } from '@inertiajs/react';
 import LandingLayout from "../Layouts/LandingLayout";
 
 export default function AboutUs() {
   const { page } = usePage().props;
+
+  console.log(page);
 
   return (
     <LandingLayout>
@@ -19,7 +21,7 @@ export default function AboutUs() {
   );
 }
 
-const Section = ({ children, className }) => {
+const Section = ({ children, className }: PropsWithChildren & { className?: string }) => {
   return (
     <div className={`min-h-screen h-full flex flex-col ${className}`}>
       <div className={'flex-1 py-24 mx-auto max-w-7xl w-full min-h-full'}>
