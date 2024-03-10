@@ -61,7 +61,7 @@ function Card({card}: {card: Card}) {
         {/* Avatar component*/}
         <div className="flex flex-col items-center justify-center">
           <img className="w-32 h-32 object-cover rounded-full overflow-hidden ring-4 ring-offset-2 ring-offset-slate-50 ring-sky-500 shadow-lg"
-               src='https://picsum.photos/200/300' alt="avatar"/>
+               src={card.card_avatar} alt="avatar" width={200} height={300}/>
           <div className="mt-6 text-2xl text-[#2273AF] font-bold">
             {card.full_name}
           </div>
@@ -75,17 +75,20 @@ function Card({card}: {card: Card}) {
             {'Social Media'}
           </div>
           <div className="p-4 grid grid-cols-4 gap-4">
-            {[1,2,3,4,5,6,7,8].map((item, index) => (
+            {card.card_apps.map((item, index) => (
               <div key={index} className="flex justify-center items-center">
                 <div className="w-16 h-16 p-3 bg-gray-200 rounded-lg shadow" style={{background: card?.color as string}}>
-                  <img className="w-10 h-10" src="/images/icons/instagram.svg" alt="instagram"/>
+                  <a href={item.contact.base_url}>
+                    <img className="w-10 h-10"  src={item.contact.icon} alt={item.contact.display_name}/>
+                  </a>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className={'mt-10'}>
+        {/*<div className={'mt-10'}>
           <div className="text-base text-[#2273AF] font-bold">
             {'Social Media'}
           </div>
@@ -96,7 +99,7 @@ function Card({card}: {card: Card}) {
               </div>
             ))}
           </div>
-        </div>
+        </div>*/}
 
       </div>
       {/*<pre className={"overflow-scroll"}>

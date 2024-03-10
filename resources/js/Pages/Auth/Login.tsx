@@ -32,7 +32,7 @@ const Login: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
                 <h2 className={'text-center lg:text-start text-3xl font-bold text-[#1D1E24]'}>
                   {'Sign up for an account'}
                 </h2>
-                <div className="flex items-center gap-10">
+                {/*<div className="flex items-center gap-10">
                   <a href="#" className={'flex-grow py-6 flex items-center justify-center gap-4 bg-red-500 hover:bg-red-500/90 rounded-xl shadow-sm'}>
                     <GoogleIcon className={'w-10 h-10'} />
                     <span className={'text-[1rem] font-semibold text-white'}>
@@ -45,13 +45,14 @@ const Login: React.FC<PropsWithChildren> = ({}: PropsWithChildren) => {
                       {'Facebook'}
                     </span>
                   </a>
-                </div>
+                </div>*/}
+
               </div>
-              <div className={'flex items-center gap-10'}>
+              {/*<div className={'flex items-center gap-10'}>
                 <span className="border-b-2 border-[#1D1E24]/30 h-1 flex-grow"></span>
                 <span className={'flex-shrink-0 text-lg font-bold text-[#1D1E24]/30'}>Or</span>
                 <span className="border-b-2 border-[#1D1E24]/30 h-1 flex-grow"></span>
-              </div>
+              </div>*/}
               <LoginForm />
             </div>
           </div>

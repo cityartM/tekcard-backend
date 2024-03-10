@@ -1,0 +1,1 @@
+import{j as t,a as o}from"./front-56743e88.js";import{L as r}from"./LandingLayout-ad64c0cd.js";import"./bootstrap-52c5088c.js";function e(){return t.jsx(r,{children:t.jsx(o,{title:"About Us"})})}export{e as default};
