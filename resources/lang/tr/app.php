@@ -667,7 +667,8 @@ return [
         'order_price' => 'Sipariş Fiyatı',
         'url_andriod' => 'Android Bağlantısı',
         'url_apple' => 'Apple Bağlantısı',
-
+        'blogs' => 'Bloglar',
+        'email_subscription' => 'E-posta Aboneliği',
 
 
 
