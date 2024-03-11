@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
       // card update app
     Route::post('cards/card_app/{card}', 'Api\CardApiController@updateCardApps');
 
+    // card duplicate
+    Route::post('cards/duplicate/{card}', 'Api\CardApiController@duplicateCard');
+
     // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
 
     // Shipping

@@ -42,6 +42,11 @@ class UserPlan extends Model
         return $this->belongsTo(Plan::class);
     }
 
+    public function canAddCard()
+    {
+        return auth()->user()->cards->count() < $this->nbr_card_user ?  true : false ;
+    }
+
     public function canAccessDashboard()
     {
         return $this->has_dashboard == 0 ?  false : true ;
