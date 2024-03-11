@@ -660,6 +660,8 @@ return [
         'order_price' => 'Order Price',
         'url_andriod' => 'URL Andriod',
         'url_apple' => 'URL Apple',
+        'blogs' => 'Blogs',
+        'email_subscription' => 'Email Subscription',
 
 
 

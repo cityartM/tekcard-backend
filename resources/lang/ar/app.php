@@ -462,7 +462,8 @@ return [
     'order_price' => 'سعر الطلب',
     'url_andriod' => 'رابط أندرويد',
     'url_apple' => 'رابط آبل',
-
+    'blogs' => 'المدونات',
+    'email_subscription' => 'اشتراك البريد الإلكتروني',
 
 ];
  
