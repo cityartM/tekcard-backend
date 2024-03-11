@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from "react";
-import {Head, usePage} from "@inertiajs/react";
+import {Head,useForm, usePage} from "@inertiajs/react";
 import LandingLayout from "@/Layouts/LandingLayout";
 import {ErrorBag, Errors, PageProps} from "@/types";
 import AppstoreImage from "../../images/home/appstore1.png";
@@ -13,6 +13,29 @@ export default function Home({}: PropsWithChildren) {
   const card: Card = props.card.data;
 
   console.log(card)
+
+  /*  const {data, setData, post, processing, errors, reset} = useForm({
+      email: '',
+    })
+
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+    post(route('subscriptions.store'), {
+      preserveScroll: true,
+      onSuccess: () => {
+        reset('email');
+
+        alert('Message sent successfully!');
+      },
+      onError: () => {
+        alert('Message failed to send!');
+      }
+    });
+  };
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setData('email', e.target.value);
+  }*/
 
   return (
     <div>
@@ -51,22 +74,44 @@ const data = {
 }
 
 function Card({card}: {card: Card}) {
+  const {data, setData, post, processing, errors, reset} = useForm({
+    email: '',
+  })
+
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+    post(route('subscriptions.store'), {
+      preserveScroll: true,
+      onSuccess: () => {
+        reset('email');
+
+        alert('Message sent successfully!');
+      },
+      onError: () => {
+        alert('Message failed to send!');
+      }
+    });
+  };
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setData('email', e.target.value);
+  }
   return (
     <div className="relative">
       <div className="h-[30vh] w-full">
-        {card.background && <img className="w-full h-full object-cover" src={card.background.background} alt="cover"/>}
-        {card.color && <div className={"w-full h-full"} style={{background: card.color as string}} />}
+        {card?.background && <img className="w-full h-full object-cover" src={card?.background.background} alt="cover"/>}
+        {card?.color && <div className={"w-full h-full"} style={{background: card?.color as string}} />}
       </div>
       <div className="-translate-y-16 px-4 max-w-lg mx-auto">
         {/* Avatar component*/}
         <div className="flex flex-col items-center justify-center">
           <img className="w-32 h-32 object-cover rounded-full overflow-hidden ring-4 ring-offset-2 ring-offset-slate-50 ring-sky-500 shadow-lg"
-               src={card.card_avatar} alt="avatar" width={200} height={300}/>
+               src={card?.card_avatar} alt="avatar"/>
           <div className="mt-6 text-2xl text-[#2273AF] font-bold">
-            {card.full_name}
+            {card?.full_name}
           </div>
           <div className="text-base text-[#9CA3AF]">
-            {card.job_title}
+            {card?.job_title}
           </div>
         </div>
 
@@ -75,20 +120,22 @@ function Card({card}: {card: Card}) {
             {'Social Media'}
           </div>
           <div className="p-4 grid grid-cols-4 gap-4">
-            {card.card_apps.map((item, index) => (
-              <div key={index} className="flex justify-center items-center">
-                <div className="w-16 h-16 p-3 bg-gray-200 rounded-lg shadow" style={{background: card?.color as string}}>
-                  <a href={item.contact.base_url}>
-                    <img className="w-10 h-10"  src={item.contact.icon} alt={item.contact.display_name}/>
-                  </a>
+            {card?.card_apps.map((item, index) => (
 
-                </div>
+              <div key={index} className="flex justify-center items-center">
+                <a href={item.contact?.base_url}>
+                  <div className="w-16 h-16 p-3 bg-gray-200 rounded-lg shadow" style={{background: card?.color as string}}>
+                    <img className="w-10 h-10" src={item.contact?.icon} alt="instagram"/>
+                  </div>
+                </a>
+
               </div>
             ))}
           </div>
         </div>
 
-        {/*<div className={'mt-10'}>
+        {/*
+        <div className={'mt-10'}>
           <div className="text-base text-[#2273AF] font-bold">
             {'Social Media'}
           </div>
@@ -99,12 +146,30 @@ function Card({card}: {card: Card}) {
               </div>
             ))}
           </div>
-        </div>*/}
+        </div>
+        */
+        }
 
       </div>
       {/*<pre className={"overflow-scroll"}>
           {JSON.stringify(card, null, 2)}
       </pre>*/}
+
+      <form onSubmit={(event) => handleSubmit(event)} className={'max-w-lg mx-auto lg:max-w-5xl flex flex-col lg:flex-col items-center gap-8 ml-5 mr-5'}>
+        <input
+          type="text"
+          placeholder={'Enter your email'}
+          value={data['email']}
+          onChange={(event) => handleChanges(event)}
+          className={'flex-shrink-0 w-full lg:w-[18rem] h-[3.5rem] px-[2rem] py-[1rem] rounded-[4.5rem] hover:shadow border-sky-900 border hover:border-sky-200 focus:border-sky-200 focus:outline-none text-[1.28rem] font-normal leading-10'}
+        />
+        <button
+          type="submit"
+          className={'flex-shrink-0 px-[3.6875rem] py-[1rem] w-full lg:w-auto h-[3.5rem] rounded-[4.5rem] border-sky-200 shadow-md text-white bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90% hover:to-100% hover:from-20% hover:shadow-lg'}
+        >
+          {'Subscribe'}
+        </button>
+      </form>
     </div>
   )
 }
@@ -134,7 +199,7 @@ type Card = {
   is_single_link: boolean;
   single_link_contact_id: null;
   is_main: boolean;
-  card_avatar: null;
+  card_avatar: string;
   card_apps: any[];
 }
 

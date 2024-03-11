@@ -93,15 +93,26 @@ class CompanyApiController extends ApiController
      * @param int $id
      * @return Renderable
      */
-    public function destroy(CompanyCardContact $companyCardContact)
+    public function destroy($id)
     {
+        
         try {
 
-            $companyCardContact = CompanyCardContact::where('id', $companyCardContact->id)->first();
+            $companyCardContact = CompanyCardContact::where('id', $id)->first();
+          
+
+            if ($companyCardContact->user_id !== auth()->id()) {
+                return $this->respondWithSuccess(
+                    ['message' => 'You are not authorized to delete this remark'],
+                    'Authorization failed',403
+                );
+            }
 
             if (!$companyCardContact) {
                 return $this->setStatusCode(400)->respondWithError('Company Card Contact not found.');
             }
+
+            
 
             $companyCardContact->delete();
 

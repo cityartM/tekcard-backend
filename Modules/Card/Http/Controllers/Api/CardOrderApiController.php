@@ -53,7 +53,7 @@ class CardOrderApiController extends ApiController
         $requestCardsIds = $request->card_ids;
         $diff = array_diff($requestCardsIds, $userCardsIds);
         if (!empty($diff)) {
-            return $this->respondWithError(
+            return $this->respondWithSuccess(
                 ['message' => 'You can not order cards that are not yours'],
                 'You can not order cards that are not yours', 403
             );

@@ -115,6 +115,7 @@ const DesktopNav: () => React.ReactElement = () => {
 
 const DesktopAuthNav: React.FC<{auth: {user: User}}> = ({auth}) => {
   const {user} = auth;
+  console.log(user)
   return (
     <>
       { (!user) ? (<>

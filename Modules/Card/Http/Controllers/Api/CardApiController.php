@@ -60,9 +60,16 @@ class CardApiController extends ApiController
         //$card = Card::find($id);
         $card = Card::where('reference',$ref)->first();
 
-        return $this->respondWithSuccess([
-            'card' => new CardResource($card),
-        ], 'Card retrieved successfully', 200);
+        if ($card){
+            return $this->respondWithSuccess([
+                'card' => new CardResource($card),
+            ], 'Card retrieved successfully', 200);
+        }else{
+            return $this->respondWithSuccess([
+                'card' => null,
+            ], 'Card not found', 200);
+        }
+
     }
 
     public function store(CreateCardRequest $request)
@@ -283,5 +290,37 @@ class CardApiController extends ApiController
         ],  'Card updated successfully', 200);
     }
 
+
+    public function duplicateCard(Card $card)
+    {
+        if($card->user_id !== auth()->id()){
+            return $this->respondWithSuccess([
+                'card' => null,
+            ],  'You are not authorized to duplicate this card', 200);
+        }
+
+        if(auth()->user()->plan()->first()->canAddCard() == false){
+            return $this->respondWithSuccess([
+                'card' => null,
+            ],  'You are not allowed to duplicate this card', 200);
+        }
+
+        $newCard = $card->replicate();
+        $newCard->reference = Helper::generateCode(15);
+        $newCard->save();
+        $cardApps = $card->contactApps->map(function ($item) use ($newCard) {
+            $itemArray = collect($item)->except('id')->toArray();
+            $itemArray['card_id'] = $newCard->id; // Set the card_id value to null
+            return $itemArray;
+        });
+
+        $newCard->cardApps()->attach($cardApps);
+        $newCard->clearMediaCollection('CARD_AVATAR');
+        //$newCard->copyMedia($card->getFirstMedia('CARD_AVATAR')->getUrl())->preservingOriginal()->toMediaCollection('CARD_AVATAR');
+        //$newCard->addMediaFromUrl($card->getFirstMedia('CARD_AVATAR')->getUrl())->preservingOriginal()->toMediaCollection('CARD_AVATAR');
+        return $this->respondWithSuccess([
+            'card' => new CardResource($newCard),
+        ],  'Card duplicated successfully', 200);
+    }
 
 }

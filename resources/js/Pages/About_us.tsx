@@ -11,6 +11,7 @@ export default function AboutUs() {
   return (
     <LandingLayout>
       <Head title="About Us" />
+      {/*
       {page && (
         <Section>
           <div className={'mt-16 text-center text-4xl font-extrabold text-[#2273AF]'}>{page?.title}</div>
@@ -18,6 +19,8 @@ export default function AboutUs() {
           <div className="mt-8 prose prose-lg max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: page?.description }} />
         </Section>
       )}
+      */}
+
     </LandingLayout>
   );
 }
