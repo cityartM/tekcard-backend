@@ -662,8 +662,16 @@ return [
         'url_apple' => 'URL Apple',
         'blogs' => 'Blogs',
         'email_subscription' => 'Email Subscription',
-
-
+        'blogStatus.published' => 'Blog Status: Published',
+        'blogStatus.unpublished' => 'Blog Status: Unpublished',
+        'add' => 'Add',
+        'free_days' => 'Free Days',
+        'price_subscribe' => 'Price Subscribe',
+        'url_android' => 'URL Android',
+        'whatsApp' => 'WhatsApp',
+        'about' => 'About',
+        'privacy-policy' => 'Privacy Policy',
+        'create_background' => 'Create Background',
 
 
 ];

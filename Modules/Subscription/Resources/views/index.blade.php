@@ -15,7 +15,7 @@
 @section('actions')
     <a href="{{ route('sub.download') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-        @lang('app.downlaod data')
+        @lang('app.download_data')
     </a>
 @endsection
  
