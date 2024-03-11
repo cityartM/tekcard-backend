@@ -669,6 +669,16 @@ return [
         'url_apple' => 'Apple Bağlantısı',
         'blogs' => 'Bloglar',
         'email_subscription' => 'E-posta Aboneliği',
+        'blogStatus.published' => 'Blog Durumu: Yayınlandı',
+        'blogStatus.unpublished' => 'Blog Durumu: Yayınlanmamış',
+        'add' => 'Ekle',
+        'free_days' => 'Ücretsiz Günler',
+        'price_subscribe' => 'Abonelik Fiyatı',
+        'url_android' => 'Android URL',
+        'whatsApp' => 'WhatsApp',
+        'about' => 'Hakkında',
+        'privacy-policy' => 'Gizlilik Politikası',
+        'create_background' => 'Arka Plan Oluştur',
 
 
 

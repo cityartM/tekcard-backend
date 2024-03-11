@@ -464,6 +464,16 @@ return [
     'url_apple' => 'رابط آبل',
     'blogs' => 'المدونات',
     'email_subscription' => 'اشتراك البريد الإلكتروني',
+    'blogStatus.published' => 'حالة المدونة: نشرت',
+    'blogStatus.unpublished' => 'حالة المدونة: غير منشورة',
+    'add' => 'إضافة',
+    'free_days' => 'أيام مجانية',
+    'price_subscribe' => 'سعر الاشتراك',
+    'url_android' => 'رابط Android',
+    'whatsApp' => 'واتساب',
+    'about' => 'حول',
+    'privacy-policy' => 'سياسة الخصوصية',
+    'create_background' => 'إنشاء خلفية',
 
 ];
  

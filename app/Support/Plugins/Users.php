@@ -30,10 +30,10 @@ class Users extends Plugin
             ->active("users*")
             ->permissions('contacts.manage');
 
-        $shipping = Item::create(__('app.shippings'))
+      /*  $shipping = Item::create(__('app.shippings'))
             ->route('shippings.index')
             ->active("users*")
-            ->permissions('shippings.manage');
+            ->permissions('shippings.manage');*/
 
 
 
@@ -48,7 +48,7 @@ class Users extends Plugin
                 $groups,
                 $remarks,
                 $contacts,
-                $shipping
+              //  $shipping
             ]);
     }
 }
