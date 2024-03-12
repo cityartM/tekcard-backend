@@ -30,12 +30,19 @@ return [
         'Active' => 'Active',
         'Inactive' => 'Inactive',
     ],
- 
+
 
     'backgroundTypes' => [
         'Share' => 'مشاركة',
         'Card' => 'بطاقة',
         ],
+
+    'statisticType' => [
+        'Shared link' => 'مشاركة رابط',
+        'Saved contact' => 'حفظ جهة اتصال',
+        'Opened link' => 'فتح الرابط',
+        'Shared location' => 'مشاركة الموقع',
+    ],
 
     /*** Generale ***/
     "name" => "الإسـم",
@@ -148,7 +155,7 @@ return [
     'comment' => 'تعليق',
     'rating' => 'تقييم',
 
- 
+
 
     /***  subscriptions  ***/
     'subscriptions' => 'اشتراكات' ,
@@ -476,4 +483,3 @@ return [
     'create_background' => 'إنشاء خلفية',
 
 ];
- 

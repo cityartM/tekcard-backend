@@ -71,4 +71,15 @@ class Card extends Model implements HasMedia
         return $this->hasMany(CompanyCardContact::class);
     }
 
+    public function cardStatistics()
+    {
+        return $this->hasMany(CardStatistic::class);
+    }
+
+    public function incrementAttribute($attribute, $value = 1)
+    {
+        $this->$attribute += $value;
+        return $this->save();
+    }
+
 }

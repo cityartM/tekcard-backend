@@ -78,6 +78,24 @@
                     <input type="text" class="form-control input-solid" id="about"
                            name="about" value="{{ setting('about') }}">
                 </div>
+
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.bronze_level')</label>
+                    <input type="text" class="form-control input-solid" id="bronze_level"
+                           name="bronze_level" value="{{ setting('bronze_level') }}">
+                </div>
+
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.silver_level')</label>
+                    <input type="text" class="form-control input-solid" id="silver_level"
+                           name="silver_level" value="{{ setting('silver_level') }}">
+                </div>
+
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.gold_level')</label>
+                    <input type="text" class="form-control input-solid" id="gold_level"
+                           name="gold_level" value="{{ setting('gold_level') }}">
+                </div>
             </div>
         </div>
     </div>

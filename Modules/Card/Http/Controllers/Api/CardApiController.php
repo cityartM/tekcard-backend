@@ -16,7 +16,9 @@ use Modules\Card\Http\Requests\CreateCardRequest;
 use Modules\Card\Http\Requests\UpdateRefCardRequest;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
+use Modules\Card\Models\CardStatistic;
 use Modules\Card\Repositories\CardRepository;
+use Modules\Card\Support\StatisticType;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -321,6 +323,19 @@ class CardApiController extends ApiController
         return $this->respondWithSuccess([
             'card' => new CardResource($newCard),
         ],  'Card duplicated successfully', 200);
+    }
+
+
+    public function shareCard(Card $card)
+    {
+        $card->incrementAttribute('shared_link',1);
+        CardStatistic::create([
+            'card_id' => $card->id,
+            'type' => StatisticType::SHAREDLINK,
+        ]);
+        return $this->respondWithSuccess([
+            'card' => new CardResource($card),
+        ],  'Card shared successfully', 200);
     }
 
 }

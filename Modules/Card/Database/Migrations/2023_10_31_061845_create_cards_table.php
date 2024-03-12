@@ -36,6 +36,9 @@ return new class extends Migration
             $table->string("address")->nullable();
             $table->string("note")->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('shared_link')->default(0);
+            $table->integer('saved_contact')->default(0);
+            $table->integer('opened_link')->default(0);
             $table->timestamps();
         });
     }

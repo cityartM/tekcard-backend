@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     // card duplicate
     Route::post('cards/duplicate/{card}', 'Api\CardApiController@duplicateCard');
 
+    // share card
+    Route::post('cards/share/{card}', 'Api\CardApiController@shareCard');
+
     // Route::delete('cardOrder/{id}', 'CardOrderApiController@destroy');
 
     // Shipping

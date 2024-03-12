@@ -12,7 +12,9 @@ use Modules\Card\Http\Resources\CardContactResource;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Card\Models\CardContact;
+use Modules\Card\Models\CardStatistic;
 use Modules\Card\Repositories\CardContactRepository;
+use Modules\Card\Support\StatisticType;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -61,6 +63,13 @@ class CardContactApiController extends ApiController
         $data = $request->only(['card_id', 'remark_id', 'group']);
 
         $existCard = $this->cardContacts->checkExistCard($data['card_id'],auth()->id());
+
+        $storeCard = Card::find($data['card_id']);
+        $storeCard->incrementAttribute('saved_contact',1);
+        CardStatistic::create([
+            'card_id' => $data['card_id'],
+            'type' => StatisticType::SAVEDCONTACT,
+        ]);
 
         if($existCard){
             return $this->respondWithSuccess([
