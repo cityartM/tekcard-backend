@@ -20,7 +20,7 @@ class ApiRegisterRequest extends Request
             'email' => 'required|unique:users,email',
             'password' => 'required|confirmed|min:8',
             'device_id' => 'required',
-            'device_token' => 'required',
+            //'device_token' => 'required',
             'device_name' => 'required',
             'brand' => 'required',
             'app_version' => 'required',
