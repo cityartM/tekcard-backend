@@ -22,6 +22,7 @@ function AboutUs({}) {
   const locale = usePage().props.locale;
   const { faqs } = useFaqs(locale);
   const { hero, content } = Sections.sections;
+  console.log("AboutUs page");
   return /* @__PURE__ */ jsxs(LandingLayout, { children: [
     /* @__PURE__ */ jsx(Head, { title: "Welcome" }),
     /* @__PURE__ */ jsx(Section, { className: "py-20 px-10 justify-center bg-gradient-to-tr to-pink-100 from-white bg-opacity-20", children: /* @__PURE__ */ jsxs("div", { className: "pt-20 grid grid-cols-1 gap-y-10 md:gap-y-16 lg:gap-y-20", children: [

@@ -148,7 +148,7 @@ Route::get('/privacy_policy', function () {
     return view('privacy-policy');
 })->name('privacy_policy');
 
-Route::get('/card/{ref}', 'FrontController@show')->name('card.show');
+/*Route::get('/card/{ref}', 'FrontController@show')->name('card.show');*/
 
 Route::post('/send-card-by-email/{card}', [FrontController::class, 'sendCardByEmail'])->name('send-card-by-email');
 

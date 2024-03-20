@@ -2,45 +2,45 @@
   "_AuthConfig-2e82ca2c.js": {
     "file": "assets/AuthConfig-2e82ca2c.js"
   },
-  "_Faq-c438ec37.js": {
-    "file": "assets/Faq-c438ec37.js",
+  "_Faq-f321133d.js": {
+    "file": "assets/Faq-f321133d.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js"
+      "_LandingLayout-2c6bb1b9.js"
     ]
   },
-  "_Input-328228e7.js": {
-    "file": "assets/Input-328228e7.js",
+  "_Input-cb25d431.js": {
+    "file": "assets/Input-cb25d431.js",
     "imports": [
       "resources/js/front.tsx"
     ]
   },
-  "_InputError-0af59289.js": {
-    "file": "assets/InputError-0af59289.js",
+  "_InputError-37382ca3.js": {
+    "file": "assets/InputError-37382ca3.js",
     "imports": [
       "resources/js/front.tsx"
     ]
   },
-  "_LandingLayout-b7355f66.js": {
+  "_LandingLayout-2c6bb1b9.js": {
     "assets": [
       "assets/logo-c2f26a6c.png"
     ],
-    "file": "assets/LandingLayout-b7355f66.js",
+    "file": "assets/LandingLayout-2c6bb1b9.js",
     "imports": [
       "resources/js/front.tsx"
     ]
   },
-  "_LoginForm-92924e98.js": {
-    "file": "assets/LoginForm-92924e98.js",
+  "_LoginForm-0a609a1a.js": {
+    "file": "assets/LoginForm-0a609a1a.js",
     "imports": [
       "resources/js/front.tsx",
-      "_InputError-0af59289.js",
-      "_Input-328228e7.js",
+      "_InputError-37382ca3.js",
+      "_Input-cb25d431.js",
       "_AuthConfig-2e82ca2c.js"
     ]
   },
-  "_bootstrap-dd2a6c2f.js": {
-    "file": "assets/bootstrap-dd2a6c2f.js"
+  "_bootstrap-52c5088c.js": {
+    "file": "assets/bootstrap-52c5088c.js"
   },
   "_playstore1-1d5423ba.js": {
     "assets": [
@@ -50,14 +50,13 @@
     "file": "assets/playstore1-1d5423ba.js"
   },
   "resources/css/app-dashboard.css": {
-    "file": "assets/app-dashboard-b6fc799b.css",
+    "file": "assets/app-dashboard-f22bd9e0.css",
     "isEntry": true,
     "src": "resources/css/app-dashboard.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-877147d4.css",
-    "isEntry": true,
-    "src": "resources/css/app.css"
+    "file": "assets/app-f01ac5b0.css",
+    "src": "resources/js/front.css"
   },
   "resources/fonts/Tajawal-Black.ttf": {
     "file": "assets/Tajawal-Black-cab2c608.ttf",
@@ -132,185 +131,90 @@
     "src": "resources/images/logo.png"
   },
   "resources/js/Pages/AboutUs.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/AboutUs-de6cfa49.js",
+    "file": "assets/AboutUs-131196a3.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_Faq-c438ec37.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_LandingLayout-2c6bb1b9.js",
+      "_Faq-f321133d.js",
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AboutUs.tsx"
   },
-  "resources/js/Pages/Auth/Login.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Login-53a03822.js",
+  "resources/js/Pages/About_us.tsx": {
+    "file": "assets/About_us-270a31ce.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LoginForm-92924e98.js",
-      "_bootstrap-dd2a6c2f.js",
-      "_InputError-0af59289.js",
-      "_Input-328228e7.js",
+      "_LandingLayout-2c6bb1b9.js",
+      "_bootstrap-52c5088c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/About_us.tsx"
+  },
+  "resources/js/Pages/Auth/Login.tsx": {
+    "file": "assets/Login-a9d0d121.js",
+    "imports": [
+      "resources/js/front.tsx",
+      "_LoginForm-0a609a1a.js",
+      "_bootstrap-52c5088c.js",
+      "_InputError-37382ca3.js",
+      "_Input-cb25d431.js",
       "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.tsx"
   },
   "resources/js/Pages/Auth/Register.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Register-a0978920.js",
+    "file": "assets/Register-6ea0e75c.js",
     "imports": [
       "resources/js/front.tsx",
-      "_InputError-0af59289.js",
-      "_Input-328228e7.js",
+      "_InputError-37382ca3.js",
+      "_Input-cb25d431.js",
       "_AuthConfig-2e82ca2c.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Register.tsx"
   },
   "resources/js/Pages/Blog.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Blog-7740dd34.js",
+    "file": "assets/Blog-c95adb34.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_LandingLayout-2c6bb1b9.js",
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Blog.tsx"
   },
   "resources/js/Pages/BlogSingle.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/BlogSingle-a5283f6c.js",
+    "file": "assets/BlogSingle-02fef8bb.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_Input-328228e7.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_LandingLayout-2c6bb1b9.js",
+      "_Input-cb25d431.js",
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/BlogSingle.tsx"
   },
   "resources/js/Pages/CardShare.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/CardShare-f9e50294.js",
+    "file": "assets/CardShare-ce0822f8.js",
     "imports": [
       "resources/js/front.tsx",
       "_playstore1-1d5423ba.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/CardShare.tsx"
   },
   "resources/js/Pages/ContactUs.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/ContactUs-201033d8.js",
+    "file": "assets/ContactUs-cf601de5.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_InputError-0af59289.js",
-      "_Input-328228e7.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_LandingLayout-2c6bb1b9.js",
+      "_InputError-37382ca3.js",
+      "_Input-cb25d431.js",
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/ContactUs.tsx"
@@ -321,92 +225,53 @@
       "assets/bg-reviews-aa447df6.webp",
       "assets/hero-6fac155a.webp",
       "assets/iphone16-5dba8f4f.webp",
-      "assets/iphone14-f389aa38.webp",
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
+      "assets/iphone14-f389aa38.webp"
     ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Home-79f99208.js",
+    "file": "assets/Home-1e049847.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_Faq-c438ec37.js",
+      "_LandingLayout-2c6bb1b9.js",
+      "_Faq-f321133d.js",
       "_playstore1-1d5423ba.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Home.tsx"
   },
   "resources/js/Pages/Playground.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Playground-1e9d4030.js",
+    "file": "assets/Playground-b3bd1e28.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LoginForm-92924e98.js",
-      "_bootstrap-dd2a6c2f.js",
-      "_InputError-0af59289.js",
-      "_Input-328228e7.js",
+      "_LoginForm-0a609a1a.js",
+      "_bootstrap-52c5088c.js",
+      "_InputError-37382ca3.js",
+      "_Input-cb25d431.js",
       "_AuthConfig-2e82ca2c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Playground.tsx"
   },
   "resources/js/Pages/Pricing.tsx": {
-    "assets": [
-      "assets/din-next-lt-regular-21128d20.ttf",
-      "assets/din-next-lt-medium-2d472fae.ttf",
-      "assets/din-next-lt-bold-04bc01c8.ttf",
-      "assets/Tajawal-ExtraLight-62efd30e.ttf",
-      "assets/Tajawal-Light-e33bbcee.ttf",
-      "assets/Tajawal-Regular-910e6857.ttf",
-      "assets/Tajawal-Medium-908276c0.ttf",
-      "assets/Tajawal-Bold-f92b69ca.ttf",
-      "assets/Tajawal-ExtraBold-49e2e427.ttf",
-      "assets/Tajawal-Black-cab2c608.ttf"
-    ],
-    "css": [
-      "assets/app-877147d4.css"
-    ],
-    "file": "assets/Pricing-51480476.js",
+    "file": "assets/Pricing-aa70344a.js",
     "imports": [
       "resources/js/front.tsx",
-      "_LandingLayout-b7355f66.js",
-      "_bootstrap-dd2a6c2f.js"
+      "_LandingLayout-2c6bb1b9.js",
+      "_bootstrap-52c5088c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Pricing.tsx"
   },
   "resources/js/app.js": {
-    "file": "assets/app-6396b733.js",
+    "file": "assets/app-732ab740.js",
     "imports": [
-      "_bootstrap-dd2a6c2f.js"
+      "_bootstrap-52c5088c.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/front.css": {
+    "file": "assets/app-f01ac5b0.css",
+    "src": "resources/js/front.css"
   },
   "resources/js/front.tsx": {
     "assets": [
@@ -422,10 +287,11 @@
       "assets/Tajawal-Black-cab2c608.ttf"
     ],
     "css": [
-      "assets/app-877147d4.css"
+      "assets/app-f01ac5b0.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/AboutUs.tsx",
+      "resources/js/Pages/About_us.tsx",
       "resources/js/Pages/Auth/Login.tsx",
       "resources/js/Pages/Auth/Register.tsx",
       "resources/js/Pages/Blog.tsx",
@@ -436,15 +302,15 @@
       "resources/js/Pages/Playground.tsx",
       "resources/js/Pages/Pricing.tsx"
     ],
-    "file": "assets/front-2530c0c7.js",
+    "file": "assets/front-85027453.js",
     "imports": [
-      "_bootstrap-dd2a6c2f.js"
+      "_bootstrap-52c5088c.js"
     ],
     "isEntry": true,
     "src": "resources/js/front.tsx"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-f93ccaaa.css",
+    "file": "assets/app-14204e20.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

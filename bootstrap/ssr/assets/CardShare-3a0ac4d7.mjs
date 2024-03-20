@@ -30,8 +30,8 @@ const data = {
 function Card({ card }) {
   return /* @__PURE__ */ jsxs("div", { className: "relative", children: [
     /* @__PURE__ */ jsxs("div", { className: "h-[30vh] w-full", children: [
-      card.background && /* @__PURE__ */ jsx("img", { className: "w-full h-full object-cover", src: card.background.background, alt: "cover" }),
-      card.color && /* @__PURE__ */ jsx("div", { className: "w-full h-full", style: { background: card.color } })
+      (card == null ? void 0 : card.background) && /* @__PURE__ */ jsx("img", { className: "w-full h-full object-cover", src: card == null ? void 0 : card.background.background, alt: "cover" }),
+      (card == null ? void 0 : card.color) && /* @__PURE__ */ jsx("div", { className: "w-full h-full", style: { background: card == null ? void 0 : card.color } })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "-translate-y-16 px-4 max-w-lg mx-auto", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center justify-center", children: [
@@ -39,26 +39,22 @@ function Card({ card }) {
           "img",
           {
             className: "w-32 h-32 object-cover rounded-full overflow-hidden ring-4 ring-offset-2 ring-offset-slate-50 ring-sky-500 shadow-lg",
-            src: "https://picsum.photos/200/300",
+            src: card == null ? void 0 : card.card_avatar,
             alt: "avatar"
           }
         ),
-        /* @__PURE__ */ jsx("div", { className: "mt-6 text-2xl text-[#2273AF] font-bold", children: card.full_name }),
-        /* @__PURE__ */ jsx("div", { className: "text-base text-[#9CA3AF]", children: card.job_title })
+        /* @__PURE__ */ jsx("div", { className: "mt-6 text-2xl text-[#2273AF] font-bold", children: card == null ? void 0 : card.full_name }),
+        /* @__PURE__ */ jsx("div", { className: "text-base text-[#9CA3AF]", children: card == null ? void 0 : card.job_title })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "mt-10", children: [
         /* @__PURE__ */ jsx("div", { className: "text-base text-[#2273AF] font-bold", children: "Social Media" }),
-        /* @__PURE__ */ jsx("div", { className: "p-4 grid grid-cols-4 gap-4", children: [1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => /* @__PURE__ */ jsx("div", { className: "flex justify-center items-center", children: /* @__PURE__ */ jsx("div", { className: "w-16 h-16 p-3 bg-gray-200 rounded-lg shadow", style: { background: card == null ? void 0 : card.color }, children: /* @__PURE__ */ jsx("img", { className: "w-10 h-10", src: "/images/icons/instagram.svg", alt: "instagram" }) }) }, index)) })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-10", children: [
-        /* @__PURE__ */ jsx("div", { className: "text-base text-[#2273AF] font-bold", children: "Social Media" }),
-        /* @__PURE__ */ jsx("div", { className: "p-4 grid grid-cols-4 gap-4", children: [1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => /* @__PURE__ */ jsx("div", { className: "flex justify-center items-center", children: /* @__PURE__ */ jsx(Icon, { color: (card == null ? void 0 : card.color) ?? "#fff", icon: "instagram" }) }, index)) })
+        /* @__PURE__ */ jsx("div", { className: "p-4 grid grid-cols-4 gap-4", children: card == null ? void 0 : card.card_apps.map((item, index) => {
+          var _a, _b;
+          return /* @__PURE__ */ jsx("div", { className: "flex justify-center items-center", children: /* @__PURE__ */ jsx("a", { href: (_a = item.contact) == null ? void 0 : _a.base_url, children: /* @__PURE__ */ jsx("div", { className: "w-16 h-16 p-3 bg-gray-200 rounded-lg shadow", style: { background: card == null ? void 0 : card.color }, children: /* @__PURE__ */ jsx("img", { className: "w-10 h-10", src: (_b = item.contact) == null ? void 0 : _b.icon, alt: "instagram" }) }) }) }, index);
+        }) })
       ] })
     ] })
   ] });
-}
-function Icon({ icon, color }) {
-  return /* @__PURE__ */ jsx("div", { className: "w-16 h-16 p-3 bg-gray-200 rounded-lg shadow", style: { background: color }, children: /* @__PURE__ */ jsx("img", { className: "w-10 h-10", src: `/images/icons/${icon}.svg`, alt: `${icon}` }) });
 }
 export {
   Home as default

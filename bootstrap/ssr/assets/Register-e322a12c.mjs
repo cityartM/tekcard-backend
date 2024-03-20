@@ -1,12 +1,73 @@
-import { jsxs, jsx } from "react/jsx-runtime";
-import { Head } from "@inertiajs/react";
-import { L as LoginForm } from "./LoginForm-08c4523c.mjs";
-import "./InputError-fd9726b2.mjs";
-import "./Input-15127deb.mjs";
-import "./AuthConfig-f672b007.mjs";
-const Login = ({}) => {
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useForm, Head } from "@inertiajs/react";
+import { I as InputLabel, T as TextArea, a as InputError } from "./InputError-fd9726b2.mjs";
+import { T as TextInput } from "./Input-15127deb.mjs";
+import { A as AuthConfig } from "./AuthConfig-f672b007.mjs";
+const RegisterForm = ({}) => {
+  const {
+    data,
+    setData,
+    post,
+    processing,
+    errors,
+    reset
+  } = useForm(AuthConfig.default_register_state);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    post(AuthConfig.registerUri, {
+      preserveScroll: true,
+      onSuccess: () => {
+        AuthConfig.registerFields.forEach((field) => {
+          reset(field);
+        });
+        alert("Message sent successfully!");
+      },
+      onError: () => {
+        alert("Message failed to send!");
+      }
+    });
+  };
+  const handleChanges = (e) => {
+    setData(e.target.id, e.target.value);
+  };
+  return /* @__PURE__ */ jsx("form", { onSubmit: (event) => handleSubmit(event), children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-10", children: [
+    AuthConfig.fields.register.map((field) => {
+      if (field.type === "textarea") {
+        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
+          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
+          /* @__PURE__ */ jsx(
+            TextArea,
+            {
+              id: field.name,
+              ...field,
+              value: data[field.name],
+              onChange: (e) => handleChanges(e)
+            }
+          ),
+          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
+        ] }, field.name);
+      } else {
+        return /* @__PURE__ */ jsxs("div", { className: "flex flex-col space-y-4", children: [
+          /* @__PURE__ */ jsx(InputLabel, { htmlFor: field.name, value: field.label }),
+          /* @__PURE__ */ jsx(
+            TextInput,
+            {
+              id: field.name,
+              ...field,
+              value: data[field.name],
+              onChange: (e) => handleChanges(e)
+            }
+          ),
+          errors[field.name] && /* @__PURE__ */ jsx(InputError, { message: errors[field.name] })
+        ] }, field.name);
+      }
+    }),
+    /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center gap-8", children: /* @__PURE__ */ jsx("button", { disabled: processing, type: "submit", className: "flex-grow bg-[#478DCB] text-white font-medium text-lg py-4 px-10 rounded-2xl shadow-md hover:bg-[#29A0F5] transition duration-300 ease-in-out", children: "Submit" }) })
+  ] }) });
+};
+const Register = ({}) => {
   return /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl", children: [
-    /* @__PURE__ */ jsx(Head, { title: "Login" }),
+    /* @__PURE__ */ jsx(Head, { title: "Register" }),
     /* @__PURE__ */ jsx("div", { className: "py-10 space-y-20", children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 items-stretch gap-10", children: [
       /* @__PURE__ */ jsx("div", { className: "hidden lg:block bg-gradient-1 rounded-3xl overflow-hidden shadow", children: /* @__PURE__ */ jsxs("div", { className: "py-20 h-full flex flex-col space-y-10", children: [
         /* @__PURE__ */ jsx(LogoIcon, { className: "px-10 flex-shrink-0 max-w-sm" }),
@@ -18,163 +79,12 @@ const Login = ({}) => {
           /* @__PURE__ */ jsx(LogoIcon, { className: "mx-auto lg:mx-0 px-10 flex-shrink-0 max-w-sm" }),
           /* @__PURE__ */ jsx("div", { className: "text-center lg:text-start px-10 flex-shrink-0 text-[2.2rem] text-[#2273AF]", children: "Digital Business Card" })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-10", children: [
-          /* @__PURE__ */ jsx("h2", { className: "text-center lg:text-start text-3xl font-bold text-[#1D1E24]", children: "Sign up for an account" }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-10", children: [
-            /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-red-500 hover:bg-red-500/90 rounded-xl shadow-sm", children: [
-              /* @__PURE__ */ jsx(GoogleIcon, { className: "w-10 h-10" }),
-              /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "GOOGLE" })
-            ] }),
-            /* @__PURE__ */ jsxs("a", { href: "#", className: "flex-grow py-6 flex items-center justify-center gap-4 bg-[#1877F2] hover:bg-[#1877F2]/90 rounded-xl shadow-sm", children: [
-              /* @__PURE__ */ jsx(FacebookIcon, { className: "w-10 h-10" }),
-              /* @__PURE__ */ jsx("span", { className: "text-[1rem] font-semibold text-white", children: "Facebook" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-10", children: [
-          /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" }),
-          /* @__PURE__ */ jsx("span", { className: "flex-shrink-0 text-lg font-bold text-[#1D1E24]/30", children: "Or" }),
-          /* @__PURE__ */ jsx("span", { className: "border-b-2 border-[#1D1E24]/30 h-1 flex-grow" })
-        ] }),
-        /* @__PURE__ */ jsx(LoginForm, {})
+        /* @__PURE__ */ jsx("div", { className: "space-y-10", children: /* @__PURE__ */ jsx("h2", { className: "text-center lg:text-start text-3xl font-bold text-[#1D1E24]", children: "Sign up for an account" }) }),
+        /* @__PURE__ */ jsx(RegisterForm, {})
       ] })
     ] }) }) })
   ] });
 };
-function GoogleIcon({ ...props }) {
-  return /* @__PURE__ */ jsxs(
-    "svg",
-    {
-      ...props,
-      viewBox: "0 0 24 24",
-      children: [
-        /* @__PURE__ */ jsx(
-          "mask",
-          {
-            id: "mask0_1026_223",
-            style: { maskType: "luminance" },
-            width: "24",
-            height: "24",
-            x: "0",
-            y: "0",
-            maskUnits: "userSpaceOnUse",
-            children: /* @__PURE__ */ jsx(
-              "path",
-              {
-                fill: "#fff",
-                d: "M23.557 9.818H12.375v4.637h6.436c-.6 2.945-3.109 4.636-6.436 4.636A7.077 7.077 0 015.285 12a7.077 7.077 0 017.09-7.09c1.69 0 3.218.6 4.418 1.58L20.284 3c-2.127-1.855-4.854-3-7.909-3-6.655 0-12 5.345-12 12s5.345 12 12 12c6 0 11.455-4.364 11.455-12 0-.71-.11-1.473-.273-2.182z"
-              }
-            )
-          }
-        ),
-        /* @__PURE__ */ jsx("g", { mask: "url(#mask0_1026_223)", children: /* @__PURE__ */ jsx("path", { fill: "#fff", d: "M-.716 19.091V4.909L8.557 12l-9.273 7.091z" }) }),
-        /* @__PURE__ */ jsx(
-          "mask",
-          {
-            id: "mask1_1026_223",
-            style: { maskType: "luminance" },
-            width: "24",
-            height: "24",
-            x: "0",
-            y: "0",
-            maskUnits: "userSpaceOnUse",
-            children: /* @__PURE__ */ jsx(
-              "path",
-              {
-                fill: "#fff",
-                d: "M23.557 9.818H12.375v4.637h6.436c-.6 2.945-3.109 4.636-6.436 4.636A7.077 7.077 0 015.285 12a7.077 7.077 0 017.09-7.09c1.69 0 3.218.6 4.418 1.58L20.284 3c-2.127-1.855-4.854-3-7.909-3-6.655 0-12 5.345-12 12s5.345 12 12 12c6 0 11.455-4.364 11.455-12 0-.71-.11-1.473-.273-2.182z"
-              }
-            )
-          }
-        ),
-        /* @__PURE__ */ jsx("g", { mask: "url(#mask1_1026_223)", children: /* @__PURE__ */ jsx(
-          "path",
-          {
-            fill: "#fff",
-            d: "M-.716 4.91L8.557 12l3.818-3.327 13.091-2.127v-7.637H-.716v6z"
-          }
-        ) }),
-        /* @__PURE__ */ jsx(
-          "mask",
-          {
-            id: "mask2_1026_223",
-            style: { maskType: "luminance" },
-            width: "24",
-            height: "24",
-            x: "0",
-            y: "0",
-            maskUnits: "userSpaceOnUse",
-            children: /* @__PURE__ */ jsx(
-              "path",
-              {
-                fill: "#fff",
-                d: "M23.557 9.818H12.375v4.637h6.436c-.6 2.945-3.109 4.636-6.436 4.636A7.077 7.077 0 015.285 12a7.077 7.077 0 017.09-7.09c1.69 0 3.218.6 4.418 1.58L20.284 3c-2.127-1.855-4.854-3-7.909-3-6.655 0-12 5.345-12 12s5.345 12 12 12c6 0 11.455-4.364 11.455-12 0-.71-.11-1.473-.273-2.182z"
-              }
-            )
-          }
-        ),
-        /* @__PURE__ */ jsx("g", { mask: "url(#mask2_1026_223)", children: /* @__PURE__ */ jsx(
-          "path",
-          {
-            fill: "#fff",
-            d: "M-.716 19.091L15.648 6.546l4.309.545 5.509-8.182v26.182H-.716v-6z"
-          }
-        ) }),
-        /* @__PURE__ */ jsx(
-          "mask",
-          {
-            id: "mask3_1026_223",
-            style: { maskType: "luminance" },
-            width: "24",
-            height: "24",
-            x: "0",
-            y: "0",
-            maskUnits: "userSpaceOnUse",
-            children: /* @__PURE__ */ jsx(
-              "path",
-              {
-                fill: "#fff",
-                d: "M23.557 9.818H12.375v4.637h6.436c-.6 2.945-3.109 4.636-6.436 4.636A7.077 7.077 0 015.285 12a7.077 7.077 0 017.09-7.09c1.69 0 3.218.6 4.418 1.58L20.284 3c-2.127-1.855-4.854-3-7.909-3-6.655 0-12 5.345-12 12s5.345 12 12 12c6 0 11.455-4.364 11.455-12 0-.71-.11-1.473-.273-2.182z"
-              }
-            )
-          }
-        ),
-        /* @__PURE__ */ jsx("g", { mask: "url(#mask3_1026_223)", children: /* @__PURE__ */ jsx(
-          "path",
-          {
-            fill: "#fff",
-            d: "M25.466 25.091l-16.91-13.09-2.181-1.637 19.09-5.455v20.182z"
-          }
-        ) })
-      ]
-    }
-  );
-}
-function FacebookIcon({ ...props }) {
-  return /* @__PURE__ */ jsxs(
-    "svg",
-    {
-      ...props,
-      viewBox: "0 0 24 24",
-      children: [
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            fill: "#1877F2",
-            d: "M24 12c0-6.628-5.372-12-12-12S0 5.372 0 12c0 5.99 4.386 10.955 10.126 11.855v-8.383H7.08V12h3.045V9.357c0-3.005 1.788-4.669 4.53-4.669 1.315 0 2.69.237 2.69.237v2.952h-1.513c-1.492 0-1.952.928-1.952 1.874V12h3.327l-.533 3.472h-2.794v8.383C19.614 22.955 24 17.99 24 12z"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "path",
-          {
-            fill: "#fff",
-            d: "M16.668 15.472L17.201 12h-3.327V9.751c0-.946.467-1.874 1.953-1.874h1.512V4.925s-1.374-.237-2.69-.237c-2.741 0-4.53 1.664-4.53 4.669V12H7.075v3.472h3.044v8.383a11.78 11.78 0 001.874.145c.638 0 1.263-.052 1.874-.145v-8.383h2.801z"
-          }
-        )
-      ]
-    }
-  );
-}
 function LogoIcon({ ...props }) {
   const id = `pattern${Math.floor(Math.random() * 1e3)}_${Math.floor(Math.random() * 1e3)}`;
   return /* @__PURE__ */ jsxs(
@@ -553,5 +463,5 @@ function CardsIcon({ ...props }) {
   );
 }
 export {
-  Login as default
+  Register as default
 };

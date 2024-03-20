@@ -1,7 +1,7 @@
 <?php
 
 return [
- 
+
     'months' => [
         1 => 'January',
         2 => 'February',
@@ -76,7 +76,7 @@ return [
         'Simple Customer' => 'Simple Customer',
 
     ],
- 
+
     'methods' => [
         'Cash' => 'Cash',
         'LinkBack' => 'LinkBack',
@@ -108,12 +108,15 @@ return [
         'Share' => 'Paylaş',
         'Card' => 'Kart',
         ],
-        
-        
-        
-        
-        
-        
+
+    'statisticType' => [
+        'Shared link' => 'Shared link',
+        'Saved contact' => 'Saved contact',
+        'Opened link' => 'Opened link',
+        'Shared location' => 'Shared location',
+    ],
+
+
 
 
 
@@ -133,7 +136,7 @@ return [
     'label_status' => 'Durum',
     'show' => 'göster',
     'page_status' => 'Status',
-    
+
 
 
     /*** features ***/
@@ -361,7 +364,7 @@ return [
 'rating' => 'puanlama',
 
 
- 
+
  /***  subscriptions  ***/
  'subscriptions' => 'abonelikler',
  'subscriptions_list' => 'abonelikler listesi',
@@ -553,7 +556,7 @@ return [
 'nbr_card_user' => 'Kullanıcılar için Kart Sayısı',
 'has_dashboard' => 'Panoya Sahip mi?',
 'price' => 'Fiyat',
- 
+
 
 
     /***  cards  ***/
@@ -591,7 +594,7 @@ return [
         'card_phrases_details' => 'Kart İfadeleri Detayları',
         'background_id' => 'Arka Plan Kimliği',
         'card_orders_list' => 'Kart Siparişleri Listesi',
-        //new 
+        //new
         'card' => 'Kart',
         'create_new_card' => 'Yeni Kart Oluştur',
         'page-title' => 'Sayfa Başlığı',

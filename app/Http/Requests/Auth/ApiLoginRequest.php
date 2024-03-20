@@ -13,7 +13,7 @@ class ApiLoginRequest extends LoginRequest
     {
         return array_merge(parent::rules(), [
             'device_id' => 'required',
-            'device_token' => 'required',
+            //'device_token' => 'required',
             'device_name' => 'required',
             'brand' => 'required',
             'app_version' => 'required',

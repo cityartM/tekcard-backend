@@ -6,17 +6,21 @@ export default function AboutUs() {
   const { page } = usePage().props;
 
   console.log(page);
+  console.log('AboutUs page');
 
   return (
     <LandingLayout>
       <Head title="About Us" />
+      {/*
       {page && (
         <Section>
-          <div className={'mt-16 text-center text-4xl font-extrabold text-[#2273AF]'}>{page.title}</div>
-          <div className="mt-8 text-center text-lg text-gray-600">{page.short_description}</div>
-          <div className="mt-8 prose prose-lg max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: page.description }} />
+          <div className={'mt-16 text-center text-4xl font-extrabold text-[#2273AF]'}>{page?.title}</div>
+          <div className="mt-8 text-center text-lg text-gray-600">{page?.short_description}</div>
+          <div className="mt-8 prose prose-lg max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: page?.description }} />
         </Section>
       )}
+      */}
+
     </LandingLayout>
   );
 }

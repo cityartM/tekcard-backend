@@ -156,6 +156,13 @@ return [
         'Mail' => 'Mail'
     ],
 
+    'statisticType' => [
+        'Shared link' => 'Shared link',
+        'Saved contact' => 'Saved contact',
+        'Opened link' => 'Opened link',
+        'Shared location' => 'Shared location',
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',

@@ -44,6 +44,9 @@ class ApiSettingsController extends ApiController
             'whatsApp' => setting('whatsApp') ?? null,
             'privacy-policy' => setting('privacy-policy') ?? null,
             'about' => setting('about') ?? null,
+            'bronze_level' => setting('bronze_level') ?? 0,
+            'silver_level' => setting('silver_level') ?? 0,
+            'gold_level' => setting('gold_level') ?? 0,
         ];
         return $this->respondWithSuccess($settings);
     }
