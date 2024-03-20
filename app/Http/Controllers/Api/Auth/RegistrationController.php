@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Role\RoleRepository;
+use Illuminate\Support\Facades\Http;
 
 class RegistrationController extends ApiController
 {
@@ -79,6 +80,8 @@ class RegistrationController extends ApiController
 
             Auth::setUser($user);
 
+            $this->triggerZapierWebhook($user);
+
             return $this->respondWithSuccess([
                 'registration' => true,
                 'token' => $user->createToken($request->device_token)->plainTextToken,
@@ -133,5 +136,17 @@ class RegistrationController extends ApiController
             'result' => [],
         ], 'User deleted successfully',200);
 
+    }
+
+
+
+    private function triggerZapierWebhook(User $user)
+    {
+        // Send a POST request to the webhook endpoint with user data
+        $zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/17045830/30pesh5/';
+        Http::post($zapierWebhookUrl, [
+            'user' => $user,
+            
+        ]);
     }
 }
