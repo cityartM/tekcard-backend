@@ -78,6 +78,15 @@
                             class="mb-2 mt-5"
                             :model=" $edit ? $settingContact : null "
                         />
+                        <x-input-field
+                    :title="__('Color')"
+                    name="color"
+                    type="color"
+                    col="2"
+                    class="mb-2 mt-5"
+                    required
+                    :model=" $edit ? $settingContact : null "
+                         />
 
                         <x-input-field
                             :title="__('app.value')"
