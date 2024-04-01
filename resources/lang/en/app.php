@@ -163,6 +163,11 @@ return [
         'Shared location' => 'Shared location',
     ],
 
+    'cardType' => [
+        'Person' => 'Person',
+        'Work' => 'Work',
+    ],
+
 
     /*** Generale ***/
     'save' => 'Save',

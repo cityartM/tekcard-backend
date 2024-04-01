@@ -23,6 +23,7 @@ class CardResource extends JsonResource
         return [
             'id' => (int) $this->id,
             'reference' => $this->reference,
+            'type' => $this->type,
             //'qrCode' => encrypt($this->id),
             'name' => $this->name,
             'full_name' =>  $this->full_name,

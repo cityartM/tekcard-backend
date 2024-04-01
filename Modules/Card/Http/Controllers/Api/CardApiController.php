@@ -103,6 +103,10 @@ class CardApiController extends ApiController
             $card->addMedia($request->file('card_pdf'))->toMediaCollection('CARD_PDF');
         }
 
+        if ($request->hasFile('watermark') ) {
+            $card->addMedia($request->file('watermark'))->toMediaCollection('WATERMARK');
+        }
+
         if ($request->hasFile('card_gallery')) {
             foreach ($request->file('card_gallery') as $image) {
                 $card->addMedia($image)->toMediaCollection('CARD_GALLERY');
@@ -157,6 +161,10 @@ class CardApiController extends ApiController
 
         if ($request->hasFile('card_pdf') ) {
             $card->addMedia($request->file('card_pdf'))->toMediaCollection('CARD_PDF');
+        }
+
+        if ($request->hasFile('watermark') ) {
+            $card->addMedia($request->file('watermark'))->toMediaCollection('WATERMARK');
         }
 
         if ($request->hasFile('card_gallery')) {

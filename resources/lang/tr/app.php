@@ -116,9 +116,10 @@ return [
         'Shared location' => 'Shared location',
     ],
 
-
-
-
+    'cardType' => [
+        'Person' => 'Person',
+        'Work' => 'Work',
+    ],
 
 
     'no_data_found' => 'No data found',

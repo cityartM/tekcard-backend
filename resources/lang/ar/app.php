@@ -44,6 +44,11 @@ return [
         'Shared location' => 'مشاركة الموقع',
     ],
 
+    'cardType' => [
+        'Person' => 'شخص',
+        'Work' => 'عمل',
+    ],
+
     /*** Generale ***/
     "name" => "الإسـم",
     "created_at" => "تاريخ الإنشاء",

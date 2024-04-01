@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Support\Enum\UserStatus;
+use Modules\Card\Support\CardType;
 
 return new class extends Migration
 {
@@ -15,6 +16,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->string("reference")->index()->unique();
+            $table->enum("type", CardType::lists())->default('Person');
             $table->string("name");
             $table->string("full_name");
             $table->string("company_name")->nullable();
