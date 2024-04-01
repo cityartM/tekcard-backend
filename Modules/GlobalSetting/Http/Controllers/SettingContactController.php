@@ -52,7 +52,7 @@ class SettingContactController extends Controller
      */
     public function store(CreateSettingContactRequest $request)
     {
-        $data = $request->only(['display_name', 'value', 'icon', 'category']);
+        $data = $request->only(['display_name', 'value', 'icon', 'category','color']);
         $data['user_id'] = auth()->user()->id;
         $settingContact = $this->contacts->store($data);
 
@@ -95,7 +95,7 @@ class SettingContactController extends Controller
      */
     public function update(CreateSettingContactRequest $request, SettingContact $settingContact)
     {
-        $data = $request->only(['display_name', 'value', 'icon', 'category']);
+        $data = $request->only(['display_name', 'value', 'icon', 'category','color']);
 
         $contact = $this->contacts->update($settingContact->id, $data);
 

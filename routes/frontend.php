@@ -12,6 +12,11 @@ use App\Http\Controllers\FrontController;
 use Modules\Page\Models\Page;
 use Modules\Page\Http\Resources\PageResource;
 
+use App\Http\Controllers\WebhookController;
+
+
+Route::get('/webhooks/zapier/new-user', [WebhookController::class, 'newUser']);
+
 Route::get('/', function () {
     return Inertia::render('Home');
 })->name('landing.home');

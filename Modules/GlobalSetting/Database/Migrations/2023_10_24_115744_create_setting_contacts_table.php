@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('user_id');
             $table->string('display_name');
             $table->string('value');
+            $table->string('color')->nullable();
             $table->enum('category', ContactType::lists())->default(ContactType::CONTACTINFO);
             $table->string("base_url")->nullable();
             $table->enum("type",ContactAppsType::listsWitoutTrans())->default('Link');
