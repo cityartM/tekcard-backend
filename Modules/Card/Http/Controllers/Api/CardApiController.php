@@ -29,7 +29,7 @@ class CardApiController extends ApiController
 
     private $roles;
 
-    public $only = ['name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
+    public $only = ['type','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id', 'color', 'is_single_link', 'single_link_contact_id','is_main',
                     'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
                     ];
 
