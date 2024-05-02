@@ -96,6 +96,32 @@
                     <input type="text" class="form-control input-solid" id="gold_level"
                            name="gold_level" value="{{ setting('gold_level') }}">
                 </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.instagram_url')</label>
+                    <input type="text" class="form-control input-solid" id="instagram_url"
+                           name="instagram_url" value="{{ setting('instagram_url') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.tiktok_url')</label>
+                    <input type="text" class="form-control input-solid" id="tiktok_url"
+                           name="tiktok_url" value="{{ setting('tiktok_url') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.facebook_url')</label>
+                    <input type="text" class="form-control input-solid" id="facebook_url"
+                           name="facebook_url" value="{{ setting('facebook_url') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.youtube_url')</label>
+                    <input type="text" class="form-control input-solid" id="youtube_url"
+                           name="youtube_url" value="{{ setting('youtube_url') }}">
+                </div>
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.twitter_url')</label>
+                    <input type="text" class="form-control input-solid" id="twitter_url"
+                           name="twitter_url" value="{{ setting('twitter_url') }}">
+                </div>
+                
             </div>
         </div>
     </div>
