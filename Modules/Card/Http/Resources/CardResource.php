@@ -32,6 +32,8 @@ class CardResource extends JsonResource
             'job_title' =>  $this->job_title,
             'background' =>  new BackgroundResource($this->background),
             'color' =>  $this->color,
+            'color_icon' =>  $this->color_icon,
+            'color_qr' =>  $this->color_qr,
             'is_single_link' =>  $this->is_single_link,
             'single_link_contact_id' =>  new ContactSettingsResource($this->singleLink),
             'is_main' =>  $this->is_main,

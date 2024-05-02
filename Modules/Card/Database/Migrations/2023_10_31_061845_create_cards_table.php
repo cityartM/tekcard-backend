@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer("background_id")->nullable();
             $table->string("color")->nullable();
             $table->string("color_icon")->nullable();
+            $table->string("color_qr")->nullable();
             $table->boolean("is_single_link")->nullable();
             $table->integer("single_link_contact_id")->nullable();
             $table->unsignedInteger('user_id')->nullable();
