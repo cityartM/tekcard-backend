@@ -14,7 +14,7 @@ class CardContact extends Model
 {
     use HasFactory ;
 
-    protected $fillable = ['user_id','card_id', 'remark_id','group'];
+    protected $fillable = ['user_id','card_id', 'remark_id','group','lat','lon','address'];
 
 
     public function card()

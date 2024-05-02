@@ -14,9 +14,11 @@ use Illuminate\Support\Str;
 use Modules\Card\Http\Filters\CardKeywordSearch;
 use Modules\Card\Http\Requests\CreateCardRequest;
 use Modules\Card\Http\Requests\UpdateRefCardRequest;
+use Modules\Card\Http\Resources\CardContactResource;
 use Modules\Card\Http\Resources\CardResource;
 use Modules\Card\Models\Card;
 use Modules\Card\Models\CardStatistic;
+use Modules\Card\Repositories\CardContactRepository;
 use Modules\Card\Repositories\CardRepository;
 use Modules\Card\Support\StatisticType;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -33,10 +35,13 @@ class CardApiController extends ApiController
                     'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note',
                     ];
 
-    public function __construct(CardRepository $cards,RoleRepository $roles)
+    private $cardContacts;
+
+    public function __construct(CardRepository $cards,RoleRepository $roles,CardContactRepository $cardContacts)
     {
         $this->cards = $cards;
         $this->roles = $roles;
+        $this->cardContacts = $cardContacts;
     }
     public function index(Request $request)
     {
@@ -344,6 +349,28 @@ class CardApiController extends ApiController
         return $this->respondWithSuccess([
             'card' => new CardResource($card),
         ],  'Card shared successfully', 200);
+    }
+
+
+    public function saveContactNotRegistered(Request $request)
+    {
+        $data = $request->only($this->only);
+        $data['reference'] = Helper::generateCode(15);
+        //$data['user_id'] = ;
+        $card = $this->cards->create($data);
+
+        $dataContact = $request->only(['remark_id', 'group','lat','lon','address']);
+
+
+        $dataContact['card_id'] = $card->id;
+        $dataContact['user_id'] = auth()->id();
+
+        $cardContact = $this->cardContacts->create($dataContact);
+
+        return $this->respondWithSuccess([
+            'cardContact' => new CardContactResource($cardContact),
+        ], 'Card Contact created successfully', 200);
+
     }
 
 }

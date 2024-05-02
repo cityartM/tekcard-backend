@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Card Contact
     Route::apiResource('cardContacts', 'Api\CardContactApiController');
 
+    // add card contact not registered
+    Route::post('cardContacts/add_contact_not_registered', 'Api\CardApiController@saveContactNotRegistered');
+
     // card order
     Route::post('orders', 'Api\CardOrderApiController@store');
 

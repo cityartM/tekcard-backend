@@ -21,6 +21,9 @@ return new class extends Migration
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
             $table->foreign('remark_id')->references('id')->on('remarks')->onDelete('set null'); // Use 'set null' instead of 'null'
             $table->enum("group", GroupType::lists())->default('Peoples');
+            $table->string("lat")->nullable();
+            $table->string("lon")->nullable();
+            $table->string("address")->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string("color_icon")->nullable();
             $table->boolean("is_single_link")->nullable();
             $table->integer("single_link_contact_id")->nullable();
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->boolean("is_main")->default(0);
             $table->string("email")->nullable();
             $table->string("phone")->nullable();
@@ -37,7 +37,8 @@ return new class extends Migration
             $table->string("lon")->nullable();
             $table->string("address")->nullable();
             $table->string("note")->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->integer('shared_link')->default(0);
             $table->integer('saved_contact')->default(0);
             $table->integer('opened_link')->default(0);
