@@ -46,7 +46,7 @@ class CardResource extends JsonResource
             'card_avatar' => $this->getFirstMedia('CARD_AVATAR')?->getFullUrl() ?? null,
             'card_video' => $this->getFirstMedia('CARD_PDF')?->getFullUrl() ?? null,
             'card_pdf' => $this->getFirstMedia('CARD_VIDEO')?->getFullUrl() ?? null,
-            'watermark' => $this->getMedia('WATERMARK')->getUrl() ?? null,
+            'watermark' => $this->getFirstMedia('WATERMARK')?->getFullUrl() ?? null,
             'card_gallery' => $this->getMedia('CARD_GALLERY')->map?->getUrl() ?? [],
             'card_apps' =>  CardAppsResource::collection($this->contactApps),
             'shared_link' => $this->shared_link,
