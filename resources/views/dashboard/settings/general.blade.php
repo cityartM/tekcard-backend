@@ -121,7 +121,12 @@
                     <input type="text" class="form-control input-solid" id="twitter_url"
                            name="twitter_url" value="{{ setting('twitter_url') }}">
                 </div>
-                
+                <div class="form-group mt-5">
+                    <label for="name">@lang('app.linkedIn_url')</label>
+                    <input type="text" class="form-control input-solid" id="linkedIn_url"
+                           name="linkedIn_url" value="{{ setting('linkedIn_url') }}">
+                </div>
+
             </div>
         </div>
     </div>

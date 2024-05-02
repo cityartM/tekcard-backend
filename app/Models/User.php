@@ -14,7 +14,9 @@ use App\Presenters\UserPresenter;
 use App\Support\Enum\UserStatus;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Card\Models\Card;
+use Modules\Card\Models\CardStatistic;
 use Modules\Card\Models\Shipping;
+use Modules\Card\Support\StatisticType;
 use Modules\Company\Models\Company;
 use Modules\Plan\Models\Plan;
 use Modules\Plan\Models\UserPlan;
@@ -158,6 +160,11 @@ class User extends Authenticatable
     public function mainShipping()
     {
         return Shipping::query()->where('is_main',1)->first();
+    }
+
+    public function cardShares()
+    {
+        return $this->hasManyThrough(CardStatistic::class,Card::class,'user_id','card_id','id','id')->where('card_statistics.type',StatisticType::SHAREDLINK);
     }
 
 }
