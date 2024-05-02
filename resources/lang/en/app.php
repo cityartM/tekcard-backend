@@ -684,6 +684,15 @@ return [
         'about' => 'About',
         'privacy-policy' => 'Privacy Policy',
         'create_background' => 'Create Background',
+        'bronze_level' => 'Bronze Level',
+        'silver_level' => 'Silver Level',
+        'gold_level' => 'Gold Level',
+        'instagram_url' => 'Instagram URL',
+        'tiktok_url' => 'TikTok URL',
+        'facebook_url' => 'Facebook URL',
+        'youtube_url' => 'YouTube URL',
+        'twitter_url' => 'Twitter URL',
+
 
 
 ];

@@ -486,5 +486,14 @@ return [
     'about' => 'حول',
     'privacy-policy' => 'سياسة الخصوصية',
     'create_background' => 'إنشاء خلفية',
+    'bronze_level' => 'مستوى البرونز',
+    'silver_level' => 'مستوى الفضة',
+    'gold_level' => 'مستوى الذهب',
+    'instagram_url' => 'رابط إنستجرام',
+    'tiktok_url' => 'رابط تيك توك',
+    'facebook_url' => 'رابط الفيسبوك',
+    'youtube_url' => 'رابط يوتيوب',
+    'twitter_url' => 'رابط تويتر',
+
 
 ];

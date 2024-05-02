@@ -683,20 +683,14 @@ return [
         'about' => 'Hakkında',
         'privacy-policy' => 'Gizlilik Politikası',
         'create_background' => 'Arka Plan Oluştur',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        'bronze_level' => 'Bronz Seviye',
+        'silver_level' => 'Gümüş Seviye',
+        'gold_level' => 'Altın Seviye',
+        'instagram_url' => 'Instagram URL',
+        'tiktok_url' => 'TikTok URL',
+        'facebook_url' => 'Facebook URL',
+        'youtube_url' => 'YouTube URL',
+        'twitter_url' => 'Twitter URL',
 
 
 
