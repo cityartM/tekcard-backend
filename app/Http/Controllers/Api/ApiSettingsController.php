@@ -30,12 +30,14 @@ class ApiSettingsController extends ApiController
     {
         $contact = SettingContact::all();
         $shareBackground = Background::where('type', 'Share')->get();
-        $cardBackground = Background::where('type', 'Card')->get();
+        $cardBackground = Background::where('type', 'Card')->orWhere('user_id', auth()->user()->id)->get();
+        $userBackground = Background::where('user_id', auth()->user()->id)->get();
         $settings = [
             'app_name' => setting('app_name'),
             'contact' =>  ContactSettingsResource::collection($contact),
             'share_background' => BackgroundResource::collection($shareBackground),
             'card_background' => BackgroundResource::collection($cardBackground),
+            'user_background' => BackgroundResource::collection($userBackground),
             'countries' => CountryResource::collection(Country::all()),
             'delivery_price' => setting('delivery_price') ?? 0,
             'order_price' => setting('order_price') ?? 0,

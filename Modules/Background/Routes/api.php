@@ -13,6 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/background', function (Request $request) {
-    return $request->user();
-});
+
+Route::post('backgrounds', 'Api\BackgroundApiController@store');

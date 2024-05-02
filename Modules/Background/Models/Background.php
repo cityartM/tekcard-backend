@@ -13,7 +13,7 @@ class Background extends Model implements HasMedia
 {
     use HasFactory  , InteractsWithMedia;
 
-    protected $fillable = ['type'];
+    protected $fillable = ['type','user_id'];
 
 
     public function cards()

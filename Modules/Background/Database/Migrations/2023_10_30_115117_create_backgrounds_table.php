@@ -17,6 +17,8 @@ return new class extends Migration
         Schema::create('backgrounds', function (Blueprint $table) {
             $table->id();
             $table->enum('type',BackgroundType::lists())->default('Share');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
