@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string("lat")->nullable();
             $table->string("lon")->nullable();
             $table->string("address")->nullable();
+            $table->string("note")->nullable();
             $table->timestamps();
         });
     }
