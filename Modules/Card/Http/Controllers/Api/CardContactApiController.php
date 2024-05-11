@@ -60,7 +60,7 @@ class CardContactApiController extends ApiController
 
     public function store(CreateCardContactRequest $request)
     {
-        $data = $request->only(['card_id', 'remark_id', 'group']);
+        $data = $request->only(['card_id', 'remark_id', 'group','lat','lon','address']);
 
         $existCard = $this->cardContacts->checkExistCard($data['card_id'],auth()->id());
 
@@ -89,7 +89,7 @@ class CardContactApiController extends ApiController
 
     public function update(UpdateCardContactRequest $request, CardContact $cardContact)
     {
-        $data = $request->only(['remark_id', 'group']);
+        $data = $request->only(['remark_id', 'group','lat','lon','address']);
 
         $updatedCardContact = $this->cardContacts->update($cardContact->id,$data);
 
