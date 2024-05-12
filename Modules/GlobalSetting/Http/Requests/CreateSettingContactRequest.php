@@ -20,6 +20,7 @@ class CreateSettingContactRequest extends Request
             'display_name' => 'required|string|max:255',
             'value' => 'required|string|max:255',
             'icon' => 'image|mimes:jpeg,png,gif,svg|max:2048',
+            'icon2' => 'image|mimes:jpeg,png,gif,svg|max:2048',
            // 'type' => ['nullable', Rule::in(ContactType::lists())],
             'category' => 'required|string|max:255',
         ];

@@ -18,6 +18,7 @@ class ContactSettingsResource extends JsonResource
             'base_url' => $this->base_url,
             'type' => $this->type,
             'icon' => $this->getFirstMedia('Icon contact')?->getFullUrl() ?? null,
+            'icon2' => $this->getFirstMedia('Icon contact2')?->getFullUrl() ?? null,
             'color' => $this->color,
         ];
     }

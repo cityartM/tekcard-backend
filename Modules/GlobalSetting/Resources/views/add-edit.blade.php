@@ -79,6 +79,16 @@
                             :model=" $edit ? $settingContact : null "
                         />
                         <x-input-field
+                            :title="__('app.icon_upload2')"
+                            type="file"
+                            name="icon2"
+                            accept="icon2/*"
+                            col="12"
+                            row="3"
+                            class="mb-2 mt-5"
+                            :model=" $edit ? $settingContact : null "
+                        />
+                        <x-input-field
                     :title="__('Color')"
                     name="color"
                     type="color"

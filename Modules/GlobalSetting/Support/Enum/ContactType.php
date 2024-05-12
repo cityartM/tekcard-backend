@@ -6,6 +6,7 @@ class ContactType
 {
 
     const ICONCONTACT = 'Icon contact';
+    const ICONCONTACT2 = 'Icon contact2';
 
     const SOCIALMEDIA = 'Social Media';
     const CONTACTINFO = 'Contact Info';
