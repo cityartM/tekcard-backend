@@ -16,17 +16,17 @@ Route::prefix('contactuser')->group(function() {
 });
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('groups', GroupController::class)->middleware('permission:groups.manage');
+    Route::resource('groups', \Modules\ContactUser\Http\Controllers\GroupController::class)->middleware('permission:groups.manage');
 
 });
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('remarks', RemarkController::class)->middleware('permission:remarks.manage');
+    Route::resource('remarks', \Modules\ContactUser\Http\Controllers\RemarkController::class)->middleware('permission:remarks.manage');
 
 });
 
 Route::prefix(LaravelLocalization::setLocale().'/')->group(function(){
-    Route::resource('userContacts', userContactController::class)->middleware('permission:contacts.manage');
+    Route::resource('userContacts', \Modules\ContactUser\Http\Controllers\UserContactController::class)->middleware('permission:contacts.manage');
 
 });
 
