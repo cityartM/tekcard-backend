@@ -29,6 +29,7 @@ class CardContactResource extends JsonResource
             'lat' => $this->lat,
             'lon' => $this->lon,
             'address' => $this->address,
+            'note' => $this->note,
         ];
     }
 
