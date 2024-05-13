@@ -76,12 +76,17 @@ class UserPlanApiController extends ApiController
     {
           $existPlan= auth()->user()->plan->first();
 
-          if($existPlan) return $this->sendFailedResponse('You already have a plan', 200);
+          if($existPlan?->plan_id === $plan->id) return $this->sendFailedResponse('You already have a plan', 200);
 
           if($plan->type == PlanType::COMPANY)
           {
               return $this->sendFailedResponse('This plan is not for clients', 200);
           }
+
+          // if exist plan not  new plan upgrade and update old plan to expired
+         if($existPlan) {
+            $existPlan->update(['expired_date' => now()->subDay()->format('Y-m-d')]);
+         }
           $data = [
                 'display_name'=> $plan->getTranslations('display_name'),
                 'type' => $plan->type,
@@ -92,6 +97,17 @@ class UserPlanApiController extends ApiController
                 'nbr_user' => $plan->nbr_user,
                 'nbr_card_user' => $plan->nbr_card_user,
                 'has_dashboard' => $plan->has_dashboard,
+                'has_video' => $plan->has_video ?? 0,
+                'has_pdf' => $plan->has_pdf ?? 0,
+                'has_multiple_image' => $plan->has_multiple_image ?? 0,
+                'has_water_mark' => $plan->has_water_mark ?? 0,
+                'has_share_offline' => $plan->has_share_offline ?? 0,
+                'share_with_image' => $plan->share_with_image ?? 0,
+                'has_scan_ia' => $plan->has_scan_ia ?? 0,
+                'has_group_contact' => $plan->has_group_contact ?? 0,
+                'has_scan_location' => $plan->has_scan_location ?? 0,
+                'has_note_contact' => $plan->has_note_contact ?? 0,
+                'has_statistic' => $plan->has_statistic ?? 0,
                 'features' => $plan->features,
                 'user_id' => auth()->user()->id,
                 'plan_id' => $plan->id,
@@ -114,12 +130,15 @@ class UserPlanApiController extends ApiController
 
         $existPlan= auth()->user()->plan->first();
 
-
-        if($existPlan) return $this->sendFailedResponse('You already have a plan', 200);
+        if($existPlan?->plan_id === $plan->id) return $this->sendFailedResponse('You already have a plan', 200);
 
         if($plan->type == PlanType::CLIENT)
         {
             return $this->sendFailedResponse('This plan is not for companies', 200);
+        }
+        // if exist plan not  new plan upgrade and update old plan to expired
+        if($existPlan) {
+            $existPlan->update(['expired_date' => now()->subDay()->format('Y-m-d')]);
         }
         $data = [
             'display_name'=> $plan->getTranslations('display_name'),
