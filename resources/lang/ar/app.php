@@ -289,6 +289,7 @@ return [
     'update_setting_contact' => 'تحديث إعدادات الاتصال',
     'create_setting_contact' => 'إنشاء إعدادات الاتصال',
     'icon_upload' => 'تحميل الأيقونة',
+    'icon_upload2' => ' 2 تحميل الأيقونة',
     'icon' => 'أيقونة',
     'user_contacts_list' => 'قائمة جهات اتصال المستخدم',
 

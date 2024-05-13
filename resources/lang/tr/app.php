@@ -483,6 +483,7 @@ return [
 'update_setting_contact' => 'iletişim ayarını güncelle',
 'create_setting_contact' => 'iletişim ayarı oluştur',
 'icon_upload' => 'ikon yükle',
+'icon_upload2' => 'ikon yükle 2',
 'icon' => 'ikon',
 'user_contacts_list' => 'Kullanıcı İletişim Listesi',
 

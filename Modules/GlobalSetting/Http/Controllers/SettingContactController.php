@@ -52,12 +52,15 @@ class SettingContactController extends Controller
      */
     public function store(CreateSettingContactRequest $request)
     {
-        $data = $request->only(['display_name', 'value', 'icon', 'category','color']);
+        $data = $request->only(['display_name', 'value', 'icon','icon2', 'category','color']);
         $data['user_id'] = auth()->user()->id;
         $settingContact = $this->contacts->store($data);
 
         if ($request->hasFile('icon')) {
             $settingContact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
+        }
+        if ($request->hasFile('icon2')) {
+            $settingContact->addMedia($request->file('icon2'))->toMediaCollection(ContactType::ICONCONTACT2);
         }
 
         return redirect()->route('settingContacts.index')
@@ -95,13 +98,17 @@ class SettingContactController extends Controller
      */
     public function update(CreateSettingContactRequest $request, SettingContact $settingContact)
     {
-        $data = $request->only(['display_name', 'value', 'icon', 'category','color']);
+        $data = $request->only(['display_name', 'value', 'icon', 'icon2','category','color']);
 
         $contact = $this->contacts->update($settingContact->id, $data);
 
         if ($request->hasFile('icon')) {
             $contact->clearMediaCollection(ContactType::ICONCONTACT);
             $contact->addMedia($request->file('icon'))->toMediaCollection(ContactType::ICONCONTACT);
+        }
+        if ($request->hasFile('icon2')) {
+            $contact->clearMediaCollection(ContactType::ICONCONTACT2);
+            $contact->addMedia($request->file('icon2'))->toMediaCollection(ContactType::ICONCONTACT2);
         }
 
         return redirect()->route('settingContacts.index')->with('success', 'Setting contact updated successfully.');

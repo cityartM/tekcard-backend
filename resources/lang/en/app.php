@@ -514,6 +514,7 @@ return [
     'setting_contact_details' => 'Setting contact Details',
     'a_general_setting_contact_information.' => 'A general setting contact information',
     'icon_upload' => 'Icon upload',
+    'icon_upload2' => 'Icon upload 2',
     'update_setting_contact' => 'Update setting contact',
     'create_setting_contact' => 'Create setting contact',
     'icon' => 'icon',
