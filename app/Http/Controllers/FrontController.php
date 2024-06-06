@@ -12,12 +12,12 @@ use App\Mail\SendCard;
 
 class FrontController extends Controller
 {
-    
+
     public function AboutUs()
     {
-        
+
         $page = Page::where('name', 'about_us')->first();
-        
+
         return view('About_us', compact('page'));
     }
 
@@ -26,10 +26,10 @@ class FrontController extends Controller
     {
         //$card = Card::find($id);
         $card = Card::where('reference',$ref)->first();
-        
+
         $cardApps = CardApps::where('card_id',$card->id)->get();
 
-        
+
         return view('card',compact('card','cardApps'));
     }
 
@@ -37,11 +37,11 @@ class FrontController extends Controller
     {
         // Retrieve email from the request
         $email = $request->input('email');
-    //dd($card);
+
         // Send the email
         Mail::to($email)->send(new SendCard($card));
-    
-      
+
+
         return response()->json(['message' => 'Email sent successfully']);
     }
 
