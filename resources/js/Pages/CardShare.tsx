@@ -111,14 +111,16 @@ function Card({card}: {card: Card}) {
       email: card?.email
     };
 
-      const vcard = `BEGIN:VCARD
+      /*const vcard = `BEGIN:VCARD
       VERSION:4.0
       FN:${contact.name}
       TEL;TYPE=work,voice:${contact.phone}
       EMAIL:${contact.email}
-      END:VCARD`;
+      END:VCARD`;*/
 
-        const blob = new Blob([vcard], { type: "text/vcard" });
+       const vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+       const blob = new Blob([vcard], { type: "text/vcard" });
+
         const url = URL.createObjectURL(blob);
 
         const newLink = document.createElement('a');
