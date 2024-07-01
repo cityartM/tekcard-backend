@@ -13,7 +13,9 @@ class CountryResource extends JsonResource
     {
         return[
             'id' => $this->id,
-            'name' => $this->full_name,
+            'name' => $this->name,
+            'delivery_price' => $this->delivery_price,
+            'can_delivery' => $this->display ? true : false,
         ];
     }
 }
