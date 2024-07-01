@@ -1,0 +1,1 @@
+import{q as s,j as o,a}from"./front-03baf70c.js";import{L as e}from"./LandingLayout-89ea4121.js";import"./bootstrap-52c5088c.js";function i(){const{page:t}=s().props;return console.log(t),console.log("AboutUs page"),o.jsx(e,{children:o.jsx(a,{title:"About Us"})})}export{i as default};
