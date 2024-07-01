@@ -133,7 +133,7 @@ function Card({card}: {card: Card}) {
            contact.jobTitle +"\nORG:" +
            contact.company +"\nURL:" +
            contact.website + "\nADR:" +
-           contact.address +
+           contact.address + "\nADR:" +
            contact.socialMedia.map(media => `X-SOCIALPROFILE;TYPE=${media.name}:${media.url}`).join('\n') +
            "\nEND:VCARD";
 
