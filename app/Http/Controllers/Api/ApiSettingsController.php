@@ -30,6 +30,14 @@ class ApiSettingsController extends ApiController
     {
         $contact = SettingContact::all();
         $shareBackground = Background::where('type', 'Share')->get();
+        // check if user is authenticated
+        if (Auth::check()) {
+            $cardBackground = Background::where('type', 'Card')->orWhere('user_id', auth()->user()->id)->get();
+            $userBackground = Background::where('user_id', auth()->user()->id)->get();
+        } else {
+            $cardBackground = Background::where('type', 'Card')->get();
+            $userBackground = [];
+        }
         $cardBackground = Background::where('type', 'Card')->orWhere('user_id', auth()->user()->id)->get();
         $userBackground = Background::where('user_id', auth()->user()->id)->get();
         $settings = [
