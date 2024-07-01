@@ -108,7 +108,15 @@ function Card({card}: {card: Card}) {
     const contact = {
       name: card?.full_name,
       phone: card?.phone,
-      email: card?.email
+      email: card?.email,
+      jobTitle: card?.job_title,
+      company: card?.company_name,
+      website: card?.url_web_site,
+      address: card?.address, // Assuming card.address contains the address info
+      socialMedia: card.card_apps.map(app => ({
+        name: app.contact?.display_name,
+        url: app.contact?.base_url,
+      }))
     };
 
       /*const vcard = `BEGIN:VCARD
@@ -118,7 +126,17 @@ function Card({card}: {card: Card}) {
       EMAIL:${contact.email}
       END:VCARD`;*/
 
-       const vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+       const vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+           contact.name + "\nTEL;TYPE=work,voice:" +
+           contact.phone + "\nEMAIL:" +
+           contact.email + "\nTITLE:" +
+           contact.jobTitle +"\nORG:" +
+           contact.company +"\nURL:" +
+           contact.website + "\nADR:" +
+           contact.address +
+           contact.socialMedia.map(media => `X-SOCIALPROFILE;TYPE=${media.name}:${media.url}`).join('\n') +
+           "\nEND:VCARD";
+
        const blob = new Blob([vcard], { type: "text/vcard" });
 
         const url = URL.createObjectURL(blob);
@@ -157,7 +175,13 @@ function Card({card}: {card: Card}) {
           </div>
 
           <div className="mb-2 text-base text-[#2273AF] font-bold">
-            {'web site :'} {card?.url_web_site}
+            {'Company :'} {card?.company_name}
+          </div>
+          <div className="mb-2 text-base text-[#2273AF] font-bold">
+            {'Web site :'} {card?.url_web_site}
+          </div>
+          <div className="mb-2 text-base text-[#2273AF] font-bold">
+            {'Address :'} {card?.address}
           </div>
 
         </div>
@@ -248,6 +272,7 @@ type Card = {
   company_name: string;
   company: null;
   job_title: string;
+  address: string;
   background: {
     id: number;
     type: string;
