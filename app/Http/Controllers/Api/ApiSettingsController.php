@@ -38,8 +38,8 @@ class ApiSettingsController extends ApiController
             $cardBackground = Background::where('type', 'Card')->get();
             $userBackground = [];
         }
-        $cardBackground = Background::where('type', 'Card')->orWhere('user_id', auth()->user()->id)->get();
-        $userBackground = Background::where('user_id', auth()->user()->id)->get();
+       // $cardBackground = Background::where('type', 'Card')->orWhere('user_id', auth()->user()->id)->get();
+       // $userBackground = Background::where('user_id', auth()->user()->id)->get();
         $settings = [
             'app_name' => setting('app_name'),
             'contact' =>  ContactSettingsResource::collection($contact),
