@@ -11,7 +11,7 @@ use Modules\Address\Models\City;
 use Modules\Address\Models\Country;
 use Modules\Address\Models\Wilaya;
 use Modules\Address\Transformers\CityResource;
-use Modules\Address\Transformers\CountryResource;
+use App\Http\Resources\CountryResource;
 
 
 class ApiAddressController extends ApiController
@@ -20,19 +20,23 @@ class ApiAddressController extends ApiController
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function getCountries()
+    public function countries()
     {
-        $countries = Country::all();
-        return $this->respondWithSuccess(CountryResource::collection($countries));
+        $countries = Country::where('display',1)->get();
+        return $this->respondWithSuccess([
+            'countries' => CountryResource::collection($countries)
+        ],__('response.response_successfully'),
+            200);
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function getWilayas($id)
+    public function wilayas(Request $request)
     {
-        $wilaya = Wilaya::where('country_id',$id)->get();
+        $wilaya = Wilaya::where('country_id',$request->country_id)->get();
+
         return $this->respondWithSuccess(WilayaResource::collection($wilaya));
     }
 
@@ -40,7 +44,7 @@ class ApiAddressController extends ApiController
      * Store a newly created resource in storage.
      * @return Renderable
      */
-    public function getCities($id)
+    public function cities($id)
     {
         $city = City::where('wilaya_id',$id)->get();
         return $this->respondWithSuccess(CityResource::collection($city));

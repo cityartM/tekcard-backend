@@ -29,7 +29,6 @@ class FrontController extends Controller
 
         $cardApps = CardApps::where('card_id',$card->id)->get();
 
-
         return view('card',compact('card','cardApps'));
     }
 

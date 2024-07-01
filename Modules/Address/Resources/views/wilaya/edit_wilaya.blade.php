@@ -1,6 +1,15 @@
 @extends('address::layouts.master')
 
 @section('content')
+    @section('actions')
+        <a href="{{ route('address.index') }}" class="btn btn-sm btn-primary">
+            <i class="ki-duotone ki-black-left-line fs-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            @lang('app.back')
+        </a>
+    @endsection
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -8,34 +17,64 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>@lang('Edit willaya')</h4>
+                            <h4>@lang('app.edit_wilaya')</h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     @csrf
                                     <input type="hidden" name="checked_update" value="wilaya">
 
-                                    {!! Form::label('name['.$locale.']', __('Name '.$locale)) !!}
-                                    {!! Form::text('name['.$locale.']', $wilaya->name, ['class' => 'form-control', 'required']) !!}
-
-
-                                    <label>@lang("Country")</label>
-                                    <select name="country_id" class="form-control">
-                                        <option value="{{$country->id}}" selected>{{ $country->name }}</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{$country->id}}">{{ $country->name }}</option>
+                                    <x-languages-tab>
+                                        @foreach(\App\Helper\Helper::getLocalesOrder() as $locale => $value)
+                                            <div class="tab-pane fade {{$loop->first ? 'active show' : ''}}" id="language_{{$locale}}" role="tabpanel" aria-labelledby="language_{{$locale}}">
+                                                <div class="row">
+                                                    <x-fields.text-field
+                                                        :title="__('app.name')"
+                                                        :placeholder="__('app.name')"
+                                                        name="name"
+                                                        col="12"
+                                                        type="text"
+                                                        required
+                                                        class="mt-0"
+                                                        :index="$locale"
+                                                        :locale="$locale"
+                                                        :model=" $wilaya"
+                                                    />
+                                                </div>
+                                            </div>
                                         @endforeach
+                                    </x-languages-tab>
+                                    <x-select-field
+                                        :title="__('app.country')"
+                                        name="country_id"
+                                        col="12"
+                                        class="mb-5 mt-5"
+                                        required
+                                        :data="collect($countries)"
+                                        :model="$wilaya"
+                                        :isselect2="true"
+                                    />
 
-                                    </select>
+                                    <x-input-field
+                                        :title="__('app.delivery_price')"
+                                        name="delivery_price"
+                                        type="text"
+                                        col="12"
+                                        class="mb-5 mt-5"
+                                        :model="$wilaya"
+                                    />
 
-                                    {!! Form::label('lat', __('Latitude')) !!}
-                                    {!! Form::text('lat', $wilaya->lat, ['class' => 'form-control', 'required']) !!}
+                                    {!! Form::label('code', __('app.code'), ['class' => 'd-flex align-items-center fs-5 fw-bold']) !!}
+                                    {!! Form::text('code',$wilaya->code, ['class' => 'form-control mt-2 mb-5']) !!}
 
-                                    {!! Form::label('lon', __('Longitude')) !!}
-                                    {!! Form::text('lon', $wilaya->lon, ['class' => 'form-control', 'required']) !!}
+                                    {!! Form::label('lat', __('app.latitude'), ['class' => 'd-flex align-items-center fs-5 fw-bold']) !!}
+                                    {!! Form::text('lat', $wilaya->lat, ['class' => 'form-control mt-2']) !!}
+
+                                    {!! Form::label('lon', __('app.longitude'), ['class' => 'd-flex align-items-center fs-5 fw-bold mt-5']) !!}
+                                    {!! Form::text('lon', $wilaya->lon, ['class' => 'form-control mt-2']) !!}
                                 </div>
                             </div>
                         </div>
@@ -44,10 +83,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-md-12 text-right">
-                            <a href="{{ route('address.index') }}" class="btn btn-outline-secondary mr-1">
-                                <i class="fas fa-times"></i> @lang('Cancel')
-                            </a>
-                            {!! Form::submit(__('Save'), ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit(__('app.save'), ['class' => 'btn btn-sm btn-primary']) !!}
                         </div>
                     </div>
                 </div>

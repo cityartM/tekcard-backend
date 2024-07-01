@@ -4,6 +4,8 @@ namespace Modules\Address\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Address\Repositories\CountryRepository;
+use Modules\Address\Repositories\EloquentCountry;
 
 class AddressServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,7 @@ class AddressServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->singleton(CountryRepository::class, EloquentCountry::class);
     }
 
     /**

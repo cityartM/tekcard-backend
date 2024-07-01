@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 
+use App\Helper\Helper;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 /*use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,8 +22,12 @@ class CountriesSeeder extends Seeder
         //Get all of the countries
         $countries = Countries::getList();
         foreach ($countries as $countryId => $country) {
+            $ar = Helper::translate('ar',$country['name']);
+            // sleep(1);
+            $fr = Helper::translate('fr',$country['name']);
             DB::table('countries')->insert(array(
                 'id' => $countryId,
+                'display' => (($country['name'] == 'Algeria' || $country['name'] =='Turkey' || $country['name'] == 'Tunisia')? 1:0),
                 'capital' => ((isset($country['capital'])) ? $country['capital'] : null),
                 'citizenship' => ((isset($country['citizenship'])) ? $country['citizenship'] : null),
                 'country_code' => $country['country-code'],
@@ -32,7 +37,11 @@ class CountriesSeeder extends Seeder
                 'full_name' => ((isset($country['full_name'])) ? $country['full_name'] : null),
                 'iso_3166_2' => $country['iso_3166_2'],
                 'iso_3166_3' => $country['iso_3166_3'],
-                'name' => $country['name'],
+                'name' => json_encode([
+                    'en' => $country['name'],
+                    'ar' => $ar,
+                    'fr' => $fr,
+                ]),
                 'region_code' => $country['region-code'],
                 'sub_region_code' => $country['sub-region-code'],
                 'eea' => (bool)$country['eea'],

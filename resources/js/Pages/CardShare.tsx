@@ -37,6 +37,8 @@ export default function Home({}: PropsWithChildren) {
     setData('email', e.target.value);
   }*/
 
+
+
   return (
     <div>
       <Head title="Welcome" />
@@ -96,6 +98,34 @@ function Card({card}: {card: Card}) {
   const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setData('email', e.target.value);
   }
+
+  const handleVCard = () => {
+    console.log('vcard')
+  }
+
+
+  const handleDownloadVCard = () => {
+    const contact = {
+      name: card?.full_name,
+      phone: card?.phone,
+      email: card?.email
+    };
+
+      const vcard = `BEGIN:VCARD
+      VERSION:4.0
+      FN:${contact.name}
+      TEL;TYPE=work,voice:${contact.phone}
+      EMAIL:${contact.email}
+      END:VCARD`;
+
+        const blob = new Blob([vcard], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
+
+        const newLink = document.createElement('a');
+        newLink.download = `${contact.name}.vcf`;
+        newLink.href = url;
+        newLink.click();
+      };
   return (
     <div className="relative">
       <div className="h-[30vh] w-full">
@@ -116,6 +146,21 @@ function Card({card}: {card: Card}) {
         </div>
 
         <div className={'mt-10'}>
+          <div className="mb-2 text-base text-[#2273AF] font-bold">
+            {'Phone :'} {card?.phone}
+          </div>
+
+          <div className="mb-2 text-base text-[#2273AF] font-bold">
+            {'Email :'} {card?.email}
+          </div>
+
+          <div className="mb-2 text-base text-[#2273AF] font-bold">
+            {'web site :'} {card?.url_web_site}
+          </div>
+
+        </div>
+
+        <div className={'mt-5'}>
           <div className="text-base text-[#2273AF] font-bold">
             {'Social Media'}
           </div>
@@ -133,6 +178,14 @@ function Card({card}: {card: Card}) {
             ))}
           </div>
         </div>
+
+        <button
+            //type="submit"
+            className={'mb-5 flex-shrink-0 px-[3.6875rem] py-[1rem] w-full lg:w-auto h-[3.5rem] rounded-[4.5rem] border-sky-200 shadow-md text-white bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}
+            onClick={handleDownloadVCard}
+        >
+          {'Add to contact'}
+        </button>
 
         {/*
         <div className={'mt-10'}>
@@ -155,7 +208,7 @@ function Card({card}: {card: Card}) {
           {JSON.stringify(card, null, 2)}
       </pre>*/}
 
-      <form onSubmit={(event) => handleSubmit(event)} className={'max-w-lg mx-auto lg:max-w-5xl flex flex-col lg:flex-col items-center gap-8 ml-5 mr-5'}>
+      {/*<form onSubmit={(event) => handleSubmit(event)} className={'max-w-lg mx-auto lg:max-w-5xl flex flex-col lg:flex-col items-center gap-8 ml-5 mr-5'}>
         <input
           type="text"
           placeholder={'Enter your email'}
@@ -165,11 +218,11 @@ function Card({card}: {card: Card}) {
         />
         <button
           type="submit"
-          className={'flex-shrink-0 px-[3.6875rem] py-[1rem] w-full lg:w-auto h-[3.5rem] rounded-[4.5rem] border-sky-200 shadow-md text-white bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90% hover:to-100% hover:from-20% hover:shadow-lg'}
+          className={'mb-5 flex-shrink-0 px-[3.6875rem] py-[1rem] w-full lg:w-auto h-[3.5rem] rounded-[4.5rem] border-sky-200 shadow-md text-white bg-gradient-to-r from-[#468dcb80] from-10% to-[#45c8f080] to-90% hover:to-100% hover:from-20% hover:shadow-lg'}
         >
           {'Subscribe'}
         </button>
-      </form>
+      </form>*/}
     </div>
   )
 }
@@ -187,6 +240,9 @@ type Card = {
   reference: string;
   name: string;
   full_name: string;
+  phone: string;
+  email: string;
+  url_web_site: string;
   company_name: string;
   company: null;
   job_title: string;

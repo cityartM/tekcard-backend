@@ -7,19 +7,38 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Address\Models\Country;
 use Modules\Address\Models\Wilaya;
-
+use Modules\Address\Repositories\CountryRepository;
+use App\Helpers\Helper;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
+         /**
+     * @var CountryRepository
      */
-    public function index()
+    private $countries;
+    protected $request;
+
+    /**
+     * ServicesController constructor.
+     * @param CountryRepository $services
+     */
+    public function __construct(CountryRepository $countries, Request $request)
     {
-        $Countries= Country::all();
-        $Willayas= Wilaya::with('country')->paginate(10);
-        return view('address::wilaya.index',compact('Countries','Willayas'));
+        $this->countries = $countries;
+        $this->request = $request;
+
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->wantsJson()) {
+            return $this->countries->getWilayaDatatables()->datatables($request);
+        }
+        return view("address::wilaya.index_wilaya")->with([
+            "columns" => $this->countries->getWilayaDatatables()::columns(),
+        ]);
+
     }
 
     /**
@@ -28,13 +47,14 @@ class AddressController extends Controller
      */
     public function create(Request $request)
     {
-            $Countries= Country::all();
-            $countryOptions = $Countries->map(function ($country) {
+            $countryOptions= Country::where('display',1)->pluck('name', 'id');
+            //$Countries= Country::where('display',1)->pluck('name', 'id');
+            /*$countryOptions = $Countries->map(function ($country) {
                 return [
                     'value' => $country->id,
-                    'label' => json_decode($country->name, true)['en'], // Adjust the locale as needed
+                    'label' => $country->name, // Adjust the locale as needed
                 ];
-            })->pluck('label', 'value')->toArray();
+            })->pluck('label', 'value')->toArray();*/
             return view('address::wilaya.create_wilaya',compact('countryOptions'));
     }
 
@@ -47,34 +67,25 @@ class AddressController extends Controller
     {
 
         $request->validate([
-            'name.en' => 'required',
-            'name.ar' => 'required',
-            'name.fr' => 'required',
-            'lat' => 'required',
-            'lon' => 'required',
+            'name' => 'required|array',
+            'code' => 'required',
+            'country_id' => 'required',
         ]);
 
-        $name = [
-            'en' => $request->input('name.en'),
-            'ar' => $request->input('name.ar'),
-            'fr' => $request->input('name.fr'),
-        ];
-        if ($request->has('country_id')) {
-            $request->validate([
-                'country_id' => 'required',
-                'code' => 'required',
-            ]);
+        $data =$request->all();
 
-            Wilaya::create([
-                'name' => json_encode($name),
-                'country_id' => $request->input('country_id'),
-                'lat' => $request->input('lat'),
-                'lon' => $request->input('lon'),
-                'code' => $request->input('code'),
-            ]);
+        if($this->request->isJson() || $this->request->is('multipart/form-data')){
+            $data['name'] = Helper::translateAttribute($data['name']);
+        }else{
+            $lang = LaravelLocalization::getCurrentLocale();
 
-            return redirect()->route('address.index')->with('success', 'Wilaya created successfully.');
+            $data['name'] = Helper::translateAttribute($data['name'] + ['lang' => $lang]);
         }
+
+        Wilaya::create($data);
+
+        return redirect()->route('address.index')->with('success', 'Wilaya created successfully.');
+
 
     }
 
@@ -98,10 +109,10 @@ class AddressController extends Controller
     {
         $locale = app()->getLocale();
         $wilaya = Wilaya::find($id);
-        $country = Country::findOrFail($wilaya->country_id);
-        $countries = Country::all();
+        //$country = Country::findOrFail($wilaya->country_id);
+        $countries = Country::where('display',1)->pluck('name','id');
         //return $country;
-        return view('address::wilaya.edit_wilaya', compact('wilaya', 'country','countries','locale'));
+        return view('address::wilaya.edit_wilaya', compact('wilaya','countries','locale'));
     }
 
     /**
@@ -112,17 +123,25 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $wilaya = Wilaya::findOrFail($id);
             $validatedData = $request->validate([
                 'name.*' => 'required',
-                'lat' => 'required',
-                'lon' => 'required',
                 'country_id' => 'required',
+                'delivery_price' => 'required',
+                'lan' => 'nullable',
+                'lon' => 'nullable',
             ]);
             $wilaya->name = $validatedData['name'];
             $wilaya->country_id = $validatedData['country_id'];
-            $wilaya->lat = $validatedData['lat'];
-            $wilaya->lon = $validatedData['lon'];
+            $wilaya->delivery_price = $validatedData['delivery_price'];
+            if(isset( $validatedData['lat'])){
+                $wilaya->lat = $validatedData['lat'];
+            }
+            if(isset( $validatedData['lat'])){
+                $wilaya->lon = $validatedData['lon'];
+            }
+
             $wilaya->save();
             return redirect()->route('address.index')->with('success', 'Wilaya updated successfully.');
     }

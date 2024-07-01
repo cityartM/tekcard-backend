@@ -694,6 +694,16 @@ return [
         'youtube_url' => 'YouTube URL',
         'twitter_url' => 'Twitter URL',
 
+        'flag' => 'Flag',
+        "display" => "Display",
+        "phone_code" =>"Phone Code",
+        "currencies" => "Currencies",
+        "currencies_list" => "Currencies list",
+        "add_currency" => "Add currency",
+        "code_iso" => "ISO code",
+        "exchange_rate" =>"Exchange rate",
+
+
 
 
 ];

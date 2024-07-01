@@ -11,7 +11,7 @@
             margin: 0 auto;
             text-align: center;
         }
-        
+
         input[type="email"] {
             width: 100%;
             padding: 10px;
@@ -21,7 +21,7 @@
             box-sizing: border-box;
             font-size: 16px;
         }
-        
+
         .send-email-btn {
             background-color: #007bff;
             color: #fff;
@@ -32,7 +32,7 @@
             font-size: 16px;
             transition: background-color 0.3s;
         }
-        
+
         .send-email-btn:hover {
             background-color: #0056b3;
         }
@@ -47,7 +47,7 @@
             <a href="javascript:history.back();" class="btn btn-sm btn-black" style="text-decoration: none; color: black;">X</a>
         </div>
         <div class="cover-image">
-            <img src="{{ $card->background->getFirstMediaUrl('background') }}" alt="cover image">
+            <img src="{{ $card->background?->getFirstMediaUrl('background') }}" alt="cover image">
         </div>
         <div class="card-infos">
             <div class="profile-image">
@@ -56,7 +56,7 @@
             <div class="tdb">
                 <h3 class="name">{{ $card->full_name}}</h3>
                 <p class="desc">{{ $card->job_title}}</p>
-                
+
             </div>
         </div>
         <div class="social-media">
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-      
+
         <form method="POST" action="{{ route('send-card-by-email', ['card' => $card->id]) }}">
         @csrf
         <input type="email" name="email" placeholder="Enter your email" required>
@@ -81,6 +81,6 @@
     </form>
     </br>
     </div>
-    
+
 </body>
 </html>

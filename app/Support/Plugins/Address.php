@@ -30,8 +30,8 @@ class Address extends Plugin
             ->permissions(['address.manage'])
             ->addChildren([
                 $countries,
-                $wilayas,
-                $cities
+                //$wilayas,
+                //$cities
             ]);
     }
 }

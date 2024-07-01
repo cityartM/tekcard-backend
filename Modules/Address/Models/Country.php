@@ -9,10 +9,14 @@ use Spatie\Translatable\HasTranslations;
 
 class Country extends Model
 {
-    use HasFactory;
     use HasGoogleTranslationTrait;
     protected $table = 'countries';
-    protected $fillable = ['name', 'code', 'lat', 'lon'];
-    protected array $translatable = ["full_name"];
+    protected $fillable = ['name', 'display','country_code','currency_code','calling_code','delivery_price'];
+    protected array $translatable = ["full_name", "name"];
+
+    protected $casts = [
+        'name' => 'json',
+        "display" => 'boolean',
+    ];
 
 }

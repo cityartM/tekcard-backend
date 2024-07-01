@@ -1,93 +1,128 @@
-@extends('address::layouts.master')
+@extends('layouts.dash')
+
+@section('page-title', __('app.Addresses'))
+@section('page-heading', __('app.Addresses'))
+
+@section('breadcrumbs')
+    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">@lang('app.Addresses')</h1>
+    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+        <li class="breadcrumb-item text-muted">
+            <a href="" class="text-muted text-hover-primary">@lang('app.countries')</a>
+        </li>
+        <li class="breadcrumb-item">
+            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+        </li>
+        <li class="breadcrumb-item text-muted">@lang('app.countries')</li>
+    </ul>
+@stop
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                        <!--begin::Add user-->
-                        <a href="{{ route('country.create', ['type' => 'country']) }}" class="btn btn-primary">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black"></rect>
-                                    <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black"></rect>
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                            @lang('app.add_country')
-                        </a>
-                        <!--end::Add user-->
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th>@lang('app.id')</th>
-                                <th>@lang('app.name')</th>
-                                <th>@lang('app.code')</th>
-                                <th>@lang('app.latitude')</th>
-                                <th>@lang('app.longitude')</th>
-                                <th>@lang('app.actions')</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($Countries as $country)
-{{--                                @php--}}
-{{--                                    /** @var \Modules\Categories\Models\Category $country */--}}
-{{--                                @endphp--}}
-                                <tr>
-                                    <td class="align-center">{{ $country->id }}</td>
-                                    <td>{{ $country->name }}</td>
-                                    <td>{{ $country->code }}</td>
-                                    <td>{{ $country->lat }}</td>
-                                    <td>{{ $country->lon }}</td>
+    @section('actions')
+        <a href="{{ route('country.create', ['type' => 'country']) }}" class="btn btn-sm btn-primary">
+            <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+            @lang('app.add_country')
+        </a>
+    @endsection
+    @include('partials.messages')
+    <x-card-content>
+        <x-card-header>
+            <x-card-title>
+                <x-datatable-search-input/>
+            </x-card-title>
+        </x-card-header>
+        <x-card-body>
+            <x-datatable-html>
+                <td>{{__("app.flag") }}</td>
+                <td>{{__("app.name") }}</td>
+                <td>{{__("app.display") }}</td>
+                <td>{{__('app.delivery_price') }}</td>
+            </x-datatable-html>
+        </x-card-body>
+    </x-card-content>
 
-                                    <td>
-                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">@lang('app.Actions')
-                                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
-                                            <span class="svg-icon svg-icon-5 m-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon--></a>
-                                        <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="{{ route('country.edit', $country->id) }}" class="menu-link px-3">@lang('app.Edit')</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" onclick="event.preventDefault();document.getElementById('delete-country-{{$country->id}}').submit();">Delete</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu-->
-                                        <form class="hidden" action="{{ route('country.destroy',$country->id) }}" id="delete-country-{{$country->id}}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <input type="hidden" name="checking_id" value="country">
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="">
-{{--                                {!! $Countries->links('vendor.pagination.bootstrap-4') !!}--}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@endsection
+
+@section("scripts")
+    <script src={{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}></script>
+    <x-datatable.script
+        :columns="$columns"
+        :route="route('country.index')"
+    />
+    <script>
+        "use strict";
+        $(function () {
+            let table;
+            table = $('#datatables').DataTable({
+                searching: true,
+                ordering: true,
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                searchDelay: 500,
+                order: [[3, 'desc']],
+                @if(\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() == "ar")
+                language: {
+                    url: "{{asset("assets/datatable-ar.json")}}"
+                }
+                @endif
+
+            });
+
+            $('#datatable_search_input').keyup(function (e) {
+                table.search(e.target.value).draw();
+            });
+            table.on("draw", function () {
+                KTMenu.createInstances();
+                $('.delete_confirm').click(function (event) {
+                    var form = $(this).closest("form");
+                    event.preventDefault();
+                    Swal.fire({
+                        title: $(this).data("confirm-title"),
+                        text: $(this).data("confirm-text"),
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: $(this).data("confirm-delete"),
+                        cancelButtonText: $(this).data("confirm-cancel"),
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Create a form element
+                            var form = document.createElement("form");
+
+                            // Set form attributes
+                            const hrefValue = $(this).attr('href');
+
+                            form.setAttribute("action", hrefValue);
+                            form.setAttribute("method", "POST");
+                            form.setAttribute("id", "deleteServiceForm");
+
+                            // Create a hidden input field for the DELETE method
+                            var methodField = document.createElement("input");
+                            methodField.setAttribute("type", "hidden");
+                            methodField.setAttribute("name", "_method");
+                            methodField.setAttribute("value", "DELETE");
+                            form.appendChild(methodField);
+
+                            // Create a CSRF token field
+                            var csrfField = document.createElement("input");
+                            csrfField.setAttribute("type", "hidden");
+                            csrfField.setAttribute("name", "_token");
+                            csrfField.setAttribute("value", "{{ csrf_token() }}");
+                            form.appendChild(csrfField);
+                            // Find the anchor element
+                            var anchor = document.querySelector(".delete_confirm");
+                            // Replace the anchor with the form
+                            anchor.parentNode.replaceChild(form, anchor);
+                            // Append the anchor to the form
+                            form.appendChild(anchor);
+                            form.submit();
+                        }
+                    })
+                });
+            });
+
+        });
+    </script>
 
 @endsection

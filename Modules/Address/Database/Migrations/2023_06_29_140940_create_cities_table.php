@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->foreignId('wilaya_id')->constrained('wilayas')->cascadeOnDelete();
+//            $table->foreignId('wilaya_id')->constrained('wilayas')->cascadeOnDelete();
+            $table->unsignedBigInteger('wilaya_id')->nullable();
             $table->string('lat');
             $table->string('lon');
             $table->integer('post_code');

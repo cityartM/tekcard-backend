@@ -7,18 +7,48 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Address\Models\Country;
 use Modules\Address\Models\Wilaya;
+use Modules\Address\Repositories\CountryRepository;
+use App\Helpers\Helper;
+use App\Models\Currency;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class CountryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
+       /**
+     * @var CountryRepository
      */
-    public function index()
+    private $countries;
+    protected $request;
+
+    /**
+     * ServicesController constructor.
+     * @param CountryRepository $services
+     */
+    public function __construct(CountryRepository $countries, Request $request)
     {
-        $Countries= Country::all();
+        $this->countries = $countries;
+        $this->request = $request;
+
+    }
+    /*public function index()
+    {
+        $Countries= Country::orderBy('display','desc')->paginate(10);
         $Willayas= Wilaya::with('country')->paginate(10);
         return view('address::country.index_country',compact('Countries','Willayas'));
+    }*/
+
+
+    public function index(Request $request)
+    {
+
+        if ($request->wantsJson()) {
+            return $this->countries->getDatatables()->datatables($request);
+        }
+
+        return view("address::country.index_country")->with([
+            "columns" => $this->countries->getDatatables()::columns(),
+        ]);
+
     }
 
     /**
@@ -27,7 +57,8 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('address::country.create_country');
+        $currencies = Currency::pluck('iso_code','iso_code');
+        return view('address::country.create_country',compact('currencies'));
     }
 
     /**
@@ -38,15 +69,25 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name.en' => 'required',
-            'name.ar' => 'required',
-            'name.fr' => 'required',
-            'lat' => 'required',
-            'lon' => 'required',
-            'code' => 'required',
+            'name' => 'required|array',
+            //'currency_code' => 'required',
         ]);
 
-        Country::create(array_merge(request()->all()));
+        $data =$request->all();
+
+
+        if($this->request->isJson() || $this->request->is('multipart/form-data')){
+            $data['name'] = Helper::translateAttribute($data['name']);
+        }else{
+            $lang = LaravelLocalization::getCurrentLocale();
+
+            $data['name'] = Helper::translateAttribute($data['name'] + ['lang' => $lang]);
+        }
+
+        if (empty($data['display'])){
+            $data['display'] = 0;
+        }
+        Country::create($data);
         return redirect()->route('country.index')->with('success', 'Country created successfully.');
     }
 
@@ -68,8 +109,8 @@ class CountryController extends Controller
     public function edit($id)
     {
         $country = Country::find($id);
-        $locale = app()->getLocale();
-        return view('address::country.edit_country', compact('country','locale'));
+        $currencies = Currency::pluck('iso_code','iso_code');
+        return view('address::country.edit_country', compact('country','currencies'));
     }
 
     /**
@@ -81,13 +122,18 @@ class CountryController extends Controller
     public function update(Request $request, $id)
     {
         $country = Country::findOrFail($id);
-        $country->update(request()->validate([
+
+
+        $request->validate([
             'name' => 'required|array',
-            'name.*' => 'required|string',
-            'code' => 'required|string',
-            'lat' => 'required|string',
-            'lon' => 'required|string',
-        ]));
+            //'currency_code' => 'required',
+        ]);
+
+        $data =$request->all();
+        if (empty($data['display'])){
+            $data['display'] = 0;
+        }
+        $country->update($data);
         return redirect()->route('country.index')->with('success', 'Country updated successfully.');
     }
 

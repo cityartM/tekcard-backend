@@ -16,19 +16,16 @@ return new class extends Migration
         Schema::create('wilayas', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->double('lat');
-            $table->double('lon');
-           // $table->unsignedBigInteger('country_id')->nullable();
-            $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
+            $table->string('code')->nullable();
+            $table->double("delivery_price", 10, 2)->default(100);
+            $table->double('lat')->nullable();
+            $table->double('lon')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+//          $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
             $table->timestamps();
         });
     }
-/*Schema::table('wilayas', function (Blueprint $table) {
-        $table->foreign('country_id')
-            ->references('id')
-            ->on('countries')
-            ->onDelete('set null');
-    });*/
+
     /**
      * Reverse the migrations.
      *

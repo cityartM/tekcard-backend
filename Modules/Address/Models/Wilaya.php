@@ -15,7 +15,7 @@ class Wilaya extends Model
 
     protected $table = 'wilayas';
 
-    protected $fillable = ['name', 'country_id', 'lat', 'lon','code'];
+    protected $fillable = ['name','delivery_price' ,'country_id', 'lat', 'lon','code'];
 
     protected $casts = [
         'name' => 'array',

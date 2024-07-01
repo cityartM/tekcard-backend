@@ -16,15 +16,8 @@ use Modules\Address\Http\Controllers\ApiAddressController;
 
 
 
-
-Route::get('/getProperties/{id}', [\Modules\Categories\Http\Controllers\Api\CategoriesController::class,'getProperties']);
-
-Route::middleware('auth:api')->get('/address', function (Request $request) {
-    return $request->user();
-});
-
 Route::prefix('address')->group(function () {
-    Route::get('/getCountries', [ApiAddressController::class,'getCountries']);
-    Route::get('/getWilayas/{id}', [ApiAddressController::class, 'getWilayas']);
-    Route::get('/getCities/{id}', [ApiAddressController::class, 'getCities']);
+    Route::get('/countries', [ApiAddressController::class,'countries']);
+    Route::get('/wilayas', [ApiAddressController::class, 'wilayas']);
+    Route::get('/cities/{id}', [ApiAddressController::class, 'cities']);
 });
