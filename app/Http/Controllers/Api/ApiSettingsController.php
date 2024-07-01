@@ -47,6 +47,7 @@ class ApiSettingsController extends ApiController
             'card_background' => BackgroundResource::collection($cardBackground),
             'user_background' => BackgroundResource::collection($userBackground),
             'countries' => CountryResource::collection(Country::all()),
+            'countries_delivery' => CountryResource::collection(Country::where('display', 1)->get()),
             'delivery_price' => setting('delivery_price') ?? 0,
             'order_price' => setting('order_price') ?? 0,
             'url_android' => setting('url_android') ?? null,
