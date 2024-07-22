@@ -22,7 +22,7 @@ Route::get('/', function () {
 })->name('landing.home');
 
 Route::get('/card/{reference}', function (string $reference) {
-    $card = Card::where('reference', $reference)->firstOrFail();
+    $card = Card::where('reference_link', $reference)->firstOrFail();
     return Inertia::render('CardShare', [
         "card" => new CardResource($card)
     ]);

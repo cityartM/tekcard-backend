@@ -81,9 +81,10 @@ class CardApiController extends ApiController
 
     public function store(CreateCardRequest $request)
     {
-
+        $reference = Helper::generateCode(15);
         $data = $request->only($this->only);
-        $data['reference'] = Helper::generateCode(15);
+        $data['reference'] = $reference;
+        $data['reference_link'] = $reference;
         $data['user_id'] = auth()->id();
 
         $userPlan = auth()->user()->plan;
@@ -149,8 +150,9 @@ class CardApiController extends ApiController
             $data['user_id'] = $user->id;
             Mail::to($request->email)->send(new \App\Mail\UserRegistered($user,$password));
         }
-
-        $data['reference'] = Helper::generateCode(15);
+        $reference = Helper::generateCode(15);
+        $data['reference'] = $reference;
+        $data['reference_link'] = $reference;
 
         $card = $this->cards->create($data);
 

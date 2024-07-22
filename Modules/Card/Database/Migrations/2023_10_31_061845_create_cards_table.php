@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->string("reference")->index()->unique();
+            $table->string("reference_link")->nullable()->index()->unique();
             $table->enum("type", CardType::lists())->default('Person');
             $table->string("name");
             $table->string("full_name");

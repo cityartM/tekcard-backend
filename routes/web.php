@@ -32,6 +32,7 @@ Route::get('/privacy-policy', function () {
 Route::group(['middleware' => ['registration', 'guest']], function () {
     Route::get('register', [RegisterController::class,'show'])->name('register');
     Route::post('register', [RegisterController::class,'register']);
+    Route::post('registerFromCard', [RegisterController::class,'registerUserFromShareCard'])->name('register.share-card');
 });
 
 Route::group(['middleware' => ['password-reset', 'guest']], function () {

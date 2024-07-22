@@ -31,6 +31,7 @@
         <x-card-body>
             <x-datatable-html>
                 <td>{{__("app.card")}}</td>
+                <td>{{__("app.reference")}}</td>
                 <td>{{__("app.quantity")}}</td>
                 <td>{{__("app.color")}}</td>
                 <td>{{__("app.company")}}</td>

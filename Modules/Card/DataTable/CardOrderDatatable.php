@@ -16,6 +16,7 @@ class CardOrderDatatable
     {
         return [
             "card",
+            "reference_link",
             "quantity",
             "color",
             "company",
@@ -36,6 +37,9 @@ class CardOrderDatatable
 
                 ->addColumn("card", function (CardOrder $orderCard) {
                     return $orderCard->card?->full_name;
+                })
+                ->addColumn("reference_link", function (CardOrder $orderCard) {
+                    return $orderCard->card?->reference_link;
                 })
                 ->addColumn("quantity", function (CardOrder $orderCard) {
                     return $orderCard->quantity ;
@@ -59,7 +63,7 @@ class CardOrderDatatable
                     return $orderCard->created_at->format('Y-m-d');
                 })
 
-                ->rawColumns(['action',"card","quantity","color","company","status_order","created_at",])
+                ->rawColumns(['action',"card","reference","quantity","color","company","status_order","created_at",])
 
                 ->make(true);
         } catch (Exception $e) {

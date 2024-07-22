@@ -16,7 +16,7 @@ class Card extends Model implements HasMedia
 {
     use HasFactory ,InteractsWithMedia;
 
-    protected $fillable = ['reference','type','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id',
+    protected $fillable = ['reference','reference_link','type','name', 'full_name', 'company_name', 'company_id', 'job_title', 'background_id',
                             'color','color_icon','color_qr','is_single_link', 'single_link_contact_id','is_main',
                             'email','phone', 'url_web_site', 'iban', 'lat', 'lon', 'address', 'note', 'user_id'
                           ];

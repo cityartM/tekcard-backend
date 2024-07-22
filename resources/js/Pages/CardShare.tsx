@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from "react";
+import React, {PropsWithChildren, useState} from "react";
 import {Head,useForm, usePage} from "@inertiajs/react";
 import LandingLayout from "@/Layouts/LandingLayout";
 import {ErrorBag, Errors, PageProps} from "@/types";
@@ -12,12 +12,12 @@ export default function Home({}: PropsWithChildren) {
 
   const card: Card = props.card.data;
 
-  console.log(card)
+  console.log(card.reference)
 
   /*  const {data, setData, post, processing, errors, reset} = useForm({
       email: '',
+      phone: '',
     })
-
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
@@ -76,31 +76,44 @@ const data = {
 }
 
 function Card({card}: {card: Card}) {
+  const [formVisible, setFormVisible] = useState(false);
   const {data, setData, post, processing, errors, reset} = useForm({
+    reference: card.reference,
+    username: '',
     email: '',
+    phone: '',
   })
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault();
-    post(route('subscriptions.store'), {
+    post(route('register.share-card'), {
       preserveScroll: true,
       onSuccess: () => {
-        reset('email');
+        reset('username','email', 'phone');
 
-        alert('Message sent successfully!');
+        //alert('Message sent successfully!');
       },
       onError: () => {
         alert('Message failed to send!');
       }
     });
   };
-  const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  /*const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setData('email', e.target.value);
-  }
+  }*/
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //setData(e.target.name, e.target.value);
+    const { name, value } = e.target;
+    setData(name as "username" | "email" | "phone" | "reference", value);
+  };
 
   const handleVCard = () => {
     console.log('vcard')
+  }
+
+  const handleCancel = () => {
+    setFormVisible(false)
   }
 
 
@@ -145,6 +158,7 @@ function Card({card}: {card: Card}) {
         newLink.download = `${contact.name}.vcf`;
         newLink.href = url;
         newLink.click();
+        setFormVisible(true);
       };
   return (
     <div className="relative">
@@ -152,11 +166,13 @@ function Card({card}: {card: Card}) {
         {card?.background && <img className="w-full h-full object-cover" src={card?.background.background} alt="cover"/>}
         {card?.color && <div className={"w-full h-full"} style={{background: card?.color as string}} />}
       </div>
+
       <div className="-translate-y-16 px-4 max-w-lg mx-auto">
         {/* Avatar component*/}
+
         <div className="flex flex-col items-center justify-center">
           <img className="w-32 h-32 object-cover rounded-full overflow-hidden ring-4 ring-offset-2 ring-offset-slate-50 ring-sky-500 shadow-lg"
-               src={card?.card_avatar} alt="avatar"/>
+               src={card?.card_avatar ?? ('../avatar/profile.jpg')} alt="avatar"/>
           <div className="mt-6 text-2xl text-[#2273AF] font-bold">
             {card?.full_name}
           </div>
@@ -164,7 +180,8 @@ function Card({card}: {card: Card}) {
             {card?.job_title}
           </div>
         </div>
-
+        {!formVisible && (
+        <div >
         <div className={'mt-10'}>
           <div className="mb-2 text-base text-[#2273AF] font-bold">
             {'Phone :'} {card?.phone}
@@ -183,7 +200,6 @@ function Card({card}: {card: Card}) {
           <div className="mb-2 text-base text-[#2273AF] font-bold">
             {'Address :'} {card?.address}
           </div>
-
         </div>
 
         <div className={'mt-5'}>
@@ -204,15 +220,13 @@ function Card({card}: {card: Card}) {
             ))}
           </div>
         </div>
-
-        <button
-            //type="submit"
-            className={'mb-5 flex-shrink-0 px-[3.6875rem] py-[1rem] w-full lg:w-auto h-[3.5rem] rounded-[4.5rem] border-sky-200 shadow-md text-white bg-[#2273AF] border-gray-400 text-gray-50 hover:text-white hover:bg-[#2273AF]/90 focus:outline-none focus:border-gray-700'}
-            onClick={handleDownloadVCard}
-        >
-          {'Add to contact'}
-        </button>
-
+          <button
+              onClick={handleDownloadVCard}
+              className="flex w-full justify-center rounded-md bg-[#2273AF] px-3 py-2.5 font-bold leading-6 text-white shadow-sm hover:bg-[#5191c0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {'Add to contact'}
+          </button>
+        </div>
+          )}
         {/*
         <div className={'mt-10'}>
           <div className="text-base text-[#2273AF] font-bold">
@@ -230,6 +244,7 @@ function Card({card}: {card: Card}) {
         }
 
       </div>
+
       {/*<pre className={"overflow-scroll"}>
           {JSON.stringify(card, null, 2)}
       </pre>*/}
@@ -249,6 +264,70 @@ function Card({card}: {card: Card}) {
           {'Subscribe'}
         </button>
       </form>*/}
+
+      {formVisible && (
+          <div className="-translate-y-16 px-4 max-w-lg mx-auto">
+            <p className="mt-5 text-center text-bold text-gray-900">
+              {'Send your information to tekcard'}
+            </p>
+          <form onSubmit={handleSubmit} className="mt-5">
+            <div className={'mt-10'}>
+            <div className="mb-4">
+                <label htmlFor="username" className="block text-gray-700">Name</label>
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    value={data.username}
+                    onChange={handleChanges}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                    required
+                />
+              </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-gray-700">Email</label>
+              <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={data.email}
+                  onChange={handleChanges}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                  required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="phone" className="block text-gray-700">Phone</label>
+              <input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  value={data.phone}
+                  onChange={handleChanges}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                  required
+              />
+            </div>
+
+            <div>
+              <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-[#2273AF] px-3 py-2.5 font-bold leading-6 text-white shadow-sm hover:bg-[#5191c0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Submit
+              </button>
+            </div>
+
+            </div>
+          </form>
+            <p className="mt-5 text-center text-sm text-gray-500">
+              <button
+                  onClick={handleCancel}
+                  className="text-base text-[#2273AF] font-bold">
+                May be later
+              </button>
+            </p>
+          </div>
+      )}
     </div>
   )
 }
