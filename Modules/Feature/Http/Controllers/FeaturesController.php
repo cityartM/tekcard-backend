@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Modules\Feature\Http\Requests\CreateFeatureRequest;
+use Modules\Feature\Http\Requests\UpdateFeatureRequest;
 use Modules\Feature\Models\Feature;
 use Modules\Feature\Repositories\FeatureRepository;
 use Modules\Plan\Http\Requests\CreatePlanRequest;
@@ -117,43 +118,43 @@ class FeaturesController extends Controller
     }
 
     /**
-     * Update specified plan with provided data.
+     * Update specified feature with provided data.
      *
-     * @param Plan $plan
-     * @param UpdatePlanRequest $request
+     * @param Feature $feature
+     * @param UpdateFeatureRequest $request
      * @return mixed
      */
-    public function update(Plan $plan, UpdatePlanRequest $request)
+    public function update(Feature $feature, UpdateFeatureRequest $request)
     {
-        $this->plans->update($plan->id, $request->all());
+        $this->features->update($feature->id, $request->all());
 
-        return redirect()->route('plans.index')
-            ->withSuccess(__('Plan updated successfully.'));
+        return redirect()->route('features.index')
+            ->withSuccess(__('Feature updated successfully.'));
     }
 
     /**
-     * Remove specified plan from system.
+     * Remove specified feature from system.
      *
-     * @param Plan $plan
+     * @param Feature $feature
      * @param UserRepository $userRepository
      * @return mixed
      */
-    public function destroy(Plan $plan, UserRepository $userRepository)
+    public function destroy(Feature $feature, UserRepository $userRepository)
     {
 
-        if (! $plan->removable) {
-            return redirect()->back()->withSuccess(__('You can not delete this plan'));
+        if (! $feature->removable) {
+            return redirect()->back()->withSuccess(__('You can not delete this feature.'));
         }
 
         //$userPlan = $this->plans->findByName('User');
 
         //$userRepository->switchPlansForUsers($plan->id, $userPlan->id);
 
-        $this->plans->delete($plan->id);
+        $this->features->delete($feature->id);
 
         Cache::flush();
 
-        return redirect()->route('plans.index')
-            ->withSuccess(__('Plan deleted successfully.'));
+        return redirect()->route('features.index')
+            ->withSuccess(__('Feature deleted successfully.'));
     }
 }
