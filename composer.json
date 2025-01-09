@@ -15,6 +15,7 @@
         "imdhemy/laravel-purchases": "^1.9",
         "inertiajs/inertia-laravel": "^0.6.10",
         "intervention/image": "^2.7",
+        "iyzico/iyzipay-php": "^2.0",
         "kreait/firebase-php": "^7.6",
         "kreait/laravel-firebase": "^5.3",
         "kwn/number-to-words": "^2.6",
@@ -36,7 +37,7 @@
         "spatie/laravel-translatable": "^6.5",
         "staudenmeir/eloquent-json-relations": "^1.8",
         "stichoza/google-translate-php": "^5.1",
-        "tightenco/ziggy": "^2.0",
+        "tightenco/ziggy": "^2.4",
         "vanguardapp/plugins": "5.0",
         "webpatser/laravel-countries": "dev-master",
         "yajra/laravel-datatables-oracle": "^10.4"
