@@ -64,9 +64,20 @@ class CardDatatable
 
     public function query($request)
     {
+        $user = auth()->user();
         $query = Card::query();
-
-        return $query->get();
+    
+        if ($user && $user->hasRole('Company')) {
+            
+            $query->whereHas('user', function ($q) use ($user) {
+                $q->where('company_id', $user->company_id);
+            });
+        } else {
+           
+            return $query; 
+        }
+    
+        return $query;
     }
 
 }

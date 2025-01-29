@@ -73,17 +73,24 @@ class CardOrderDatatable
 
     public function query($request)
     {
+        $user = auth()->user();
         $query = CardOrder::query();
-
-        if(auth()->user()->hasRole('Admin-IT') || auth()->user()->hasRole('Admin')) {
-            // No need to add any additional conditions, return all records.
+    
+        if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
+            // Admins see all card orders
+        } elseif ($user->hasRole('Company')) {
+            // Company users see card orders from users in their company
+            $query->whereHas('card.user', function ($q) use ($user) {
+                $q->where('company_id', $user->company_id);
+            });
         } else {
-            $query->whereHas('card', function ($q) {
-                $q->where('user_id', auth()->user()->id);
+            // Regular users only see their own card orders
+            $query->whereHas('card', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
             });
         }
+    
         return $query->get();
-
     }
 
 }

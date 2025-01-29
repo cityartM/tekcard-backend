@@ -92,20 +92,26 @@ class UsersController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        // When user is created by administrator, we will set his
+        // When a user is created by an administrator, we will set their
         // status to Active by default.
         $data = $request->all() + [
             'status' => UserStatus::ACTIVE,
             'email_verified_at' => now()
         ];
-
-
+    
         // Username should be updated only if it is provided.
-        if (! data_get($data, 'username')) {
+        if (!data_get($data, 'username')) {
             $data['username'] = null;
         }
-        $this->users->create($data);
-
+    
+        // Create the user
+        $user = $this->users->create($data);
+    
+        // If the role_id is 3, set company_id to the user's own id
+        if ($user->role_id == 3) {
+            $user->update(['company_id' => $user->id]);
+        }
+        
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
