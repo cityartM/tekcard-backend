@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TranslationController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StripeController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -47,10 +48,7 @@ Route::group(['middleware' => ['password-reset', 'guest']], function () {
 Route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
-    Route::post('/process-payment', [PaymentController::class, 'process'])->name('payment.process');
-});
+
 
 Route::group(['namespace' => 'Dashboard'],function (){
     /**

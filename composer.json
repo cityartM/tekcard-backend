@@ -37,6 +37,7 @@
         "spatie/laravel-translatable": "^6.5",
         "staudenmeir/eloquent-json-relations": "^1.8",
         "stichoza/google-translate-php": "^5.1",
+        "stripe/stripe-php": "^16.5",
         "tightenco/ziggy": "^2.4",
         "vanguardapp/plugins": "5.0",
         "webpatser/laravel-countries": "dev-master",
