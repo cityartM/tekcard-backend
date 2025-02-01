@@ -26,8 +26,8 @@ class GroupDatatable
             return datatables($this->query($request))
                 ->addColumn("action", function (Group $group) {
                     return (new DataTableActions())
-                        ->delete(route("groups.destroy", $group->id))
-                        ->edit(route("groups.edit", $group->id))
+                        ->delete(route("groups.destroy", $group->id),\Auth::user()->hasPermission('groups.manage'))
+                        ->edit(route("groups.edit", $group->id),\Auth::user()->hasPermission('groups.manage'))
                         ->make();
                 })
                 ->addColumn("display_name", function (Group $group) {
@@ -48,10 +48,30 @@ class GroupDatatable
     }
 
     public function query($request)
-    {
-        $query = Group::query();
+{
+    $user = auth()->user();
+    $query = Group::query();
 
-        return $query->get();
+    if ($user) {
+        // Explicit separate checks for Admin-IT/Admin
+        if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
+            return $query->get(); // Admins get all groups immediately
+        }
+        // Company users see groups from their company
+        elseif ($user->hasRole('Company')) {
+            $query->where('company_id', $user->company_id);
+        }
+        // All other authenticated users see only their own groups
+        else {
+            $query->where('user_id', $user->id);
+        }
     }
+    // Block guests (unauthenticated users)
+    else {
+        $query->where('id', 0); // Force empty result
+    }
+
+    return $query->get();
+}
 
 }

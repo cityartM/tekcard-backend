@@ -30,8 +30,8 @@ class CardDatatable
             return datatables($this->query($request))
                 ->addColumn("action", function (Card $card) {
                     return (new DataTableActions())
-                        ->edit(route("cards.edit", $card->id))
-                        ->delete(route("cards.destroy", $card->id))
+                        ->edit(route("cards.edit", $card->id),\Auth::user()->hasPermission('cards.manage'))
+                        ->delete(route("cards.destroy", $card->id),\Auth::user()->hasPermission('cards.manage'))
                         ->make();
                 })
 
@@ -67,14 +67,25 @@ class CardDatatable
         $user = auth()->user();
         $query = Card::query();
     
-        if ($user && $user->hasRole('Company')) {
-            
-            $query->whereHas('user', function ($q) use ($user) {
-                $q->where('company_id', $user->company_id);
-            });
-        } else {
-           
-            return $query; 
+        if ($user) {
+            // Explicit separate checks for Admin-IT and Admin
+            if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
+                return $query; // Admins see all cards
+            }
+            // Company users see company cards
+            elseif ($user->hasRole('Company')) {
+                $query->whereHas('user', function ($q) use ($user) {
+                    $q->where('company_id', $user->company_id);
+                });
+            }
+            // All other authenticated users see only their own cards
+            else {
+                $query->where('user_id', $user->id);
+            }
+        }
+        // Block guests (unauthenticated users)
+        else {
+            $query->where('id', 0);
         }
     
         return $query;

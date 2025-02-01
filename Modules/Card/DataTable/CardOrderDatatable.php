@@ -31,7 +31,7 @@ class CardOrderDatatable
             return datatables($this->query($request))
                 ->addColumn("action", function (CardOrder $orderCard) {
                     return (new DataTableActions())
-                        ->delete(route("cardOrders.destroy", $orderCard->id))
+                        ->delete(route("cardOrders.destroy", $orderCard->id),\Auth::user()->hasPermission('cards.manage'))
                         ->make();
                 })
 
@@ -76,18 +76,27 @@ class CardOrderDatatable
         $user = auth()->user();
         $query = CardOrder::query();
     
-        if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
-            // Admins see all card orders
-        } elseif ($user->hasRole('Company')) {
-            // Company users see card orders from users in their company
-            $query->whereHas('card.user', function ($q) use ($user) {
-                $q->where('company_id', $user->company_id);
-            });
-        } else {
-            // Regular users only see their own card orders
-            $query->whereHas('card', function ($q) use ($user) {
-                $q->where('user_id', $user->id);
-            });
+        if ($user) {
+            // Explicit separate checks for Admin-IT/Admin
+            if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
+                return $query->get(); // Admins get all orders immediately
+            }
+            // Company users see orders from their company
+            elseif ($user->hasRole('Company')) {
+                $query->whereHas('card.user', function ($q) use ($user) {
+                    $q->where('company_id', $user->company_id);
+                });
+            }
+            // All other authenticated users see only their own orders
+            else {
+                $query->whereHas('card', function ($q) use ($user) {
+                    $q->where('user_id', $user->id);
+                });
+            }
+        }
+        // Block guests (unauthenticated users)
+        else {
+            $query->where('id', 0); // Force empty result
         }
     
         return $query->get();

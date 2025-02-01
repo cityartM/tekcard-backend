@@ -172,6 +172,13 @@ class PermissionsSeeder extends Seeder
         ]);
 
         $permissions[] = Permission::create([
+            'name' => 'admin.cards.manage',
+            'display_name' => 'Admin Manage Cards',
+            'description' => 'Admin Manage  Cards',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
             'name' => 'shippings.manage',
             'display_name' => 'Manage shippings',
             'description' => 'Manage  shippings',

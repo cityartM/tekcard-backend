@@ -12,10 +12,12 @@
     </ul>
 @stop
 @section('actions')
+@permission('remarks.manage')
     <a href="{{ route('remarks.create') }}" class="btn btn-sm btn-primary">
         <i class="ki-duotone ki-plus-square fs-3 ml-2 mr-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
         @lang('app.add_remark')
     </a>
+@endpermission()
 @endsection
 @section('content')
 

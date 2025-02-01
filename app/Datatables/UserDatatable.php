@@ -63,17 +63,20 @@ class UserDatatable
     }
 
     public function query($request)
-    {
-        $user = auth()->user();
-    
-        // Check if the user has permission to manage companies
-        if ($user->hasRole('Company')) {
-            // If the user has permission, fetch users only from their company
-            return User::where('company_id', $user->company_id)->get();
-        } else {
-            // If the user doesn't have permission, return all users
-            return User::query()->get();
-        }
+{
+    $user = auth()->user();
+
+    if ($user->hasRole('Company')) {
+        // Company role: Fetch users only from their company
+        return User::where('company_id', $user->company_id)->get();
+    } elseif ($user->hasRole('User')) {
+        // Regular user role: Show only their own data
+        return User::where('id', $user->id)->get();
+    } else {
+        // Admin or other roles: Return all users
+        return User::query()->get();
     }
+}
+
 
 }

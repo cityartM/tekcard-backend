@@ -55,10 +55,32 @@ class UserContactDatatable
     }
 
     public function query($request)
-    {
-        $query = UserContact::query();
+{
+    $user = auth()->user();
+    $query = UserContact::query();
 
-        return $query->get();
+    if ($user) {
+        // Admins get all contacts
+        if ($user->hasRole('Admin-IT') || $user->hasRole('Admin')) {
+            return $query->get();
+        }
+        // Company users see contacts from their company members
+        elseif ($user->hasRole('Company')) {
+            $query->whereHas('user', function ($q) use ($user) {
+                $q->where('company_id', $user->company_id);
+            });
+        }
+        // Regular users see only their own contacts
+        else {
+            $query->where('user_id', $user->id);
+        }
     }
+    // Block guests
+    else {
+        $query->where('id', 0);
+    }
+
+    return $query->get();
+}
 
 }
